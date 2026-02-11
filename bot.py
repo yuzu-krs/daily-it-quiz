@@ -33,9 +33,6 @@ def load_quizzes():
                 all_quizzes.extend(json.load(f))
     return all_quizzes
 
-# すでに出題したクイズを追跡するセット
-used_quiz_ids = set()
-
 # クイズViewクラス（ボタン付き）
 class QuizView(View):
     def __init__(self, quiz, correct_answer):
@@ -88,17 +85,8 @@ async def post_quiz():
     # クイズデータを読み込む
     quizzes = load_quizzes()
     
-    # 未使用のクイズを選択
-    available_quizzes = [q for q in quizzes if q['id'] not in used_quiz_ids]
-    
-    # すべてのクイズを使い切った場合、リセット
-    if not available_quizzes:
-        used_quiz_ids.clear()
-        available_quizzes = quizzes
-    
     # ランダムにクイズを選択
-    quiz = random.choice(available_quizzes)
-    used_quiz_ids.add(quiz['id'])
+    quiz = random.choice(quizzes)
     
     # 現在の時刻を取得
     tz = pytz.timezone(TIMEZONE)
