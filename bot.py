@@ -59,25 +59,14 @@ class QuizView(View):
     
     def create_callback(self, option_index):
         async def callback(interaction: discord.Interaction):
-            # 既に回答済みのユーザーをチェック
-            if interaction.user.id in self.answered_users:
-                await interaction.response.send_message(
-                    "既に回答済みです！",
-                    ephemeral=True
-                )
-                return
-            
-            # ユーザーを回答済みリストに追加
-            self.answered_users.add(interaction.user.id)
-            
             # 正解判定
             if option_index == self.correct_answer:
                 response = f"🎉 正解です！\n\n**解説:**\n{self.quiz['explanation']}"
-                await interaction.response.send_message(response, ephemeral=True)
+                await interaction.response.send_message(response, ephemeral=True, delete_after=30)
             else:
                 correct_option = self.quiz['options'][self.correct_answer]
                 response = f"❌ 不正解です。\n\n**正解:** {correct_option}\n\n**解説:**\n{self.quiz['explanation']}"
-                await interaction.response.send_message(response, ephemeral=True)
+                await interaction.response.send_message(response, ephemeral=True, delete_after=30)
         
         return callback
 
@@ -119,7 +108,7 @@ async def post_quiz():
         inline=False
     )
     embed.set_footer(
-        text="ボタンをクリックして回答してください • 正解と解説は選択後に表示されます",
+        text=f"ボタンをクリックして回答してください • 正解と解説は選択後に表示されます • 毎日7:00・12:00・20:00に出題",
         icon_url="https://cdn.discordapp.com/emojis/1234567890.png"  # Optional
     )
     
