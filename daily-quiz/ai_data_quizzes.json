@@ -1,0 +1,702 @@
+[
+  {
+    "id": 1231,
+    "question": "機械学習の「教師あり学習」とは？",
+    "options": ["A. ラベルなしデータで学習", "B. 入力データと正解ラベルのペアで学習し、未知データを予測するモデルを構築", "C. 報酬で学習", "D. ルールベースの手法"],
+    "correct": 1,
+    "explanation": "教師あり学習は入力x→正解yのペアで学習し、回帰（連続値予測）と分類（カテゴリ予測）の2種類があります。"
+  },
+  {
+    "id": 1232,
+    "question": "機械学習の「教師なし学習」の例は？",
+    "options": ["A. 画像分類", "B. クラスタリング（K-means等）、次元削減（PCA等）、異常検知", "C. 音声認識", "D. 翻訳"],
+    "correct": 1,
+    "explanation": "教師なし学習はラベルなしデータの構造やパターンを発見します。K-meansでグループ分け、PCAで次元削減、オートエンコーダで特徴抽出等。"
+  },
+  {
+    "id": 1233,
+    "question": "機械学習の「強化学習」の仕組みは？",
+    "options": ["A. ラベル付きデータで学習", "B. エージェントが環境内で行動し、報酬を最大化する方策を試行錯誤で学習", "C. クラスタリング", "D. 回帰分析"],
+    "correct": 1,
+    "explanation": "強化学習はエージェントが状態→行動→報酬のサイクルで最適な方策(policy)を学習。ゲームAI（AlphaGo）やロボット制御に応用。"
+  },
+  {
+    "id": 1234,
+    "question": "「過学習（Overfitting）」とは？",
+    "options": ["A. 学習が足りない", "B. 訓練データに過度に適合し、未知データへの汎化性能が低下する現象", "C. モデルが単純すぎる", "D. データが多すぎる"],
+    "correct": 1,
+    "explanation": "過学習は訓練データのノイズまで記憶し、テストデータでの精度が低い状態。正則化、Dropout、データ拡張、Early Stopping等で対策します。"
+  },
+  {
+    "id": 1235,
+    "question": "「未学習（Underfitting）」とは？",
+    "options": ["A. データが多すぎる", "B. モデルが単純すぎてデータのパターンを十分に捉えられていない状態", "C. 訓練精度が高すぎる", "D. テストデータが少ない"],
+    "correct": 1,
+    "explanation": "未学習は訓練データでも精度が低い状態で、モデルの複雑度を上げる、特徴量を追加する、学習エポック数を増やす等で対処します。"
+  },
+  {
+    "id": 1236,
+    "question": "「正則化（Regularization）」の目的は？",
+    "options": ["A. 学習速度の向上", "B. モデルの複雑度にペナルティを加え過学習を抑制（L1, L2正則化, Dropout等）", "C. データの前処理", "D. 特徴量の削除"],
+    "correct": 1,
+    "explanation": "L1正則化（Lasso）は不要な重みを0にスパース化。L2正則化（Ridge）は重みを小さく抑制。Dropoutはランダムにニューロンを無効化し過学習を防止。"
+  },
+  {
+    "id": 1237,
+    "question": "「交差検証（Cross-Validation）」の目的は？",
+    "options": ["A. テストデータの作成", "B. データをK分割して各分割をテストに使い回しモデルの汎化性能を評価", "C. ハイパーパラメータの固定", "D. 特徴量の選択"],
+    "correct": 1,
+    "explanation": "K-fold交差検証はデータをK分割し、K回の訓練/テストでモデルの性能を安定的に評価。データ量が少ない場合に特に有効です。"
+  },
+  {
+    "id": 1238,
+    "question": "「勾配降下法（Gradient Descent）」の仕組みは？",
+    "options": ["A. ランダム探索", "B. 損失関数の勾配（微分）の逆方向にパラメータを更新して損失を最小化", "C. 全探索", "D. 遺伝的アルゴリズム"],
+    "correct": 1,
+    "explanation": "勾配降下法は損失関数のパラメータに関する勾配を計算し、学習率×勾配分だけ逆方向に更新を繰り返し、損失を最小化します。"
+  },
+  {
+    "id": 1239,
+    "question": "「学習率（Learning Rate）」が大きすぎると？",
+    "options": ["A. 学習が遅い", "B. 最適値を飛び越えて発散し、損失が減少しない", "C. 過学習する", "D. 未学習になる"],
+    "correct": 1,
+    "explanation": "学習率が大きすぎると更新幅が大きく最適解を通り越してしまい、小さすぎると収束が遅い。Adam等の適応的学習率が広く使われます。"
+  },
+  {
+    "id": 1240,
+    "question": "「特徴量エンジニアリング」とは？",
+    "options": ["A. モデルの設計", "B. 生データからモデルの入力に適した特徴量を設計・選択・変換する工程", "C. ハイパーパラメータ調整", "D. 評価指標の選択"],
+    "correct": 1,
+    "explanation": "特徴量エンジニアリングはドメイン知識でデータから有用な特徴を作成（One-hotエンコーディング、正規化、多項式特徴量等）しモデル性能を向上させます。"
+  },
+  {
+    "id": 1241,
+    "question": "機械学習の「バイアスとバリアンスのトレードオフ」とは？",
+    "options": ["A. 速度と精度のトレードオフ", "B. モデルの単純さ(バイアス高)と複雑さ(バリアンス高)のバランスで汎化性能が決まる", "C. データ量とモデルサイズ", "D. 訓練時間とテスト時間"],
+    "correct": 1,
+    "explanation": "バイアスが高い=未学習、バリアンスが高い=過学習。両方が低いモデルが理想で、モデルの複雑度を調整してバランスを取ります。"
+  },
+  {
+    "id": 1242,
+    "question": "「混同行列（Confusion Matrix）」の4つの要素は？",
+    "options": ["A. 入力、出力、誤差、損失", "B. TP（真陽性）、FP（偽陽性）、FN（偽陰性）、TN（真陰性）", "C. 精度、再現率、F値、AUC", "D. 訓練、検証、テスト、本番"],
+    "correct": 1,
+    "explanation": "TP:正しく陽性と予測、FP:誤って陽性と予測(偽陽性)、FN:誤って陰性と予測(偽陰性)、TN:正しく陰性と予測。分類の性能を詳細に分析。"
+  },
+  {
+    "id": 1243,
+    "question": "「精度（Precision）」と「再現率（Recall）」の違いは？",
+    "options": ["A. 同じ指標", "B. Precision=陽性予測中の正解率(TP/(TP+FP))、Recall=実際の陽性中の検出率(TP/(TP+FN))", "C. Precisionが検出率", "D. Recallが正解率"],
+    "correct": 1,
+    "explanation": "Precision:「陽性と予測したもののうち本当に陽性の割合」。Recall:「実際に陽性のもののうち検出できた割合」。F1スコアは調和平均。"
+  },
+  {
+    "id": 1244,
+    "question": "「決定木（Decision Tree）」の特徴は？",
+    "options": ["A. ブラックボックス", "B. if-thenルールのツリー構造で予測し、解釈が容易だが過学習しやすい", "C. 確率モデル", "D. 深層学習の一種"],
+    "correct": 1,
+    "explanation": "決定木は特徴量の条件分岐で予測する直感的なモデル。可視化しやすいが深くなると過学習。ランダムフォレスト等のアンサンブルで改善。"
+  },
+  {
+    "id": 1245,
+    "question": "「ランダムフォレスト」の仕組みは？",
+    "options": ["A. 単一の決定木", "B. 複数の決定木をバギングで学習し多数決/平均で予測するアンサンブル手法", "C. ニューラルネットワーク", "D. SVMの一種"],
+    "correct": 1,
+    "explanation": "ランダムフォレストはデータと特徴量をランダムサンプリングした多数の決定木を構築し、分類は多数決、回帰は平均で予測を安定化します。"
+  },
+  {
+    "id": 1246,
+    "question": "「XGBoost / LightGBM」とは？",
+    "options": ["A. 深層学習", "B. 勾配ブースティング決定木（GBDT）の高速実装で構造化データの予測に強力", "C. クラスタリング手法", "D. 自然言語処理"],
+    "correct": 1,
+    "explanation": "GBDTは決定木を逐次的に学習し残差を改善するブースティング手法。XGBoost/LightGBMはKaggle等のテーブルデータ競技で最強クラスの性能。"
+  },
+  {
+    "id": 1247,
+    "question": "「SVM（Support Vector Machine）」の原理は？",
+    "options": ["A. 決定木ベース", "B. クラスを分離する最大マージンの超平面を見つける分類アルゴリズム", "C. ニューラルネットワーク", "D. クラスタリング"],
+    "correct": 1,
+    "explanation": "SVMはデータを分類する最適な境界（超平面）を、サポートベクトルからのマージンが最大になるよう学習。カーネルトリックで非線形分類も可能。"
+  },
+  {
+    "id": 1248,
+    "question": "「K-means クラスタリング」のアルゴリズムは？",
+    "options": ["A. 教師あり学習", "B. K個のクラスタ中心を初期化→各点を最近接中心に割当て→中心を再計算の反復", "C. 回帰分析", "D. 決定木ベース"],
+    "correct": 1,
+    "explanation": "K-meansは①K個の重心を初期配置②各データを最寄りの重心に割当て③重心を再計算の手順を収束まで繰り返す教師なしクラスタリングです。"
+  },
+  {
+    "id": 1249,
+    "question": "「PCA（主成分分析）」の用途は？",
+    "options": ["A. 分類", "B. 高次元データの分散を最大に保ちながら低次元に射影する次元削減手法", "C. 回帰", "D. 強化学習"],
+    "correct": 1,
+    "explanation": "PCAはデータの分散が最大となる方向（主成分）を見つけ、高次元データを少ない次元に圧縮。可視化や計算コスト削減に使用。"
+  },
+  {
+    "id": 1250,
+    "question": "「線形回帰」の目的は？",
+    "options": ["A. 分類", "B. 入力変数と出力変数の線形関係をモデル化し連続値を予測（y = wx + b）", "C. クラスタリング", "D. 次元削減"],
+    "correct": 1,
+    "explanation": "線形回帰はy = w₁x₁ + w₂x₂ + ... + bの関係を最小二乗法で求め、住宅価格予測等の連続値の予測に使います。"
+  },
+  {
+    "id": 1251,
+    "question": "ニューラルネットワークの基本構造は？",
+    "options": ["A. 単一のノード", "B. 入力層→隠れ層（1つ以上）→出力層で構成され、重みとバイアスで接続", "C. ツリー構造", "D. グラフ構造のみ"],
+    "correct": 1,
+    "explanation": "ニューラルネットワークは入力層でデータを受け取り、隠れ層で重みとバイアスの線形変換＋活性化関数の非線形変換を繰り返し、出力層で予測します。"
+  },
+  {
+    "id": 1252,
+    "question": "「活性化関数」の代表例は？",
+    "options": ["A. 線形変換のみ", "B. ReLU、Sigmoid、Tanh、Softmax", "C. 畳み込みのみ", "D. プーリングのみ"],
+    "correct": 1,
+    "explanation": "ReLU(max(0,x))は勾配消失を緩和し最も一般的。Sigmoid(0-1)は二値分類の出力。Softmax(合計1)は多クラス分類の出力に使用。"
+  },
+  {
+    "id": 1253,
+    "question": "「誤差逆伝播法（Backpropagation）」の仕組みは？",
+    "options": ["A. 順伝播のみ", "B. 出力の誤差を出力層から入力層へ逆方向に伝播し、各重みの勾配を効率的に計算", "C. ランダムな重み更新", "D. 遺伝的アルゴリズム"],
+    "correct": 1,
+    "explanation": "逆伝播は連鎖律（Chain Rule）で損失関数の各重みに対する偏微分を出力→隠れ層→入力方向に効率的に計算し、勾配降下法で重みを更新します。"
+  },
+  {
+    "id": 1254,
+    "question": "「CNN（畳み込みニューラルネットワーク）」の特徴は？",
+    "options": ["A. 自然言語処理専用", "B. 畳み込み層で画像の局所的な特徴を抽出し、画像認識に優れた深層学習モデル", "C. 全結合のみ", "D. 時系列専用"],
+    "correct": 1,
+    "explanation": "CNNは畳み込み層（フィルタでパターン検出）→プーリング層（ダウンサンプリング）→全結合層の構造で、画像分類/物体検出に威力を発揮。"
+  },
+  {
+    "id": 1255,
+    "question": "「RNN（Recurrent Neural Network）」の特徴は？",
+    "options": ["A. 画像専用", "B. 隠れ状態を次のステップに渡すことで系列データ（時系列、テキスト等）を処理", "C. 静的データ専用", "D. 非線形変換のみ"],
+    "correct": 1,
+    "explanation": "RNNは前の時刻の隠れ状態を次の計算に渡す再帰構造で時系列データを処理。ただし長い系列では勾配消失が発生しLSTM/GRUで改善されます。"
+  },
+  {
+    "id": 1256,
+    "question": "「LSTM（Long Short-Term Memory）」の利点は？",
+    "options": ["A. 単純なRNNと同じ", "B. ゲート機構（忘却/入力/出力ゲート）で長期依存を学習し勾配消失問題を緩和", "C. 畳み込みベース", "D. 教師なし学習"],
+    "correct": 1,
+    "explanation": "LSTMはセル状態にゲートで情報の忘却/追加/出力を制御し、長い系列でも重要な情報を保持できます。時系列予測や音声認識で活用。"
+  },
+  {
+    "id": 1257,
+    "question": "「Transformer」アーキテクチャの革新は？",
+    "options": ["A. RNNの改良", "B. Self-Attention機構で系列全体を並列処理し、長距離依存も効率的に学習", "C. CNNの発展", "D. 決定木ベース"],
+    "correct": 1,
+    "explanation": "TransformerはRNN不要で、Self-Attentionで入力系列の全位置間の関係を並列計算。GPT, BERT等の基盤モデルのアーキテクチャです。"
+  },
+  {
+    "id": 1258,
+    "question": "「Attention機構」の仕組みは？",
+    "options": ["A. ランダム選択", "B. Query, Key, Valueの対応で入力の各要素の重要度を計算し重み付き和で出力", "C. 全要素を均等に処理", "D. 最初の要素のみ参照"],
+    "correct": 1,
+    "explanation": "Attention = softmax(QK^T/√d) × V で、Queryに対する各Keyの類似度（重み）を計算し、Valueの重み付き和を出力します。"
+  },
+  {
+    "id": 1259,
+    "question": "「GAN（Generative Adversarial Network）」の構造は？",
+    "options": ["A. 単一のネットワーク", "B. Generator（生成器）とDiscriminator（判別器）が競合して学習する敵対的学習", "C. 教師あり学習のみ", "D. 強化学習"],
+    "correct": 1,
+    "explanation": "GANはGeneratorが本物そっくりのデータを生成、Discriminatorが本物/偽物を判定する対決構造で、両者が改善し合い高品質な生成を実現。"
+  },
+  {
+    "id": 1260,
+    "question": "「オートエンコーダ」の仕組みは？",
+    "options": ["A. 分類器", "B. Encoder（次元圧縮）→潜在表現→Decoder（復元）で入力を再構成する教師なし学習", "C. GAN", "D. 決定木"],
+    "correct": 1,
+    "explanation": "オートエンコーダは入力→低次元の潜在空間に圧縮（エンコード）→元の次元に復元（デコード）し、特徴抽出や異常検知に利用します。"
+  },
+  {
+    "id": 1261,
+    "question": "「転移学習（Transfer Learning）」の利点は？",
+    "options": ["A. ゼロからの学習", "B. 大規模データで事前学習したモデルを別タスクに流用し少ないデータで高精度を実現", "C. データが増える", "D. モデルが複雑化"],
+    "correct": 1,
+    "explanation": "ImageNetで事前学習したResNetやBERT等の事前学習モデルをファインチューニングすることで、少量データでも高性能なモデルを構築できます。"
+  },
+  {
+    "id": 1262,
+    "question": "「バッチ正規化（Batch Normalization）」の効果は？",
+    "options": ["A. バッチサイズの変更", "B. 各層の入力分布を正規化して学習の安定化・高速化、勾配消失の緩和", "C. データの増強", "D. モデルの圧縮"],
+    "correct": 1,
+    "explanation": "Batch Normはミニバッチ内で活性値を平均0・分散1に正規化し、内部共変量シフトを抑制。学習率を大きくでき、収束を加速します。"
+  },
+  {
+    "id": 1263,
+    "question": "「Dropout」の仕組みと目的は？",
+    "options": ["A. ノードの追加", "B. 学習時にランダムにニューロンを無効化して過学習を防止する正則化手法", "C. 出力の削除", "D. バッチサイズの変更"],
+    "correct": 1,
+    "explanation": "Dropoutは学習中に確率pでランダムにニューロンを0にし、特定のニューロンへの依存を減らして過学習を防ぎます。推論時は全ニューロンを使用。"
+  },
+  {
+    "id": 1264,
+    "question": "「GPU」が深層学習に適している理由は？",
+    "options": ["A. メモリが大きい", "B. 大量の並列コアで行列演算を高速に処理できるため（数千コアの並列計算）", "C. CPUより省電力", "D. プログラムが簡単"],
+    "correct": 1,
+    "explanation": "GPUは数千のコアで行列乗算等の並列計算を高速に処理。NVIDIA CUDAがデファクトスタンダードで、A100/H100が代表的な学習用GPU。"
+  },
+  {
+    "id": 1265,
+    "question": "「データ拡張（Data Augmentation）」とは？",
+    "options": ["A. データの購入", "B. 元データに変換（回転、反転、色変化等）を加えて訓練データを人工的に増やす手法", "C. データの削除", "D. データの正規化"],
+    "correct": 1,
+    "explanation": "画像の回転、反転、切り抜き、色調変化やテキストのバックトランスレーション等で訓練データの多様性を増やし、モデルの汎化性能を向上。"
+  },
+  {
+    "id": 1266,
+    "question": "LLM（Large Language Model）の代表例は？",
+    "options": ["A. MySQL", "B. GPT-4, Claude, Gemini, Llama, Mistral", "C. TensorFlow", "D. Kubernetes"],
+    "correct": 1,
+    "explanation": "LLMはTransformerベースの大規模言語モデル。OpenAI GPT-4、Anthropic Claude、Google Gemini、Meta Llama、Mistral等が代表的。"
+  },
+  {
+    "id": 1267,
+    "question": "LLMの「事前学習（Pre-training）」と「ファインチューニング」の違いは？",
+    "options": ["A. 同じ工程", "B. 事前学習は大量テキストで汎用的な言語能力を獲得、ファインチューニングは特定タスクに最適化", "C. ファインチューニングが先", "D. 事前学習は不要"],
+    "correct": 1,
+    "explanation": "事前学習は数TB のテキストで次トークン予測を学習。ファインチューニングは特定ドメインや指示追従（Instruction Tuning）でモデルを特化させます。"
+  },
+  {
+    "id": 1268,
+    "question": "LLMの「トークン」とは？",
+    "options": ["A. 文字数と同じ", "B. テキストを分割した最小単位（単語、サブワード、文字等）でモデルの入出力単位", "C. APIキー", "D. 認証トークン"],
+    "correct": 1,
+    "explanation": "トークナイザー(BPE等)がテキストをサブワード単位に分割。英語は約1トークン≒4文字。日本語は1文字が1-3トークン程度。"
+  },
+  {
+    "id": 1269,
+    "question": "LLMの「プロンプトエンジニアリング」とは？",
+    "options": ["A. モデルの学習", "B. LLMへの入力（プロンプト）を工夫して望む出力を得るための設計技術", "C. データベース設計", "D. UI/UX設計"],
+    "correct": 1,
+    "explanation": "プロンプトエンジニアリングはシステムプロンプト、Few-Shot例示、Chain-of-Thought等のテクニックでLLMの回答品質を向上させる手法です。"
+  },
+  {
+    "id": 1270,
+    "question": "LLMの「RAG（Retrieval-Augmented Generation）」とは？",
+    "options": ["A. モデルの学習方法", "B. 外部知識ベースから関連情報を検索しLLMに与えて回答精度を向上させる手法", "C. データ前処理", "D. モデル圧縮"],
+    "correct": 1,
+    "explanation": "RAGはユーザーの質問に関連するドキュメントをベクトル検索で取得し、プロンプトに含めてLLMに回答させます。ハルシネーション削減に効果的。"
+  },
+  {
+    "id": 1271,
+    "question": "LLMの「ハルシネーション（Hallucination）」とは？",
+    "options": ["A. 正確な回答", "B. LLMが事実と異なるもっともらしい情報を生成してしまう現象", "C. エラーメッセージ", "D. トレーニングデータの漏洩"],
+    "correct": 1,
+    "explanation": "ハルシネーションはLLMが存在しない事実、誤った引用、架空の情報を自信を持って生成する現象。RAGやファクトチェックで緩和します。"
+  },
+  {
+    "id": 1272,
+    "question": "LLMの「Few-Shot Learning」とは？",
+    "options": ["A. 大量データで学習", "B. プロンプトに少数の入出力例を含めてタスクの実行方法をLLMに示す手法", "C. 転移学習", "D. 強化学習"],
+    "correct": 1,
+    "explanation": "Few-Shot(数例),One-Shot(1例),Zero-Shot(例なし)はプロンプトに例を含めてLLMにタスクのパターンを理解させるIn-Context Learning手法です。"
+  },
+  {
+    "id": 1273,
+    "question": "LLMの「Chain-of-Thought（CoT）」プロンプティングとは？",
+    "options": ["A. 短い回答を求める", "B. 段階的な推論過程を示すことでLLMの複雑な問題解決能力を向上させる手法", "C. キーワード検索", "D. データ前処理"],
+    "correct": 1,
+    "explanation": "CoTは「ステップバイステップで考えてください」のように推論過程を促すことで、数学的推論や論理的思考の精度を大幅に改善します。"
+  },
+  {
+    "id": 1274,
+    "question": "LLMの「温度（Temperature）」パラメータの効果は？",
+    "options": ["A. 処理速度の調整", "B. 0に近いと確定的（最高確率のトークン選択）、高いとランダム（多様な出力）", "C. モデルのサイズ変更", "D. バッチサイズの調整"],
+    "correct": 1,
+    "explanation": "Temperature=0はgreedy(最も確率の高いトークンを選択)。高温ほど確率分布が平坦化しランダム性が増加。創造的な文章生成には高めに設定。"
+  },
+  {
+    "id": 1275,
+    "question": "「ベクトルデータベース」の用途は？",
+    "options": ["A. RDBの代替", "B. テキストや画像をベクトル(埋め込み)に変換し類似度検索を行う専用DB(Pinecone, Weaviate等)", "C. KVS", "D. グラフDB"],
+    "correct": 1,
+    "explanation": "ベクトルDBはテキスト/画像の埋め込みベクトルを保存しANN(近似最近傍)検索で高速に類似ドキュメントを検索。RAGシステムのコア。"
+  },
+  {
+    "id": 1276,
+    "question": "「Embedding（埋め込み）」とは？",
+    "options": ["A. HTMLの埋め込み", "B. テキストや画像を高次元の数値ベクトルに変換し意味的な類似度を計算可能にする表現", "C. CSSの埋め込み", "D. コードの挿入"],
+    "correct": 1,
+    "explanation": "Embeddingはテキスト等を固定長の密なベクトル(例:[0.1, -0.3, 0.5, ...])に変換。意味的に近いテキストはベクトル空間でも近くに配置されます。"
+  },
+  {
+    "id": 1277,
+    "question": "LLMの「RLHF（Reinforcement Learning from Human Feedback）」とは？",
+    "options": ["A. 教師あり学習", "B. 人間のフィードバック（好みの回答の評価）を報酬として強化学習でモデルを改善", "C. データ拡張", "D. プロンプト最適化"],
+    "correct": 1,
+    "explanation": "RLHFは①SFT(教師ありファインチューニング)②人間による回答ランキング→報酬モデル学習③PPOで報酬最大化の3段階でLLMをアラインメントします。"
+  },
+  {
+    "id": 1278,
+    "question": "LLMの「コンテキストウィンドウ」とは？",
+    "options": ["A. GUIのウィンドウ", "B. モデルが一度に処理できる最大トークン数（入力+出力のトークン制限）", "C. バッチサイズ", "D. 学習率"],
+    "correct": 1,
+    "explanation": "コンテキストウィンドウはLLMが参照可能なトークン数の上限。GPT-4は128K、Claude 3は200K等。長文ドキュメント処理に影響します。"
+  },
+  {
+    "id": 1279,
+    "question": "LLMの「Function Calling / Tool Use」とは？",
+    "options": ["A. 関数型プログラミング", "B. LLMが外部API/関数の呼出しを構造化出力で指示し処理結果を活用する機能", "C. コードの自動生成", "D. プラグインのみ"],
+    "correct": 1,
+    "explanation": "Function CallingはLLMがJSON形式で関数名と引数を出力し、アプリが実際に関数を実行して結果をLLMに返す、外部ツール連携の仕組みです。"
+  },
+  {
+    "id": 1280,
+    "question": "「LangChain」の用途は？",
+    "options": ["A. ブロックチェーン", "B. LLMアプリケーション構築のためのフレームワーク（チェーン、エージェント、RAG等）", "C. 暗号化ライブラリ", "D. Web フレームワーク"],
+    "correct": 1,
+    "explanation": "LangChainはLLMを活用したアプリ（チャットボット、RAG、エージェント等）の構築を簡素化するPython/TypeScriptフレームワークです。"
+  },
+  {
+    "id": 1281,
+    "question": "LLMの「ファインチューニング」と「プロンプトエンジニアリング」の使い分けは？",
+    "options": ["A. 常にファインチューニング", "B. まずプロンプトで試し、不十分ならファインチューニング（コストと効果のバランス）", "C. 常にプロンプト", "D. 両方同時に必須"],
+    "correct": 1,
+    "explanation": "プロンプトは低コストで即座に試行可能。ファインチューニングは特定ドメインの品質向上に効果的だが、データ準備と計算コストが必要。段階的に検討。"
+  },
+  {
+    "id": 1282,
+    "question": "LLMの「量子化（Quantization）」の目的は？",
+    "options": ["A. 精度の向上", "B. モデルの重みをFP32からINT8/INT4等に変換しメモリ使用量と推論速度を改善", "C. データの暗号化", "D. トークン数の削減"],
+    "correct": 1,
+    "explanation": "量子化はFP32(4byte)→INT8(1byte)等に精度を下げてモデルサイズを1/4に削減。GPTQ, GGUF, AWQ等の手法で精度低下を最小限に抑えます。"
+  },
+  {
+    "id": 1283,
+    "question": "「LoRA（Low-Rank Adaptation）」とは？",
+    "options": ["A. 新しいモデル", "B. 少量のパラメータのみ学習する効率的なファインチューニング手法（メモリ節約）", "C. データ拡張手法", "D. プロンプト手法"],
+    "correct": 1,
+    "explanation": "LoRAは元の重み行列に低ランクの行列を追加して学習し、全パラメータの1%以下の追加学習でファインチューニング効果を得る省メモリ手法です。"
+  },
+  {
+    "id": 1284,
+    "question": "LLMの「エージェント」とは？",
+    "options": ["A. 単純なチャットボット", "B. LLMが自律的に計画→ツール実行→結果確認を繰り返して複雑なタスクを解決するシステム", "C. 検索エンジン", "D. データベース"],
+    "correct": 1,
+    "explanation": "LLMエージェントはタスクを分解→適切なツール（Web検索、コード実行等）を選択・実行→結果を判断→次のアクションを決定する自律的なシステムです。"
+  },
+  {
+    "id": 1285,
+    "question": "「Diffusion Model（拡散モデル）」の仕組みは？",
+    "options": ["A. GANと同じ", "B. データにノイズを段階的に加え（前方過程）、ノイズ除去を学習する（逆過程）生成モデル", "C. RNNベース", "D. 決定木ベース"],
+    "correct": 1,
+    "explanation": "拡散モデルは学習時にノイズ付加過程を学び、生成時にランダムノイズから段階的にデノイズして高品質な画像等を生成。Stable Diffusion, DALL-E等。"
+  },
+  {
+    "id": 1286,
+    "question": "「BERT」の特徴は？",
+    "options": ["A. テキスト生成専用", "B. Transformerのエンコーダで双方向にコンテキストを理解する事前学習モデル", "C. 画像認識モデル", "D. 音声認識モデル"],
+    "correct": 1,
+    "explanation": "BERT(Bidirectional Encoder Representations from Transformers)はマスク言語モデルで双方向の文脈を学習し、文分類やQA等の理解タスクに強力。"
+  },
+  {
+    "id": 1287,
+    "question": "「GPT」の特徴は？",
+    "options": ["A. 双方向モデル", "B. Transformerのデコーダで自己回帰的にテキストを生成する事前学習モデル", "C. 画像専用", "D. 翻訳専用"],
+    "correct": 1,
+    "explanation": "GPT(Generative Pre-trained Transformer)は左から右にトークンを予測するデコーダモデルで、テキスト生成、要約、コード生成等の生成タスクに強力。"
+  },
+  {
+    "id": 1288,
+    "question": "データ分析の基本的なプロセスは？",
+    "options": ["A. コーディングのみ", "B. 問題定義→データ収集→前処理→探索的分析(EDA)→モデリング→評価→可視化", "C. モデル学習のみ", "D. グラフ作成のみ"],
+    "correct": 1,
+    "explanation": "データ分析はCRISP-DM的なプロセス: ビジネス理解→データ収集・理解→前処理→EDA(探索)→モデリング(必要時)→結果の解釈・共有で進めます。"
+  },
+  {
+    "id": 1289,
+    "question": "「探索的データ分析（EDA）」の目的は？",
+    "options": ["A. モデルの学習", "B. データの分布、欠損値、外れ値、相関等を可視化・統計量でデータの特性を理解", "C. 予測の実行", "D. デプロイ"],
+    "correct": 1,
+    "explanation": "EDAはヒストグラム、散布図、箱ひげ図、相関行列等でデータの傾向・異常・パターンを把握し、適切な前処理やモデルの選択に繋げます。"
+  },
+  {
+    "id": 1290,
+    "question": "データの「欠損値（Missing Values）」の対処法は？",
+    "options": ["A. 無視する", "B. 削除、平均/中央値/最頻値で補完、KNNで推定、フラグ列追加等", "C. 0で置換のみ", "D. 全データ削除"],
+    "correct": 1,
+    "explanation": "欠損値処理は状況に応じて: 行/列の削除、統計量(平均,中央値)での補完、KNN/回帰での推定、欠損フラグ追加等。欠損パターン(MCAR/MAR/MNAR)を考慮。"
+  },
+  {
+    "id": 1291,
+    "question": "データの「正規化（Normalization）」と「標準化（Standardization）」の違いは？",
+    "options": ["A. 同じ処理", "B. 正規化は0-1範囲に変換、標準化は平均0・標準偏差1に変換（Z-score）", "C. 標準化が0-1変換", "D. 正規化がZ-score"],
+    "correct": 1,
+    "explanation": "Min-Max正規化: (x-min)/(max-min) で0-1。標準化: (x-μ)/σ で平均0・分散1。外れ値がある場合はRobustScaler等も検討。"
+  },
+  {
+    "id": 1292,
+    "question": "「One-Hotエンコーディング」の用途は？",
+    "options": ["A. 数値データの変換", "B. カテゴリ変数を0/1のバイナリベクトルに変換しモデルに入力可能にする", "C. テキストの暗号化", "D. 画像の変換"],
+    "correct": 1,
+    "explanation": "色=[赤,青,緑]をOne-Hot: 赤=[1,0,0], 青=[0,1,0], 緑=[0,0,1]に変換。カテゴリに順序がない場合に数値化する標準手法です。"
+  },
+  {
+    "id": 1293,
+    "question": "「相関係数」の解釈は？",
+    "options": ["A. 因果関係を示す", "B. -1〜+1の範囲で2変数の線形関係の強さと方向を示す（±1で完全相関、0で無相関）", "C. 常にプラス", "D. 常にマイナス"],
+    "correct": 1,
+    "explanation": "ピアソン相関係数は+1=完全正相関、-1=完全負相関、0=線形相関なし。注意: 相関は因果関係を意味しません（見せかけの相関に注意）。"
+  },
+  {
+    "id": 1294,
+    "question": "「A/Bテスト」（データ分析における）の統計的な考え方は？",
+    "options": ["A. 感覚で判断", "B. 帰無仮説(差がない)を検定し、p値が有意水準(通常5%)未満なら差があると判断", "C. 多数決", "D. 平均値の比較のみ"],
+    "correct": 1,
+    "explanation": "A/Bテストは統計的仮説検定で、サンプルサイズ、有意水準(α=0.05)、検出力(1-β=0.8)を設計し、p値で統計的に有意な差があるか判定します。"
+  },
+  {
+    "id": 1295,
+    "question": "「ETL」とは？",
+    "options": ["A. プログラミング言語", "B. Extract(抽出)→Transform(変換)→Load(格納)のデータパイプライン処理", "C. テストフレームワーク", "D. 暗号化方式"],
+    "correct": 1,
+    "explanation": "ETLはデータソースからデータを抽出し、クレンジング・変換・統合を行い、データウェアハウス/DB等に格納するデータパイプラインのプロセスです。"
+  },
+  {
+    "id": 1296,
+    "question": "Pythonライブラリ「NumPy」の主な用途は？",
+    "options": ["A. Web開発", "B. 高速な多次元配列（ndarray）とベクトル・行列演算のための数値計算基盤", "C. GUI開発", "D. データベース接続"],
+    "correct": 1,
+    "explanation": "NumPyはN次元配列(ndarray)でループなしの高速ベクトル演算を提供。C実装で高速。Pandas, scikit-learn等の数値計算基盤です。"
+  },
+  {
+    "id": 1297,
+    "question": "Pythonライブラリ「Pandas」の主な用途は？",
+    "options": ["A. 画像処理", "B. DataFrame/Seriesで表形式データの読込み、加工、集計、結合を効率的に処理", "C. 機械学習", "D. Web開発"],
+    "correct": 1,
+    "explanation": "PandasはDataFrame（2次元表）でCSV/Excel/SQL等の読込み、フィルタ、groupby集計、merge結合、pivot等のデータ操作を直感的に行えます。"
+  },
+  {
+    "id": 1298,
+    "question": "Pythonライブラリ「Matplotlib」と「Seaborn」の関係は？",
+    "options": ["A. 全く別のツール", "B. MatplotlibはPythonの基本描画ライブラリ、SeabornはMatplotlib上の高レベル統計可視化ライブラリ", "C. Seabornが基本", "D. Matplotlibが上位"],
+    "correct": 1,
+    "explanation": "Matplotlibは折線、棒、散布図等を低レベルAPIで描画。SeabornはMatplotlibのラッパーで美しい統計グラフ(heatmap, pairplot等)を簡潔に作成。"
+  },
+  {
+    "id": 1299,
+    "question": "Pythonライブラリ「scikit-learn」の特徴は？",
+    "options": ["A. 深層学習専用", "B. 分類、回帰、クラスタリング、次元削減等の機械学習アルゴリズムを統一的なAPIで提供", "C. 自然言語処理専用", "D. 画像処理専用"],
+    "correct": 1,
+    "explanation": "scikit-learnはfit()/predict()の統一APIで、SVM, ランダムフォレスト, K-means, PCA等の古典的MLアルゴリズムとパイプライン、モデル評価を提供。"
+  },
+  {
+    "id": 1300,
+    "question": "Pythonライブラリ「PyTorch」の特徴は？",
+    "options": ["A. データ処理専用", "B. 動的計算グラフでGPU対応の深層学習フレームワーク（研究者に人気）", "C. CPUのみ対応", "D. 統計分析専用"],
+    "correct": 1,
+    "explanation": "PyTorchはMeta開発のDLフレームワークで、動的計算グラフ(Define-by-Run)で直感的なデバッグが可能。研究とプロダクションの両方で広く利用。"
+  },
+  {
+    "id": 1301,
+    "question": "Pythonライブラリ「TensorFlow / Keras」の特徴は？",
+    "options": ["A. Web開発", "B. Google開発の深層学習フレームワークでKerasは高レベルAPI（プロダクション向け）", "C. データ分析のみ", "D. 自然言語処理のみ"],
+    "correct": 1,
+    "explanation": "TensorFlowはGoogle開発のDLフレームワーク。Kerasは高レベルAPIで簡潔にモデル定義。TF ServingやTF Liteでプロダクション/モバイルデプロイに強み。"
+  },
+  {
+    "id": 1302,
+    "question": "Pythonライブラリ「Jupyter Notebook」の特徴は？",
+    "options": ["A. コンパイラ", "B. コード実行、可視化、マークダウンを対話的にセル単位で実行できるノートブック環境", "C. Webフレームワーク", "D. データベース"],
+    "correct": 1,
+    "explanation": "Jupyter Notebookはセルごとにコード実行→結果表示→説明文の記述がインタラクティブに行え、EDA、プロトタイプ、教育資料に最適です。"
+  },
+  {
+    "id": 1303,
+    "question": "Pythonライブラリ「Hugging Face Transformers」の用途は？",
+    "options": ["A. 画像編集", "B. 事前学習済みNLPモデル（BERT, GPT等）を簡単にロード・ファインチューニング・推論", "C. Web開発", "D. ゲーム開発"],
+    "correct": 1,
+    "explanation": "HuggingFace TransformersはBERT, GPT-2, T5等の事前学習モデルをfrom_pretrained()で即ロードし、テキスト分類、生成、QA等に使えます。"
+  },
+  {
+    "id": 1304,
+    "question": "「OpenAI API」の基本的な使い方は？",
+    "options": ["A. モデルのダウンロード", "B. HTTP APIでプロンプトを送信しGPTモデルの回答を取得（ChatCompletion等）", "C. モデルの学習のみ", "D. データベースアクセス"],
+    "correct": 1,
+    "explanation": "OpenAI APIはREST APIでchat/completionsエンドポイントにmessages配列を送信し、GPT-4等のモデルから回答を取得。Pythonはopenaiライブラリで利用。"
+  },
+  {
+    "id": 1305,
+    "question": "「MCP (Model Context Protocol)」の目的は？",
+    "options": ["A. モデルの学習", "B. LLMアプリケーションが外部ツールやデータソースに標準化されたプロトコルで接続", "C. 通信暗号化", "D. データベース管理"],
+    "correct": 1,
+    "explanation": "MCPはAnthropicが提案するオープンプロトコルで、LLMアプリケーションがデータソースやツールに統一的に接続するクライアント-サーバー仕様です。"
+  },
+  {
+    "id": 1306,
+    "question": "APIの「レート制限」に対する実装パターンは？",
+    "options": ["A. 無制限にリクエスト", "B. 指数バックオフ、リトライ、キューイング、429ステータスへの適切なハンドリング", "C. エラーを無視", "D. APIキーの大量作成"],
+    "correct": 1,
+    "explanation": "レート制限時は429エラーをキャッチし、Retry-Afterヘッダに従うか指数バックオフ(1s, 2s, 4s...)でリトライ。リクエストキューで流量制御も有効。"
+  },
+  {
+    "id": 1307,
+    "question": "「Streamlit」の用途は？",
+    "options": ["A. バックエンドAPI", "B. PythonスクリプトだけでデータアプリケーションやMLデモのWebUIを簡単に構築", "C. モバイルアプリ", "D. データベース管理"],
+    "correct": 1,
+    "explanation": "StreamlitはPythonコードだけでインタラクティブなWebダッシュボードを構築。st.write(), st.chart(), st.slider()等で即座にUIを作成できます。"
+  },
+  {
+    "id": 1308,
+    "question": "「Gradio」の用途は？",
+    "options": ["A. CIツール", "B. 機械学習モデルのデモ用WebインターフェースをPythonで簡単に構築・共有", "C. データベース管理", "D. テストフレームワーク"],
+    "correct": 1,
+    "explanation": "GradioはMLモデルのデモ用UIを数行で構築。gr.Interface(fn=predict, inputs=\"text\", outputs=\"text\")でWebUI生成しHugging Face Spacesで公開。"
+  },
+  {
+    "id": 1309,
+    "question": "「MLOps」とは？",
+    "options": ["A. 機械学習のプログラミング", "B. 機械学習モデルの開発・デプロイ・運用・監視のライフサイクルを自動化する手法", "C. DevOpsの代替", "D. データベース管理"],
+    "correct": 1,
+    "explanation": "MLOpsはDevOps原則をML に適用し、モデルの学習、バージョン管理、デプロイ、監視(データドリフト検知等)、再学習のサイクルを自動化します。"
+  },
+  {
+    "id": 1310,
+    "question": "「データドリフト」とは？",
+    "options": ["A. データの移動", "B. 本番データの分布が学習時と異なってきてモデルの性能が低下する現象", "C. データの暗号化", "D. データの圧縮"],
+    "correct": 1,
+    "explanation": "データドリフトは時間経過でユーザー行動やデータ分布が変化し、学習時の仮定が崩れてモデル精度が劣化。定期的な監視と再学習が必要。"
+  },
+  {
+    "id": 1311,
+    "question": "「Feature Store」の目的は？",
+    "options": ["A. アプリストア", "B. 特徴量の計算、保存、管理、再利用を一元化するMLインフラ", "C. モデルの保存", "D. データベースの管理"],
+    "correct": 1,
+    "explanation": "Feature Store(Feast等)は特徴量の定義、計算パイプライン、オンライン/オフラインの両方での提供を管理し、チーム間での特徴量の再利用を促進。"
+  },
+  {
+    "id": 1312,
+    "question": "「MLflow」の主要機能は？",
+    "options": ["A. Web開発", "B. 実験追跡(Tracking)、モデル管理(Registry)、プロジェクト(Projects)、デプロイ(Models)", "C. データ収集", "D. 可視化のみ"],
+    "correct": 1,
+    "explanation": "MLflowはML実験のパラメータ/メトリクスの追跡、モデルバージョン管理、再現可能なプロジェクト実行、モデルのサービング等を提供するOSSプラットフォーム。"
+  },
+  {
+    "id": 1313,
+    "question": "「Vision Transformer（ViT）」の特徴は？",
+    "options": ["A. CNNのみ使用", "B. 画像をパッチに分割してTransformerで処理する画像認識モデル（CNNを使わない）", "C. テキスト専用", "D. 音声専用"],
+    "correct": 1,
+    "explanation": "ViTは画像を16x16等のパッチに分割してトークン化し、Transformerエンコーダで処理。大規模学習でCNN超えの画像認識を達成。"
+  },
+  {
+    "id": 1314,
+    "question": "「自然言語処理（NLP）」のタスク例は？",
+    "options": ["A. 画像分類のみ", "B. テキスト分類、固有表現抽出（NER）、機械翻訳、要約、質問応答、感情分析", "C. 音声合成のみ", "D. 動画編集"],
+    "correct": 1,
+    "explanation": "NLPは人間の言語を処理するAI分野で、テキスト分類、名前/場所等のNER、翻訳、要約、感情分析、チャットボット等の多様なタスクを含みます。"
+  },
+  {
+    "id": 1315,
+    "question": "「Word2Vec」の仕組みは？",
+    "options": ["A. 辞書検索", "B. 単語を分散表現（ベクトル）に変換し、意味的類似度を計算可能にする手法", "C. 文法チェック", "D. スペル修正"],
+    "correct": 1,
+    "explanation": "Word2VecはCBOW/Skip-gramで単語を密なベクトルに変換。king-man+woman≒queenのような意味的な関係をベクトル演算で表現できます。"
+  },
+  {
+    "id": 1316,
+    "question": "「マルチモーダルAI」とは？",
+    "options": ["A. テキストのみ", "B. テキスト、画像、音声、動画等の複数の入力モダリティを統合して処理するAI", "C. 画像のみ", "D. 音声のみ"],
+    "correct": 1,
+    "explanation": "マルチモーダルAI(GPT-4V, Gemini等)はテキストと画像の両方を理解し、画像の説明生成、図の解析、テキスト+画像の推論等が可能。"
+  },
+  {
+    "id": 1317,
+    "question": "「Tokenizer」の種類は？",
+    "options": ["A. 文字単位のみ", "B. BPE(Byte Pair Encoding)、WordPiece、SentencePiece等のサブワード分割手法", "C. 単語単位のみ", "D. 文単位のみ"],
+    "correct": 1,
+    "explanation": "BPE(GPT)、WordPiece(BERT)、SentencePiece(多言語)は頻出文字列を統合してサブワード単位に分割。未知語にも対応し語彙サイズを制限。"
+  },
+  {
+    "id": 1318,
+    "question": "「混合精度学習（Mixed Precision Training）」の目的は？",
+    "options": ["A. 精度の向上のみ", "B. FP16とFP32を混合して学習を高速化し、GPUメモリ使用量を削減", "C. CPU学習の高速化", "D. データ量の削減"],
+    "correct": 1,
+    "explanation": "混合精度は計算にFP16、勾配累積等の精度が重要な部分にFP32を使い、学習速度を約2倍に向上させつつ精度低下を最小限に抑えます。"
+  },
+  {
+    "id": 1319,
+    "question": "「時系列データ分析」でよく使われる手法は？",
+    "options": ["A. K-meansのみ", "B. ARIMA、Prophet、LSTM、Transformer、季節性分解", "C. 決定木のみ", "D. SVMのみ"],
+    "correct": 1,
+    "explanation": "時系列予測は統計的手法(ARIMA, Prophet)や深層学習(LSTM, Transformer)で、トレンド・季節性・残差を分解して将来値を予測します。"
+  },
+  {
+    "id": 1320,
+    "question": "「異常検知（Anomaly Detection）」の手法は？",
+    "options": ["A. 分類のみ", "B. 統計的手法(Z-score)、Isolation Forest、AutoEncoder、LOF等", "C. 回帰のみ", "D. クラスタリングのみ"],
+    "correct": 1,
+    "explanation": "異常検知は正常データのパターンから外れたデータを検出。Isolation Forestは外れ値の分離が速く、AutoEncoderは復元誤差で異常を判定します。"
+  },
+  {
+    "id": 1321,
+    "question": "「レコメンドシステム」のアプローチは？",
+    "options": ["A. ランダム推薦のみ", "B. 協調フィルタリング（ユーザー/アイテムベース）、コンテンツベース、ハイブリッド", "C. 人気順のみ", "D. 新着順のみ"],
+    "correct": 1,
+    "explanation": "協調フィルタリング:類似ユーザーの好みを推薦。コンテンツベース:アイテムの特徴で推薦。近年はDeep Learning+行列分解のハイブリッドが主流。"
+  },
+  {
+    "id": 1322,
+    "question": "「物体検出（Object Detection）」の代表モデルは？",
+    "options": ["A. Word2Vec", "B. YOLO、SSD、Faster R-CNN、DETR", "C. BERT", "D. GPT"],
+    "correct": 1,
+    "explanation": "YOLO(1段階・高速)、SSD(1段階)、Faster R-CNN(2段階・高精度)、DETR(Transformerベース)が物体の位置とクラスを同時に検出する代表モデル。"
+  },
+  {
+    "id": 1323,
+    "question": "「セマンティックセグメンテーション」とは？",
+    "options": ["A. テキスト分割", "B. 画像の各ピクセルにクラスラベル（人、車、道路等）を割り当てる画像認識タスク", "C. 音声分割", "D. データ分割"],
+    "correct": 1,
+    "explanation": "セマンティックセグメンテーションは画像の全ピクセルを分類し、自動運転（道路/歩行者の理解）や医療画像（腫瘍領域の特定）等に活用されます。"
+  },
+  {
+    "id": 1324,
+    "question": "Pythonの「FastAPI」をAI/MLのAPI公開に使うメリットは？",
+    "options": ["A. デスクトップアプリ向け", "B. 型ヒントベースの自動バリデーション、OpenAPIドキュメント自動生成、非同期対応で高速", "C. フロントエンド向け", "D. データベース向け"],
+    "correct": 1,
+    "explanation": "FastAPIはPydanticで入出力を型定義、Swagger UIを自動生成、async対応で高スループット。MLモデルのREST API公開に最適なPythonフレームワーク。"
+  },
+  {
+    "id": 1325,
+    "question": "「Whisper」（OpenAI）の用途は？",
+    "options": ["A. 画像生成", "B. 音声からテキストへの変換（音声認識/文字起こし）の汎用モデル", "C. テキスト生成", "D. データベース管理"],
+    "correct": 1,
+    "explanation": "WhisperはOpenAI開発の多言語音声認識モデルで、68万時間の教師あり学習データで訓練。音声の文字起こし、翻訳、言語検出に対応。"
+  },
+  {
+    "id": 1326,
+    "question": "「Polars」ライブラリの特徴は？",
+    "options": ["A. Pandasと同じ", "B. Rustで実装された高速なデータフレームライブラリで、Pandasの代替として注目", "C. 可視化ライブラリ", "D. ML ライブラリ"],
+    "correct": 1,
+    "explanation": "PolarsはRust実装でマルチスレッド対応の高速DataFrame。遅延評価(LazyFrame)でクエリ最適化し、大規模データでPandasの数倍〜数十倍高速。"
+  },
+  {
+    "id": 1327,
+    "question": "「Apache Spark」の特徴は？",
+    "options": ["A. 小規模データ処理", "B. 大規模データの分散並列処理フレームワークでPySpark等で利用可能", "C. 単一サーバー限定", "D. リアルタイム通信"],
+    "correct": 1,
+    "explanation": "SparkはRDD/DataFrameで大規模データをクラスタで分散処理。PySpark(Python API)やSparkSQL、Spark MLlib等のエコシステムを持ちます。"
+  },
+  {
+    "id": 1328,
+    "question": "「解釈可能AI（Explainable AI / XAI）」の目的は？",
+    "options": ["A. モデルの高速化", "B. AIの予測理由を人間が理解できるように説明し、透明性と信頼性を確保", "C. データの収集", "D. モデルの圧縮"],
+    "correct": 1,
+    "explanation": "XAIはSHAP(特徴量の寄与度)、LIME(局所的な説明)、Attention可視化等で「なぜその予測をしたか」を説明し、医療/金融等での説明責任を実現。"
+  },
+  {
+    "id": 1329,
+    "question": "「AIの倫理的課題」にはどのようなものがあるか？",
+    "options": ["A. 技術的課題のみ", "B. バイアス/公平性、プライバシー、説明責任、著作権、雇用への影響", "C. コストのみ", "D. 速度のみ"],
+    "correct": 1,
+    "explanation": "AI倫理は学習データのバイアスによる差別、個人情報保護、自動判断の説明責任、生成AIの著作権、AIによる雇用変化等の多面的な課題を含みます。"
+  },
+  {
+    "id": 1330,
+    "question": "「エッジAI」とは？",
+    "options": ["A. クラウドAIのみ", "B. スマートフォンやIoT等のエッジデバイス上でAI推論を実行する技術", "C. ブラウザAI", "D. データベースAI"],
+    "correct": 1,
+    "explanation": "エッジAIはクラウドにデータを送らずデバイス上で推論し、低遅延、プライバシー保護、オフライン動作を実現。TensorFlow Lite、Core ML、ONNX Runtime等。"
+  }
+]

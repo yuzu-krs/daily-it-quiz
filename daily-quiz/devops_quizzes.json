@@ -1,0 +1,702 @@
+[
+  {
+    "id": 1031,
+    "question": "CI/CDの「CI」は何の略か？",
+    "options": ["A. Continuous Integration（継続的インテグレーション）", "B. Code Inspection", "C. Central Installation", "D. Cloud Infrastructure"],
+    "correct": 0,
+    "explanation": "CIはContinuous Integrationの略で、開発者が頻繁にコードを共有リポジトリに統合し、自動ビルド・テストで品質を維持する手法です。"
+  },
+  {
+    "id": 1032,
+    "question": "CI/CDの「CD」が指す2つの意味は？",
+    "options": ["A. Code Deploy / Code Design", "B. Continuous Delivery（継続的デリバリー）/ Continuous Deployment（継続的デプロイ）", "C. Cloud Distribution / Cloud Development", "D. Central Database / Central Deployment"],
+    "correct": 1,
+    "explanation": "Continuous Deliveryはリリース可能な状態まで自動化（デプロイは手動承認）。Continuous Deploymentはテスト通過後に自動で本番デプロイまで行います。"
+  },
+  {
+    "id": 1033,
+    "question": "CI/CDパイプラインの一般的な順序は？",
+    "options": ["A. デプロイ→テスト→ビルド", "B. コードプッシュ→ビルド→テスト→デプロイ", "C. テスト→コードプッシュ→デプロイ", "D. ビルド→コードプッシュ→テスト"],
+    "correct": 1,
+    "explanation": "典型的なCI/CDパイプラインは①コード変更をプッシュ②ソースをビルド③自動テスト実行④成功時にステージング/本番へデプロイの順です。"
+  },
+  {
+    "id": 1034,
+    "question": "GitHub Actionsのワークフロー定義ファイルの配置場所は？",
+    "options": ["A. プロジェクトルート", "B. .github/workflows/ ディレクトリにYAMLファイルで定義", "C. src/actions/", "D. .ci/config/"],
+    "correct": 1,
+    "explanation": "GitHub Actionsは.github/workflows/配下の.ymlファイルでワークフローを定義し、on:でトリガー、jobs:でジョブを記述します。"
+  },
+  {
+    "id": 1035,
+    "question": "GitHub Actionsの「on: push」の意味は？",
+    "options": ["A. 手動実行", "B. リポジトリへのプッシュ時にワークフローが自動トリガーされる", "C. PR作成時", "D. スケジュール実行"],
+    "correct": 1,
+    "explanation": "on: pushはgit pushイベントでワークフローが起動します。branches:で対象ブランチ、paths:で対象パスをフィルタリングも可能。"
+  },
+  {
+    "id": 1036,
+    "question": "GitHub Actionsの「jobs」と「steps」の関係は？",
+    "options": ["A. 同じもの", "B. jobsは並列実行可能な単位、stepsはjob内の逐次実行されるタスク", "C. stepsが上位", "D. jobsはstepsの一部"],
+    "correct": 1,
+    "explanation": "jobsは独立した実行環境（ランナー）で並列実行可能。各job内のstepsは順次実行され、run:やuses:でコマンドやアクションを実行します。"
+  },
+  {
+    "id": 1037,
+    "question": "GitHub Actionsの「uses: actions/checkout@v4」の役割は？",
+    "options": ["A. デプロイ実行", "B. リポジトリのソースコードをランナーにチェックアウト（クローン）する", "C. テスト実行", "D. キャッシュ作成"],
+    "correct": 1,
+    "explanation": "actions/checkoutはリポジトリのコードをCI/CDランナー上にクローンする必須アクションで、ほとんどのワークフローの最初のステップです。"
+  },
+  {
+    "id": 1038,
+    "question": "代表的なCI/CDツールはどれか？",
+    "options": ["A. Photoshop, Illustrator", "B. Jenkins, GitHub Actions, GitLab CI, CircleCI", "C. MySQL, PostgreSQL", "D. Nginx, Apache"],
+    "correct": 1,
+    "explanation": "Jenkins（自前運用）、GitHub Actions（GitHub統合）、GitLab CI（GitLab統合）、CircleCI（クラウドCI）が代表的なCI/CDツールです。"
+  },
+  {
+    "id": 1039,
+    "question": "Jenkinsの特徴は？",
+    "options": ["A. クラウド専用", "B. オープンソースの自己ホスト型CI/CDサーバーで豊富なプラグインエコシステム", "C. GitHub専用", "D. テストツール"],
+    "correct": 1,
+    "explanation": "Jenkinsはオンプレミスで運用可能なOSSのCI/CDサーバーで、1800以上のプラグインにより多様なビルド・デプロイパイプラインを構築できます。"
+  },
+  {
+    "id": 1040,
+    "question": "CI/CDで「アーティファクト」とは？",
+    "options": ["A. ソースコード", "B. ビルドプロセスの成果物（バイナリ、パッケージ、Docker イメージ等）", "C. テストケース", "D. 設計書"],
+    "correct": 1,
+    "explanation": "アーティファクトはCI/CDビルドで生成される成果物で、コンパイル済みバイナリ、JARファイル、Dockerイメージ、テストレポート等を指します。"
+  },
+  {
+    "id": 1041,
+    "question": "Gitの「分散型バージョン管理」の意味は？",
+    "options": ["A. サーバーにのみ履歴がある", "B. 各開発者がリポジトリの完全なコピー（全履歴含む）をローカルに持つ", "C. ファイルを分散保存", "D. ブランチが使えない"],
+    "correct": 1,
+    "explanation": "Gitは分散型VCSで、cloneすると全コミット履歴を含むリポジトリ全体をローカルに複製。オフラインでもcommitやlog参照が可能です。"
+  },
+  {
+    "id": 1042,
+    "question": "git rebaseとgit mergeの違いは？",
+    "options": ["A. 同じ操作", "B. rebaseはコミット履歴を直線的に書き換え、mergeはマージコミットで統合", "C. mergeが履歴を書き換え", "D. rebaseはマージコミットを作る"],
+    "correct": 1,
+    "explanation": "rebaseはブランチのコミットを対象ブランチの先端に付け替えて直線的な履歴に。mergeはマージコミットを作り分岐の履歴を保持します。"
+  },
+  {
+    "id": 1043,
+    "question": "git stashの用途は？",
+    "options": ["A. コミットの取消し", "B. 作業中の変更を一時退避し、クリーンな状態でブランチ切り替え等を行う", "C. ブランチの削除", "D. リモートへのプッシュ"],
+    "correct": 1,
+    "explanation": "git stashは未コミットの変更を一時的にスタックに保存し、git stash popで復元します。急なブランチ切り替え時に便利です。"
+  },
+  {
+    "id": 1044,
+    "question": "git cherry-pickの用途は？",
+    "options": ["A. ブランチの作成", "B. 特定のコミットだけを現在のブランチに適用する", "C. 全コミットをマージ", "D. コミットの削除"],
+    "correct": 1,
+    "explanation": "cherry-pickは特定のコミットハッシュを指定して、そのコミットの変更だけを現在のブランチに新しいコミットとして適用します。"
+  },
+  {
+    "id": 1045,
+    "question": "git resetの「--soft」「--mixed」「--hard」の違いは？",
+    "options": ["A. すべて同じ", "B. softはHEADのみ移動、mixedはステージも解除、hardは作業ツリーも破棄", "C. hardが最も安全", "D. softが最も危険"],
+    "correct": 1,
+    "explanation": "--softはコミットのみ取消し（変更はステージ済み）。--mixedはステージも解除。--hardは変更自体を破棄するため要注意。"
+  },
+  {
+    "id": 1046,
+    "question": "git reflogの用途は？",
+    "options": ["A. リモートのログ", "B. HEADの移動履歴を全て記録し、誤ったreset等からの復旧に使用", "C. コミットメッセージの編集", "D. ブランチ一覧"],
+    "correct": 1,
+    "explanation": "reflogはHEADの参照変更履歴を記録し、git reset --hardで消えたコミットもreflogで見つけてgit reset --hard HEAD@{n}で復旧できます。"
+  },
+  {
+    "id": 1047,
+    "question": "git bisectの用途は？",
+    "options": ["A. コードの整形", "B. バグを導入したコミットを二分探索で効率的に特定する", "C. ブランチのマージ", "D. ファイルの検索"],
+    "correct": 1,
+    "explanation": "git bisectは正常なコミットとバグありコミットの間を二分探索し、O(log n)の効率でバグ原因のコミットを特定するデバッグツールです。"
+  },
+  {
+    "id": 1048,
+    "question": "gitの「.gitignore」ファイルの役割は？",
+    "options": ["A. Gitの設定", "B. 指定したファイルパターンをGitの追跡対象から除外する", "C. コミットメッセージのテンプレート", "D. ブランチ保護ルール"],
+    "correct": 1,
+    "explanation": ".gitignoreにパターン（*.log, node_modules/, .env等）を記載すると、git addで追跡対象に含まれなくなり、不要なファイルをリポジトリから除外できます。"
+  },
+  {
+    "id": 1049,
+    "question": "git tagの用途は？",
+    "options": ["A. ブランチの作成", "B. 特定のコミットにバージョン番号等のラベルを付ける（リリースポイントの記録）", "C. コミットの削除", "D. マージ操作"],
+    "correct": 1,
+    "explanation": "git tag v1.0.0 のようにコミットにタグを付け、リリースバージョンを明示します。軽量タグと注釈付きタグ（-a）の2種類があります。"
+  },
+  {
+    "id": 1050,
+    "question": "git submoduleの用途は？",
+    "options": ["A. ブランチ管理", "B. 外部リポジトリを自分のリポジトリの一部として参照・管理する", "C. コミット履歴の圧縮", "D. コンフリクト解決"],
+    "correct": 1,
+    "explanation": "git submoduleは別のGitリポジトリを特定のコミットで参照として含め、共有ライブラリ等の依存関係を管理する仕組みです。"
+  },
+  {
+    "id": 1051,
+    "question": "GitHubの「Pull Request」の目的は？",
+    "options": ["A. コードのダウンロード", "B. ブランチの変更を本流にマージする前にコードレビューと議論を行う", "C. リポジトリの削除", "D. ファイルのアップロード"],
+    "correct": 1,
+    "explanation": "Pull Requestはブランチの変更を提案し、レビュアーがコードを確認・コメント・承認してからマージするコラボレーションワークフローです。"
+  },
+  {
+    "id": 1052,
+    "question": "GitHubの「Fork」と「Clone」の違いは？",
+    "options": ["A. 同じ操作", "B. Forkは他人のリポジトリのコピーをGitHub上に作成、CloneはローカルにDL", "C. Cloneがサーバー上にコピー", "D. Forkがローカルコピー"],
+    "correct": 1,
+    "explanation": "Forkは他人のリポジトリをGitHubアカウント上にコピーし独自に変更可能。Cloneはリポジトリをローカルマシンにダウンロードする操作です。"
+  },
+  {
+    "id": 1053,
+    "question": "GitHubの「Issues」の主な使い方は？",
+    "options": ["A. コードの実行", "B. バグ報告、機能要望、タスク管理などプロジェクトの課題を追跡", "C. CI/CDの設定", "D. ファイルの編集"],
+    "correct": 1,
+    "explanation": "Issuesはバグ追跡、機能リクエスト、ディスカッション等のプロジェクト管理に使い、ラベル、マイルストーン、担当者で整理します。"
+  },
+  {
+    "id": 1054,
+    "question": "GitHubの「Branch Protection Rules」でできることは？",
+    "options": ["A. ブランチの暗号化", "B. レビュー承認必須、ステータスチェック合格必須、force push禁止等のマージ条件設定", "C. 自動デプロイ", "D. コードの暗号化"],
+    "correct": 1,
+    "explanation": "Branch Protection Rulesはmain等の重要ブランチにレビュー必須、CI通過必須、直接push禁止等のルールを設定し品質を保護します。"
+  },
+  {
+    "id": 1055,
+    "question": "GitHub Secretsの用途は？",
+    "options": ["A. コードの暗号化", "B. APIキーやパスワード等の機密情報をActionsワークフローで安全に使用", "C. ブランチの保護", "D. Issue管理"],
+    "correct": 1,
+    "explanation": "GitHub SecretsはCI/CDで使うAPIキー、トークン等の機密値を暗号化して保存し、${{ secrets.MY_SECRET }}でワークフローから参照します。"
+  },
+  {
+    "id": 1056,
+    "question": "Git Flowの主要ブランチは？",
+    "options": ["A. masterのみ", "B. main（master）とdevelopの2つの長期ブランチ", "C. featureのみ", "D. releaseのみ"],
+    "correct": 1,
+    "explanation": "Git Flowはmain（本番リリース）とdevelop（開発統合）の2つの永続ブランチに、feature/release/hotfixの一時ブランチを組み合わせます。"
+  },
+  {
+    "id": 1057,
+    "question": "Git Flowの「feature ブランチ」の運用は？",
+    "options": ["A. mainから分岐", "B. developから分岐し、機能完成後にdevelopにマージ", "C. releaseから分岐", "D. hotfixから分岐"],
+    "correct": 1,
+    "explanation": "featureブランチはdevelopから作成し、新機能を開発。完成後にdevelopにマージしてfeatureブランチを削除します。"
+  },
+  {
+    "id": 1058,
+    "question": "Git Flowの「hotfix ブランチ」の運用は？",
+    "options": ["A. developから分岐", "B. mainから分岐し、修正後にmainとdevelopの両方にマージ", "C. featureから分岐", "D. releaseから分岐"],
+    "correct": 1,
+    "explanation": "hotfixは本番の緊急バグ修正用。mainから分岐→修正→mainにマージ（タグ付与）かつdevelopにもマージして修正を反映します。"
+  },
+  {
+    "id": 1059,
+    "question": "Git Flowの「release ブランチ」の目的は？",
+    "options": ["A. 機能開発", "B. developからリリース準備用に分岐し、バグ修正・バージョン番号付与後にmainとdevelopにマージ", "C. hotfix対応", "D. 実験用"],
+    "correct": 1,
+    "explanation": "releaseブランチはdevelopから分岐してリリース前の最終調整（バグ修正、バージョン更新等）を行い、main+developにマージします。"
+  },
+  {
+    "id": 1060,
+    "question": "Git Flowに代わるシンプルな戦略は？",
+    "options": ["A. バージョン管理なし", "B. GitHub Flow（main+featureブランチのみのシンプルな運用）", "C. SVNの運用", "D. ファイルコピー"],
+    "correct": 1,
+    "explanation": "GitHub Flowはmainブランチから直接featureブランチを作成→PR→レビュー→mainにマージの簡潔なフローで、CD向けです。"
+  },
+  {
+    "id": 1061,
+    "question": "Docker Composeの主な用途は？",
+    "options": ["A. 単一コンテナの管理", "B. 複数コンテナのアプリケーションをYAMLで定義し一括管理", "C. Dockerイメージの作成", "D. Kubernetesの代替"],
+    "correct": 1,
+    "explanation": "Docker Composeはdocker-compose.ymlで複数のサービス（コンテナ）、ネットワーク、ボリュームを定義し、docker compose upで一括起動します。"
+  },
+  {
+    "id": 1062,
+    "question": "docker-compose.ymlの「services」セクションの役割は？",
+    "options": ["A. ネットワーク定義", "B. 各コンテナ（サービス）のイメージ、ポート、環境変数、依存関係等を定義", "C. ボリューム定義", "D. シークレット定義"],
+    "correct": 1,
+    "explanation": "servicesにはweb, db等のサービスをキーとして、image/build, ports, environment, volumes, depends_on等の設定を記述します。"
+  },
+  {
+    "id": 1063,
+    "question": "Docker Composeの「depends_on」の役割は？",
+    "options": ["A. ポートの依存", "B. サービスの起動順序を制御（依存先が先に起動される）", "C. ネットワーク接続", "D. ボリューム共有"],
+    "correct": 1,
+    "explanation": "depends_on: [db]とすると、dbサービスが先に起動します。ただし起動順序のみ制御で、サービスの準備完了は保証しません。"
+  },
+  {
+    "id": 1064,
+    "question": "Docker Composeの「volumes」の用途は？",
+    "options": ["A. CPUの割当て", "B. ホストとコンテナ間、またはコンテナ間のデータ永続化と共有", "C. ネットワーク設定", "D. ログの出力"],
+    "correct": 1,
+    "explanation": "volumesはコンテナのデータを永続化（名前付きボリューム）やホストディレクトリのマウント（バインドマウント）でデータを保持・共有します。"
+  },
+  {
+    "id": 1065,
+    "question": "docker compose upの「-d」フラグの意味は？",
+    "options": ["A. デバッグモード", "B. デタッチモード（バックグラウンドで実行）", "C. 削除モード", "D. ドライラン"],
+    "correct": 1,
+    "explanation": "docker compose up -dはコンテナをバックグラウンドで起動し、ターミナルを占有しません。ログ確認はdocker compose logsで行います。"
+  },
+  {
+    "id": 1066,
+    "question": "Docker Composeの「networks」設定の目的は？",
+    "options": ["A. インターネット接続", "B. サービス間の通信を分離・制御するカスタムネットワークの定義", "C. DNS設定", "D. ファイアウォール"],
+    "correct": 1,
+    "explanation": "Composeはデフォルトで共通ネットワークを作成しますが、networksで別ネットワークを定義してフロントエンドとバックエンドの通信を分離できます。"
+  },
+  {
+    "id": 1067,
+    "question": "Docker Composeの「environment」と「env_file」の違いは？",
+    "options": ["A. 同じ機能", "B. environmentはYAML内に直接記述、env_fileは外部.envファイルから読み込み", "C. env_fileの方が安全", "D. environmentは変数を使えない"],
+    "correct": 1,
+    "explanation": "environmentはYAML内にキー=値で直接記述。env_fileは.envファイルのパスを指定して多数の環境変数を外部管理します。"
+  },
+  {
+    "id": 1068,
+    "question": "Docker Composeで「docker compose down -v」の-vの効果は？",
+    "options": ["A. 冗長出力", "B. コンテナ停止・削除に加え、名前付きボリュームも削除", "C. バージョン表示", "D. ネットワーク保持"],
+    "correct": 1,
+    "explanation": "downはコンテナとネットワークを削除しますが、-vを付けると名前付きボリュームも削除され、DBデータ等も完全にクリアされます。"
+  },
+  {
+    "id": 1069,
+    "question": "Docker Composeの「healthcheck」の用途は？",
+    "options": ["A. CPUモニタリング", "B. コンテナ内のサービスが正常動作しているか定期的にチェック", "C. ネットワーク速度測定", "D. ストレージ監視"],
+    "correct": 1,
+    "explanation": "healthcheckはtest, interval, timeout, retriesを設定して、コマンド（curl等）でコンテナの健全性を監視します。depends_onのcondition:と連携可能。"
+  },
+  {
+    "id": 1070,
+    "question": "Docker Composeの「profiles」の用途は？",
+    "options": ["A. ユーザー管理", "B. 特定のサービスを開発/テスト/本番等のプロファイルでグループ化し選択的に起動", "C. ネットワーク設定", "D. ボリューム管理"],
+    "correct": 1,
+    "explanation": "profiles: [debug]と設定したサービスはdocker compose --profile debug upで起動。通常起動では起動されず、用途別の管理が可能です。"
+  },
+  {
+    "id": 1071,
+    "question": "Terraformの基本的な概念は？",
+    "options": ["A. 手動でインフラ管理", "B. コードでインフラを定義・管理するIaC（Infrastructure as Code）ツール", "C. コンテナオーケストレーション", "D. CI/CDツール"],
+    "correct": 1,
+    "explanation": "TerraformはHashiCorp製のIaCツールで、HCL（HashiCorp Configuration Language）でインフラリソースを宣言的に定義・管理します。"
+  },
+  {
+    "id": 1072,
+    "question": "Terraformの「terraform init」の役割は？",
+    "options": ["A. インフラの破棄", "B. プロバイダプラグインのダウンロードとバックエンドの初期化", "C. リソースのデプロイ", "D. 状態の確認"],
+    "correct": 1,
+    "explanation": "terraform initは.tfファイルで指定したプロバイダ（AWS, GCP等）のプラグインをダウンロードし、バックエンド設定を初期化する最初のコマンドです。"
+  },
+  {
+    "id": 1073,
+    "question": "Terraformの「terraform plan」の役割は？",
+    "options": ["A. インフラの作成", "B. 現在の状態と設定の差分を表示し、実行される変更を事前確認（ドライラン）", "C. 状態の削除", "D. プロバイダの更新"],
+    "correct": 1,
+    "explanation": "terraform planは設定ファイルと現在のtfstateを比較して、作成(+)/変更(~)/削除(-)されるリソースの計画を表示します。"
+  },
+  {
+    "id": 1074,
+    "question": "Terraformの「terraform apply」の役割は？",
+    "options": ["A. 計画のみ実行", "B. planの内容を実際にクラウド/インフラに適用してリソースを作成・変更・削除", "C. 初期化", "D. 状態のリセット"],
+    "correct": 1,
+    "explanation": "terraform applyはplan結果を確認後(yes入力)、実際にインフラリソースを作成・変更・削除し、tfstateファイルを更新します。"
+  },
+  {
+    "id": 1075,
+    "question": "Terraformの「terraform destroy」の役割は？",
+    "options": ["A. 設定ファイルの削除", "B. Terraformで管理している全リソースを削除（インフラの撤去）", "C. 状態ファイルのクリア", "D. プロバイダの削除"],
+    "correct": 1,
+    "explanation": "terraform destroyは管理下の全リソースを削除します。確認プロンプトが表示され、yesで実行。特定リソースのみの削除も-target指定で可能。"
+  },
+  {
+    "id": 1076,
+    "question": "Terraformの「State（状態ファイル）」の役割は？",
+    "options": ["A. 設定のバックアップ", "B. 実際のインフラの状態を記録し、設定との差分を検出するための参照", "C. ログファイル", "D. シークレット管理"],
+    "correct": 1,
+    "explanation": "terraform.tfstateは現在のインフラ状態をJSON記録し、planで設定との差分を検出します。チーム利用ではS3等のリモートバックエンドに保存します。"
+  },
+  {
+    "id": 1077,
+    "question": "Terraformの「Provider」とは？",
+    "options": ["A. CI/CDツール", "B. AWS, Azure, GCP等のクラウドやサービスと連携するプラグイン", "C. Terraformのバージョン", "D. 状態管理ツール"],
+    "correct": 1,
+    "explanation": "ProviderはAWS, Azure, GCP, Kubernetes等のAPIと連携するプラグインで、各サービスのリソース（EC2, VPC等）を管理可能にします。"
+  },
+  {
+    "id": 1078,
+    "question": "Terraformの「Module」の用途は？",
+    "options": ["A. 状態管理", "B. リソース定義を再利用可能なパッケージにまとめてDRY原則を実現", "C. プロバイダの定義", "D. 認証設定"],
+    "correct": 1,
+    "explanation": "ModuleはTerraform設定を再利用可能な単位に分割します。module \"vpc\" { source = \"./modules/vpc\" }のように呼び出し、変数で設定を注入。"
+  },
+  {
+    "id": 1079,
+    "question": "Terraformの「変数（variables）」と「出力（outputs）」の役割は？",
+    "options": ["A. ログ出力のみ", "B. variablesは設定の入力パラメータ化、outputsはリソース情報の参照・表示", "C. 認証情報の管理", "D. 状態ファイルの管理"],
+    "correct": 1,
+    "explanation": "variable \"name\" {}で入力パラメータを定義し柔軟性を確保。output \"ip\" {}でリソースの値（IP等）を表示・他モジュールから参照可能にします。"
+  },
+  {
+    "id": 1080,
+    "question": "Terraformの「terraform import」の用途は？",
+    "options": ["A. モジュールのインポート", "B. 既存のインフラリソースをTerraformの管理下に取り込む", "C. 設定ファイルのインポート", "D. プロバイダの追加"],
+    "correct": 1,
+    "explanation": "terraform importは手動作成済みのリソース（EC2インスタンス等）をtfstateに登録し、以降Terraformで管理可能にします。"
+  },
+  {
+    "id": 1081,
+    "question": "Ansibleの基本的なアーキテクチャは？",
+    "options": ["A. クライアント-サーバー型", "B. エージェントレスでSSHを使って対象ホストを管理するプッシュ型", "C. プル型のみ", "D. コンテナベース"],
+    "correct": 1,
+    "explanation": "Ansibleはエージェント不要で、コントロールノードからSSH（Linux）またはWinRM（Windows）で対象ホストにタスクをプッシュ実行します。"
+  },
+  {
+    "id": 1082,
+    "question": "Ansibleの「Playbook」とは？",
+    "options": ["A. 設定ファイル", "B. 自動化タスクを定義するYAMLファイルで、対象ホストと実行するタスクを記述", "C. インベントリ", "D. ログファイル"],
+    "correct": 1,
+    "explanation": "PlaybookはYAMLで書かれた自動化の手順書で、hosts（対象）、tasks（操作）、vars（変数）等を定義してansible-playbookで実行します。"
+  },
+  {
+    "id": 1083,
+    "question": "Ansibleの「Inventory（インベントリ）」とは？",
+    "options": ["A. タスクの定義", "B. 管理対象のホスト一覧とグループ分けを定義するファイル", "C. 変数の定義", "D. ロールの定義"],
+    "correct": 1,
+    "explanation": "インベントリはINI/YAML形式で管理対象ホスト（IPやホスト名）をグループ（[webservers], [dbservers]等）に分類して定義します。"
+  },
+  {
+    "id": 1084,
+    "question": "Ansibleの「Role（ロール）」の目的は？",
+    "options": ["A. ユーザー権限管理", "B. タスク、ハンドラ、テンプレート、変数等を再利用可能な単位にパッケージ化", "C. ネットワーク設定", "D. 認証管理"],
+    "correct": 1,
+    "explanation": "Roleはtasks/, handlers/, templates/, vars/, files/等のディレクトリ構造でPlaybookを整理・再利用可能にし、Ansible Galaxyで共有できます。"
+  },
+  {
+    "id": 1085,
+    "question": "Ansibleの「べき等性（Idempotency）」とは？",
+    "options": ["A. 1回しか実行できない", "B. 同じPlaybookを何度実行しても結果が同じになる性質", "C. 並列実行", "D. ロールバック"],
+    "correct": 1,
+    "explanation": "Ansibleのモジュールはべき等に設計されており、例えばパッケージインストール済みなら再実行してもスキップし、常に期待する状態に収束します。"
+  },
+  {
+    "id": 1086,
+    "question": "Ansibleの「Handler」の用途は？",
+    "options": ["A. エラー処理", "B. 特定のタスクで変更が発生した時のみ実行されるタスク（サービス再起動等）", "C. 変数の定義", "D. インベントリ管理"],
+    "correct": 1,
+    "explanation": "Handlerはnotifyで呼び出され、タスクが「changed」状態の時のみ実行されます。設定ファイル変更後のサービス再起動等に使用します。"
+  },
+  {
+    "id": 1087,
+    "question": "Ansibleの「Vault」の用途は？",
+    "options": ["A. データベース", "B. パスワードやAPIキー等の機密データをAES暗号化して安全に管理", "C. ログ管理", "D. バックアップ"],
+    "correct": 1,
+    "explanation": "ansible-vaultはPlaybookや変数ファイルをAES256で暗号化し、パスワードやSSHキー等の機密情報をGitリポジトリに安全に保存します。"
+  },
+  {
+    "id": 1088,
+    "question": "Ansibleの「Template（Jinja2）」の用途は？",
+    "options": ["A. HTMLテンプレート", "B. 設定ファイルをJinja2テンプレートで動的に生成してサーバーに配置", "C. ドキュメント生成", "D. テスト作成"],
+    "correct": 1,
+    "explanation": "templateモジュールはJinja2テンプレート（.j2）で変数展開やループ/条件分岐を使い、nginx.conf等の設定ファイルを動的生成します。"
+  },
+  {
+    "id": 1089,
+    "question": "AnsibleとTerraformの使い分けは？",
+    "options": ["A. 同じ用途", "B. Terraformはインフラ構築（プロビジョニング）、Ansibleはソフトウェア設定（コンフィグレーション管理）", "C. AnsibleがIaC", "D. Terraformが構成管理"],
+    "correct": 1,
+    "explanation": "TerraformはクラウドリソースのプロビジョニングのIaCに強く、Ansibleは構築後のOS設定、パッケージ管理等のコンフィギュレーション管理に強みがあります。"
+  },
+  {
+    "id": 1090,
+    "question": "Ansibleの「Ad-hocコマンド」とは？",
+    "options": ["A. Playbookの効果", "B. Playbookを書かずに1つのモジュールを直接実行する一回限りのコマンド", "C. ロールの実行", "D. テンプレートの適用"],
+    "correct": 1,
+    "explanation": "ansible all -m ping や ansible webservers -m shell -a 'uptime' のように、Playbook不要で素早く単一タスクを実行できます。"
+  },
+  {
+    "id": 1091,
+    "question": "モニタリングにおける「可観測性（Observability）」の三本柱は？",
+    "options": ["A. CPU, メモリ, ディスク", "B. メトリクス、ログ、トレース", "C. 可用性, 耐久性, 拡張性", "D. 監視, アラート, 通知"],
+    "correct": 1,
+    "explanation": "可観測性の3本柱は①メトリクス（数値データ：CPU使用率等）②ログ（イベント記録）③トレース（リクエストの追跡）で、システムの状態を把握します。"
+  },
+  {
+    "id": 1092,
+    "question": "SLI, SLO, SLA の違いは？",
+    "options": ["A. すべて同じ", "B. SLI=サービス品質の指標、SLO=内部目標値、SLA=顧客との契約", "C. SLAが指標", "D. SLOが契約"],
+    "correct": 1,
+    "explanation": "SLI（Service Level Indicator）は具体的な計測値。SLO（Objective）は社内目標（例：可用性99.9%）。SLA（Agreement）は顧客との契約で違反時はペナルティ。"
+  },
+  {
+    "id": 1093,
+    "question": "アラートの「オンコール」とは？",
+    "options": ["A. 電話会議", "B. システム障害時に対応するために待機する当番制度", "C. コード検査", "D. デプロイ処理"],
+    "correct": 1,
+    "explanation": "オンコールは交代制でエンジニアが24時間対応可能な状態で待機し、アラート発火時に障害対応する運用体制です。PagerDuty等で通知管理。"
+  },
+  {
+    "id": 1094,
+    "question": "「MTTR」と「MTBF」の意味は？",
+    "options": ["A. 同じ指標", "B. MTTR=平均復旧時間、MTBF=平均故障間隔", "C. MTTRが故障間隔", "D. MTBFが復旧時間"],
+    "correct": 1,
+    "explanation": "MTTR（Mean Time To Recovery）は障害発生から復旧までの平均時間。MTBF（Mean Time Between Failures）は故障と故障の間の稼働時間の平均です。"
+  },
+  {
+    "id": 1095,
+    "question": "モニタリングの「ダッシュボード」の目的は？",
+    "options": ["A. コードレビュー", "B. メトリクスやログを視覚的に表示してシステムの健全性を一目で把握", "C. デプロイ管理", "D. チケット管理"],
+    "correct": 1,
+    "explanation": "ダッシュボードはGrafana等でメトリクスをグラフ化し、CPU/メモリ/レスポンスタイム等のシステム状況をリアルタイムに可視化します。"
+  },
+  {
+    "id": 1096,
+    "question": "Prometheusのデータ収集方式は？",
+    "options": ["A. プッシュ型のみ", "B. プル型（Prometheusが対象のエンドポイントを定期的にスクレイピング）", "C. ストリーミング", "D. バッチ処理"],
+    "correct": 1,
+    "explanation": "Prometheusはプル型の監視で、設定したターゲットの/metricsエンドポイントをHTTPで定期的にスクレイプしてメトリクスを収集します。"
+  },
+  {
+    "id": 1097,
+    "question": "Prometheusの「Exporter」とは？",
+    "options": ["A. データを削除するツール", "B. アプリケーションのメトリクスをPrometheus形式で公開するコンポーネント", "C. アラート送信ツール", "D. ダッシュボードツール"],
+    "correct": 1,
+    "explanation": "Exporterはnode_exporter（OS）、mysqld_exporter（MySQL）等、メトリクスを/metricsエンドポイントでPrometheus形式に変換して公開します。"
+  },
+  {
+    "id": 1098,
+    "question": "Prometheusの「PromQL」とは？",
+    "options": ["A. SQLの一種", "B. Prometheus独自のクエリ言語で、メトリクスデータの検索・集計・分析に使用", "C. プログラミング言語", "D. 設定言語"],
+    "correct": 1,
+    "explanation": "PromQL(Prometheus Query Language)でrate(http_requests_total[5m])のような式を書き、メトリクスのフィルタ、集計、演算が可能です。"
+  },
+  {
+    "id": 1099,
+    "question": "Prometheusの「Alertmanager」の役割は？",
+    "options": ["A. メトリクス収集", "B. Prometheusからのアラートを受け取り、グループ化・抑制・通知先への配信を管理", "C. ダッシュボード表示", "D. ログ収集"],
+    "correct": 1,
+    "explanation": "Alertmanagerはアラートのグルーピング、抑制(inhibition)、サイレンス、Slack/Email/PagerDuty等への通知ルーティングを管理します。"
+  },
+  {
+    "id": 1100,
+    "question": "Prometheusの4つのメトリクスタイプは？",
+    "options": ["A. String, Integer, Float, Boolean", "B. Counter, Gauge, Histogram, Summary", "C. CPU, Memory, Disk, Network", "D. Info, Warning, Error, Critical"],
+    "correct": 1,
+    "explanation": "Counter（単調増加）、Gauge（増減する値）、Histogram（分布・パーセンタイル）、Summary（クライアント側パーセンタイル）の4タイプ。"
+  },
+  {
+    "id": 1101,
+    "question": "Prometheusの「Counter」メトリクスの特徴は？",
+    "options": ["A. 増減する値", "B. 単調増加のみで、リクエスト数やエラー数等の累積値に使用", "C. パーセンタイル計算", "D. テキスト形式"],
+    "correct": 1,
+    "explanation": "Counterは0から始まり増加のみの累積値です。http_requests_total のように使い、rate()で秒間レートを計算します。"
+  },
+  {
+    "id": 1102,
+    "question": "Prometheusの「Gauge」メトリクスの特徴は？",
+    "options": ["A. 単調増加", "B. 増減する現在値で、CPU使用率、メモリ使用量、温度等に使用", "C. 分布データ", "D. 累積データ"],
+    "correct": 1,
+    "explanation": "Gaugeは現在の値を表す指標で、上下に変動します。cpu_usage, memory_bytes_used, active_connections等が典型例。"
+  },
+  {
+    "id": 1103,
+    "question": "Prometheusの「Recording Rules」の用途は？",
+    "options": ["A. アラートの定義", "B. よく使うPromQLクエリの結果を新しいメトリクスとして事前計算・保存し高速化", "C. ログの記録", "D. ダッシュボード定義"],
+    "correct": 1,
+    "explanation": "Recording Rulesは複雑なPromQLを定期的に事前計算して新しい時系列として保存し、ダッシュボードやアラートの応答性能を改善します。"
+  },
+  {
+    "id": 1104,
+    "question": "Prometheusの「Service Discovery」とは？",
+    "options": ["A. 手動設定のみ", "B. 監視対象を動的に発見する機能（Kubernetes, EC2, Consul等から自動取得）", "C. ログの自動分析", "D. アラートの自動設定"],
+    "correct": 1,
+    "explanation": "Service Discoveryは動的環境でスケールするターゲットを自動検出します。kubernetes_sd_configs等で新しいPodを即座に監視対象に追加。"
+  },
+  {
+    "id": 1105,
+    "question": "Prometheusの「Label」の役割は？",
+    "options": ["A. ログの分類", "B. メトリクスにkey=valueペアでメタデータを付加し、フィルタリング・集計に使用", "C. ダッシュボード名", "D. アラート名"],
+    "correct": 1,
+    "explanation": "Labelはhttp_requests_total{method=\"GET\", status=\"200\"}のようにメトリクスを多次元化し、PromQLで{method=~\"GET|POST\"}等のフィルタが可能。"
+  },
+  {
+    "id": 1106,
+    "question": "Grafanaの主な役割は？",
+    "options": ["A. メトリクス収集", "B. 多様なデータソースからデータを取得して可視化するダッシュボードツール", "C. ログ保存", "D. アラート送信専用"],
+    "correct": 1,
+    "explanation": "Grafanaはプロメテウス、Elasticsearch、InfluxDB等のデータソースからメトリクスやログを取得し、リッチなグラフやダッシュボードで可視化します。"
+  },
+  {
+    "id": 1107,
+    "question": "Grafanaの「Data Source」とは？",
+    "options": ["A. グラフの種類", "B. Grafanaが接続するバックエンドのデータ提供元（Prometheus, MySQL, Elasticsearch等）", "C. ダッシュボード名", "D. アラートルール"],
+    "correct": 1,
+    "explanation": "Data SourceはGrafanaがクエリするバックエンドで、Prometheus, Loki, InfluxDB, PostgreSQL等50以上のデータソースをプラグインで対応。"
+  },
+  {
+    "id": 1108,
+    "question": "Grafanaの「Panel」の種類は？",
+    "options": ["A. テキストのみ", "B. Time Series, Stat, Gauge, Table, Bar Chart, Heatmap, Logs 等の多様なビジュアル", "C. 円グラフのみ", "D. 数値のみ"],
+    "correct": 1,
+    "explanation": "GrafanaのPanelはTime Series（折線）、Stat（単一値）、Gauge（メーター）、Table（表）、Heatmap（ヒートマップ）等多彩なビジュアルを提供。"
+  },
+  {
+    "id": 1109,
+    "question": "Grafanaの「Variable」機能の用途は？",
+    "options": ["A. プログラミング変数", "B. ダッシュボード上でドロップダウン等でフィルタ条件を動的に切り替え", "C. 環境変数の設定", "D. アラートの条件"],
+    "correct": 1,
+    "explanation": "VariableはPromQLやSQL結果からドロップダウンを生成し、$instance等のテンプレート変数でパネルのクエリを動的に切り替えます。"
+  },
+  {
+    "id": 1110,
+    "question": "Grafanaの「Alert Rules」の機能は？",
+    "options": ["A. ダッシュボード作成", "B. メトリクスが閾値を超えた際にSlack/Email等で通知するアラートルールの設定", "C. データ収集", "D. ユーザー管理"],
+    "correct": 1,
+    "explanation": "Grafana Alertingはパネルのクエリ結果に条件（例：CPU>90%が5分間）を設定し、Contact Points（Slack, Email等）への通知を管理します。"
+  },
+  {
+    "id": 1111,
+    "question": "DevOpsの「Infrastructure as Code（IaC）」の利点は？",
+    "options": ["A. 手動操作が増える", "B. インフラをコードで管理し、バージョン管理・再現性・自動化を実現", "C. セキュリティが下がる", "D. コストが上がる"],
+    "correct": 1,
+    "explanation": "IaCはインフラ構成をコード化し、Git管理、レビュー、テスト、自動デプロイ、環境の完全な再現が可能になります。"
+  },
+  {
+    "id": 1112,
+    "question": "DevOpsの「Blue-Green Deployment」とは？",
+    "options": ["A. テスト手法", "B. 本番(Blue)と同一構成の環境(Green)にデプロイし切替えることでダウンタイムなしでリリース", "C. ブランチ戦略", "D. コードレビュー方法"],
+    "correct": 1,
+    "explanation": "Blue-GreenはBlue（現本番）とGreen（新バージョン）の2環境を用意し、ロードバランサの切替えで即座にリリース。問題時はBlueに即戻し。"
+  },
+  {
+    "id": 1113,
+    "question": "「カナリアデプロイ」とは？",
+    "options": ["A. 全サーバー同時デプロイ", "B. 新バージョンを一部のサーバー/ユーザーに段階的に展開し問題がないか確認", "C. Blue-Greenと同じ", "D. ロールバック"],
+    "correct": 1,
+    "explanation": "カナリアデプロイは新版を全体の5-10%等に徐々に展開し、メトリクスを監視して問題なければ拡大。問題あれば影響を最小限に抑えてロールバック。"
+  },
+  {
+    "id": 1114,
+    "question": "「ローリングデプロイ」とは？",
+    "options": ["A. 全サーバーを同時に更新", "B. サーバーを順番に1台ずつ（またはバッチで）新バージョンに更新", "C. 2環境切替え", "D. 一部ユーザーのみ"],
+    "correct": 1,
+    "explanation": "ローリングデプロイはサーバーを1台ずつ順次更新し、常に一部のサーバーは稼働中でサービスを維持しながらデプロイします。"
+  },
+  {
+    "id": 1115,
+    "question": "DevOpsの「GitOps」とは？",
+    "options": ["A. Gitの操作方法", "B. Gitリポジトリを唯一の信頼源としインフラ/アプリのデプロイを自動化する運用手法", "C. GitFlowの別名", "D. GitHubの機能"],
+    "correct": 1,
+    "explanation": "GitOpsはGitリポジトリの状態を真実の源として、変更をGitにコミット→自動でKubernetes等に反映（ArgoCD, Flux等）する宣言的な運用手法です。"
+  },
+  {
+    "id": 1116,
+    "question": "DevOpsの「ChatOps」とは？",
+    "options": ["A. チャットアプリ", "B. SlackやTeams等のチャットツールからBotを通じてデプロイや運用操作を実行", "C. コードレビュー", "D. ログ管理"],
+    "correct": 1,
+    "explanation": "ChatOpsはSlack等のチャットで /deploy production 等のコマンドをBotに実行させ、操作の可視化・共有・自動化を実現する運用手法です。"
+  },
+  {
+    "id": 1117,
+    "question": "「12 Factor App」とは何か？",
+    "options": ["A. 12のプログラミング言語", "B. クラウドネイティブアプリケーション開発のための12のベストプラクティス", "C. 12のテスト手法", "D. 12のデザインパターン"],
+    "correct": 1,
+    "explanation": "Herokuが提唱した12の原則（コードベース、依存関係、設定、バックエンドサービス、ビルド・リリース・実行、プロセス等）でクラウド向けアプリを設計。"
+  },
+  {
+    "id": 1118,
+    "question": "DevOpsの「Shift Left」の意味は？",
+    "options": ["A. 左に移動する", "B. テストやセキュリティを開発ライフサイクルの早い段階（左側）で実施する", "C. 左のチームに委任", "D. 過去に戻る"],
+    "correct": 1,
+    "explanation": "Shift Leftはテスト、セキュリティ、品質チェックを開発の初期段階に前倒しし、バグの早期発見・修正コスト削減を目指すDevOpsの原則です。"
+  },
+  {
+    "id": 1119,
+    "question": "「Site Reliability Engineering（SRE）」とDevOpsの関係は？",
+    "options": ["A. 全く異なる概念", "B. SREはDevOpsの原則をGoogleが具体的な実装として体系化したもの", "C. SREはDevOpsの代替", "D. DevOpsがSREの実装"],
+    "correct": 1,
+    "explanation": "SREはGoogleが提唱した運用方法論で、エラーバジェット、SLI/SLO、トイルの自動化等、DevOpsの理念を具体的な実践方法に落とし込んでいます。"
+  },
+  {
+    "id": 1120,
+    "question": "DevOpsの「エラーバジェット」とは？",
+    "options": ["A. エラー修正の予算", "B. SLOに基づく許容されるダウンタイム/エラー量で、残量に応じて新機能リリースの速度を調整", "C. テスト予算", "D. インフラコスト"],
+    "correct": 1,
+    "explanation": "SLO99.9%なら月約43分のダウンタイムが許容（=エラーバジェット）。残量多なら積極リリース、少なければ安定性優先で開発速度と信頼性のバランスを取る。"
+  },
+  {
+    "id": 1121,
+    "question": "「ポストモーテム（Postmortem）」の目的は？",
+    "options": ["A. 犯人探し", "B. 障害発生後に原因、影響、対策を分析し再発防止を図る振り返り（非難なし文化）", "C. コードレビュー", "D. パフォーマンス計測"],
+    "correct": 1,
+    "explanation": "ポストモーテムはBlameless（非難しない）文化で障害の根本原因を分析し、タイムライン、影響範囲、改善アクションを文書化して組織的に学習します。"
+  },
+  {
+    "id": 1122,
+    "question": "ログ管理の「ELKスタック」とは？",
+    "options": ["A. プログラミング言語", "B. Elasticsearch（検索）+ Logstash（収集・加工）+ Kibana（可視化）の組合せ", "C. テストツール", "D. CI/CDツール"],
+    "correct": 1,
+    "explanation": "ELKスタックはLogstashでログ収集・加工→Elasticsearchに保存・インデックス→Kibanaで検索・ダッシュボード表示するログ基盤です。"
+  },
+  {
+    "id": 1123,
+    "question": "「Grafana Loki」の特徴は？",
+    "options": ["A. メトリクス専用", "B. ラベルベースのログ集約で、ログ全文をインデックスせずコスト効率が高い", "C. トレース専用", "D. Elasticsearch代替のSQL DB"],
+    "correct": 1,
+    "explanation": "LokiはPromethousのようにラベルでログをグループ化し、全文インデックスを作らないためストレージコストが低く、Grafanaと統合された軽量ログ基盤です。"
+  },
+  {
+    "id": 1124,
+    "question": "分散トレーシングの「Jaeger」「Zipkin」の用途は？",
+    "options": ["A. ログ収集", "B. マイクロサービス間のリクエストの流れを追跡しボトルネックや障害を特定", "C. メトリクス収集", "D. デプロイ管理"],
+    "correct": 1,
+    "explanation": "分散トレーシングはリクエストIDでマイクロサービスを横断するリクエストの経路と各サービスの処理時間を可視化し、遅延や障害の特定に使います。"
+  },
+  {
+    "id": 1125,
+    "question": "「OpenTelemetry」とは？",
+    "options": ["A. 通信プロトコル", "B. メトリクス、ログ、トレースを統一的に収集するオープンソースの観測基盤標準", "C. テストフレームワーク", "D. デプロイツール"],
+    "correct": 1,
+    "explanation": "OpenTelemetryはCNCFの標準で、アプリケーションからメトリクス/ログ/トレースをベンダー中立的に計装・収集し、各バックエンドに送信します。"
+  },
+  {
+    "id": 1126,
+    "question": "Grafana Tempoの用途は？",
+    "options": ["A. メトリクス専用", "B. 大規模な分散トレースデータを低コストで保存・検索するバックエンド", "C. ログ専用", "D. アラート専用"],
+    "correct": 1,
+    "explanation": "TempoはGrafana Labsのトレースバックエンドで、TraceIDによる検索に特化し全インデックスを作らないためオブジェクトストレージで低コスト運用が可能。"
+  },
+  {
+    "id": 1127,
+    "question": "「Feature Flag（機能フラグ）」の用途は？",
+    "options": ["A. バグ修正", "B. コードデプロイとは別に機能のON/OFFを設定で切り替え、段階的リリースやA/Bテストを実現", "C. コンパイラ設定", "D. ブランチ戦略"],
+    "correct": 1,
+    "explanation": "Feature Flagは新機能をコードに含めつつ設定で無効/有効を切替え、カナリアリリース、A/Bテスト、即座のロールバックを可能にします（LaunchDarkly等）。"
+  },
+  {
+    "id": 1128,
+    "question": "「Chaos Engineering（カオスエンジニアリング）」とは？",
+    "options": ["A. バグの意図的な作り込み", "B. 本番に意図的に障害を注入してシステムの回復力を検証する手法", "C. セキュリティテスト", "D. 負荷テスト"],
+    "correct": 1,
+    "explanation": "Chaos Engineeringはサーバー停止やネットワーク遅延等の障害を意図的に発生させ、システムの耐障害性を事前検証します。Netflix Chaos Monkeyが有名。"
+  },
+  {
+    "id": 1129,
+    "question": "DevOpsの「Toil（トイル）」とは？",
+    "options": ["A. 自動化ツール", "B. 人が手動で行う反復的・自動化可能な運用作業（SREで削減対象）", "C. プログラミング言語", "D. テスト方法"],
+    "correct": 1,
+    "explanation": "トイルは手動、反復的、自動化可能、サービスの成長に比例して増加する運用作業で、SREではトイルを50%以下に抑えエンジニアリングに時間を使います。"
+  },
+  {
+    "id": 1130,
+    "question": "「セマンティックバージョニング（SemVer）」のルールは？",
+    "options": ["A. 任意の番号付け", "B. MAJOR.MINOR.PATCH の3桁で、それぞれ互換性破壊/機能追加/バグ修正を示す", "C. 日付ベース", "D. アルファベット順"],
+    "correct": 1,
+    "explanation": "SemVer (2.0.0) はMAJOR（破壊的変更）.MINOR（後方互換の機能追加）.PATCH（後方互換のバグ修正）。例：1.0.0→1.1.0→1.1.1→2.0.0。"
+  }
+]
