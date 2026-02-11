@@ -18,7 +18,6 @@ TIMEZONE = os.getenv('TIMEZONE', 'Asia/Tokyo')
 
 # Intentsの設定
 intents = discord.Intents.default()
-intents.message_content = True
 
 bot = commands.Bot(command_prefix='!', intents=intents)
 
@@ -41,11 +40,18 @@ class QuizView(View):
         self.correct_answer = correct_answer
         self.answered_users = set()
         
-        # 各選択肢のボタンを作成
-        for i, option in enumerate(quiz['options']):
+        # 各選択肢のボタンを作成（A, B, C, Dのラベル）
+        labels = ['A', 'B', 'C', 'D']
+        colors = [
+            discord.ButtonStyle.primary,    # 青
+            discord.ButtonStyle.success,    # 緑
+            discord.ButtonStyle.secondary,  # グレー
+            discord.ButtonStyle.danger      # 赤
+        ]
+        for i in range(len(quiz['options'])):
             button = Button(
-                label=option,
-                style=discord.ButtonStyle.primary,
+                label=labels[i],
+                style=colors[i],
                 custom_id=f"quiz_{quiz['id']}_{i}"
             )
             button.callback = self.create_callback(i)
@@ -93,14 +99,29 @@ async def post_quiz():
     now = datetime.now(tz)
     time_emoji = "🌅" if now.hour == 7 else "☀️" if now.hour == 12 else "🌙"
     
+    # 選択肢を整形（空行で区切る）
+    options_text = "\n\n".join([f"**{option}**" for option in quiz['options']])
+    
     # Embedメッセージを作成
     embed = discord.Embed(
-        title=f"{time_emoji} 本日のITクイズ",
-        description=f"**問題:**\n{quiz['question']}",
-        color=discord.Color.blue(),
+        title=f"{time_emoji} 本日のITクイズ #{quiz['id']}",
+        color=0x5865F2,  # Discord Blurple
         timestamp=now
     )
-    embed.set_footer(text="正解と解説は選択後に表示されます")
+    embed.add_field(
+        name="📝 問題",
+        value=f"{quiz['question']}\n",
+        inline=False
+    )
+    embed.add_field(
+        name="💡 選択肢",
+        value=options_text,
+        inline=False
+    )
+    embed.set_footer(
+        text="ボタンをクリックして回答してください • 正解と解説は選択後に表示されます",
+        icon_url="https://cdn.discordapp.com/emojis/1234567890.png"  # Optional
+    )
     
     # Viewを作成してメッセージを送信
     view = QuizView(quiz, quiz['correct'])
@@ -141,6 +162,9 @@ async def on_ready():
     print(f'Bot ID: {bot.user.id}')
     print(f'チャンネルID: {CHANNEL_ID}')
     print('------')
+    
+    # 起動時に1回クイズを投稿
+    await post_quiz()
     
     # スケジューラーを開始
     if not scheduled_quiz.is_running():
