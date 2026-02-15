@@ -1,1202 +1,1302 @@
 [
   {
-    "id": 931,
-    "question": "HTMLの正式名称は？",
+    "id": 531,
+    "category": "HTML",
+    "question": "HTMLのセマンティック要素を使用する最も重要な理由はどれか？",
     "options": [
-      "A. Hyper Text Makeup Language",
-      "B. HyperText Markup Language",
-      "C. High Tech Modern Language",
-      "D. Hyper Tool Multi Language"
+      "A: ページの読み込み速度が向上する",
+      "B: アクセシビリティ向上とSEO最適化、コードの意味的な明確化",
+      "C: CSSの記述量が減る",
+      "D: JavaScriptが不要になる"
     ],
     "correct": 1,
-    "explanation": "HTMLはHyperText Markup Languageの略で、Webページの構造をマークアップ（タグ付け）する言語です。"
+    "explanation": "セマンティック要素（header, nav, main, article等）はコンテンツの意味を明確にし、スクリーンリーダー等の支援技術や検索エンジンがコンテンツを正しく理解できるようにします。"
   },
   {
-    "id": 932,
-    "question": "HTMLのセマンティックタグの利点は？",
+    "id": 532,
+    "category": "HTML",
+    "question": "HTML5のWeb Components技術に含まれないものはどれか？",
     "options": [
-      "A. 見た目の装飾",
-      "B. 文書構造に意味を与え、アクセシビリティとSEOを向上",
-      "C. JavaScriptの実行",
-      "D. 通信速度の向上"
+      "A: Custom Elements",
+      "B: Shadow DOM",
+      "C: HTML Templates",
+      "D: Service Workers"
     ],
-    "correct": 1,
-    "explanation": "header, nav, main, article, section, footer等のセマンティックタグは内容の意味を明示し、スクリーンリーダーや検索エンジンに情報を提供します。"
+    "correct": 3,
+    "explanation": "Web Componentsは「Custom Elements」「Shadow DOM」「HTML Templates」の3つの技術で構成されます。Service WorkersはPWA関連の技術で、Web Componentsには含まれません。"
   },
   {
-    "id": 933,
-    "question": "HTMLの<meta charset=\"UTF-8\">の役割は？",
+    "id": 533,
+    "category": "HTML",
+    "question": "Shadow DOMの主な機能はどれか？",
     "options": [
-      "A. 見た目の指定",
-      "B. ページの文字エンコーディングをUTF-8に指定し文字化けを防止",
-      "C. CSSの読み込み",
-      "D. JavaScriptの実行"
+      "A: サーバーサイドレンダリングを可能にする",
+      "B: DOMとCSSのスコープをカプセル化し、外部のスタイルや選択から分離する",
+      "C: JavaScriptの実行速度を向上させる",
+      "D: HTTPリクエストを削減する"
     ],
     "correct": 1,
-    "explanation": "meta charsetはブラウザにHTMLの文字コードを伝えます。UTF-8は日本語を含む多言語対応の国際標準エンコーディングです。"
+    "explanation": "Shadow DOMはコンポーネントのDOMツリーとCSSをメインドキュメントのDOMから分離し、スタイルの漏洩や衝突を防ぎます。カプセル化されたコンポーネントの構築に使用されます。"
   },
   {
-    "id": 934,
-    "question": "HTMLのブロック要素とインライン要素の違いは？",
+    "id": 534,
+    "category": "HTML",
+    "question": "Content Security Policy（CSP）ヘッダーの目的はどれか？",
     "options": [
-      "A. 同じ",
-      "B. ブロック要素は幅全体を占め改行する、インライン要素は内容分だけの幅で改行しない",
-      "C. インラインが幅全体",
-      "D. ブロックは改行しない"
+      "A: ページのキャッシュを制御する",
+      "B: 画像の遅延読み込みを設定する",
+      "C: ページのエンコーディングを指定する",
+      "D: 許可されたコンテンツソースを制限し、XSS等のインジェクション攻撃を防ぐ"
     ],
-    "correct": 1,
-    "explanation": "div, p, h1等のブロック要素は前後に改行が入り幅いっぱい。span, a, strong等のインライン要素は内容分の幅で横に並びます。"
+    "correct": 3,
+    "explanation": "CSPはスクリプト、スタイル、画像等のリソースの読み込み元を制限するHTTPヘッダーです。インラインスクリプトやeval()の実行を禁止でき、XSS攻撃の影響を大幅に軽減します。"
   },
   {
-    "id": 935,
-    "question": "HTMLのDOM（Document Object Model）とは？",
+    "id": 535,
+    "category": "HTML",
+    "question": "HTMLのaria-*属性の目的はどれか？",
     "options": [
-      "A. CSSの一部",
-      "B. HTML文書をツリー構造のオブジェクトとして表現し、JSから動的に操作可能にするAPI",
-      "C. サーバーのモデル",
-      "D. データベースモデル"
+      "A: CSSスタイリングのフック",
+      "B: JavaScript APIへのアクセス",
+      "C: 支援技術に追加のセマンティクス情報を提供し、アクセシビリティを向上させる",
+      "D: SEOスコアの向上"
     ],
-    "correct": 1,
-    "explanation": "DOMはHTMLをノードのツリー構造で表現し、JavaScriptからdocument.getElementById()等で要素の追加・変更・削除が可能です。"
+    "correct": 2,
+    "explanation": "ARIA（Accessible Rich Internet Applications）属性はスクリーンリーダー等の支援技術に対して、動的コンテンツやカスタムウィジェットの役割、状態、プロパティを伝達します。"
   },
   {
-    "id": 936,
-    "question": "HTMLの<form>タグのmethod属性「GET」と「POST」の違いは？",
+    "id": 536,
+    "category": "HTML",
+    "question": "HTML5のdata-*属性の正しい使い方はどれか？",
     "options": [
-      "A. 同じ動作",
-      "B. GETはURLにパラメータ付加（長さ制限あり）、POSTはボディに格納（機密データ向き）",
-      "C. POSTの方が高速",
-      "D. GETの方が安全"
+      "A: カスタムデータをHTML要素に埋め込み、JavaScriptからdataset APIでアクセスする",
+      "B: データベースとの接続情報を保存する",
+      "C: CSSアニメーションのパラメータを設定する",
+      "D: サーバーサイドの設定値を保持する"
     ],
-    "correct": 1,
-    "explanation": "GETはデータをURLクエリパラメータで送信し検索等に適用。POSTはHTTPボディで送信しパスワード等の機密データに適しています。"
+    "correct": 0,
+    "explanation": "data-*属性はHTML要素にカスタムデータを埋め込むための標準的な方法で、element.dataset.* でJavaScriptからアクセスできます。CSSからもattr()や属性セレクタで参照可能です。"
   },
   {
-    "id": 937,
-    "question": "HTMLのdata-*属性の用途は？",
+    "id": 537,
+    "category": "HTML",
+    "question": "HTML5のIntersection Observer APIの用途はどれか？",
     "options": [
-      "A. CSS専用",
-      "B. カスタムデータをHTML要素に付与し、JavaScriptからdatasetで読取り可能",
-      "C. SEO用",
-      "D. サーバー通信用"
+      "A: フォームのバリデーション",
+      "B: オーディオの再生制御",
+      "C: 要素がビューポートや親要素との交差を非同期に監視する（遅延読み込み等）",
+      "D: WebSocket通信の管理"
     ],
-    "correct": 1,
-    "explanation": "data-user-id=\"123\"等のカスタム属性はHTMLの仕様に準拠してデータを埋め込み、JS側でelement.dataset.userIdとして参照できます。"
+    "correct": 2,
+    "explanation": "Intersection Observerは要素がビューポートに入る/出るタイミングを効率的に検出します。画像の遅延読み込み、無限スクロール、広告表示トラッキング等に使用されます。"
   },
   {
-    "id": 938,
-    "question": "CSSのボックスモデルの構成要素は？",
+    "id": 538,
+    "category": "HTML",
+    "question": "HTMLのpreload、prefetch、preconnectの違いとして正しいものはどれか？",
     "options": [
-      "A. width, height のみ",
-      "B. content, padding, border, margin の4層",
-      "C. content, margin のみ",
-      "D. padding, border のみ"
+      "A: すべて同じ動作をする",
+      "B: preloadは現在のページで必要なリソースを優先取得、prefetchは将来のナビゲーション用、preconnectは事前にTCP/TLS接続を確立",
+      "C: prefetchが最も優先度が高い",
+      "D: preconnectはリソースのダウンロードを行う"
     ],
     "correct": 1,
-    "explanation": "CSSのボックスモデルは内側からcontent（内容）→padding（内余白）→border（枠線）→margin（外余白）の4層で構成されます。"
+    "explanation": "preloadは現在のページで確実に使うリソースを高優先度で取得、prefetchは次のページで使う可能性のあるリソースをアイドル時に取得、preconnectはオリジンとの接続を事前確立します。"
   },
   {
-    "id": 939,
-    "question": "CSSの「box-sizing: border-box」の効果は？",
+    "id": 539,
+    "category": "CSS",
+    "question": "CSSのSpecificity（詳細度）の計算で、最も優先度が高いものはどれか？",
     "options": [
-      "A. marginを含めた計算",
-      "B. widthとheightにpaddingとborderを含めて計算する",
-      "C. contentのみの計算",
-      "D. borderを無視"
+      "A: クラスセレクタ（.class）",
+      "B: 要素セレクタ（div）",
+      "C: inline style属性",
+      "D: IDセレクタ（#id）"
     ],
-    "correct": 1,
-    "explanation": "border-boxはwidth/heightの指定値にpaddingとborderを含むため、レイアウト計算が直感的になります。デフォルトのcontent-boxは含みません。"
+    "correct": 2,
+    "explanation": "CSSの詳細度は高い順に：!important > inline style > IDセレクタ > クラス/属性/擬似クラスセレクタ > 要素/擬似要素セレクタ。inline styleは(1,0,0,0)で通常のセレクタより高い詳細度を持ちます。"
   },
   {
-    "id": 940,
-    "question": "CSSのFlexboxの主な用途は？",
+    "id": 540,
+    "category": "CSS",
+    "question": "CSS Grid Layoutの特徴として正しいものはどれか？",
     "options": [
-      "A. 3Dレイアウト",
-      "B. 1次元（行または列）での要素の配置・整列・間隔調整",
-      "C. 印刷レイアウト",
-      "D. アニメーション"
+      "A: 1次元レイアウトのみ対応",
+      "B: フロートベースのレイアウトシステム",
+      "C: 2次元（行と列の両方）のレイアウトを同時に制御できる",
+      "D: JavaScriptが必須"
     ],
-    "correct": 1,
-    "explanation": "Flexboxはdisplay: flexで1方向（行/列）の要素配置を柔軟に制御します。justify-content, align-items等で整列を指定。"
+    "correct": 2,
+    "explanation": "CSS Gridは行と列の2次元レイアウトを同時に制御でき、grid-template-rows/columnsでグリッド構造を定義します。Flexboxは主に1次元レイアウトに適しています。"
   },
   {
-    "id": 941,
-    "question": "CSS Gridの主な用途は？",
+    "id": 541,
+    "category": "CSS",
+    "question": "CSSのcontainプロパティの目的はどれか？",
     "options": [
-      "A. テキスト装飾",
-      "B. 2次元（行と列の両方）のグリッドベースのレイアウト",
-      "C. アニメーション",
-      "D. フォントの設定"
+      "A: 要素のレンダリングを分離し、ブラウザの再計算範囲を限定してパフォーマンスを向上させる",
+      "B: 要素内のテキストを省略表示する",
+      "C: 要素をフレックスコンテナにする",
+      "D: 要素のオーバーフローを制御する"
     ],
-    "correct": 1,
-    "explanation": "CSS Gridはdisplay: gridで行と列の2次元レイアウトを定義し、grid-template-columns/rowsで複雑なレイアウトを効率的に構築します。"
+    "correct": 0,
+    "explanation": "containプロパティは要素のレンダリングを分離（containment）し、その要素の変更が他に影響しないことをブラウザに伝えて、レイアウト・ペイント計算の範囲を限定します。"
   },
   {
-    "id": 942,
-    "question": "CSSのメディアクエリ（@media）の用途は？",
+    "id": 542,
+    "category": "CSS",
+    "question": "CSSのCustom Properties（CSS変数）とSass変数の違いはどれか？",
     "options": [
-      "A. JavaScriptの実行",
-      "B. 画面サイズや条件に応じて異なるスタイルを適用（レスポンシブデザイン）",
-      "C. データベース接続",
-      "D. サーバー通信"
+      "A: 両者に違いはない",
+      "B: CSS変数はコンパイルが必要だがSass変数は不要",
+      "C: CSS変数はランタイムで動的に変更可能だが、Sass変数はコンパイル時に静的に解決される",
+      "D: Sass変数はブラウザがネイティブにサポートする"
     ],
-    "correct": 1,
-    "explanation": "@media (max-width: 768px) { ... } のように画面幅等に応じてCSSを切り替え、モバイル・タブレット・PC各画面に対応します。"
+    "correct": 2,
+    "explanation": "CSS Custom Properties（--var: value）はブラウザのランタイムで評価され、JavaScriptで動的に変更可能です。Sass変数はコンパイル時に値が展開され、出力CSSには変数として残りません。"
   },
   {
-    "id": 943,
-    "question": "CSSの「position: relative」と「position: absolute」の違いは？",
+    "id": 543,
+    "category": "CSS",
+    "question": "CSSのcritical rendering path（クリティカルレンダリングパス）最適化として正しいものはどれか？",
     "options": [
-      "A. 同じ動作",
-      "B. relativeは元の位置を基準に移動、absoluteは最も近いposition付き親を基準に配置",
-      "C. absoluteは元の位置基準",
-      "D. relativeは親を基準"
+      "A: すべてのCSSを1つの巨大なファイルにまとめる",
+      "B: クリティカルCSSをインライン化し、非クリティカルCSSの読み込みを遅延させる",
+      "C: CSSを完全にJavaScriptに置き換える",
+      "D: すべてのCSSにasync属性を付与する"
     ],
     "correct": 1,
-    "explanation": "relativeは通常フローの位置からオフセット。absoluteは通常フローから外れ、positionが指定された最も近い祖先要素を基準に配置されます。"
+    "explanation": "ファーストビューに必要なクリティカルCSSを<style>タグでインライン化し、残りのCSSをmedia属性やpreloadで非同期に読み込むことで、初期レンダリング速度を向上させます。"
   },
   {
-    "id": 944,
-    "question": "CSSのz-indexの用途は？",
+    "id": 544,
+    "category": "CSS",
+    "question": "CSSのBEM命名規則におけるBlock__Element--Modifierの構造で正しい例はどれか？",
     "options": [
-      "A. 文字サイズ",
-      "B. 要素の重なり順（前後関係）を制御する",
-      "C. 透明度",
-      "D. 回転角度"
+      "A: .card-title-highlighted",
+      "B: .card__title--highlighted",
+      "C: .card.title.highlighted",
+      "D: .card_title_highlighted"
     ],
     "correct": 1,
-    "explanation": "z-indexはpositionが設定された要素の重なり順を制御します。値が大きいほど前面に表示されます。スタッキングコンテキストに注意。"
+    "explanation": "BEMはBlock__Element--Modifierの形式です。card（ブロック）、__title（エレメント）、--highlighted（モディファイア）のように、コンポーネントの構造と状態を命名で表現します。"
   },
   {
-    "id": 945,
-    "question": "CSSの詳細度（Specificity）の優先順は？",
+    "id": 545,
+    "category": "CSS",
+    "question": "CSS Houdiniの目的はどれか？",
     "options": [
-      "A. 要素 > クラス > ID",
-      "B. !important > インライン > ID > クラス/属性/擬似クラス > 要素/擬似要素",
-      "C. クラス > ID > 要素",
-      "D. アルファベット順"
+      "A: CSSのバグを修正する",
+      "B: ブラウザのレンダリングエンジンの低レベルAPIを公開し、CSSの拡張をJavaScriptで可能にする",
+      "C: CSSプリプロセッサを置き換える",
+      "D: CSSをコンパイル言語にする"
     ],
     "correct": 1,
-    "explanation": "CSSの優先度は !important → inline style → #id (0,1,0,0) → .class (0,0,1,0) → element (0,0,0,1) の順で高い方が適用されます。"
+    "explanation": "CSS Houdiniはブラウザのレンダリングパイプラインの各段階（パース、レイアウト、ペイント等）にJavaScriptでフックし、カスタムレイアウトやペイントを実装できるAPI群です。"
   },
   {
-    "id": 946,
-    "question": "CSSの「:hover」擬似クラスの用途は？",
+    "id": 546,
+    "category": "CSS",
+    "question": "CSSのレイヤーカスケード（@layer）の目的はどれか？",
     "options": [
-      "A. ページ読込時に適用",
-      "B. マウスカーソルが要素上にある時にスタイルを適用",
-      "C. クリック時に適用",
-      "D. フォーカス時に適用"
+      "A: Z-indexの管理",
+      "B: アニメーションのレイヤー制御",
+      "C: カスケードの優先順位を明示的にレイヤーとして定義し、詳細度の問題を管理しやすくする",
+      "D: 画像の重ね合わせ"
     ],
-    "correct": 1,
-    "explanation": ":hoverはマウスポインタが要素上にある状態で適用されるインタラクティブなスタイルで、ボタンの色変化等に使います。"
+    "correct": 2,
+    "explanation": "@layerはカスケードレイヤーを定義し、異なるオリジンのスタイル（リセット、ベース、コンポーネント等）の優先順位を詳細度に依存せず明示的に管理できます。"
   },
   {
-    "id": 947,
-    "question": "CSS変数（カスタムプロパティ）の定義方法は？",
+    "id": 547,
+    "category": "REST API",
+    "question": "RESTfulなAPIにおけるHTTPメソッドの冪等性（Idempotency）について正しいものはどれか？",
     "options": [
-      "A. $color: red;",
-      "B. --primary-color: #333; で定義し var(--primary-color) で使用",
-      "C. @color: red;",
-      "D. color = red;"
+      "A: POSTは冪等である",
+      "B: GETとDELETEは冪等だがPUTは冪等でない",
+      "C: GET、PUT、DELETEは冪等であり、POSTは冪等でない",
+      "D: すべてのHTTPメソッドは冪等である"
     ],
-    "correct": 1,
-    "explanation": "CSS変数は--で始まる名前で定義し、var()で参照します。:rootに定義すればグローバルに使え、テーマ管理に便利です。"
+    "correct": 2,
+    "explanation": "冪等性は同じリクエストを複数回実行しても結果が同じであることです。GET、PUT、DELETE、HEADは冪等ですが、POSTは毎回新しいリソースを作成するため冪等ではありません。"
   },
   {
-    "id": 948,
-    "question": "CSSのtransitionの用途は？",
+    "id": 548,
+    "category": "REST API",
+    "question": "HATEOAS（Hypermedia as the Engine of Application State）の概念はどれか？",
     "options": [
-      "A. レイアウト変更",
-      "B. プロパティの値の変化を滑らかにアニメーションさせる",
-      "C. フォントの変更",
-      "D. 要素の削除"
+      "A: APIのバージョニング方式",
+      "B: レスポンスにハイパーメディアリンクを含め、クライアントが次に取りうるアクションを動的に発見できる",
+      "C: APIの認証方式",
+      "D: データのキャッシュ戦略"
     ],
     "correct": 1,
-    "explanation": "transitionはhover等でプロパティが変わる際に、指定した時間をかけて滑らかに変化させます。例：transition: background-color 0.3s ease;"
+    "explanation": "HATEOASはREST成熟度モデルの最高レベルで、レスポンスに関連リソースへのリンクを含めることで、クライアントがAPIの構造を事前に知らなくても動的にナビゲーションできます。"
   },
   {
-    "id": 949,
-    "question": "REST APIの「REST」の意味は？",
+    "id": 549,
+    "category": "REST API",
+    "question": "REST APIのステータスコード429の意味はどれか？",
     "options": [
-      "A. Remote Execution Server Technology",
-      "B. Representational State Transfer",
-      "C. Request-Response Service Technology",
-      "D. Rapid Endpoint Service Tool"
+      "A: リソースが見つからない",
+      "B: サーバー内部エラー",
+      "C: 認証が必要",
+      "D: レート制限超過（Too Many Requests）"
     ],
-    "correct": 1,
-    "explanation": "RESTはRepresentational State Transferの略で、HTTPメソッドとURLでリソースを操作するアーキテクチャスタイルです。"
+    "correct": 3,
+    "explanation": "HTTP 429はクライアントが一定時間内に許可されたリクエスト数を超えた場合に返されます。Retry-Afterヘッダーで再試行までの待機時間を示すことが推奨されます。"
   },
   {
-    "id": 950,
-    "question": "RESTのHTTPメソッド「GET」「POST」「PUT」「DELETE」の対応は？",
+    "id": 550,
+    "category": "REST API",
+    "question": "REST APIのバージョニング方法として最も一般的なものはどれか？",
     "options": [
-      "A. すべて同じ操作",
-      "B. GET=取得、POST=作成、PUT=更新、DELETE=削除（CRUD操作に対応）",
-      "C. GET=作成、POST=取得",
-      "D. PUT=削除、DELETE=更新"
+      "A: URIパス（/api/v1/users）、クエリパラメータ、カスタムヘッダー、Acceptヘッダー",
+      "B: バージョニングは不要",
+      "C: ファイル名にバージョンを含める",
+      "D: データベースのスキーマバージョンを返す"
     ],
-    "correct": 1,
-    "explanation": "RESTではHTTPメソッドがCRUD操作に対応: GET(Read), POST(Create), PUT(Update), DELETE(Delete)。"
+    "correct": 0,
+    "explanation": "URIパス方式（/api/v1/）が最も直感的で広く使用されています。他にクエリパラメータ（?v=1）、カスタムヘッダー（X-API-Version）、コンテントネゴシエーション（Accept）方式があります。"
   },
   {
-    "id": 951,
-    "question": "RESTful APIで「ステートレス」とは？",
+    "id": 551,
+    "category": "REST API",
+    "question": "REST APIにおけるリソースのページネーション方式で、大規模データに最適なものはどれか？",
     "options": [
-      "A. サーバーが状態を保持",
-      "B. 各リクエストが必要な情報を全て含み、サーバーはクライアントの状態を保持しない",
-      "C. クライアントが状態を保持しない",
-      "D. セッションを使用する"
+      "A: オフセットベース（?page=1&limit=20）",
+      "B: ランダムアクセス",
+      "C: 全件一括取得",
+      "D: カーソルベース（?cursor=abc123&limit=20）"
     ],
-    "correct": 1,
-    "explanation": "RESTのステートレス制約はサーバーがリクエスト間のクライアント状態を保持せず、各リクエストが完結していることを要求します。"
+    "correct": 3,
+    "explanation": "カーソルベースのページネーションは最後に取得したレコードのIDやタイムスタンプをカーソルとして次のページを取得します。オフセット方式と異なりデータ挿入時のズレがなく、大規模データに適しています。"
   },
   {
-    "id": 952,
-    "question": "HTTPステータスコード「200」の意味は？",
+    "id": 552,
+    "category": "REST API",
+    "question": "REST APIの設計原則として正しいものはどれか？",
     "options": [
-      "A. リダイレクト",
-      "B. OK（リクエスト成功）",
-      "C. Not Found",
-      "D. Server Error"
+      "A: エンドポイントには動詞を使う（例: /getUsers）",
+      "B: すべてのレスポンスは200を返す",
+      "C: 1つのエンドポイントですべての操作を処理する",
+      "D: エンドポイントには名詞を使用し、HTTPメソッドで操作を表現する"
     ],
-    "correct": 1,
-    "explanation": "200 OKはリクエストが正常に処理され、レスポンスボディに結果が含まれることを示す最も一般的な成功ステータスです。"
+    "correct": 3,
+    "explanation": "RESTfulなAPI設計ではリソースを名詞で表現し（/users）、操作はHTTPメソッド（GET, POST, PUT, DELETE）で表現します。これにより直感的で標準的なAPIになります。"
   },
   {
-    "id": 953,
-    "question": "HTTPステータスコード「201」の意味は？",
+    "id": 553,
+    "category": "REST API",
+    "question": "ETag HTTPヘッダーの用途はどれか？",
     "options": [
-      "A. OK",
-      "B. Created（リソースの作成成功）",
-      "C. No Content",
-      "D. Bad Request"
+      "A: 認証トークンの保存",
+      "B: リクエストのルーティング",
+      "C: リソースの特定バージョンを識別し、条件付きリクエストによるキャッシュ制御を行う",
+      "D: クロスオリジンの制御"
     ],
-    "correct": 1,
-    "explanation": "201 CreatedはPOSTリクエスト等で新しいリソースが正常に作成されたことを示します。Locationヘッダに新リソースのURLを含むことが多い。"
+    "correct": 2,
+    "explanation": "ETagはリソースの現在のバージョンを表すハッシュ値で、If-None-Matchヘッダーと組み合わせて条件付きリクエストを行います。変更がなければ304 Not Modifiedを返し帯域を節約します。"
   },
   {
-    "id": 954,
-    "question": "HTTPステータスコード「404」の意味は？",
+    "id": 554,
+    "category": "REST API",
+    "question": "REST APIのContent Negotiation（コンテンツネゴシエーション）の仕組みはどれか？",
     "options": [
-      "A. サーバーエラー",
-      "B. Not Found（リソースが見つからない）",
-      "C. 認証エラー",
-      "D. OK"
+      "A: クライアントがAcceptヘッダーで希望するレスポンス形式を指定し、サーバーが適切な形式で応答する",
+      "B: サーバーが常にJSON形式で応答する",
+      "C: URLの拡張子で形式を決定する",
+      "D: クライアントが形式を決定する権限を持たない"
     ],
-    "correct": 1,
-    "explanation": "404 Not Foundは指定されたURLのリソースがサーバー上に存在しないことを示すクライアントエラーです。"
+    "correct": 0,
+    "explanation": "コンテンツネゴシエーションはクライアントがAcceptヘッダー（例: application/json, application/xml）で希望する表現形式を指定し、サーバーが対応可能な形式で応答する仕組みです。"
   },
   {
-    "id": 955,
-    "question": "HTTPステータスコード「401」と「403」の違いは？",
+    "id": 555,
+    "category": "GraphQL",
+    "question": "GraphQLの最大の利点はどれか？",
     "options": [
-      "A. 同じ意味",
-      "B. 401は認証未済（ログインが必要）、403は認証済みだが権限不足（アクセス禁止）",
-      "C. 401が権限不足",
-      "D. 403が認証未済"
+      "A: サーバーの負荷が常にRESTより低い",
+      "B: クライアントが必要なデータの構造を正確に指定でき、Over-fetchingとUnder-fetchingを解消する",
+      "C: キャッシュがRESTより容易",
+      "D: リアルタイム通信のみに特化"
     ],
     "correct": 1,
-    "explanation": "401 Unauthorized は認証情報が未提供/無効。403 Forbidden は認証済みですが、そのリソースへのアクセス権限がありません。"
+    "explanation": "GraphQLではクライアントがクエリで必要なフィールドを正確に指定するため、不要なデータの取得（Over-fetching）や追加リクエスト（Under-fetching）が発生しません。"
   },
   {
-    "id": 956,
-    "question": "HTTPステータスコード「500」の意味は？",
+    "id": 556,
+    "category": "GraphQL",
+    "question": "GraphQLのSubscriptionの用途は何か？",
     "options": [
-      "A. クライアントエラー",
-      "B. Internal Server Error（サーバー内部エラー）",
-      "C. リダイレクト",
-      "D. 成功"
+      "A: データの一括取得",
+      "B: スキーマの定義",
+      "C: サーバーからクライアントへのリアルタイムデータ配信（WebSocket経由）",
+      "D: 認証と認可"
     ],
-    "correct": 1,
-    "explanation": "500 Internal Server Errorはサーバー側で予期しないエラーが発生したことを示す汎用サーバーエラーです。"
+    "correct": 2,
+    "explanation": "SubscriptionはGraphQLのリアルタイム機能で、サーバーサイドのイベントをWebSocket接続を通じてクライアントにプッシュ配信します。チャットやライブ更新に使用されます。"
   },
   {
-    "id": 957,
-    "question": "RESTful APIのURLパス設計のベストプラクティスは？",
+    "id": 557,
+    "category": "GraphQL",
+    "question": "GraphQLのN+1問題の解決策として最も適切なものはどれか？",
     "options": [
-      "A. 動詞を使う",
-      "B. リソースを複数形名詞で表す（/api/users, /api/users/123）",
-      "C. アクションをURLに含める",
-      "D. パラメータをパスに含めない"
+      "A: クエリの深さを制限する",
+      "B: キャッシュを使用する",
+      "C: DataLoader等のバッチ処理ライブラリで、複数のリクエストを1回のクエリにまとめる",
+      "D: すべてのデータを事前にロードする"
     ],
-    "correct": 1,
-    "explanation": "RESTful URLはリソースを名詞（複数形）で表現し、HTTPメソッドでアクションを示します。/api/users (GET=一覧, POST=作成) /api/users/123 (GET=詳細)."
+    "correct": 2,
+    "explanation": "DataLoaderはバッチ処理とキャッシュにより、リゾルバの複数回の個別データ取得を1回のバッチクエリにまとめてN+1問題を解決します。Facebookが開発した標準的なソリューションです。"
   },
   {
-    "id": 958,
-    "question": "GraphQLとREST APIの主な違いは？",
+    "id": 558,
+    "category": "GraphQL",
+    "question": "GraphQLのフラグメント（Fragment）の用途はどれか？",
     "options": [
-      "A. 同じもの",
-      "B. GraphQLはクライアントが必要なデータの形を指定し、1つのエンドポイントで取得",
-      "C. RESTの方が柔軟",
-      "D. GraphQLはサーバー側が形を決定"
+      "A: ミューテーションの定義",
+      "B: エラーハンドリング",
+      "C: スキーマの結合",
+      "D: 再利用可能なフィールドセットを定義し、クエリの重複を排除する"
     ],
-    "correct": 1,
-    "explanation": "GraphQLはクライアントがクエリで必要なフィールドを指定するため、オーバーフェッチ/アンダーフェッチを防ぎ、単一エンドポイント(/graphql)で操作します。"
+    "correct": 3,
+    "explanation": "フラグメントは特定の型に対するフィールドの集合を名前付きで定義し、複数のクエリやミューテーションで再利用できます。コードの重複を排除し、保守性を向上させます。"
   },
   {
-    "id": 959,
-    "question": "GraphQLの3つの操作タイプは？",
+    "id": 559,
+    "category": "JWT",
+    "question": "JWTの構造として正しいものはどれか？",
     "options": [
-      "A. GET, POST, PUT",
-      "B. Query（取得）, Mutation（変更）, Subscription（リアルタイム購読）",
-      "C. SELECT, INSERT, UPDATE",
-      "D. Read, Write, Delete"
+      "A: Header.Payload.Signature の3部分をBase64URLエンコードしてドットで連結",
+      "B: 暗号化されたバイナリデータ",
+      "C: XMLベースのトークン形式",
+      "D: Key-Value形式のプレーンテキスト"
     ],
-    "correct": 1,
-    "explanation": "QueryはREST GETに相当する取得、MutationはPOST/PUT/DELETEに相当する変更、Subscriptionはリアルタイムでデータ変更を受信します。"
+    "correct": 0,
+    "explanation": "JWTはHeader（アルゴリズム情報）、Payload（クレーム）、Signature（署名）の3部分をBase64URLでエンコードし、ドット（.）で連結した文字列です。"
   },
   {
-    "id": 960,
-    "question": "GraphQLの「スキーマ」の役割は？",
+    "id": 560,
+    "category": "JWT",
+    "question": "JWTの署名検証で保証されるものはどれか？",
     "options": [
-      "A. データのバリデーション",
-      "B. APIで利用可能な型、クエリ、ミューテーションを定義するコントラクト",
-      "C. データベース設計",
-      "D. 認証設定"
+      "A: ペイロードの暗号化",
+      "B: ユーザーのパスワードの保護",
+      "C: トークンの有効期限の自動更新",
+      "D: トークンの改ざんがないこと（完全性）と発行者の認証"
     ],
-    "correct": 1,
-    "explanation": "GraphQLスキーマはtype Query { users: [User] } のように型システムでAPIの仕様を定義し、クライアントとサーバーの契約として機能します。"
+    "correct": 3,
+    "explanation": "JWTの署名はヘッダーとペイロードのハッシュを秘密鍵で署名したもので、トークンの改ざん検知（完全性）と発行者の認証を保証します。ペイロード自体は暗号化されません（JWEが必要）。"
   },
   {
-    "id": 961,
-    "question": "GraphQLの「N+1問題」を防ぐ方法は？",
+    "id": 561,
+    "category": "JWT",
+    "question": "JWTのリフレッシュトークンの目的はどれか？",
     "options": [
-      "A. キャッシュのみ",
-      "B. DataLoaderパターンでバッチ処理とキャッシュを実現",
-      "C. REST APIに変更",
-      "D. クエリを制限"
+      "A: ユーザーの再認証なしに新しいアクセストークンを発行し、セッションを延長する",
+      "B: アクセストークンの暗号強度を高める",
+      "C: JWTのサイズを削減する",
+      "D: 複数デバイスでの同時ログインを防ぐ"
     ],
-    "correct": 1,
-    "explanation": "DataLoaderはリクエストをバッチ化してまとめてDB取得し、N+1クエリ問題を解決します。Facebook開発のdataloader等が代表的。"
+    "correct": 0,
+    "explanation": "リフレッシュトークンは有効期限が長く、期限切れのアクセストークンを再認証なしに更新するために使用されます。アクセストークンは短い有効期限にしてセキュリティを高められます。"
   },
   {
-    "id": 962,
-    "question": "JWT（JSON Web Token）の構造は？",
+    "id": 562,
+    "category": "JWT",
+    "question": "JWTをlocalStorageに保存するリスクはどれか？",
     "options": [
-      "A. 1つのパート",
-      "B. Header（ヘッダ）.Payload（ペイロード）.Signature（署名）の3パート",
-      "C. 2つのパート",
-      "D. 4つのパート"
+      "A: トークンのサイズが大きすぎる",
+      "B: ブラウザがサポートしていない",
+      "C: サーバー側から削除できない",
+      "D: XSS攻撃によりJavaScriptからトークンが窃取される可能性がある"
     ],
-    "correct": 1,
-    "explanation": "JWTはBase64URLエンコードされた3部分をドット(.)で結合: Header（アルゴリズム等）、Payload（クレーム）、Signature（改ざん検知用署名）。"
+    "correct": 3,
+    "explanation": "localStorageはJavaScriptからアクセス可能なため、XSS脆弱性がある場合にトークンが窃取されるリスクがあります。HttpOnly Cookie に保存することでXSSによる窃取を防げます。"
   },
   {
-    "id": 963,
-    "question": "JWTのPayloadに保存すべきでないデータは？",
+    "id": 563,
+    "category": "Cookie",
+    "question": "CookieのSameSite属性のStrictモードの動作はどれか？",
     "options": [
-      "A. ユーザーID",
-      "B. パスワードなどの機密情報（JWTは暗号化ではなくBase64エンコード）",
-      "C. 有効期限",
-      "D. トークンの発行者"
+      "A: すべてのクロスサイトリクエストでCookieを送信する",
+      "B: GETリクエストのみでCookieを送信する",
+      "C: サブドメインにのみCookieを送信する",
+      "D: クロスサイトリクエストでは一切Cookieを送信しない"
     ],
-    "correct": 1,
-    "explanation": "JWTのPayloadはBase64URLでエンコードされるだけで暗号化されていないため、パスワード等の機密情報は含めるべきではありません。"
+    "correct": 3,
+    "explanation": "SameSite=StrictはCookieをファーストパーティコンテキストでのみ送信し、他サイトからのリンクやフォーム送信などクロスサイトリクエストでは一切送信しません。CSRF対策として最も強力です。"
   },
   {
-    "id": 964,
-    "question": "JWTの「Access Token」と「Refresh Token」の使い分けは？",
+    "id": 564,
+    "category": "Cookie",
+    "question": "CookieのHttpOnly属性の効果はどれか？",
     "options": [
-      "A. 同じもの",
-      "B. Access Tokenは短寿命でAPI認証に使用、Refresh Tokenは長寿命でAccess Tokenの再発行に使用",
-      "C. Refresh Tokenは直接API認証",
-      "D. Access Tokenは長寿命"
+      "A: JavaScriptからCookieにアクセスできなくなり、XSSによるCookie窃取を防ぐ",
+      "B: HTTPSでのみCookieを送信する",
+      "C: Cookieのサイズを制限する",
+      "D: Cookieの有効期限を設定する"
     ],
-    "correct": 1,
-    "explanation": "Access Tokenは短寿命（数分〜数時間）でAPIリクエストに添付。Refresh Tokenは長寿命でAccess Tokenの期限切れ時に新しいものを取得します。"
+    "correct": 0,
+    "explanation": "HttpOnly属性を設定すると、document.cookieなどのJavaScript APIからCookieにアクセスできなくなり、XSS攻撃によるCookie（セッションID等）の窃取を防ぎます。"
   },
   {
-    "id": 965,
-    "question": "JWTの署名検証の仕組みは？",
+    "id": 565,
+    "category": "Cookie",
+    "question": "CookieのSecure属性の効果はどれか？",
     "options": [
-      "A. パスワードで検証",
-      "B. Header+PayloadをシークレットキーでHMACまたは公開鍵で署名し改ざんを検出",
-      "C. ハッシュ値の比較",
-      "D. ユーザーIDで検証"
+      "A: Cookieの値を暗号化する",
+      "B: Cookieの有効期限を延長する",
+      "C: Cookie の改ざんを検出する",
+      "D: HTTPS接続時のみCookieを送信する"
     ],
-    "correct": 1,
-    "explanation": "署名はHeader+Payloadをシークレットキー（HMAC）または秘密鍵（RSA等）で生成し、受信側が同じ計算で改ざんの有無を検証します。"
+    "correct": 3,
+    "explanation": "Secure属性が設定されたCookieは、暗号化されたHTTPS接続時のみサーバーに送信されます。HTTP接続では送信されないため、通信の盗聴によるCookie窃取を防ぎます。"
   },
   {
-    "id": 966,
-    "question": "Cookie のHttpOnly属性の効果は？",
+    "id": 566,
+    "category": "セッション",
+    "question": "サーバーサイドセッション管理の一般的な実装はどれか？",
     "options": [
-      "A. HTTPSのみで送信",
-      "B. JavaScriptからdocument.cookieでアクセスできなくなりXSS対策になる",
-      "C. HTTP通信専用",
-      "D. サーバー側でのみ生成可能"
+      "A: セッションIDをCookieに保存し、実データはサーバー側（メモリ/Redis等）に保存する",
+      "B: セッションデータをすべてCookieに保存する",
+      "C: ユーザー情報をURL パラメータに含める",
+      "D: セッション管理は不要"
     ],
-    "correct": 1,
-    "explanation": "HttpOnlyフラグが付いたCookieはJavaScriptから読み取り不可になり、XSS攻撃でCookieを盗まれるリスクを軽減します。"
+    "correct": 0,
+    "explanation": "サーバーサイドセッションでは、一意のセッションIDのみをCookieに保存し、セッションデータ本体はサーバーのメモリ、データベース、Redis等に保存します。データの機密性が高くなります。"
   },
   {
-    "id": 967,
-    "question": "CookieのSecure属性の効果は？",
+    "id": 567,
+    "category": "セッション",
+    "question": "セッションハイジャックの防止策として正しいものはどれか？",
     "options": [
-      "A. 暗号化して保存",
-      "B. HTTPS接続時のみCookieが送信される（HTTP通信では送信されない）",
-      "C. HttpOnlyと同じ",
-      "D. SameSiteと同じ"
+      "A: セッションIDを短くする",
+      "B: セッションIDをURLに含める",
+      "C: セッションIDの定期的な再生成、HttpOnly/Secure Cookie、IPバインディング",
+      "D: セッションタイムアウトを無制限にする"
     ],
-    "correct": 1,
-    "explanation": "Secure属性が付いたCookieはHTTPS接続でのみサーバーに送信され、暗号化されていないHTTP通信での盗聴を防ぎます。"
+    "correct": 2,
+    "explanation": "セッションハイジャック防止には、ログイン後のセッションID再生成、HttpOnly/Secure属性のCookie、セッションのIPアドレスバインディング、適切なタイムアウト設定が有効です。"
   },
   {
-    "id": 968,
-    "question": "CookieのSameSite属性の「Strict」「Lax」「None」の違いは？",
+    "id": 568,
+    "category": "セッション",
+    "question": "ステートレスセッション（JWTベース）のスケーラビリティ上の利点はどれか？",
     "options": [
-      "A. すべて同じ",
-      "B. Strictは同一サイトのみ、Laxはトップレベルナビゲーション許可、NoneはクロスサイトOK（Secure必須）",
-      "C. Noneが最も安全",
-      "D. Strictはクロスサイト許可"
+      "A: セッション情報がトークンに含まれるため、サーバー間でセッション共有が不要",
+      "B: トークンのサイズが常に小さい",
+      "C: サーバーの再起動が不要になる",
+      "D: データベースへのアクセスが不要になる"
     ],
-    "correct": 1,
-    "explanation": "StrictはCSRF対策最強だがユーザー体験に影響。LaxはGETナビゲーションは許可。NoneはSecure必須でクロスサイト送信を許可。"
+    "correct": 0,
+    "explanation": "JWTベースのステートレスセッションはセッション情報をトークン自体に含むため、ロードバランサー配下の複数サーバー間でセッションストアの共有が不要で、水平スケーリングが容易です。"
   },
   {
-    "id": 969,
-    "question": "セッション（Session）管理の基本的な仕組みは？",
+    "id": 569,
+    "category": "CORS",
+    "question": "CORSのプリフライトリクエスト（OPTIONSリクエスト）が送信される条件はどれか？",
     "options": [
-      "A. クライアント側にすべて保存",
-      "B. サーバー側にセッションデータを保存し、クライアントにはセッションIDのみをCookieで渡す",
-      "C. URLにデータを付加",
-      "D. LocalStorageに保存"
+      "A: すべてのHTTPリクエストで送信される",
+      "B: GETリクエストでのみ送信される",
+      "C: シンプルリクエストの条件を満たさない場合（カスタムヘッダー、特定のContent-Type等）",
+      "D: 同一オリジンのリクエストでも送信される"
     ],
-    "correct": 1,
-    "explanation": "サーバーはセッションIDに紐付くデータ（ログイン状態等）をメモリ/DBに保存し、CookieでセッションIDをクライアントに渡します。"
+    "correct": 2,
+    "explanation": "プリフライトリクエストは、カスタムヘッダー（Authorization等）、特定のContent-Type（application/json等）、PUT/DELETEメソッド等、シンプルリクエストの条件を満たさない場合に送信されます。"
   },
   {
-    "id": 970,
-    "question": "セッション固定攻撃（Session Fixation）の対策は？",
+    "id": 570,
+    "category": "CORS",
+    "question": "Access-Control-Allow-Originヘッダーで '*' を指定した場合の制限はどれか？",
     "options": [
-      "A. セッションIDを変更しない",
-      "B. ログイン成功時にセッションIDを再生成する",
-      "C. Cookieを使わない",
-      "D. HTTPSを使わない"
+      "A: 認証情報（Cookie、Authorization）を含むリクエストでは使用できない",
+      "B: 制限なし",
+      "C: POSTリクエストが禁止される",
+      "D: HTTPSのみに制限される"
     ],
-    "correct": 1,
-    "explanation": "セッション固定攻撃は攻撃者が事前にセッションIDを設定する手法で、ログイン後にセッションIDを再発行（regenerate）することで対策します。"
+    "correct": 0,
+    "explanation": "Access-Control-Allow-Origin: * はすべてのオリジンを許可しますが、credentials: 'include' が設定されたリクエストでは使用できません。認証情報を送る場合は具体的なオリジンの指定が必要です。"
   },
   {
-    "id": 971,
-    "question": "CORS（Cross-Origin Resource Sharing）とは？",
+    "id": 571,
+    "category": "CORS",
+    "question": "CORSにおけるAccess-Control-Max-Ageヘッダーの役割はどれか？",
     "options": [
-      "A. Cookieの共有",
-      "B. 異なるオリジンからのHTTPリクエストを許可するブラウザのセキュリティ機構",
-      "C. CSS共有機能",
-      "D. サーバー間通信"
+      "A: レスポンスのキャッシュ有効期間を指定する",
+      "B: リクエストのタイムアウト時間を設定する",
+      "C: プリフライトリクエストの結果をブラウザがキャッシュする秒数を指定する",
+      "D: セッションの有効期間を設定する"
     ],
-    "correct": 1,
-    "explanation": "CORSはSame-Origin Policyの制限を緩和し、サーバーがAccess-Control-Allow-Originヘッダで許可したオリジンからのリクエストを受け付ける仕組みです。"
+    "correct": 2,
+    "explanation": "Access-Control-Max-AgeはプリフライトOPTIONSリクエストの結果をブラウザがキャッシュする期間（秒）を指定します。これにより同じオリジンへの後続リクエストでプリフライトが省略されます。"
   },
   {
-    "id": 972,
-    "question": "CORSの「プリフライトリクエスト」とは？",
+    "id": 572,
+    "category": "SPA",
+    "question": "SPA（Single Page Application）の欠点として正しいものはどれか？",
     "options": [
-      "A. GETリクエスト",
-      "B. ブラウザが本リクエスト前にOPTIONSメソッドで送信可否をサーバーに確認する事前確認",
-      "C. POSTリクエスト",
-      "D. リダイレクト"
+      "A: ユーザー体験が常に劣る",
+      "B: サーバーの負荷が常に高い",
+      "C: 初期ロード時間が長く、SEOが困難（SSRなしの場合）、JavaScriptが無効な環境で動作しない",
+      "D: バックエンドAPIが不要"
     ],
-    "correct": 1,
-    "explanation": "プリフライトはPUT/DELETE等やカスタムヘッダ使用時にブラウザが自動でOPTIONSリクエストを送り、サーバーの許可を事前確認するCORSの仕組みです。"
+    "correct": 2,
+    "explanation": "SPAはJavaScriptで画面を動的に構築するため、初期ロードのバンドルサイズが大きくなりがちです。また、クローラーがJSを実行できない場合SEOが困難で、JS無効環境では動作しません。"
   },
   {
-    "id": 973,
-    "question": "「オリジン」の構成要素は？",
+    "id": 573,
+    "category": "SPA",
+    "question": "SPAのクライアントサイドルーティングにおけるHistory APIの pushState の役割はどれか？",
     "options": [
-      "A. ドメインのみ",
-      "B. スキーム（プロトコル）+ ホスト（ドメイン）+ ポート の3つ",
-      "C. URLパス全体",
-      "D. IPアドレスのみ"
+      "A: ブラウザのブックマークを管理する",
+      "B: DOMを直接操作する",
+      "C: HTTPリクエストを送信する",
+      "D: ページの完全なリロードなしにURLを変更し、ブラウザの履歴エントリを追加する"
     ],
-    "correct": 1,
-    "explanation": "オリジンはhttps://example.com:443のようにスキーム、ホスト、ポートの3つの組み合わせです。いずれか1つでも異なれば別オリジンです。"
+    "correct": 3,
+    "explanation": "History APIのpushStateメソッドはページリロードなしにブラウザのURLと履歴エントリを変更できます。SPAのルーティングで「戻る」ボタンの動作とURL同期を実現する基盤技術です。"
   },
   {
-    "id": 974,
-    "question": "SPA（Single Page Application）の特徴は？",
+    "id": 574,
+    "category": "SPA",
+    "question": "SPAのコード分割（Code Splitting）の目的はどれか？",
     "options": [
-      "A. ページごとにリロード",
-      "B. 1つのHTMLページ上でJavaScriptが動的にコンテンツを切り替え、フルリロードなし",
-      "C. サーバーサイドで全HTMLを生成",
-      "D. 静的サイトのみ"
+      "A: コードのセキュリティを向上させる",
+      "B: 初期バンドルサイズを削減し、必要なコードのみを遅延ロードして初期表示速度を改善する",
+      "C: サーバーの負荷を軽減する",
+      "D: テストの実行速度を向上させる"
     ],
     "correct": 1,
-    "explanation": "SPAは初回に1つのHTMLを読み込み、以降はJSがAjax/fetchでデータを取得してDOMを更新するため、高速なUXを提供します。"
+    "explanation": "コード分割はルートやコンポーネント単位でバンドルを分割し、初期ロードに必要なコードのみを読み込み、残りは必要になったタイミングで動的にインポート（lazy loading）します。"
   },
   {
-    "id": 975,
-    "question": "SPAの欠点は？",
+    "id": 575,
+    "category": "SSR",
+    "question": "SSR（Server-Side Rendering）のSEO上の利点はどれか？",
     "options": [
-      "A. UXが悪い",
-      "B. 初期ロードが遅い、SEOが困難、JavaScriptが必須",
-      "C. サーバー負荷が高い",
-      "D. セキュリティが高い"
+      "A: ブラウザのJavaScript実行が高速になる",
+      "B: 画像の最適化が自動的に行われる",
+      "C: CSSの適用が速くなる",
+      "D: サーバーで完全なHTMLを生成して返すため、クローラーがJSを実行せずにコンテンツをインデックスできる"
     ],
-    "correct": 1,
-    "explanation": "SPAはJSバンドルが大きいため初期表示が遅く、クローラーがJSを実行できないとSEOに不利。SSR/SSGとの併用が解決策です。"
+    "correct": 3,
+    "explanation": "SSRではサーバー側でReact等のコンポーネントをHTMLに変換して返すため、JavaScriptを実行できないクローラーでもコンテンツを取得でき、SEOが向上します。"
   },
   {
-    "id": 976,
-    "question": "SSR（Server-Side Rendering）とは？",
+    "id": 576,
+    "category": "SSR",
+    "question": "ハイドレーション（Hydration）とは何か？",
     "options": [
-      "A. クライアント側でレンダリング",
-      "B. サーバー側でHTMLを生成してからクライアントに送信するレンダリング方式",
-      "C. 静的ファイルの提供",
-      "D. CDNキャッシュ"
+      "A: サーバーでCSSを適用するプロセス",
+      "B: データベースからデータを取得するプロセス",
+      "C: SSRで生成された静的HTMLにクライアント側でJavaScriptのイベントハンドラを付与して対話的にするプロセス",
+      "D:画像を圧縮するプロセス"
     ],
-    "correct": 1,
-    "explanation": "SSRはサーバーでReact等のコンポーネントをHTMLとして構築し、完全なHTMLをクライアントに送信します。初期表示が高速でSEOにも有利。"
+    "correct": 2,
+    "explanation": "ハイドレーションはSSRで生成された静的HTMLに対して、クライアント側でReact等のフレームワークがイベントハンドラを紐付け、対話的なアプリケーションとして機能させるプロセスです。"
   },
   {
-    "id": 977,
-    "question": "SSG（Static Site Generation）とは？",
+    "id": 577,
+    "category": "SSR",
+    "question": "ISR（Incremental Static Regeneration）の特徴はどれか？",
     "options": [
-      "A. SSRと同じ",
-      "B. ビルド時に全ページのHTMLを事前生成し、CDNから配信する方式",
-      "C. クライアント側生成",
-      "D. APIサーバー"
+      "A: すべてのページをビルド時に生成する",
+      "B: ビルド後も指定した間隔でバックグラウンドでページを再生成し、SSGの速度とSSRの鮮度を両立する",
+      "C: クライアントサイドでのみレンダリングする",
+      "D: データベースに直接接続するレンダリング方式"
     ],
     "correct": 1,
-    "explanation": "SSGはビルド時にHTMLを生成して静的ファイルとして配信するため、最高速でCDN配信に適しています。更新頻度の低いコンテンツに最適。"
+    "explanation": "ISR（Next.jsの機能）は静的生成されたページを指定時間後にバックグラウンドで再生成します。SSGの高速配信とSSRのデータ鮮度を両立する手法です。revalidateパラメータで制御します。"
   },
   {
-    "id": 978,
-    "question": "CSR（Client-Side Rendering）とは？",
+    "id": 578,
+    "category": "SSR",
+    "question": "Streaming SSRの利点はどれか？",
     "options": [
-      "A. SSRと同じ",
-      "B. ブラウザでJavaScriptが実行されてDOMを構築するレンダリング方式",
-      "C. ビルド時生成",
-      "D. サーバーがHTMLを生成"
+      "A: レスポンスサイズが小さくなる",
+      "B: JavaScriptが不要になる",
+      "C: サーバーのメモリ使用量が増加する",
+      "D: HTMLをチャンクごとに逐次送信し、ユーザーが最初のコンテンツをより早く見られる（TTFB改善）"
     ],
-    "correct": 1,
-    "explanation": "CSRはサーバーから最小限のHTMLとJSバンドルを受け取り、ブラウザがJSを実行してUIを構築するSPAの標準的なレンダリング方式です。"
+    "correct": 3,
+    "explanation": "Streaming SSRはHTMLを一度に全て生成してから送信するのではなく、準備できた部分からチャンクとして送信します。Time to First Byte（TTFB）が改善され、ユーザー体験が向上します。"
   },
   {
-    "id": 979,
-    "question": "ハイドレーション（Hydration）とは？",
+    "id": 579,
+    "category": "Next.js",
+    "question": "Next.js 13以降のApp Routerの特徴はどれか？",
     "options": [
-      "A. CSSのアニメーション",
-      "B. SSRで生成した静的HTMLにクライアント側のJSのイベントハンドラを結び付ける処理",
-      "C. データベース接続",
-      "D. CDNキャッシュ"
+      "A: Server Componentsをデフォルトとし、ファイルベースのレイアウトとネストされたルーティングをサポート",
+      "B: ページディレクトリのみ使用可能",
+      "C: クライアントサイドレンダリングのみ",
+      "D: APIルートが廃止された"
     ],
-    "correct": 1,
-    "explanation": "ハイドレーションはSSRされた静的HTMLにReact等のJSフレームワークがイベントリスナー等を付与して対話的にする処理です。"
+    "correct": 0,
+    "explanation": "App RouterはReact Server Componentsをデフォルトで使用し、layout.tsx、loading.tsx、error.tsx等の規約ファイルによるネストされたレイアウトとルーティングを提供します。"
   },
   {
-    "id": 980,
-    "question": "Next.jsの特徴は？",
+    "id": 580,
+    "category": "Next.js",
+    "question": "Next.jsのReact Server Componentsの利点はどれか？",
     "options": [
-      "A. バックエンド専用",
-      "B. React ベースでSSR/SSG/CSR/ISRを統合したフルスタックWebフレームワーク",
-      "C. Vue.jsベース",
-      "D. 静的サイトのみ"
+      "A: クライアントのJavaScriptバンドルサイズを削減しつつ、サーバーでデータ取得とレンダリングを行える",
+      "B: すべてのインタラクションがサーバーで処理される",
+      "C: データベースへの直接アクセスが禁止される",
+      "D: CSSの適用が不要になる"
     ],
-    "correct": 1,
-    "explanation": "Next.jsはReactをベースに、SSR、SSG、ISR、API Routes、ミドルウェア等を提供するVercel開発のフルスタックフレームワークです。"
+    "correct": 0,
+    "explanation": "Server Componentsはサーバーでレンダリングされ、そのJavaScriptはクライアントに送信されません。データ取得をサーバーで行い、バンドルサイズを大幅に削減できます。"
   },
   {
-    "id": 981,
-    "question": "Next.jsのApp RouterとPages Routerの違いは？",
+    "id": 581,
+    "category": "Next.js",
+    "question": "Next.jsのMiddlewareの機能はどれか？",
     "options": [
-      "A. 同じもの",
-      "B. App Routerはフォルダベースでサーバーコンポーネント対応、Pages Routerはファイルベースの従来方式",
-      "C. Pages Routerが新しい",
-      "D. App Routerは廃止予定"
+      "A: データベースのマイグレーション",
+      "B: CSSの最適化",
+      "C: リクエストがページに到達する前にEdge Runtimeで実行され、リダイレクト・書き換え・認証チェック等を行う",
+      "D: 画像の圧縮"
     ],
-    "correct": 1,
-    "explanation": "App Router（v13+）はappディレクトリでReact Server Components、ネストレイアウト等を活用。Pages Routerはpagesディレクトリの従来方式です。"
+    "correct": 2,
+    "explanation": "Next.jsのMiddlewareはEdge Runtimeで動作し、リクエストがルートに到達する前に認証チェック、リダイレクト、ヘッダー操作、A/Bテスト等の処理を低レイテンシで実行します。"
   },
   {
-    "id": 982,
-    "question": "Next.jsのISR（Incremental Static Regeneration）とは？",
+    "id": 582,
+    "category": "Next.js",
+    "question": "Next.jsのRoute Handlersの特徴はどれか？",
     "options": [
-      "A. SSRと同じ",
-      "B. ビルド後も指定間隔で静的ページをバックグラウンドで再生成する方式",
-      "C. CSRの一種",
-      "D. キャッシュ無効化"
+      "A: クライアントサイドでのみ実行される",
+      "B: GraphQLエンドポイントの自動生成",
+      "C: app/api/ディレクトリにroute.tsを配置し、GET/POST等のHTTPメソッドに対応するエンドポイントを作成できる",
+      "D: WebSocketのみサポート"
     ],
-    "correct": 1,
-    "explanation": "ISRはSSGのメリット（高速配信）を持ちながら、revalidate時間を指定してバックグラウンドでページを再生成し、コンテンツの鮮度を保ちます。"
+    "correct": 2,
+    "explanation": "Route Handlersはapp/api/ディレクトリにroute.tsファイルを配置し、GET、POST等の名前付きエクスポート関数でHTTPエンドポイントを定義します。Web Request/Response APIを使用します。"
   },
   {
-    "id": 983,
-    "question": "Next.jsのServer Componentsの利点は？",
+    "id": 583,
+    "category": "React",
+    "question": "ReactのuseCallbackフックの目的はどれか？",
     "options": [
-      "A. クライアントで実行",
-      "B. サーバーでレンダリングされJSバンドルに含まれないため、バンドルサイズを削減",
-      "C. 状態管理可能",
-      "D. useEffectが使える"
+      "A: コンポーネントの状態を管理する",
+      "B: コンポーネントのライフサイクルを管理する",
+      "C: API呼び出しをキャッシュする",
+      "D: メモ化されたコールバック関数を返し、子コンポーネントの不要な再レンダリングを防止する"
     ],
-    "correct": 1,
-    "explanation": "Server Componentsはサーバーで実行されクライアントにJSが送信されないため、バンドルサイズ削減とサーバー資源（DB等）への直接アクセスが可能。"
+    "correct": 3,
+    "explanation": "useCallbackは依存配列が変わらない限り同じ関数参照を返します。React.memoでラップされた子コンポーネントに渡すコールバックをメモ化し、不要な再レンダリングを防ぎます。"
   },
   {
-    "id": 984,
-    "question": "Next.jsのAPI Routes の用途は？",
+    "id": 584,
+    "category": "React",
+    "question": "ReactのuseMemoとuseCallbackの違いはどれか？",
     "options": [
-      "A. フロントエンドのみ",
-      "B. Next.jsプロジェクト内にサーバーサイドのAPIエンドポイントを作成",
-      "C. CSSの適用",
-      "D. 静的ファイル配信"
+      "A: 同じ機能で互換性がある",
+      "B: useMemoは非同期処理に使用する",
+      "C: useCallbackはクラスコンポーネントでのみ使用可能",
+      "D: useMemoは計算結果の値をメモ化し、useCallbackは関数自体をメモ化する"
     ],
-    "correct": 1,
-    "explanation": "API RoutesはNext.js内にバックエンドAPIを構築でき、pages/api/またはapp/api/にファイルを作るとAPIエンドポイントになります。"
+    "correct": 3,
+    "explanation": "useMemoは計算コストの高い値の結果をメモ化して返し、useCallbackは関数自体をメモ化して同じ参照を保持します。useCallback(fn, deps)はuseMemo(() => fn, deps)と等価です。"
   },
   {
-    "id": 985,
-    "question": "Next.jsのミドルウェア（middleware.ts）の用途は？",
+    "id": 585,
+    "category": "React",
+    "question": "Reactの仮想DOM（Virtual DOM）の動作原理はどれか？",
     "options": [
-      "A. CSSの変換",
-      "B. リクエスト処理前に認証チェック、リダイレクト、ヘッダー変更等を行うEdge関数",
-      "C. データベース接続",
-      "D. ビルド設定"
+      "A: メモリ上にDOMの軽量コピーを保持し、差分（diffing）を計算して最小限のDOM操作で更新する",
+      "B: DOMの操作を直接行い、変更を即座にブラウザに反映する",
+      "C: Shadow DOMと同じ技術",
+      "D: Web Workersでレンダリングを並列化する"
     ],
-    "correct": 1,
-    "explanation": "middleware.tsはリクエストがページに到達する前にEdge Runtimeで実行され、認証チェック、リダイレクト、地理制限等を処理します。"
+    "correct": 0,
+    "explanation": "ReactはメモリにVirtual DOM（JSオブジェクトのツリー）を保持し、状態変更時に新旧のVirtual DOMを比較（Reconciliation）して差分のみを実DOMに反映します。"
   },
   {
-    "id": 986,
-    "question": "Reactの「仮想DOM（Virtual DOM）」の仕組みは？",
+    "id": 586,
+    "category": "React",
+    "question": "ReactのSuspenseの目的はどれか？",
     "options": [
-      "A. 実DOMを直接操作",
-      "B. メモリ上に軽量なDOMコピーを保持し差分だけ実DOMに反映（Reconciliation）",
-      "C. Shadow DOM と同じ",
-      "D. サーバーサイドDOM"
+      "A: エラーをキャッチする",
+      "B: フォームのバリデーション",
+      "C: アニメーションの制御",
+      "D: コンポーネントのデータやコードの非同期読み込みを宣言的に管理し、フォールバックUIを表示する"
     ],
-    "correct": 1,
-    "explanation": "仮想DOMは状態変更後にメモリ上のDOM表現を再計算し、前回との差分（diffing）を検出して最小限の実DOM操作で更新します。"
+    "correct": 3,
+    "explanation": "Suspenseは非同期操作（コード分割、データフェッチ等）の読み込み中にフォールバックUI（ローディングスピナー等）を宣言的に表示する仕組みです。React 18で機能が拡張されました。"
   },
   {
-    "id": 987,
-    "question": "Reactのコンポーネントのpropsとstateの違いは？",
+    "id": 587,
+    "category": "React",
+    "question": "ReactのuseRefフックの特徴はどれか？",
     "options": [
-      "A. 同じもの",
-      "B. propsは親から渡される読取り専用データ、stateはコンポーネント内部で管理する可変データ",
-      "C. stateは親から渡す",
-      "D. propsは内部管理"
+      "A: 値の変更で再レンダリングがトリガーされる",
+      "B: .currentプロパティを持つミュータブルなrefオブジェクトを返し、値変更で再レンダリングされない",
+      "C: useStateと同じ動作をする",
+      "D: サーバーサイドでのみ使用可能"
     ],
     "correct": 1,
-    "explanation": "propsは親→子への一方向データフローで不変。stateはuseState等で管理するコンポーネント固有の可変データで、変更するとre-renderされます。"
+    "explanation": "useRefは.currentプロパティを持つrefオブジェクトを返します。値を変更しても再レンダリングされず、レンダリング間で値を保持します。DOM要素への参照や前回値の保持に使用されます。"
   },
   {
-    "id": 988,
-    "question": "ReactのuseState フックの用途は？",
+    "id": 588,
+    "category": "React",
+    "question": "ReactのConcurrent Modeの主な特徴はどれか？",
     "options": [
-      "A. 副作用の処理",
-      "B. 関数コンポーネントに状態変数を追加し、変更時に再レンダリング",
-      "C. コンテキスト作成",
-      "D. メモ化"
+      "A: すべてのレンダリングが同期的に実行される",
+      "B: サーバーサイドレンダリングのみ対象",
+      "C: Web Workersを使用して並列レンダリングする",
+      "D: レンダリングを中断・再開可能にし、ユーザーインタラクションを優先して応答性を向上させる"
     ],
-    "correct": 1,
-    "explanation": "const [count, setCount] = useState(0) のように状態変数と更新関数のペアを返し、setCountで値を更新するとコンポーネントが再描画されます。"
+    "correct": 3,
+    "explanation": "Concurrent Modeはレンダリング処理を中断可能にし、優先度の高い更新（ユーザー入力等）を先に処理します。startTransition、useDeferredValueなどのAPIで利用されます。"
   },
   {
-    "id": 989,
-    "question": "ReactのuseEffect フックの用途は？",
+    "id": 589,
+    "category": "React",
+    "question": "ReactのuseReducerフックが useStateより適している場面はどれか？",
     "options": [
-      "A. 状態管理",
-      "B. 副作用（API呼出し、DOM操作、タイマー等）をレンダリング後に実行",
-      "C. スタイルの適用",
-      "D. ルーティング"
+      "A: 複雑な状態ロジックや複数の関連する状態の更新、状態遷移が明確な場合",
+      "B: 単純なブール値の切り替え",
+      "C: 外部APIとの通信",
+      "D: CSSの動的変更"
     ],
-    "correct": 1,
-    "explanation": "useEffectは描画後にデータ取得やeventListener登録等の副作用を実行し、第2引数の依存配列で実行タイミングを制御します。"
+    "correct": 0,
+    "explanation": "useReducerは複数の関連する状態値を管理する場合や、次の状態が前の状態に依存する複雑なロジックの場合に適しています。Reduxと同様のdispatch/actionパターンを提供します。"
   },
   {
-    "id": 990,
-    "question": "ReactのuseContext フックの用途は？",
+    "id": 590,
+    "category": "React",
+    "question": "ReactのContext APIの注意点はどれか？",
     "options": [
-      "A. ルーティング",
-      "B. コンポーネントツリーの深いネストにprops drilling無しでデータを渡す",
-      "C. 非同期処理",
-      "D. フォームバリデーション"
+      "A: 使用できるコンテキストの数に制限がある",
+      "B: クラスコンポーネントでは使用できない",
+      "C: Contextの値が変更されると、そのContextを消費するすべてのコンポーネントが再レンダリングされる",
+      "D: Contextは読み取り専用である"
     ],
-    "correct": 1,
-    "explanation": "useContextはReact.createContextで作成したコンテキストの値を子孫コンポーネントがpropsを中継せず直接取得するフックです。"
+    "correct": 2,
+    "explanation": "Context.Providerの値が変更されると、useContextを使用するすべての子コンポーネントが再レンダリングされます。不要な再レンダリングを防ぐには、Contextの分割やメモ化が必要です。"
   },
   {
-    "id": 991,
-    "question": "ReactのuseMemo フックの用途は？",
+    "id": 591,
+    "category": "フロントエンド基礎",
+    "question": "ブラウザのクリティカルレンダリングパスの正しい順序はどれか？",
     "options": [
-      "A. 状態管理",
-      "B. 計算コストの高い値をメモ化し、依存値が変わらなければ再計算を回避",
-      "C. 副作用の実行",
-      "D. DOMの参照"
+      "A: HTML解析→DOMツリー構築→CSSOM構築→レンダーツリー構築→レイアウト→ペイント",
+      "B: CSS解析→HTML解析→JavaScript実行→表示",
+      "C: JavaScript実行→HTML解析→CSS適用→表示",
+      "D: HTML全体のダウンロード→一括処理→表示"
     ],
-    "correct": 1,
-    "explanation": "useMemo(() => expensiveCalc(a, b), [a, b]) は依存配列の値が変わらなければキャッシュした値を返し、不要な再計算を防ぎます。"
+    "correct": 0,
+    "explanation": "ブラウザはHTMLを逐次解析してDOMツリーを構築し、CSSからCSSOMを構築します。両方を組み合わせてレンダーツリーを作成し、レイアウト計算後にペイントで画面に描画します。"
   },
   {
-    "id": 992,
-    "question": "ReactのuseCallback フックの用途は？",
+    "id": 592,
+    "category": "フロントエンド基礎",
+    "question": "Tree Shakingの目的はどれか？",
     "options": [
-      "A. 値のメモ化",
-      "B. 関数をメモ化し、依存値が変わらなければ同じ参照を保持（子コンポーネントの不要な再レンダリング防止）",
-      "C. 状態管理",
-      "D. 副作用"
+      "A: バンドル時に使用されていない（デッドコード）エクスポートを除去してバンドルサイズを削減する",
+      "B: DOMツリーの最適化",
+      "C: CSSの不要なスタイルを削除する",
+      "D: 画像ファイルの圧縮"
     ],
-    "correct": 1,
-    "explanation": "useCallbackは関数自体をメモ化し、React.memoされた子コンポーネントへのprops変更を防ぎ、不要な再レンダリングを回避します。"
+    "correct": 0,
+    "explanation": "Tree ShakingはES Modulesの静的解析に基づき、バンドラー（webpack、Rollup等）がインポートされていないエクスポートを検出・除去してバンドルサイズを削減します。"
   },
   {
-    "id": 993,
-    "question": "ReactのuseRef フックの用途は？",
+    "id": 593,
+    "category": "フロントエンド基礎",
+    "question": "Service Workerの主な機能はどれか？",
     "options": [
-      "A. 状態管理",
-      "B. レンダリングをトリガーしない可変値の保持やDOM要素への直接参照",
-      "C. コンテキスト",
-      "D. ルーティング"
+      "A: DOMの直接操作",
+      "B: データベースクエリの実行",
+      "C: CSSアニメーションの制御",
+      "D: バックグラウンドでのネットワーク要求のインターセプト、キャッシュ管理、オフライン対応を実現するプロキシ"
     ],
-    "correct": 1,
-    "explanation": "useRefは{current: value}オブジェクトを返し、値変更では再レンダリングが発生しません。DOM参照（ref.current）やタイマーID保持等に使用。"
+    "correct": 3,
+    "explanation": "Service Workerはブラウザとネットワーク間のプロキシとして動作し、ネットワークリクエストのインターセプト、レスポンスのキャッシュ、オフラインfalling back等を可能にします。"
   },
   {
-    "id": 994,
-    "question": "Reactのカスタムフックの目的は？",
+    "id": 594,
+    "category": "フロントエンド基礎",
+    "question": "WebSocketとHTTPの最大の違いはどれか？",
     "options": [
-      "A. コンポーネントの作成",
-      "B. ロジックを再利用可能な関数として切り出す（use〇〇という命名規約）",
-      "C. CSSの適用",
-      "D. ルーティング設定"
+      "A: WebSocketはHTTPより常に高速",
+      "B: WebSocketは全二重通信で持続的な接続を維持し、サーバーからクライアントへの自発的なデータ送信が可能",
+      "C: HTTPはバイナリデータを送信できない",
+      "D: WebSocketはHTTP上で動作しない"
     ],
     "correct": 1,
-    "explanation": "カスタムフックはuseXxxの命名でフック呼び出しを含むロジックを関数に抽出し、複数コンポーネントで再利用可能にします。"
+    "explanation": "WebSocketはHTTPハンドシェイク後に全二重（双方向同時）通信チャネルを確立し、サーバーとクライアントが任意のタイミングでデータを送受信できます。リアルタイム通信に最適です。"
   },
   {
-    "id": 995,
-    "question": "Reactの「Key」propsの重要性は？",
+    "id": 595,
+    "category": "フロントエンド基礎",
+    "question": "Core Web Vitalsに含まれる指標はどれか？",
     "options": [
-      "A. セキュリティ用",
-      "B. リスト内の要素を一意に識別し、効率的なDOM差分更新（Reconciliation）を可能にする",
-      "C. スタイリング用",
-      "D. ルーティング用"
+      "A: Time to First Byte（TTFB）",
+      "B: First Contentful Paint（FCP）",
+      "C: Largest Contentful Paint（LCP）、First Input Delay（FID）/INP、Cumulative Layout Shift（CLS）",
+      "D: DOMContentLoaded"
     ],
-    "correct": 1,
-    "explanation": "keyはリスト要素に付ける一意の識別子で、Reactのdiffingアルゴリズムが効率的に要素の追加・削除・並替えを検出するために必須です。"
+    "correct": 2,
+    "explanation": "Core Web VitalsはLCP（読み込みパフォーマンス）、FID→INP（インタラクティビティ）、CLS（視覚的安定性）の3指標です。Googleの検索ランキング要因にもなっています。"
   },
   {
-    "id": 996,
-    "question": "Reactの状態管理ライブラリはどれか？",
+    "id": 596,
+    "category": "フロントエンド基礎",
+    "question": "Web Workerの特徴として正しいものはどれか？",
     "options": [
-      "A. Express",
-      "B. Redux / Zustand / Jotai / Recoil",
-      "C. Axios",
-      "D. Webpack"
+      "A: バックグラウンドスレッドでJavaScriptを実行し、メインスレッドをブロックせず重い計算を処理できる",
+      "B: メインスレッドと同じDOMにアクセスできる",
+      "C: Service Workerと同じもの",
+      "D: Node.jsでのみ使用可能"
     ],
-    "correct": 1,
-    "explanation": "Redux（Flux型）、Zustand（軽量）、Jotai/Recoil（アトム型）はReactのグローバル状態管理ライブラリの代表例です。"
+    "correct": 0,
+    "explanation": "Web Workerは別スレッドでJavaScriptを実行し、メインスレッド（UIスレッド）をブロックしません。DOMにはアクセスできず、postMessageでメインスレッドと通信します。"
   },
   {
-    "id": 997,
-    "question": "LocalStorageとSessionStorageの違いは？",
+    "id": 597,
+    "category": "フロントエンド基礎",
+    "question": "Progressive Enhancement（プログレッシブエンハンスメント）の考え方はどれか？",
     "options": [
-      "A. 同じ動作",
-      "B. LocalStorageは永続保存、SessionStorageはタブ/ウィンドウを閉じると削除",
-      "C. SessionStorageが永続",
-      "D. LocalStorageはサーバー側"
+      "A: 基本的なHTMLコンテンツから始め、ブラウザの能力に応じてCSS、JavaScriptで段階的に機能を追加する",
+      "B: 最新ブラウザのみをサポートする",
+      "C: すべてのブラウザで同一の表示を保証する",
+      "D: JavaScriptを使用しない設計"
     ],
-    "correct": 1,
-    "explanation": "LocalStorageはブラウザを閉じてもデータが残る。SessionStorageはブラウザタブを閉じるとクリアされる。どちらもCookieより大容量（5MB程度）。"
+    "correct": 0,
+    "explanation": "プログレッシブエンハンスメントは基本的なHTML（セマンティックマークアップ）をベースに、ブラウザの対応状況に応じてCSS、JavaScriptで段階的に機能・体験を向上させるアプローチです。"
   },
   {
-    "id": 998,
-    "question": "Webアクセシビリティ（a11y）の「WAI-ARIA」とは？",
+    "id": 598,
+    "category": "GraphQL",
+    "question": "GraphQLのIntrospection（イントロスペクション）の機能はどれか？",
     "options": [
-      "A. CSSフレームワーク",
-      "B. Webコンテンツをスクリーンリーダー等の支援技術に意味を伝えるための属性仕様",
-      "C. JavaScriptライブラリ",
-      "D. HTMLの新しいバージョン"
+      "A: スキーマの情報をクエリで取得でき、APIの自己文書化とツールのサポート（GraphiQL等）を実現する",
+      "B: クエリの自動キャッシュ",
+      "C: 認証トークンの自動更新",
+      "D: エラーの自動回復"
     ],
-    "correct": 1,
-    "explanation": "WAI-ARIAはrole, aria-label, aria-hidden等の属性で、動的UIの意味や状態を支援技術に伝えるW3Cの仕様です。"
+    "correct": 0,
+    "explanation": "イントロスペクションはGraphQLスキーマの型、フィールド、引数等の情報をクエリで取得できる機能で、GraphiQLやGraphQL Playgroundなどの開発ツールがスキーマを動的に理解できます。"
   },
   {
-    "id": 999,
-    "question": "Webパフォーマンスの指標「LCP（Largest Contentful Paint）」とは？",
+    "id": 599,
+    "category": "GraphQL",
+    "question": "GraphQLのPersistedQuery（永続化クエリ）の利点はどれか？",
     "options": [
-      "A. ページの総ロード時間",
-      "B. ビューポート内の最大コンテンツ要素が描画されるまでの時間",
-      "C. JavaScriptの実行時間",
-      "D. DNS解決時間"
+      "A: クエリの結果を永続的にキャッシュする",
+      "B: クエリ文字列の代わりにハッシュを送信し、帯域の削減とセキュリティ向上（任意のクエリ実行の防止）を実現する",
+      "C: データベースにクエリを保存する",
+      "D: スキーマの変更を防ぐ"
     ],
     "correct": 1,
-    "explanation": "LCPはCore Web Vitalsの1つで、ページの主要コンテンツ（画像、テキストブロック等）が表示されるまでの時間。2.5秒以内が目標。"
+    "explanation": "Persisted Queryは事前にクエリをハッシュ化して登録し、リクエスト時はハッシュのみを送信します。帯域節約に加え、任意のクエリ実行を制限してセキュリティを向上させます。"
   },
   {
-    "id": 1000,
-    "question": "レスポンシブデザインの「モバイルファースト」アプローチとは？",
+    "id": 600,
+    "category": "GraphQL",
+    "question": "GraphQLとRESTの共存パターンとして正しいものはどれか？",
     "options": [
-      "A. デスクトップから設計",
-      "B. モバイル向けデザインを基準にし、メディアクエリのmin-widthで大画面向けに拡張",
-      "C. アプリ専用設計",
-      "D. テキストのみ設計"
+      "A: 両方を同時に使用することは不可能",
+      "B: GraphQLサーバーがRESTエンドポイントをデータソースとしてラップし、統一的なGraphQL APIを提供する",
+      "C: RESTをフロントエンド、GraphQLをバックエンドで使用する",
+      "D: GraphQLがRESTの完全な上位互換"
     ],
     "correct": 1,
-    "explanation": "モバイルファーストはモバイル向けCSSをデフォルトとし、@media(min-width:768px)等で大画面用スタイルを追加するアプローチです。"
+    "explanation": "GraphQLサーバーは既存のREST APIやマイクロサービスをリゾルバで呼び出し、統一的なGraphQL APIとしてフロントエンドに提供するBFF（Backend for Frontend）パターンが一般的です。"
   },
   {
-    "id": 1001,
-    "question": "CSSの「rem」と「em」の違いは？",
+    "id": 601,
+    "category": "セッション",
+    "question": "Redisをセッションストアに使用する利点はどれか？",
     "options": [
-      "A. 同じ単位",
-      "B. remはルート要素のfont-size基準、emは親要素のfont-size基準",
-      "C. emがルート基準",
-      "D. remがピクセル"
+      "A: インメモリで高速なアクセスが可能で、TTLによるセッション自動期限切れを設定できる",
+      "B: セッションデータの暗号化が自動的に行われる",
+      "C: セッションデータの永続化が保証される",
+      "D: セッション管理のコードが不要になる"
     ],
-    "correct": 1,
-    "explanation": "1remは<html>のfont-size（デフォルト16px）を基準。1emは親要素のfont-sizeを基準。ネストで値が変わるemよりremの方が予測しやすい。"
+    "correct": 0,
+    "explanation": "Redisはインメモリデータストアで高速なセッション読み書きが可能です。TTL（Time To Live）で自動的にセッションを期限切れにでき、複数サーバー間でのセッション共有も容易です。"
   },
   {
-    "id": 1002,
-    "question": "fetchAPIの基本的な使い方は？",
+    "id": 602,
+    "category": "Cookie",
+    "question": "サードパーティCookieの廃止に伴い、代替として提案されている技術はどれか？",
     "options": [
-      "A. XMLHttpRequestと同じ",
-      "B. fetch(url).then(res => res.json()).then(data => ...) でPromiseベースのHTTPリクエスト",
-      "C. 同期実行",
-      "D. Node.js専用"
+      "A: すべてのCookieの廃止",
+      "B: ファーストパーティCookieの拡張",
+      "C: ローカルストレージへの完全移行",
+      "D: Privacy Sandbox API群（Topics API、Attribution Reporting API等）"
     ],
-    "correct": 1,
-    "explanation": "fetch APIはPromiseベースのモダンなHTTPリクエストAPIで、async/awaitと組み合わせてconst data = await (await fetch(url)).json()のように使います。"
+    "correct": 3,
+    "explanation": "GoogleのPrivacy Sandboxはサードパーティcookieに代わるプライバシー保護型の広告技術群で、Topics API（興味関心カテゴリ）やAttribution Reporting API（コンバージョン計測）等を含みます。"
   },
   {
-    "id": 1003,
-    "question": "WebSocketとHTTPの違いは？",
+    "id": 603,
+    "category": "JWT",
+    "question": "JWTのalg:noneの脆弱性とは何か？",
     "options": [
-      "A. 同じプロトコル",
-      "B. WebSocketは双方向のリアルタイム通信、HTTPはリクエスト-レスポンスの一方向",
-      "C. HTTPの方がリアルタイム",
-      "D. WebSocketはステートレス"
+      "A: トークンのサイズが大きくなる",
+      "B: 署名アルゴリズムをnoneに変更して署名なしのトークンを受け入れさせる攻撃",
+      "C: トークンの有効期限が無限になる",
+      "D: ペイロードが暗号化されなくなる"
     ],
     "correct": 1,
-    "explanation": "WebSocketはサーバーとクライアント間の持続的な双方向接続で、サーバーからプッシュ通知が可能。チャット、リアルタイム更新に最適。"
+    "explanation": "alg:none攻撃は、攻撃者がJWTヘッダーのアルゴリズムをnoneに変更し、署名なしのトークンをサーバーに受け入れさせる脆弱性です。サーバー側で許可するアルゴリズムを厳密に検証する必要があります。"
   },
   {
-    "id": 1004,
-    "question": "Service Workerの役割は？",
+    "id": 604,
+    "category": "CORS",
+    "question": "CORS設定でAccess-Control-Expose-Headersの役割はどれか？",
     "options": [
-      "A. DOMの操作",
-      "B. ブラウザのバックグラウンドで動作し、オフラインキャッシュやプッシュ通知を実現するプロキシ",
-      "C. データベース操作",
-      "D. CSS処理"
+      "A: リクエストで送信できるヘッダーを制限する",
+      "B: プリフライトリクエストの許可ヘッダーを指定する",
+      "C: ブラウザのJavaScriptからアクセス可能なレスポンスヘッダーを指定する",
+      "D: キャッシュの有効期間を指定する"
     ],
-    "correct": 1,
-    "explanation": "Service Workerはブラウザとネットワークの間で動作するプロキシで、リクエストの傍受、キャッシュ管理、オフライン対応、プッシュ通知を実現します。"
+    "correct": 2,
+    "explanation": "デフォルトではCORSレスポンスの一部のヘッダー（Cache-Control等）のみがJavaScriptからアクセス可能です。Access-Control-Expose-Headersで追加のヘッダーを公開できます。"
   },
   {
-    "id": 1005,
-    "question": "PWA（Progressive Web App）の主な特徴は？",
+    "id": 605,
+    "category": "SPA",
+    "question": "SPAにおけるState Management（状態管理）ライブラリが必要になる理由はどれか？",
     "options": [
-      "A. ネイティブアプリのみ",
-      "B. Webアプリにオフライン対応、ホーム画面追加、プッシュ通知等のネイティブ的機能を追加",
-      "C. サーバーサイドのみ",
-      "D. デスクトップ専用"
+      "A: HTMLの描画速度を向上させるため",
+      "B: コンポーネント間で共有する状態が複雑になり、Props Drillingの回避やグローバル状態の一元管理が必要になるため",
+      "C: CSSの管理を簡素化するため",
+      "D: サーバーとの通信を高速化するため"
     ],
     "correct": 1,
-    "explanation": "PWAはService Worker、manifest.json、HTTPSにより、Webアプリにオフライン機能、インストール、プッシュ通知等のネイティブ体験を提供します。"
+    "explanation": "SPAでは複数のコンポーネントが共有する状態（認証情報、カート内容等）が増えると、Props Drillingが深くなり管理が困難になります。Redux、Zustand等で状態を一元管理します。"
   },
   {
-    "id": 1006,
-    "question": "CSP（Content Security Policy）の目的は？",
+    "id": 606,
+    "category": "SSR",
+    "question": "SSRのTTFB（Time To First Byte）がCSR（クライアントサイドレンダリング）より遅くなる場合があるのはなぜか？",
     "options": [
-      "A. CSSの最適化",
-      "B. XSS攻撃を緩和するため、許可するリソースの読込み元をHTTPヘッダで制限",
-      "C. キャッシュ制御",
-      "D. CORS設定"
+      "A: ブラウザの処理が遅いため",
+      "B: JavaScriptのダウンロードが遅いため",
+      "C: CSSの解析が遅いため",
+      "D: サーバーでHTMLをレンダリングする処理時間が必要なため、データ取得に時間がかかると初回応答が遅延する"
     ],
-    "correct": 1,
-    "explanation": "CSPはContent-Security-Policyヘッダでスクリプト、スタイル、画像等の読込みを許可するオリジンを指定し、XSSやデータインジェクションを防ぎます。"
+    "correct": 3,
+    "explanation": "SSRではサーバーがHTMLをレンダリングする際にデータ取得やテンプレート処理が必要です。これらに時間がかかるとTTFBが遅延します。CSRは空のHTMLを即座に返すためTTFBは速くなります。"
   },
   {
-    "id": 1007,
-    "question": "Webバンドラーの代表例は？",
+    "id": 607,
+    "category": "Next.js",
+    "question": "Next.jsの'use client'ディレクティブの意味はどれか？",
     "options": [
-      "A. Express",
-      "B. Webpack、Vite、esbuild、Rollup",
-      "C. React",
-      "D. Node.js"
+      "A: コンポーネントをサーバーでのみ実行する",
+      "B: コンポーネントをクライアントコンポーネントとして宣言し、useState等のブラウザAPIやインタラクティブ機能を使用可能にする",
+      "C: APIルートを定義する",
+      "D: 静的サイト生成を有効にする"
     ],
     "correct": 1,
-    "explanation": "バンドラーはJS/CSS/画像等をまとめて最適化します。Webpack（設定豊富）、Vite（高速開発サーバー）、esbuild（超高速ビルド）等が代表的。"
+    "explanation": "'use client'はファイルの先頭に記述し、そのコンポーネントとインポートされる子コンポーネントをClient Componentとしてバンドルに含めます。useState、onClick等のインタラクティブ機能が使用可能になります。"
   },
   {
-    "id": 1008,
-    "question": "コード分割（Code Splitting）の目的は？",
+    "id": 608,
+    "category": "Next.js",
+    "question": "Next.jsのImage Componentの主な最適化機能はどれか？",
     "options": [
-      "A. コードの暗号化",
-      "B. JavaScriptバンドルを複数チャンクに分割し、初期ロード時間を短縮",
-      "C. コードの圧縮",
-      "D. コードの難読化"
+      "A: 自動的な遅延読み込み、デバイスに応じたサイズ変換、WebP/AVIF等の最新フォーマットへの変換",
+      "B: 画像のSVG変換",
+      "C: 画像のウォーターマーク追加",
+      "D: 画像のメタデータ削除のみ"
     ],
-    "correct": 1,
-    "explanation": "Code Splittingは巨大なJSバンドルをルート単位やコンポーネント単位で分割し、必要な時だけロード（遅延読込み）して初期表示を高速化します。"
+    "correct": 0,
+    "explanation": "Next.jsのImage Componentは画像を自動遅延読み込み、ビューポートやデバイスに応じたレスポンシブサイズ生成、WebP/AVIF等の最新フォーマットへの自動変換を行い、パフォーマンスを向上させます。"
   },
   {
-    "id": 1009,
-    "question": "Reactの「React.lazy」の用途は？",
+    "id": 609,
+    "category": "Next.js",
+    "question": "Next.jsのServer Actionsの機能はどれか？",
     "options": [
-      "A. 状態の遅延初期化",
-      "B. コンポーネントを動的インポートしてコード分割を実現（遅延ローディング）",
-      "C. CSSの遅延読込み",
-      "D. APIの遅延呼出し"
+      "A: クライアントサイドのJavaScriptを実行する",
+      "B: CSSの動的生成",
+      "C: 画像の最適化",
+      "D: フォーム送信やデータ変更をサーバーサイドの関数として直接呼び出せ、APIルートの作成が不要になる"
     ],
-    "correct": 1,
-    "explanation": "React.lazy(() => import('./Component'))でコンポーネントを動的インポートし、Suspenseと組み合わせてロード中のフォールバックを表示します。"
+    "correct": 3,
+    "explanation": "Server Actionsは'use server'ディレクティブで定義されるサーバーサイドの非同期関数で、フォームのaction属性やクライアントコンポーネントから直接呼び出せます。APIエンドポイントの作成が不要です。"
   },
   {
-    "id": 1010,
-    "question": "Tree Shakingとは？",
+    "id": 610,
+    "category": "Next.js",
+    "question": "Next.jsのParallel RoutesとIntercepting Routesの用途はどれか？",
     "options": [
-      "A. DOMツリーの操作",
-      "B. バンドル時に使用されていないコード（デッドコード）を除去して出力サイズを削減",
-      "C. CSSの最適化",
-      "D. テストの実行"
+      "A: 同じレイアウト内で複数のページを同時に表示したり、モーダル遷移で現在のコンテキストを維持する",
+      "B: データベースの並列クエリ",
+      "C: APIリクエストの並列化",
+      "D: CSS のパラレルローディング"
     ],
-    "correct": 1,
-    "explanation": "Tree ShakingはES Modulesのstaticインポートを分析し、参照されていないexportをバンドルから除去します。Webpack、Vite等が対応。"
+    "correct": 0,
+    "explanation": "Parallel Routesは同じレイアウト内に複数のページスロットを定義し、Intercepting Routesはモーダル表示時にURLを変更しながら背景のコンテキストを維持するパターンを実現します。"
   },
   {
-    "id": 1011,
-    "question": "SSE（Server-Sent Events）とは？",
+    "id": 611,
+    "category": "フロントエンド基礎",
+    "question": "IndexedDBの特徴として正しいものはどれか？",
     "options": [
-      "A. WebSocketと同じ",
-      "B. サーバーからクライアントへの一方向リアルタイムストリーミング（HTTP上で動作）",
-      "C. 双方向通信",
-      "D. ファイル転送"
+      "A: 同期APIのみ提供する",
+      "B: 最大5MBまでしか保存できない",
+      "C: ブラウザ内の大容量構造化データストレージで、非同期API、トランザクション、インデックスをサポートする",
+      "D: サーバーとの自動同期機能がある"
     ],
-    "correct": 1,
-    "explanation": "SSEはHTTP上でサーバーからクライアントへの一方向イベントストリームを提供します。WebSocketより軽量で、通知やフィード更新に適しています。"
+    "correct": 2,
+    "explanation": "IndexedDBはブラウザ内の大容量NoSQLデータベースで、非同期API、トランザクション、インデックスによる検索をサポートします。localStorageの5MB制限と異なり大量のデータを保存できます。"
   },
   {
-    "id": 1012,
-    "question": "OAuth 2.0の「認可コードフロー」の流れは？",
+    "id": 612,
+    "category": "フロントエンド基礎",
+    "question": "Lighthouse（Chrome DevTools）で測定できるパフォーマンス指標に含まれないものはどれか？",
     "options": [
-      "A. トークンを直接発行",
-      "B. 認可コード取得→コードとシークレットでアクセストークン取得の2段階",
-      "C. パスワード送信のみ",
-      "D. APIキーのみ"
+      "A: First Contentful Paint（FCP）",
+      "B: Largest Contentful Paint（LCP）",
+      "C: データベースクエリの実行時間",
+      "D: Cumulative Layout Shift（CLS）"
     ],
-    "correct": 1,
-    "explanation": "認可コードフローは①クライアントが認可サーバーにリダイレクト②ユーザー認証後に認可コード取得③コード+client_secretでアクセストークン取得の2段階です。"
+    "correct": 2,
+    "explanation": "Lighthouseはフロントエンドのパフォーマンスを測定し、FCP、LCP、CLS、Speed Index、Total Blocking Time等を計測します。サーバーサイドのデータベースクエリ時間は直接測定しません。"
   },
   {
-    "id": 1013,
-    "question": "HTTPの「Content-Type: application/json」の意味は？",
+    "id": 613,
+    "category": "セッション",
+    "question": "セッション固定攻撃（Session Fixation）の対策はどれか？",
     "options": [
-      "A. HTMLを送信",
-      "B. リクエスト/レスポンスのボディがJSON形式であることを示すMIMEタイプ",
-      "C. XMLを送信",
-      "D. テキストを送信"
+      "A: セッションIDを長くする",
+      "B: セッションのタイムアウトを延長する",
+      "C: セッションIDをURL パラメータに含める",
+      "D: 認証成功後にセッションIDを再生成（regenerate）する"
     ],
-    "correct": 1,
-    "explanation": "Content-Typeヘッダはボディのデータ形式を示し、application/jsonはJSON形式、text/htmlはHTML、multipart/form-dataはファイルアップロードに使います。"
+    "correct": 3,
+    "explanation": "セッション固定攻撃は攻撃者が用意したセッションIDを被害者に使わせる攻撃です。認証成功後にsession_regenerate_id()等でセッションIDを再生成することで、固定されたIDを無効化します。"
   },
   {
-    "id": 1014,
-    "question": "HTTPヘッダ「Cache-Control: no-cache」の意味は？",
+    "id": 614,
+    "category": "CORS",
+    "question": "CORSのシンプルリクエストの条件に含まれないものはどれか？",
     "options": [
-      "A. キャッシュしない",
-      "B. キャッシュは保存するが、使用前にサーバーに再検証（revalidation）が必要",
-      "C. 永久キャッシュ",
-      "D. no-storeと同じ"
+      "A: GET、HEAD、POSTメソッドのいずれか",
+      "B: Content-Typeがtext/plain、multipart/form-data、application/x-www-form-urlencodedのいずれか",
+      "C: カスタムHTTPヘッダーが含まれないこと",
+      "D: リクエストボディがJSON形式であること"
     ],
-    "correct": 1,
-    "explanation": "no-cacheはキャッシュを禁止するのではなく、使用前にサーバーにETag等で鮮度を確認する必要があります。一切キャッシュしないのはno-store。"
+    "correct": 3,
+    "explanation": "シンプルリクエストの条件は、メソッドがGET/HEAD/POST、Content-Typeが3種のいずれか、カスタムヘッダーなし等です。JSON（application/json）はシンプルリクエストの条件を満たしません。"
   },
   {
-    "id": 1015,
-    "question": "React Router の<Link>コンポーネントと通常の<a>タグの違いは？",
+    "id": 615,
+    "category": "JWT",
+    "question": "JWTのクレーム（Claims）のうち、登録済みクレームに含まれるものはどれか？",
     "options": [
-      "A. 同じ動作",
-      "B. Linkはページ全体をリロードせずクライアントサイドでルーティング（SPA遷移）",
-      "C. aタグの方が高速",
-      "D. Linkはサーバーに遷移"
+      "A: username、email、role",
+      "B: iss（発行者）、exp（有効期限）、sub（主題）、aud（対象者）",
+      "C: Authorization、Content-Type",
+      "D: access_token、refresh_token"
     ],
     "correct": 1,
-    "explanation": "React RouterのLinkはブラウザ履歴APIを使ってURLを変更し、対応するコンポーネントをレンダリングします。フルリロードは発生しません。"
+    "explanation": "登録済みクレーム（Registered Claims）にはiss（issuer）、exp（expiration）、sub（subject）、aud（audience）、iat（issued at）、nbf（not before）、jti（JWT ID）が定義されています。"
   },
   {
-    "id": 1016,
-    "question": "ダークモードをCSSで検出する方法は？",
+    "id": 616,
+    "category": "フロントエンド基礎",
+    "question": "CDN（Content Delivery Network）のEdge Cachingの仕組みはどれか？",
     "options": [
-      "A. JavaScriptのみ",
-      "B. @media (prefers-color-scheme: dark) メディアクエリを使用",
-      "C. HTMLの属性",
-      "D. サーバーサイド検出"
+      "A: オリジンサーバーのみでコンテンツをキャッシュする",
+      "B: ユーザーに地理的に近いエッジサーバーにコンテンツをキャッシュし、レイテンシを削減する",
+      "C: ブラウザのキャッシュを直接管理する",
+      "D: データベースのクエリ結果をキャッシュする"
     ],
     "correct": 1,
-    "explanation": "prefers-color-schemeメディアクエリでOSのダークモード設定を検出し、CSSでダーク/ライトテーマのスタイルを切り替えられます。"
+    "explanation": "CDNのエッジキャッシングは世界各地のPoPにコンテンツのコピーを配置し、ユーザーに最も近いサーバーからコンテンツを配信することでレイテンシを大幅に削減します。"
   },
   {
-    "id": 1017,
-    "question": "CSSの「clamp()」関数の用途は？",
+    "id": 617,
+    "category": "React",
+    "question": "ReactのError Boundaryの機能はどれか？",
     "options": [
-      "A. アニメーション",
-      "B. clamp(最小値, 推奨値, 最大値) でレスポンシブなフォントサイズ等を範囲制限付きで指定",
-      "C. 色の指定",
-      "D. レイアウト"
+      "A: ネットワークエラーをキャッチする",
+      "B: 子コンポーネントのレンダリング中に発生したJavaScriptエラーをキャッチし、フォールバックUIを表示する",
+      "C: フォームのバリデーションエラーを表示する",
+      "D: APIのエラーレスポンスを処理する"
     ],
     "correct": 1,
-    "explanation": "clamp(1rem, 2.5vw, 2rem) のように最小/最大値の範囲内で推奨値を使い、画面サイズに応じた流動的なサイズ指定ができます。"
+    "explanation": "Error Boundaryはクラスコンポーネントで実装し、子コンポーネントツリーのレンダリング中のJavaScriptエラーをキャッチします。componentDidCatchとgetDerivedStateFromErrorを使用します。"
   },
   {
-    "id": 1018,
-    "question": "Next.jsの<Image>コンポーネントの利点は？",
+    "id": 618,
+    "category": "SPA",
+    "question": "SPAにおけるXSS（Cross-Site Scripting）対策として最も重要なものはどれか？",
     "options": [
-      "A. 通常の<img>と同じ",
-      "B. 自動画像最適化（WebP変換、遅延読込み、サイズ最適化）でパフォーマンス向上",
-      "C. CSSの適用",
-      "D. SVG専用"
+      "A: CSSの最適化",
+      "B: 画像の圧縮",
+      "C: ユーザー入力の適切なサニタイゼーション/エスケープと、dangerouslySetInnerHTML等の回避",
+      "D: HTTPSの使用"
     ],
-    "correct": 1,
-    "explanation": "Next.jsのImageは画像を自動でWebP等に変換、リサイズ、遅延読込みし、CLS防止のためサイズ予約も行いパフォーマンスを最適化します。"
+    "correct": 2,
+    "explanation": "SPAのXSS対策はユーザー入力を適切にエスケープし、innerHTML/dangerouslySetInnerHTMLの使用を最小限にすることが重要です。ReactはデフォルトでJSXの値をエスケープしますが、注意が必要な場面があります。"
   },
   {
-    "id": 1019,
-    "question": "CSSの「:is()」疑似クラスの用途は？",
+    "id": 619,
+    "category": "CSS",
+    "question": "CSSのcontainer queriesの特徴はどれか？",
     "options": [
-      "A. アニメーション",
-      "B. 複数セレクタをグループ化して記述を簡潔にする（:is(h1, h2, h3) { ... }）",
-      "C. 変数定義",
-      "D. メディアクエリ"
+      "A: 親コンテナのサイズに基づいてスタイルを変更でき、コンポーネント単位のレスポンシブデザインを実現する",
+      "B: ビューポートサイズに基づいてスタイルを変更する",
+      "C: JavaScriptが必要",
+      "D: グリッドレイアウトでのみ使用可能"
     ],
-    "correct": 1,
-    "explanation": ":is(h1, h2, h3) .title は h1 .title, h2 .title, h3 .title と同等で、冗長なセレクタの繰り返しを削減します。"
+    "correct": 0,
+    "explanation": "Container Queriesは@containerルールで親コンテナのサイズに基づいてスタイルを変更できます。メディアクエリがビューポート基準なのに対し、コンテナ基準のレスポンシブデザインが可能です。"
   },
   {
-    "id": 1020,
-    "question": "HTMLの<picture>要素の用途は？",
+    "id": 620,
+    "category": "REST API",
+    "question": "OpenAPI（Swagger）仕様の目的はどれか？",
     "options": [
-      "A. 画像の装飾",
-      "B. 画面サイズや解像度に応じて異なる画像ソースを提供するレスポンシブ画像",
-      "C. 動画の埋め込み",
-      "D. 音声の再生"
+      "A: APIの認証方式を定義する",
+      "B: APIのデプロイを自動化する",
+      "C: APIのレスポンス速度を最適化する",
+      "D: REST APIの構造を標準形式で記述し、ドキュメント生成・クライアントコード生成・テストを自動化する"
     ],
-    "correct": 1,
-    "explanation": "<picture>は<source>要素で条件（media, type等）に応じた画像を指定し、最適な画像をブラウザが選択して表示するレスポンシブ画像要素です。"
+    "correct": 3,
+    "explanation": "OpenAPI仕様はREST APIのエンドポイント、リクエスト/レスポンス形式、パラメータ等をYAML/JSONで記述する標準で、Swagger UI、コード生成、テスト自動化等のエコシステムが利用できます。"
   },
   {
-    "id": 1021,
-    "question": "Next.jsのdynamic importの用途は？",
+    "id": 621,
+    "category": "HTML",
+    "question": "HTMLのlazy loading属性（loading='lazy'）の動作はどれか？",
     "options": [
-      "A. 静的インポート",
-      "B. コンポーネントを動的にインポートしてサーバーサイドでの実行を回避（ssr: false等）",
-      "C. CSSのインポート",
-      "D. 画像のインポート"
+      "A: 画像を圧縮して読み込む",
+      "B: 画像のフォーマットを自動変換する",
+      "C: ビューポートに近づいたタイミングで画像やiframeの読み込みを開始する",
+      "D: 画像をBase64エンコードする"
     ],
-    "correct": 1,
-    "explanation": "next/dynamicはコンポーネントの動的インポートを簡素化し、{ ssr: false }でクライアント専用レンダリング、loadingでフォールバックUIを指定できます。"
+    "correct": 2,
+    "explanation": "loading='lazy'属性はimg/iframe要素に指定し、要素がビューポートに近づいた時に読み込みを開始します。初期ロード時のリソース数を減らしページ表示速度を向上させます。"
   },
   {
-    "id": 1022,
-    "question": "バックエンドのBFF（Backend For Frontend）パターンとは？",
+    "id": 622,
+    "category": "フロントエンド基礎",
+    "question": "Viteが従来のwebpackより高速なビルドを実現する仕組みはどれか？",
     "options": [
-      "A. モノリシックAPI",
-      "B. フロントエンドの要件に合わせた専用バックエンドAPIを中間に配置",
-      "C. データベース直接接続",
-      "D. CDN"
+      "A: JavaScriptを使用しない",
+      "B: サーバーサイドでビルドを実行する",
+      "C: すべてのコードをインライン化する",
+      "D: 開発時はES Modulesのネイティブインポートを活用してバンドル不要にし、本番ビルドはRollupで最適化する"
     ],
-    "correct": 1,
-    "explanation": "BFFはWeb/モバイル等のクライアントごとに最適化されたAPIサーバーを配置し、複数マイクロサービスのデータを集約・変換するパターンです。"
+    "correct": 3,
+    "explanation": "Viteは開発時にESMのネイティブインポートを利用してバンドルプロセスをスキップし、HMRも高速です。本番ビルドではRollupを使用してTree Shaking等の最適化を行います。"
   },
   {
-    "id": 1023,
-    "question": "Reactの「Suspense」コンポーネントの役割は？",
+    "id": 623,
+    "category": "SSR",
+    "question": "Partial Hydration（部分的ハイドレーション）の利点はどれか？",
     "options": [
-      "A. エラー処理",
-      "B. 子コンポーネントの読込み中にフォールバックUIを表示する宣言的なローディング",
-      "C. スタイリング",
-      "D. ルーティング"
+      "A: ページの対話的な部分のみハイドレーションし、静的な部分のJavaScriptを省略してバンドルサイズを大幅削減",
+      "B: JavaScript全体を一度にロードする",
+      "C: サーバーの負荷を増加させる",
+      "D: CSSの読み込みを遅延させる"
     ],
-    "correct": 1,
-    "explanation": "Suspenseはfallback属性にローディングUIを指定し、React.lazyやデータフェッチで読込み中にスピナー等を表示する宣言的な仕組みです。"
+    "correct": 0,
+    "explanation": "部分的ハイドレーション（Islands Architecture等）はページ内の対話的な「島」（アイランド）のみにJavaScriptを適用し、残りの静的部分はHTMLのまま保持してjSバンドルサイズを大幅に削減します。"
   },
   {
-    "id": 1024,
-    "question": "Reactの「Error Boundary」の役割は？",
+    "id": 624,
+    "category": "Next.js",
+    "question": "Next.jsのgenerateStaticParamsの用途はどれか？",
     "options": [
-      "A. CSSエラーの処理",
-      "B. 子コンポーネントのレンダリングエラーをキャッチしフォールバックUIを表示",
-      "C. ネットワークエラー処理",
-      "D. 非同期エラー処理"
+      "A: APIリクエストのパラメータを生成する",
+      "B: 動的ルートのパラメータを事前に定義し、ビルド時に静的ページを生成する（SSG）",
+      "C: フォームのバリデーションルールを定義する",
+      "D: 環境変数を生成する"
     ],
     "correct": 1,
-    "explanation": "Error Boundaryはクラスコンポーネントで実装し、componentDidCatchで子ツリーのエラーをキャッチしてアプリ全体のクラッシュを防ぎます。"
+    "explanation": "generateStaticParamsはApp Routerの動的ルート（[slug]等）で使用し、ビルド時に生成すべきパラメータの一覧を返します。これにより動的ルートのページをSSGで事前生成できます。"
   },
   {
-    "id": 1025,
-    "question": "CSSモジュール（CSS Modules）の利点は？",
+    "id": 625,
+    "category": "React",
+    "question": "ReactのuseTransitionフックの目的はどれか？",
     "options": [
-      "A. グローバルスコープ",
-      "B. クラス名が自動でユニーク化されコンポーネント単位のスコープで名前衝突を防止",
-      "C. インラインスタイル",
-      "D. Less/Sass必須"
+      "A: CSSトランジションを管理する",
+      "B: 状態更新の優先度を下げてUIの応答性を維持し、更新中にisRemaining状態を提供する",
+      "C: コンポーネントのマウント/アンマウントを制御する",
+      "D: APIコールのトランザクションを管理する"
     ],
     "correct": 1,
-    "explanation": "CSSモジュールは.module.cssでインポートすると、クラス名がハッシュ付きでユニーク化され、他コンポーネントとのクラス名衝突を防ぎます。"
+    "explanation": "useTransitionは状態更新を低優先度としてマークし（startTransition）、重い更新がUIをブロックしないようにします。isPending状態でローディング表示を制御できます。"
   },
   {
-    "id": 1026,
-    "question": "Tailwind CSSの特徴は？",
+    "id": 626,
+    "category": "GraphQL",
+    "question": "GraphQLのDirective（ディレクティブ）の用途はどれか？",
     "options": [
-      "A. コンポーネントライブラリ",
-      "B. ユーティリティファーストのCSSフレームワークで、HTMLにクラスを直接記述してスタイリング",
-      "C. CSS-in-JS",
-      "D. CSSプリプロセッサ"
+      "A: スキーマの型を定義する",
+      "B: データベースとの接続を管理する",
+      "C: @include、@skip等でクエリの実行を条件付きで制御したり、スキーマにメタデータを付与する",
+      "D: 認証トークンを検証する"
     ],
-    "correct": 1,
-    "explanation": "Tailwind CSSはflex, p-4, text-lg等のユーティリティクラスをHTMLに直接記述してスタイリングし、カスタムCSS記述を最小限にします。"
+    "correct": 2,
+    "explanation": "ディレクティブは@記法でクエリやスキーマにメタデータや条件を付与します。@include(if:)で条件付きフィールド取得、@deprecated等の標準ディレクティブや、カスタムディレクティブを定義できます。"
   },
   {
-    "id": 1027,
-    "question": "REST APIの「べき等性（Idempotent）」なHTTPメソッドは？",
+    "id": 627,
+    "category": "Cookie",
+    "question": "CookieのPath属性の効果はどれか？",
     "options": [
-      "A. POSTのみ",
-      "B. GET、PUT、DELETE（同じリクエストを何回送っても結果が同じ）",
-      "C. GETのみ",
-      "D. 全メソッド"
+      "A: Cookieの暗号化方式を指定する",
+      "B: 指定したパスとそのサブパスに対するリクエストでのみCookieが送信される",
+      "C: Cookieの最大サイズを制限する",
+      "D: Cookieの作成日時を記録する"
     ],
     "correct": 1,
-    "explanation": "べき等なメソッドは複数回呼んでも同じ結果：GET（取得）、PUT（完全置換）、DELETE（削除）。POSTは毎回新しいリソースを作る可能性がありべき等ではない。"
+    "explanation": "Path属性はCookieが有効なURLパスを制限します。例えばPath=/adminを設定すると、/admin以下へのリクエストでのみCookieが送信され、/other等には送信されません。"
   },
   {
-    "id": 1028,
-    "question": "APIのレート制限（Rate Limiting）の目的は？",
+    "id": 628,
+    "category": "セッション",
+    "question": "分散環境でのセッション共有パターンとして正しいものはどれか？",
     "options": [
-      "A. APIの速度向上",
-      "B. 一定時間内のリクエスト数を制限してサーバー過負荷やDDoSを防止",
-      "C. 認証の強化",
-      "D. データの暗号化"
+      "A: Sticky Session（同じサーバーにルーティング）、集中型セッションストア（Redis等）、JWTベースのステートレスセッション",
+      "B: 各サーバーが独立したセッションストアを持つ",
+      "C: セッションを使用しない設計のみ",
+      "D: ファイルシステムでセッションを共有する"
     ],
-    "correct": 1,
-    "explanation": "レート制限は429 Too Many Requestsを返してAPIの過負荷を防ぎ、X-RateLimit-Remaining等のヘッダで残りリクエスト数を通知します。"
+    "correct": 0,
+    "explanation": "分散環境では、ロードバランサーのSticky Session、Redis等の集中型セッションストア、JWTによるステートレスセッションの3つが一般的なパターンです。"
   },
   {
-    "id": 1029,
-    "question": "APIのページネーションの一般的な方式は？",
+    "id": 629,
+    "category": "CORS",
+    "question": "CORSでCredentials（認証情報）を含むリクエストを送信するために必要な設定はどれか？",
     "options": [
-      "A. 全データ返却のみ",
-      "B. オフセットベース（page/limit）とカーソルベース（next_cursor）",
-      "C. ランダム順のみ",
-      "D. ソートのみ"
+      "A: 特別な設定は不要",
+      "B: クライアント側でcredentials: 'include'、サーバー側でAccess-Control-Allow-Credentials: trueを設定し、Allow-Originにワイルドカードを使用しない",
+      "C: サーバー側の設定のみで十分",
+      "D: HTTPSの使用のみ必要"
     ],
     "correct": 1,
-    "explanation": "オフセット方式は?page=2&limit=20のように簡易。カーソル方式は?cursor=xxx&limit=20で大量データに効率的で、リアルタイムデータに適しています。"
+    "explanation": "認証情報を含むCORSリクエストにはfetch(url, {credentials:'include'})の設定と、サーバー側でAccess-Control-Allow-Credentials: true、具体的なオリジン指定（*は不可）が必要です。"
   },
   {
-    "id": 1030,
-    "question": "Next.jsの「use server」ディレクティブの用途は？",
+    "id": 630,
+    "category": "フロントエンド基礎",
+    "question": "HTTP/2のサーバープッシュの機能はどれか？",
     "options": [
-      "A. クライアントサイド実行",
-      "B. Server Actionsを定義し、フォーム送信等のサーバーサイド処理をコンポーネントから直接呼出し",
-      "C. CSSの適用",
-      "D. ルーティング"
+      "A: WebSocketの代替",
+      "B: サーバーがクライアントのリクエストを待たずに、HTMLに紐づくCSS/JS等の関連リソースを先行送信できる",
+      "C: リアルタイム通知の送信",
+      "D: データベースの変更通知"
     ],
     "correct": 1,
-    "explanation": "\"use server\"はサーバーでのみ実行される関数を定義し、フォームのaction属性等からAPI Route不要で直接サーバー処理を呼び出せるServer Actions機能です。"
+    "explanation": "HTTP/2のサーバープッシュはHTML応答と同時に、そのページに必要なCSS/JS等のサブリソースをクライアントのリクエストを待たずに先行送信し、ページロードを高速化します。"
   }
 ]

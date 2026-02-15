@@ -1,702 +1,1302 @@
 [
   {
-    "id": 1131,
-    "question": "Androidアプリの開発言語として現在Googleが推奨しているのは？",
-    "options": ["A. Java", "B. Kotlin（Google公式推奨のAndroid開発言語）", "C. C++", "D. Swift"],
-    "correct": 1,
-    "explanation": "Googleは2019年にKotlinをAndroid開発の推奨言語と発表。Null安全、簡潔な構文、Java互換性が特徴で、新規開発はKotlinファーストです。"
-  },
-  {
-    "id": 1132,
-    "question": "Androidの「Activity」とは？",
-    "options": ["A. バックグラウンド処理", "B. 1つの画面を表すUIコンポーネントでユーザーインタラクションの基本単位", "C. データベース", "D. ネットワーク通信"],
-    "correct": 1,
-    "explanation": "ActivityはAndroidの画面を構成する基本コンポーネントで、ライフサイクル（onCreate→onStart→onResume→onPause→onStop→onDestroy）を持ちます。"
-  },
-  {
-    "id": 1133,
-    "question": "Androidの「Fragment」の用途は？",
-    "options": ["A. Activityの代替", "B. Activity内の再利用可能なUI部品で、画面の一部を構成するコンポーネント", "C. データベースへのアクセス", "D. バックグラウンドサービス"],
-    "correct": 1,
-    "explanation": "FragmentはActivity内に配置できる再利用可能なUIコンポーネントで、タブレットの分割画面やNavigation Componentと組み合わせて使います。"
-  },
-  {
-    "id": 1134,
-    "question": "Androidの「Intent」の役割は？",
-    "options": ["A. データの保存", "B. Activity間の画面遷移やコンポーネント間のメッセージングに使用", "C. UIの描画", "D. ネットワーク接続"],
-    "correct": 1,
-    "explanation": "IntentはActivity遷移（明示的Intent）や他アプリの呼び出し（暗黙的Intent）、データの受け渡し等のコンポーネント間通信に使用します。"
-  },
-  {
-    "id": 1135,
-    "question": "Androidの「ViewModel」の目的は？",
-    "options": ["A. UIの描画", "B. 画面回転等のConfiguration Change時にデータを保持するライフサイクル対応コンポーネント", "C. データベースアクセス", "D. ネットワーク通信"],
-    "correct": 1,
-    "explanation": "ViewModelはActivity/Fragmentのライフサイクルとは独立してデータを保持し、画面回転でActivityが再生成されてもデータが失われません。"
-  },
-  {
-    "id": 1136,
-    "question": "Androidの「Jetpack Compose」とは？",
-    "options": ["A. XMLレイアウト", "B. Kotlinで宣言的UIを構築するAndroidの最新UIフレームワーク", "C. データベースライブラリ", "D. ネットワークライブラリ"],
-    "correct": 1,
-    "explanation": "Jetpack ComposeはXMLレイアウトに代わるKotlinベースの宣言的UIツールキットで、@Composable関数でUIを直感的に構築します。"
-  },
-  {
-    "id": 1137,
-    "question": "Androidの「Room」の用途は？",
-    "options": ["A. UIフレームワーク", "B. SQLiteデータベースへのアクセスを簡素化するORM（抽象化レイヤー）", "C. ネットワーク通信", "D. 画像処理"],
-    "correct": 1,
-    "explanation": "RoomはSQLiteのラッパーで、@Entity（テーブル）、@Dao（データアクセス）、@Database（DB定義）のアノテーションでDB操作を型安全に行えます。"
-  },
-  {
-    "id": 1138,
-    "question": "Androidの「LiveData」と「StateFlow」の違いは？",
-    "options": ["A. 同じもの", "B. LiveDataはライフサイクル対応、StateFlowはKotlin Coroutinesベースの状態管理", "C. LiveDataが新しい", "D. StateFlowはXML専用"],
-    "correct": 1,
-    "explanation": "LiveDataはAndroid固有でライフサイクル自動管理。StateFlowはKotlinのFlowベースでマルチプラットフォーム対応。Compose時代はStateFlowが主流。"
-  },
-  {
-    "id": 1139,
-    "question": "Androidの「Retrofit」の用途は？",
-    "options": ["A. UIフレームワーク", "B. HTTP APIクライアントライブラリで、インターフェースからAPI呼出しを自動生成", "C. データベース", "D. 画像読込み"],
-    "correct": 1,
-    "explanation": "RetrofitはSquare製のHTTPクライアントで、@GETや@POSTアノテーション付きのインターフェースからREST APIの呼出しコードを自動生成します。"
-  },
-  {
-    "id": 1140,
-    "question": "Androidの「Gradle」の役割は？",
-    "options": ["A. UIレイアウト", "B. ビルドシステムで、依存関係管理、コンパイル、パッケージング等を自動化", "C. テストフレームワーク", "D. デザインツール"],
-    "correct": 1,
-    "explanation": "GradleはAndroidの公式ビルドツールで、build.gradleでSDKバージョン、依存ライブラリ、ビルドバリアント（debug/release）等を設定管理します。"
-  },
-  {
-    "id": 1141,
-    "question": "Androidの「ProGuard/R8」の用途は？",
-    "options": ["A. テスト", "B. コードの難読化・最小化・最適化でAPKサイズ削減とリバースエンジニアリング防止", "C. デバッグ", "D. レイアウト設計"],
-    "correct": 1,
-    "explanation": "R8（ProGuardの後継）はリリースビルドでコードの難読化（変数名→a,b,c）、未使用コード削除、最適化を行いAPKサイズを削減します。"
-  },
-  {
-    "id": 1142,
-    "question": "Androidの「RecyclerView」の特徴は？",
-    "options": ["A. 単一要素の表示", "B. 大量リストを効率的に表示するビューで、表示外のViewを再利用（リサイクル）", "C. 画像表示専用", "D. マップ表示"],
-    "correct": 1,
-    "explanation": "RecyclerViewはViewHolder パターンで見えなくなったViewを再利用し、大量データでもメモリ効率よくスクロールリストを表示します。"
-  },
-  {
-    "id": 1143,
-    "question": "iOSアプリの推奨開発言語は？",
-    "options": ["A. Objective-C", "B. Swift（Apple公式の最新開発言語）", "C. Java", "D. Kotlin"],
-    "correct": 1,
-    "explanation": "SwiftはAppleが2014年に発表したiOS/macOS開発言語で、安全性（Optional型）、高速性、モダンな構文が特徴。Objective-Cからの移行が進んでいます。"
-  },
-  {
-    "id": 1144,
-    "question": "iOSの「SwiftUI」とは？",
-    "options": ["A. UIKitの別名", "B. Swiftで宣言的UIを構築するAppleの最新UIフレームワーク", "C. サーバーフレームワーク", "D. テストフレームワーク"],
-    "correct": 1,
-    "explanation": "SwiftUIはAppleの宣言的UIフレームワークで、struct ContentView: View { var body: some View { ... } }のようにUIを構築します。"
-  },
-  {
-    "id": 1145,
-    "question": "iOSの「UIKit」とは？",
-    "options": ["A. SwiftUIの一部", "B. Appleの従来型（命令的）UIフレームワークでViewController/Storyboardベース", "C. サーバーフレームワーク", "D. テストツール"],
-    "correct": 1,
-    "explanation": "UIKitはiOSの伝統的なUIフレームワークで、UIViewControllerのライフサイクル管理、AutoLayout、Storyboard/XIBでUIを構築します。"
-  },
-  {
-    "id": 1146,
-    "question": "iOSの「Core Data」の用途は？",
-    "options": ["A. ネットワーク通信", "B. アプリ内データの永続化とオブジェクトグラフ管理のApple公式フレームワーク", "C. 画像処理", "D. 認証"],
-    "correct": 1,
-    "explanation": "Core DataはSQLiteをバックエンドとしたORM的フレームワークで、NSManagedObjectによるデータモデリング、CRUD、マイグレーションをサポートします。"
-  },
-  {
-    "id": 1147,
-    "question": "iOSの「Combine」フレームワークの用途は？",
-    "options": ["A. UIレイアウト", "B. リアクティブプログラミングで非同期イベントを処理するApple公式フレームワーク", "C. データベース", "D. 通知管理"],
-    "correct": 1,
-    "explanation": "CombineはPublisher/Subscriberパターンで非同期データストリームを処理します。URLSession, NotificationCenter等と統合できます。"
-  },
-  {
-    "id": 1148,
-    "question": "iOSの「App Sandbox」とは？",
-    "options": ["A. テスト環境", "B. アプリごとに隔離されたファイルシステムでセキュリティとプライバシーを保護", "C. クラウドストレージ", "D. デバッグモード"],
-    "correct": 1,
-    "explanation": "App Sandboxは各アプリに専用のファイルシステム領域を割当て、他アプリのデータへのアクセスを制限してセキュリティを確保するiOSの仕組みです。"
-  },
-  {
-    "id": 1149,
-    "question": "iOSの「Keychain」の用途は？",
-    "options": ["A. ファイル管理", "B. パスワード、トークン、暗号鍵等の秘密情報を暗号化して安全に保存", "C. UIのキー操作", "D. ネットワーク管理"],
-    "correct": 1,
-    "explanation": "KeychainはiOSの暗号化されたセキュアストレージで、UserDefaultsと異なりパスワードやAPIトークン等の機密データの安全な保存に使用します。"
-  },
-  {
-    "id": 1150,
-    "question": "iOSの「Auto Layout」の目的は？",
-    "options": ["A. 自動コーディング", "B. 制約(Constraints)ベースでUI要素を配置し様々な画面サイズに対応するレイアウトシステム", "C. 自動テスト", "D. 自動デプロイ"],
-    "correct": 1,
-    "explanation": "Auto Layoutは制約（左端から20pt、中央揃え等）でビューの関係を定義し、iPhone SE〜Pro Max等の異なる画面サイズに自動対応します。"
-  },
-  {
-    "id": 1151,
-    "question": "iOSの「NotificationCenter」の用途は？",
-    "options": ["A. プッシュ通知", "B. アプリ内でオブジェクト間のイベント通知（Observer パターン）を実現", "C. UIの通知表示", "D. サーバー通知"],
-    "correct": 1,
-    "explanation": "NotificationCenterはアプリ内のオブジェクト間で1対多のイベント通知を行うObserverパターン。直接参照なしにイベントを購読・発行できます。"
-  },
-  {
-    "id": 1152,
-    "question": "iOSの「ARC（Automatic Reference Counting）」とは？",
-    "options": ["A. ガベージコレクション", "B. コンパイル時に参照カウントを自動管理してメモリを解放する仕組み", "C. 手動メモリ管理", "D. ディスク管理"],
-    "correct": 1,
-    "explanation": "ARCはオブジェクトの参照カウントをコンパイラが自動管理し、カウントが0になると自動解放。循環参照はweak/unownedで解決します。"
-  },
-  {
-    "id": 1153,
-    "question": "Flutterとは何か？",
-    "options": ["A. iOS専用フレームワーク", "B. Google製のクロスプラットフォームUIフレームワーク（一つのコードでiOS/Android/Web等）", "C. JavaScriptフレームワーク", "D. バックエンドフレームワーク"],
-    "correct": 1,
-    "explanation": "FlutterはDart言語でiOS、Android、Web、デスクトップ向けアプリを単一コードベースで構築できるGoogle製のUIツールキットです。"
-  },
-  {
-    "id": 1154,
-    "question": "Flutterの開発言語「Dart」の特徴は？",
-    "options": ["A. 動的型付けのみ", "B. 静的型付け、AOT/JITコンパイル対応、null安全、Googleが開発", "C. インタプリタのみ", "D. C言語ベース"],
-    "correct": 1,
-    "explanation": "DartはGoogleが開発した言語で、開発時はJIT（Hot Reload）、リリース時はAOT（ネイティブ性能）のコンパイルが可能。Sound null safety対応。"
-  },
-  {
-    "id": 1155,
-    "question": "Flutterの「Widget」とは？",
-    "options": ["A. HTMLの要素", "B. UIの基本構成単位で、すべてのUI要素がWidgetで構成される（Widget Tree）", "C. CSS クラス", "D. データモデル"],
-    "correct": 1,
-    "explanation": "FlutterではボタンもテキストもレイアウトもすべてWidgetです。Widgetツリーとして階層的に構成し、宣言的にUIを定義します。"
-  },
-  {
-    "id": 1156,
-    "question": "Flutterの「StatelessWidget」と「StatefulWidget」の違いは？",
-    "options": ["A. 同じもの", "B. Statelessは不変のUI、StatefulはStateオブジェクトで状態を持ち動的に変化するUI", "C. Statefulが不変", "D. Statelessが状態を持つ"],
-    "correct": 1,
-    "explanation": "StatelessWidgetは変化しないUI（テキスト表示等）。StatefulWidgetはcreateState()でStateオブジェクトを持ち、setStateで再ビルドします。"
-  },
-  {
-    "id": 1157,
-    "question": "Flutterの「Hot Reload」の利点は？",
-    "options": ["A. アプリの再インストール", "B. コード変更がアプリの状態を保持したまま即座にUIに反映される高速開発体験", "C. ビルドの高速化", "D. テストの自動実行"],
-    "correct": 1,
-    "explanation": "Hot Reloadはコード変更をJITコンパイルで即座に反映し、画面の状態（入力値等）を維持します。UIの調整時に再起動不要で生産性が向上。"
-  },
-  {
-    "id": 1158,
-    "question": "Flutterの「Material Design」と「Cupertino」の違いは？",
-    "options": ["A. 同じデザイン", "B. MaterialはGoogleのデザイン体系、CupertinoはAppleのiOSデザインに準拠したWidget群", "C. Materialがios用", "D. Cupertinoがandroid用"],
-    "correct": 1,
-    "explanation": "MaterialWidgets（MaterialApp等）はAndroid風、CupertinoWidgets（CupertinoApp等）はiOS風のUIを提供。プラットフォームに応じた使い分けが可能。"
-  },
-  {
-    "id": 1159,
-    "question": "Flutterの状態管理で人気のパッケージは？",
-    "options": ["A. jQuery", "B. Provider, Riverpod, BLoC, GetX", "C. Redux のみ", "D. MobX のみ"],
-    "correct": 1,
-    "explanation": "Provider（公式推奨）、Riverpod（Provider進化版）、BLoC（ビジネスロジックコンポーネント）、GetX（軽量万能）等が代表的な状態管理ソリューションです。"
-  },
-  {
-    "id": 1160,
-    "question": "Flutterの「Navigator」の役割は？",
-    "options": ["A. ファイル管理", "B. 画面遷移（ルーティング）をStackベースで管理するナビゲーション管理", "C. ネットワーク管理", "D. データベース管理"],
-    "correct": 1,
-    "explanation": "NavigatorはRouteをスタックで管理し、push（画面追加）、pop（画面戻る）で遷移します。Navigator 2.0では宣言的ルーティングも可能。"
-  },
-  {
-    "id": 1161,
-    "question": "Flutterの「Platform Channel」の用途は？",
-    "options": ["A. UIデザイン", "B. Dartコードからネイティブ（iOS/Android）のAPIを呼び出すための通信チャネル", "C. ネットワーク通信", "D. データベース接続"],
-    "correct": 1,
-    "explanation": "Platform ChannelはMethodChannelでDart↔Swift/Kotlinのメッセージを送受信し、カメラやGPS等のネイティブ機能にアクセスします。"
-  },
-  {
-    "id": 1162,
-    "question": "Flutterの「pub.dev」とは？",
-    "options": ["A. 開発者ブログ", "B. DartとFlutterのパッケージリポジトリ（npm的な存在）", "C. CI/CDツール", "D. テストプラットフォーム"],
-    "correct": 1,
-    "explanation": "pub.devはDart/Flutterの公式パッケージレジストリで、pubspec.yamlに依存を追加し、flutter pub getでインストールします。"
-  },
-  {
-    "id": 1163,
-    "question": "React Nativeとは何か？",
-    "options": ["A. ReactのUI ライブラリ", "B. Metaが開発したJavaScript/TypeScriptでネイティブモバイルアプリを構築するフレームワーク", "C. Node.jsフレームワーク", "D. CSSフレームワーク"],
-    "correct": 1,
-    "explanation": "React NativeはReactの構文でiOS/Androidのネイティブコンポーネントにマッピングするモバイルフレームワーク。WebではなくネイティブUIをレンダリング。"
-  },
-  {
-    "id": 1164,
-    "question": "React Nativeの「Bridge」アーキテクチャとは？",
-    "options": ["A. ネットワーク接続", "B. JavaScriptエンジンとネイティブ側のコンポーネントをJSON通信で接続する旧アーキテクチャ", "C. UIフレームワーク", "D. データベース接続"],
-    "correct": 1,
-    "explanation": "旧Bridgeは JSスレッドとネイティブスレッドの間でJSONシリアライズ通信を行う非同期ブリッジで、パフォーマンスのボトルネックでした。"
-  },
-  {
-    "id": 1165,
-    "question": "React Nativeの「New Architecture」の改善点は？",
-    "options": ["A. JSONBridgeの維持", "B. JSI（同期通信）、Fabric（新レンダラー）、TurboModules（遅延ロード）で高性能化", "C. WebViewベース", "D. HTML対応"],
-    "correct": 1,
-    "explanation": "New ArchitectureはJSI（JS Interface）でBridge不要の直接通信、Fabricで同期レンダリング、TurboModulesでネイティブモジュールの遅延読込みを実現。"
-  },
-  {
-    "id": 1166,
-    "question": "React Nativeの「Expo」とは？",
-    "options": ["A. テストツール", "B. React Nativeの開発を簡素化するプラットフォーム（ビルド、配布、ネイティブAPI等）", "C. CI/CDツール", "D. デザインツール"],
-    "correct": 1,
-    "explanation": "ExpoはReact Nativeの開発を簡素化し、Expo Go（開発用アプリ）、EAS Build/Submit（クラウドビルド・配布）、豊富なAPI等を提供します。"
-  },
-  {
-    "id": 1167,
-    "question": "React Nativeの「View」「Text」「ScrollView」等の特徴は？",
-    "options": ["A. HTML要素", "B. ネイティブUIコンポーネントにマッピングされるReact Native固有のコンポーネント", "C. CSS クラス", "D. SVG要素"],
-    "correct": 1,
-    "explanation": "React Nativeではdivの代わりにView、pの代わりにText等のコンポーネントを使い、各プラットフォームのネイティブUIにマッピングされます。"
-  },
-  {
-    "id": 1168,
-    "question": "React Nativeの「StyleSheet」の特徴は？",
-    "options": ["A. CSSと完全同一", "B. CSSライクだがFlexboxベースのオブジェクト記法で、StyleSheet.create()で定義", "C. HTMLの style属性", "D. Sassのみ使用"],
-    "correct": 1,
-    "explanation": "StyleSheetはCSSライクなプロパティ（camelCase）をJSオブジェクトで定義。デフォルトがflexboxで、StyleSheet.create()で最適化されます。"
-  },
-  {
-    "id": 1169,
-    "question": "React Nativeの「AsyncStorage」の用途は？",
-    "options": ["A. ネットワーク通信", "B. キーバリュー形式のローカル永続ストレージ（Web のLocalStorageに相当）", "C. メモリ管理", "D. 画像キャッシュ"],
-    "correct": 1,
-    "explanation": "AsyncStorageは非暗号化の永続キーバリューストアで、await AsyncStorage.setItem('key', 'value')のように設定値やユーザー情報を保存します。"
-  },
-  {
-    "id": 1170,
-    "question": "FlutterとReact Nativeの主な違いは？",
-    "options": ["A. 同じ仕組み", "B. FlutterはDartで独自描画エンジン、React NativeはJS/TSでネイティブUIにマッピング", "C. React Nativeが独自エンジン", "D. Flutterがネイティブマッピング"],
-    "correct": 1,
-    "explanation": "FlutterはSkia(現Impeller)エンジンで自前描画。React NativeはネイティブUI(UIKit/Android View)にマッピング。Flutter=統一UI、RN=プラットフォームUI。"
-  },
-  {
-    "id": 1171,
-    "question": "モバイルアプリの「ディープリンク」とは？",
-    "options": ["A. 深い階層のWebリンク", "B. URLからアプリの特定画面(コンテンツ)に直接遷移させるリンク", "C. QRコード", "D. プッシュ通知"],
-    "correct": 1,
-    "explanation": "ディープリンクはmyapp://product/123のようなカスタムURLスキームやUniversal Links(iOS)/App Links(Android)でアプリの特定画面に直接遷移。"
-  },
-  {
-    "id": 1172,
-    "question": "モバイルアプリの「プッシュ通知」の仕組みは？",
-    "options": ["A. アプリがサーバーに定期問い合せ", "B. APNs(iOS)/FCM(Android)を通じてサーバーからデバイスに通知を送信", "C. ローカル通知のみ", "D. SMS送信"],
-    "correct": 1,
-    "explanation": "プッシュ通知はAPNs(Apple Push Notification service)やFCM(Firebase Cloud Messaging)を経由してサーバーからデバイスにメッセージを届けます。"
-  },
-  {
-    "id": 1173,
-    "question": "Firebase Cloud Messaging (FCM) の用途は？",
-    "options": ["A. データベース", "B. Android/iOS/Webにクロスプラットフォームのプッシュ通知を送信するGoogle サービス", "C. ファイルストレージ", "D. 認証"],
-    "correct": 1,
-    "explanation": "FCMはGoogleの無料プッシュ通知サービスで、トピック購読、デバイストークンによる個別送信、グループ送信等をサポートします。"
-  },
-  {
-    "id": 1174,
-    "question": "モバイルの「レスポンシブレイアウト」で重要な概念は？",
-    "options": ["A. 固定サイズのみ", "B. 画面サイズに応じた柔軟なレイアウト（割合指定、SafeAreaの考慮等）", "C. ピクセル固定のみ", "D. テキストのみ"],
-    "correct": 1,
-    "explanation": "モバイルではFlex/割合でのサイズ指定、SafeArea（ノッチ等の回避）、画面サイズに応じたブレークポイント等で多様なデバイスに対応します。"
-  },
-  {
-    "id": 1175,
-    "question": "アプリの「オフラインファースト」設計とは？",
-    "options": ["A. オンライン専用", "B. ローカルにデータを保存しオフラインでも動作し、接続時にサーバーと同期する設計", "C. キャッシュなし", "D. サーバー直接通信のみ"],
-    "correct": 1,
-    "explanation": "オフラインファーストはローカルDB(SQLite等)にデータを保存して即応答し、ネットワーク復帰時にサーバーと同期する設計パターンです。"
-  },
-  {
-    "id": 1176,
-    "question": "モバイルの「App Lifecycle」で重要な状態は？",
-    "options": ["A. 実行中のみ", "B. フォアグラウンド(アクティブ)、バックグラウンド(中断)、終了の状態遷移", "C. インストール/アンインストールのみ", "D. 起動/シャットダウンのみ"],
-    "correct": 1,
-    "explanation": "アプリはアクティブ(操作中)→非アクティブ(遷移中)→バックグラウンド(中断)→終了の状態を遷移し、各状態でデータ保存やリソース解放が必要。"
-  },
-  {
-    "id": 1177,
-    "question": "iOSの「TestFlight」の用途は？",
-    "options": ["A. 自動テスト", "B. iOSアプリのベータ版配布・テストのためのApple公式サービス", "C. App Store公開", "D. コードレビュー"],
-    "correct": 1,
-    "explanation": "TestFlightはApp Store Connect経由でベータ版アプリを内部テスター（100人）/外部テスター（10,000人）に配布しフィードバックを収集するサービスです。"
-  },
-  {
-    "id": 1178,
-    "question": "Androidの「Google Play Console」の役割は？",
-    "options": ["A. 開発IDE", "B. Androidアプリの公開、管理、分析を行うGoogle の開発者プラットフォーム", "C. テストフレームワーク", "D. デザインツール"],
-    "correct": 1,
-    "explanation": "Google Play ConsoleではAPK/AABのアップロード、内部テスト/クローズドテスト/オープンテスト/本番リリースの段階的公開、分析データの確認が可能。"
-  },
-  {
-    "id": 1179,
-    "question": "アプリ配布の「AAB（Android App Bundle）」とは？",
-    "options": ["A. APKの別名", "B. Googleがデバイスに最適化されたAPKを生成するための公開フォーマット", "C. iOSのフォーマット", "D. テストファイル"],
-    "correct": 1,
-    "explanation": "AABはアプリのすべてのコードとリソースを含むアップロード形式で、Google PlayがDynamic Deliveryでデバイスに最適なAPKを生成・配信します。"
-  },
-  {
-    "id": 1180,
-    "question": "iOSの「App Store Review Guidelines」で注意すべき点は？",
-    "options": ["A. 制限なし", "B. コンテンツポリシー、プライバシー要件、In-App Purchase必須(デジタル商品)等のApple審査基準", "C. Android と同じ", "D. 自動承認"],
-    "correct": 1,
-    "explanation": "Appleの審査はプライバシーラベル、追跡透明性(ATT)、デジタル商品のIAP使用義務、コンテンツガイドライン等の厳格な基準があります。"
-  },
-  {
-    "id": 1181,
-    "question": "モバイルの「CI/CD」でよく使われるツールは？",
-    "options": ["A. Photoshop", "B. Fastlane, Bitrise, Codemagic, GitHub Actions", "C. Terraform", "D. Ansible"],
-    "correct": 1,
-    "explanation": "Fastlane（ビルド/署名/配布自動化）、Bitrise/Codemagic（モバイル特化CI/CD）、GitHub Actions等でビルド→テスト→配布を自動化します。"
-  },
-  {
-    "id": 1182,
-    "question": "「Fastlane」の主な機能は？",
-    "options": ["A. UIデザイン", "B. iOS/Androidのビルド、コード署名、App Store/Google Play へのアップロードを自動化", "C. テストフレームワーク", "D. データベース管理"],
-    "correct": 1,
-    "explanation": "FastlaneはRuby製のモバイル自動化ツールで、match(証明書管理)、gym(ビルド)、deliver(App Store配布)、supply(Google Play配布)等を提供。"
-  },
-  {
-    "id": 1183,
-    "question": "iOSの「コード署名（Code Signing）」の目的は？",
-    "options": ["A. コードの暗号化", "B. 開発者の身元確認とアプリの改ざん防止を証明書とプロビジョニングプロファイルで保証", "C. コードの圧縮", "D. パフォーマンス向上"],
-    "correct": 1,
-    "explanation": "iOSのコード署名はApple発行の証明書でアプリの開発者を認証し、App IDとデバイスを指定したプロビジョニングプロファイルでの実行を許可します。"
-  },
-  {
-    "id": 1184,
-    "question": "「OTA（Over-The-Air）アップデート」とは？",
-    "options": ["A. App Store経由のみ", "B. アプリストアを経由せずにアプリのJSバンドル等を直接更新する仕組み", "C. OS更新のみ", "D. 手動インストール"],
-    "correct": 1,
-    "explanation": "OTAアップデートはReact NativeのCodePush等でJSバンドルをサーバーから直接配信し、ストア審査なしで即座にバグ修正・機能更新できます。"
-  },
-  {
-    "id": 1185,
-    "question": "モバイルの「Webview」と「ネイティブ」の違いは？",
-    "options": ["A. 同じもの", "B. WebViewはアプリ内でWebページを表示、ネイティブはプラットフォーム固有のUIコンポーネントで構築", "C. ネイティブがWebページを表示", "D. WebViewの方が高速"],
-    "correct": 1,
-    "explanation": "WebViewはアプリ内ブラウザでHTML/CSS/JSを表示（ハイブリッドアプリ）。ネイティブはSwift/Kotlin等でOS固有UIを使い高パフォーマンスです。"
-  },
-  {
-    "id": 1186,
-    "question": "モバイルの「バイオメトリクス認証」の例は？",
-    "options": ["A. パスワードのみ", "B. 指紋認証（Touch ID）、顔認証（Face ID）等の生体情報による認証", "C. PINコードのみ", "D. パターンロックのみ"],
-    "correct": 1,
-    "explanation": "iOSのTouch ID/Face ID、AndroidのBiometric APIで指紋・顔・虹彩等の生体情報を使ったセキュアな認証をアプリに組み込めます。"
-  },
-  {
-    "id": 1187,
-    "question": "モバイルの「アプリ内課金（In-App Purchase）」の種類は？",
-    "options": ["A. 広告のみ", "B. 消耗型（使い切りアイテム）、非消耗型（永続機能解除）、サブスクリプション（定期購読）", "C. 一回払いのみ", "D. 寄付のみ"],
-    "correct": 1,
-    "explanation": "IAPには消耗型（ゲーム内通貨等）、非消耗型（広告除去等の永続購入）、自動更新サブスクリプション（月額等）の種類があります。"
-  },
-  {
-    "id": 1188,
-    "question": "モバイルの「アクセシビリティ（a11y）」対応で重要なことは？",
-    "options": ["A. デザインの簡素化のみ", "B. スクリーンリーダー対応、十分なコントラスト、タップ領域の確保、ラベル付与", "C. 文字を大きくするのみ", "D. 色を付けるのみ"],
-    "correct": 1,
-    "explanation": "VoiceOver(iOS)/TalkBack(Android)向けのラベル付与、コントラスト比4.5:1以上、タップ領域44x44pt以上、Dynamic Type対応等が重要。"
-  },
-  {
-    "id": 1189,
-    "question": "モバイルの「メモリリーク」の一般的な原因は？",
-    "options": ["A. メモリ不足のみ", "B. 循環参照、未解除のリスナー/オブザーバー、コンテキスト(Activity)のリーク", "C. CPUの問題", "D. ストレージ不足"],
-    "correct": 1,
-    "explanation": "Android: Activity参照のリーク、未解除のBroadcastReceiver。iOS: Closureのstrong参照による循環参照。weak/unownedの適切な使用が重要。"
-  },
-  {
-    "id": 1190,
-    "question": "モバイルの「画像読み込みライブラリ」の代表例は？",
-    "options": ["A. jQuery", "B. Glide/Coil(Android)、SDWebImage/Kingfisher(iOS)", "C. React", "D. Express"],
-    "correct": 1,
-    "explanation": "Androidはglide/Coil、iOSはSDWebImage/Kingfisherがネットワーク画像の非同期読み込み、キャッシュ、リサイズ、プレースホルダーを提供。"
-  },
-  {
-    "id": 1191,
-    "question": "モバイルの「ジェスチャー操作」の例は？",
-    "options": ["A. キーボード入力のみ", "B. タップ、スワイプ、ピンチ（拡大縮小）、長押し、ドラッグ", "C. マウスクリックのみ", "D. 音声入力のみ"],
-    "correct": 1,
-    "explanation": "モバイルは指操作が主体: タップ(選択)、スワイプ(遷移/削除)、ピンチ(拡大縮小)、長押し(コンテキストメニュー)、ドラッグ(並替え)等。"
-  },
-  {
-    "id": 1192,
-    "question": "モバイルの「Firebase」が提供する主要サービスは？",
-    "options": ["A. IDEのみ", "B. Authentication、Firestore(DB)、Cloud Functions、Hosting、Analytics、Crashlytics等", "C. ハードウェア", "D. OSのみ"],
-    "correct": 1,
-    "explanation": "FirebaseはGoogleのモバイルBaaS(Backend as a Service)で認証、NoSQL DB、サーバーレス関数、クラッシュ分析、プッシュ通知等を一括提供。"
-  },
-  {
-    "id": 1193,
-    "question": "「KMM（Kotlin Multiplatform Mobile）」の特徴は？",
-    "options": ["A. UI共有フレームワーク", "B. Kotlinでビジネスロジックを共有しiOS/AndroidのUI はネイティブで記述", "C. Java専用", "D. Web専用"],
-    "correct": 1,
-    "explanation": "KMM(現Kotlin Multiplatform)はビジネスロジック（ネットワーク、DB等）をKotlinで共有し、UIはSwiftUI/Jetpack Compose等のネイティブで実装します。"
-  },
-  {
-    "id": 1194,
-    "question": "モバイルアプリの「パフォーマンス最適化」で重要な指標は？",
-    "options": ["A. コード行数", "B. 起動時間、フレームレート（60fps）、メモリ使用量、バッテリー消費", "C. ファイル数", "D. ブランチ数"],
-    "correct": 1,
-    "explanation": "起動時間（Cold Start）は1-2秒以内、スムーズなスクロール60fps、メモリリークなし、バッテリードレインの回避がモバイルの主要パフォーマンス指標。"
-  },
-  {
-    "id": 1195,
-    "question": "モバイルの「画面遷移アニメーション」の重要性は？",
-    "options": ["A. 不要なもの", "B. UXの向上、コンテキストの維持、ユーザーの操作理解を助けるフィードバック", "C. パフォーマンス低下のみ", "D. 開発時間の増加のみ"],
-    "correct": 1,
-    "explanation": "適切なアニメーション(300ms以下)はユーザーに画面遷移の方向感覚を与え、操作の結果を視覚的にフィードバックしてUXを向上させます。"
-  },
-  {
-    "id": 1196,
-    "question": "モバイルの「ダークモード」対応の実装方法は？",
-    "options": ["A. 色を反転するだけ", "B. システム設定を検出し、ライト/ダーク各テーマの色・画像リソースを用意", "C. 背景を黒にするだけ", "D. フィルターをかける"],
-    "correct": 1,
-    "explanation": "iOS: UIColor.systemBackgroundはライト/ダークで自動変化。Android: themes.xml(night)やisSystemInDarkThemeで分岐。各テーマの色設計が重要。"
-  },
-  {
-    "id": 1197,
-    "question": "クロスプラットフォーム開発の「Hybrid App」とは？",
-    "options": ["A. ネイティブアプリのみ", "B. WebView内でHTML/CSS/JSで構築しCordova/Ionic等でネイティブ機能にアクセスするアプリ", "C. サーバーサイドアプリ", "D. PWAのみ"],
-    "correct": 1,
-    "explanation": "ハイブリッドアプリはWebView内でWeb技術で構築し、Cordova/Capacitorのプラグインでカメラ等のネイティブAPIを呼び出します。"
-  },
-  {
-    "id": 1198,
-    "question": "モバイルの「国際化（i18n）」と「地域化（l10n）」の違いは？",
-    "options": ["A. 同じもの", "B. i18nは多言語対応の設計、l10nは特定言語/地域への実際の翻訳・適応", "C. i18nが翻訳", "D. l10nが設計"],
-    "correct": 1,
-    "explanation": "i18n(internationalization)は多言語に対応できるアーキテクチャ設計。l10n(localization)は日本語化、日付形式変更等の具体的な地域適応作業です。"
-  },
-  {
-    "id": 1199,
-    "question": "モバイルの「App Clip」（iOS）/「Instant App」（Android）とは？",
-    "options": ["A. 通常のアプリ", "B. インストール不要で特定の機能だけを即座に利用できる軽量アプリ", "C. Webアプリ", "D. PWA"],
-    "correct": 1,
-    "explanation": "App Clip/Instant AppはNFCやQRコードから起動し、アプリの一部機能をインストールなしで即使用できる軽量体験を提供します。"
-  },
-  {
-    "id": 1200,
-    "question": "モバイルの「ウィジェット」の特徴は？",
-    "options": ["A. アプリ内UI", "B. ホーム画面やロック画面にアプリの情報を表示する小型のUI（WidgetKit/Glance等）", "C. 通知の一種", "D. バックグラウンドサービス"],
-    "correct": 1,
-    "explanation": "iOS: WidgetKit(SwiftUI)、Android: Glance(Compose)/AppWidgetProviderでホーム画面にアプリの要約情報(天気、予定等)を常時表示。"
-  },
-  {
-    "id": 1201,
-    "question": "Flutterの「Impeller」とは？",
-    "options": ["A. 状態管理ライブラリ", "B. Skiaに代わるFlutterの新しい高性能レンダリングエンジン", "C. テストフレームワーク", "D. パッケージマネージャ"],
-    "correct": 1,
-    "explanation": "ImpellerはFlutterの新レンダリングエンジンで、シェーダーの事前コンパイルによりjankを削減し、Skia比で滑らかなアニメーションを実現します。"
-  },
-  {
-    "id": 1202,
-    "question": "モバイルの「Crashlytics」の用途は？",
-    "options": ["A. UIテスト", "B. アプリのクラッシュをリアルタイムに収集・分析し、優先度付きのクラッシュレポートを提供", "C. パフォーマンス計測", "D. A/Bテスト"],
-    "correct": 1,
-    "explanation": "Firebase Crashlyticsはクラッシュのスタックトレースをリアルタイムにダッシュボード表示し、影響ユーザー数や発生頻度で優先順位を可視化します。"
-  },
-  {
-    "id": 1203,
-    "question": "モバイルの「App Tracking Transparency（ATT）」とは？",
-    "options": ["A. GPSのみ", "B. iOS 14.5以降でユーザーのアプリ横断トラッキングに明示的な許可を要求する仕組み", "C. クラッシュ追跡", "D. パフォーマンス追跡"],
-    "correct": 1,
-    "explanation": "ATTはAppleのプライバシー機能で、IDFA(広告識別子)を使ったクロスアプリトラッキングにユーザーの明示的許可が必要になりました。"
-  },
-  {
-    "id": 1204,
-    "question": "モバイルの「A/Bテスト」とは？",
-    "options": ["A. 単体テスト", "B. 2つ以上のバージョンをユーザーにランダム表示し、どちらが効果的か比較検証", "C. 結合テスト", "D. 負荷テスト"],
-    "correct": 1,
-    "explanation": "A/Bテストはアプリの2つのバリエーション（ボタン色、レイアウト等）をユーザーに無作為に表示し、コンバージョン率等で優劣を統計的に判定します。"
-  },
-  {
-    "id": 1205,
-    "question": "モバイルの「Remote Config」の用途は？",
-    "options": ["A. サーバー設定のみ", "B. アプリの挙動やUIをサーバーから動的に変更（アップデート不要の設定変更）", "C. データベース", "D. 認証"],
-    "correct": 1,
-    "explanation": "Firebase Remote Config等でフィーチャーフラグ、テーマカラー、メッセージ文言等をサーバーから動的に変更し、アプリ更新なしで設定を反映。"
-  },
-  {
-    "id": 1206,
-    "question": "React Nativeの「FlatList」の特徴は？",
-    "options": ["A. 全要素を一度にレンダリング", "B. 大量データを仮想化してスクロール領域に表示されるアイテムのみレンダリング", "C. 水平スクロールのみ", "D. 画像専用"],
-    "correct": 1,
-    "explanation": "FlatListはWindowingで画面内のアイテムのみレンダリングし、大量データでもメモリ効率よくスクロールリストを表示。keyExtractor必須。"
-  },
-  {
-    "id": 1207,
-    "question": "モバイルの「ARKit」(iOS)/「ARCore」(Android)の用途は？",
-    "options": ["A. 音楽再生", "B. 拡張現実(AR)機能を実装するためのプラットフォームSDK", "C. データベース", "D. ネットワーク通信"],
-    "correct": 1,
-    "explanation": "ARKitとARCoreはカメラ映像に3Dオブジェクトを重ねる拡張現実アプリを構築するSDKで、面検出、物体追跡、光の推定等の機能を提供。"
-  },
-  {
-    "id": 1208,
-    "question": "モバイルの「バックグラウンド処理」の制限は？",
-    "options": ["A. 制限なし", "B. OSがバッテリー保護のため制限（iOS:約30秒、Android: Doze/App Standby）", "C. 完全に不可", "D. CPUのみ制限"],
-    "correct": 1,
-    "explanation": "iOS: バックグラウンドでは約30秒。BGTaskSchedulerで延長可能。Android: Dozeモードでネットワーク/Wake Lock制限。WorkManagerで適切に管理。"
-  },
-  {
-    "id": 1209,
-    "question": "Flutterの「BuildContext」の役割は？",
-    "options": ["A. ビルドツールの設定", "B. Widgetツリー内の位置情報を持ち、テーマやナビゲーション等のリソースにアクセス", "C. コンパイル設定", "D. テスト設定"],
-    "correct": 1,
-    "explanation": "BuildContextはWidgetのツリー内での位置を表すハンドルで、Theme.of(context)やNavigator.of(context)で上位のリソースを参照できます。"
-  },
-  {
-    "id": 1210,
-    "question": "モバイルの「CI/CDでのコード署名」管理のベストプラクティスは？",
-    "options": ["A. リポジトリに直接保存", "B. 証明書と秘密鍵をCI/CDのシークレット変数に保存しfastlane match等で管理", "C. メールで共有", "D. ハードコーディング"],
-    "correct": 1,
-    "explanation": "iOS証明書/プロビジョニングはfastlane matchでGitリポジトリに暗号化保存。Android keystoreはCI/CDのSecrets変数で安全に管理します。"
-  },
-  {
-    "id": 1211,
-    "question": "iOSの「StoreKit 2」の特徴は？",
-    "options": ["A. ファイル管理", "B. async/awaitベースの新しいIn-App Purchase APIでサブスクリプション管理が簡素化", "C. UI フレームワーク", "D. ネットワーク通信"],
-    "correct": 1,
-    "explanation": "StoreKit 2はSwiftConcurrencyでアプリ内課金処理を簡素化し、JWSVerifiedデータでサーバー検証が容易になった新しいIAP APIです。"
-  },
-  {
-    "id": 1212,
-    "question": "Androidの「WorkManager」の用途は？",
-    "options": ["A. UIスレッド管理", "B. 確実に実行が保証されるバックグラウンドタスクのスケジューリング", "C. ネットワーク管理", "D. メモリ管理"],
-    "correct": 1,
-    "explanation": "WorkManagerはアプリ終了後やデバイス再起動後も確実に実行される遅延可能なバックグラウンドタスク（ログ送信、データ同期等）に最適なJetpackライブラリです。"
-  },
-  {
-    "id": 1213,
-    "question": "モバイルの「SQLite」はどのような場面で使用されるか？",
-    "options": ["A. サーバーDBのみ", "B. モバイルアプリのローカルデータベースとして構造化データの永続化に使用", "C. 一時ファイルのみ", "D. ログ保存のみ"],
-    "correct": 1,
-    "explanation": "SQLiteは軽量な組込みRDBでモバイルアプリに標準搭載。iOSはCore Data/GRDB、AndroidはRoom、FlutterはSqflite等のラッパーで使用。"
-  },
-  {
-    "id": 1214,
-    "question": "モバイルの「ユニバーサルリンク」（iOS）/「App Links」（Android）とは？",
-    "options": ["A. カスタムURLスキーム", "B. 通常のHTTPS URLをタップ時にアプリの特定画面を直接開くディープリンク技術", "C. WebViewリンク", "D. メールリンク"],
-    "correct": 1,
-    "explanation": "HTTPSの通常URLがアプリの関連付けファイル(.well-known/apple-app-site-association等)で確認され、対応アプリの画面を直接開きます。"
-  },
-  {
-    "id": 1215,
-    "question": "「Progressive Enhancement」と「Graceful Degradation」の違いは？",
-    "options": ["A. 同じ概念", "B. Progressive Enhancementは基本機能から拡張、Graceful Degradationは高機能から基本保証", "C. Graceful Degradationが拡張", "D. Progressive Enhancementが縮退"],
-    "correct": 1,
-    "explanation": "Progressive Enhancementは最低限の機能からリッチ化。Graceful Degradationは最新機能をベースに古い環境でも動作するよう縮退。アプローチが逆です。"
-  },
-  {
-    "id": 1216,
-    "question": "モバイルアプリの開発で「MVVM」パターンが使われる理由は？",
-    "options": ["A. パフォーマンス向上", "B. UIとビジネスロジックの分離、テスト容易性、データバインディングとの相性の良さ", "C. コード行数の削減", "D. デザインの統一"],
-    "correct": 1,
-    "explanation": "MVVM(Model-View-ViewModel)はViewがViewModelを監視しUIを更新。ロジックがViewModelに集約されテストが容易。SwiftUI/Composeと好相性。"
-  },
-  {
-    "id": 1217,
-    "question": "モバイルの「テスト自動化」でよく使われるフレームワークは？",
-    "options": ["A. JenkinsのみUI", "B. XCTest/XCUITest(iOS)、Espresso/UIAutomator(Android)、Appium(クロスプラットフォーム)", "C. Seleniumのみ", "D. JUnitのみ"],
-    "correct": 1,
-    "explanation": "iOS: XCTest（ユニット）/XCUITest（UI）。Android: JUnit（ユニット）/Espresso（UI）。Appiumはクロスプラットフォームの自動化フレームワーク。"
-  },
-  {
-    "id": 1218,
-    "question": "Androidの「Hilt」の用途は？",
-    "options": ["A. UIフレームワーク", "B. Dagger2ベースの依存性注入(DI)フレームワークでAndroid推奨のDIソリューション", "C. テストフレームワーク", "D. ネットワークライブラリ"],
-    "correct": 1,
-    "explanation": "HiltはDagger2をAndroid向けに簡素化したDIライブラリで、@HiltAndroidApp, @Inject等のアノテーションで依存注入を定義します。"
-  },
-  {
-    "id": 1219,
-    "question": "モバイルの「Feature Module」設計の利点は？",
-    "options": ["A. コード行数の増加", "B. 機能単位でモジュール分割し、ビルド時間短縮、チーム独立開発、動的配信を実現", "C. パフォーマンス低下", "D. 依存関係の増加"],
-    "correct": 1,
-    "explanation": "Feature ModuleはAndroidのDynamic Feature Module等で機能を分割し、並列ビルド、オンデマンドダウンロード、チームの独立開発を可能にします。"
-  },
-  {
-    "id": 1220,
-    "question": "モバイルの「Continuous Testing」の重要性は？",
-    "options": ["A. 最後にだけテスト", "B. CI/CDパイプラインに自動テストを組込み、毎回のコード変更で品質を継続的に検証", "C. 手動テストのみ", "D. リリース後テスト"],
-    "correct": 1,
-    "explanation": "CIでユニットテスト/UI テスト/静的解析を自動実行し、毎コミットで品質を検証。リグレッションの早期検出と迅速なフィードバックを実現します。"
-  },
-  {
-    "id": 1221,
-    "question": "Flutterの「Riverpod」の特徴は？",
-    "options": ["A. UIフレームワーク", "B. コンパイル時安全でテストしやすいProviderの進化版状態管理パッケージ", "C. ルーティング", "D. アニメーション"],
-    "correct": 1,
-    "explanation": "RiverpodはProviderの開発者が作った次世代版で、BuildContextに依存せず、コンパイル安全性が高く、テストが容易な状態管理を提供します。"
-  },
-  {
-    "id": 1222,
-    "question": "React Nativeの「Reanimated」の用途は？",
-    "options": ["A. データベース", "B. ネイティブスレッドで高パフォーマンスなアニメーションを実行するライブラリ", "C. ルーティング", "D. 状態管理"],
-    "correct": 1,
-    "explanation": "ReanimatedはアニメーションのワークレットをネイティブUIスレッドで実行し、JSスレッドのボトルネックを回避して滑らかな60fpsアニメーションを実現。"
-  },
-  {
-    "id": 1223,
-    "question": "モバイルの「Offline Sync」で使われる同期戦略は？",
-    "options": ["A. 常にサーバー優先", "B. 楽観的同期（ローカル即反映→後からサーバー同期）とコンフリクト解決戦略の組合", "C. 常にクライアント優先", "D. 同期しない"],
-    "correct": 1,
-    "explanation": "オフライン同期はローカルDBに即書込み（楽観的更新）→オンライン復帰時にサーバーと同期。コンフリクトはlast-write-wins/マージ戦略で解決。"
-  },
-  {
-    "id": 1224,
-    "question": "モバイルの「ネイティブモジュール」（React Native）の用途は？",
-    "options": ["A. CSSの適用", "B. JSからアクセスできないネイティブ機能(Bluetooth等)をSwift/Kotlinで実装してBridge経由で使用", "C. Webviewの表示", "D. テスト"],
-    "correct": 1,
-    "explanation": "ネイティブモジュールはBridge/JSI経由でネイティブコードを呼び出し、Bluetooth、HealthKit等のプラットフォーム固有機能をJSから利用可能にします。"
-  },
-  {
-    "id": 1225,
-    "question": "モバイルの「画面解像度」で「dp」（Android）/「pt」（iOS）の目的は？",
-    "options": ["A. ピクセル指定", "B. デバイス独立の論理単位でスケールファクターにより複数画面密度に対応", "C. フォントサイズのみ", "D. 色の指定"],
-    "correct": 1,
-    "explanation": "dp/ptは物理ピクセルに依存しない論理単位です。1dp=1px@mdpi(160dpi)、=2px@xhdpi(320dpi)のようにスケールし画面密度差を吸収。"
-  },
-  {
-    "id": 1226,
-    "question": "モバイルの「Hot Fix」配信で注意すべきAppleの規約は？",
-    "options": ["A. 制限なし", "B. JSバンドルの更新は許可だがアプリの機能変更やネイティブコードの差替えはストア審査が必要", "C. 完全に禁止", "D. 自動承認"],
-    "correct": 1,
-    "explanation": "Apple規約はCodePush等でのJSバンドル更新を条件付きで許可しますが、アプリの目的や機能の大幅変更はApp Store審査を経る必要があります。"
-  },
-  {
-    "id": 1227,
-    "question": "モバイルの「Composable Architecture (TCA)」とは？",
-    "options": ["A. UIフレームワーク", "B. Point-Free社開発のSwiftUI向け状態管理・テスト・副作用管理のアーキテクチャ", "C. Androidのみ", "D. Flutter専用"],
-    "correct": 1,
-    "explanation": "TCA(The Composable Architecture)はState, Action, Reducer, Storeで構成されるElm/Reduxインスパイアのアーキテクチャで、テスト性が高い。"
-  },
-  {
-    "id": 1228,
-    "question": "Androidの 「Jetpack Navigation」の用途は？",
-    "options": ["A. ネットワーク通信", "B. Fragment間の画面遷移をナビゲーショングラフで管理するJetpackライブラリ", "C. データベース操作", "D. 画像処理"],
-    "correct": 1,
-    "explanation": "Navigation ComponentはNav Graphでアプリの画面遷移を視覚的に定義し、Safe Argsで型安全なデータ受け渡し、Deep Link対応を提供。"
-  },
-  {
-    "id": 1229,
-    "question": "モバイルの「Multi-Module Architecture」の目的は？",
-    "options": ["A. コードの重複増加", "B. アプリをFeature/Domain/Data等のモジュールに分割しビルド速度と保守性を向上", "C. 単一ファイルに統合", "D. テスト不要化"],
-    "correct": 1,
-    "explanation": "Multi-Moduleは:feature:home, :core:network等にGradleモジュールを分割し、並列ビルド、関心の分離、チーム独立開発を実現する設計です。"
-  },
-  {
-    "id": 1230,
-    "question": "モバイルアプリの「リリースサイクル」のベストプラクティスは？",
-    "options": ["A. 年1回の大型リリース", "B. 2週間〜1ヶ月の定期リリースでCI/CD自動化、段階的ロールアウト、フィーチャーフラグ活用", "C. 毎日リリース", "D. リリースなし"],
-    "correct": 1,
-    "explanation": "2-4週のリリースサイクルにCI/CDを統合し、内部テスト→クローズドベータ→段階的ロールアウト(1%→10%→100%)でリスクを最小化します。"
+    "id": 731,
+    "category": "Android",
+    "question": "Androidのアクティビティライフサイクルで、アクティビティが初めて作成される際に呼ばれるメソッドはどれか？",
+    "options": [
+      "A: onStart()",
+      "B: onResume()",
+      "C: onCreate()",
+      "D: onRestart()"
+    ],
+    "correct": 2,
+    "explanation": "onCreate()はアクティビティの最初の作成時に1回だけ呼ばれます。ここでsetContentView()によるレイアウト設定やViewModelの初期化を行います。"
+  },
+  {
+    "id": 732,
+    "category": "Android",
+    "question": "Android Jetpack Composeの特徴はどれか？",
+    "options": [
+      "A: XMLベースのレイアウト定義",
+      "B:サーバーサイドレンダリング",
+      "C: Javaでのみ使用可能",
+      "D:宣言的UIフレームワークでKotlinコードのみでUIを構築し、状態変更で自動再コンポジションする"
+    ],
+    "correct": 3,
+    "explanation": "Jetpack ComposeはKotlinの宣言的UIフレームワークで、@Composable関数でUIを定義します。状態（State）が変更されると自動的に再コンポジション（再描画）されます。"
+  },
+  {
+    "id": 733,
+    "category": "Android",
+    "question": "AndroidのIntentの役割はどれか？",
+    "options": [
+      "A: データベースへのアクセス",
+      "B: ネットワーク通信の管理",
+      "C: コンポーネント間の通信メカニズムで、アクティビティの起動やデータの受け渡しに使用する",
+      "D: メモリ管理"
+    ],
+    "correct": 2,
+    "explanation": "Intentはアクティビティ間の遷移、サービスの起動、ブロードキャストの送信等、Androidコンポーネント間の通信を行うメッセージングオブジェクトです。明示的/暗黙的Intentがあります。"
+  },
+  {
+    "id": 734,
+    "category": "Android",
+    "question": "AndroidのViewModelの目的はどれか？",
+    "options": [
+      "A: UIのレイアウトを定義する",
+      "B: データベースのCRUD操作を行う",
+      "C: 画面回転等の構成変更を跨いでUIに関連するデータを保持する",
+      "D: ネットワークリクエストのキャッシュ"
+    ],
+    "correct": 2,
+    "explanation": "ViewModelはUI関連のデータを構成変更（画面回転、言語変更等）を跨いで保持します。UIコントローラー（Activity/Fragment）のライフサイクルより長生きします。"
+  },
+  {
+    "id": 735,
+    "category": "Android",
+    "question": "AndroidのCoroutinesを使用する利点はどれか？",
+    "options": [
+      "A: UIスレッドでの重い処理が可能になる",
+      "B:メモリ使用量が必ず増加する",
+      "C: Javaとの互換性が失われる",
+      "D:非同期処理を同期的なコードスタイルで記述でき、コールバック地獄を回避できる"
+    ],
+    "correct": 3,
+    "explanation": "Kotlin Coroutinesはsuspend関数により非同期処理を同期的に書け、構造化された並行性を提供します。viewModelScopeやlifecycleScopeでライフサイクルに紐づいた管理が可能です。"
+  },
+  {
+    "id": 736,
+    "category": "Android",
+    "question": "AndroidのRoom Persistenceライブラリの特徴はどれか？",
+    "options": [
+      "A: ネットワーク通信ライブラリ",
+      "B: SQLiteの上に構築されたORM的な抽象化レイヤーで、コンパイル時のSQLクエリ検証とFlowによるリアクティブデータを提供する",
+      "C: 画像処理ライブラリ",
+      "D: UI コンポーネントライブラリ"
+    ],
+    "correct": 1,
+    "explanation": "RoomはSQLiteのラッパーで、@Entity、@Dao、@Databaseアノテーションでデータベースアクセスを簡素化します。コンパイル時にSQLの検証を行い、LiveData/Flowとの統合も可能です。"
+  },
+  {
+    "id": 737,
+    "category": "Android",
+    "question": "AndroidのWork Managerの用途はどれか？",
+    "options": [
+      "A: UIスレッドの管理",
+      "B: 即座に実行が必要なリアルタイム処理",
+      "C: 制約付きのバックグラウンドタスク（ネットワーク接続時、充電中等）を遅延実行可能に管理する",
+      "D: データバインディングの管理"
+    ],
+    "correct": 2,
+    "explanation": "WorkManagerはバッテリー効率を考慮した遅延可能なバックグラウンド処理を管理します。制約条件（ネットワーク、充電等）を設定でき、アプリ終了後もタスクの実行を保証します。"
+  },
+  {
+    "id": 738,
+    "category": "Android",
+    "question": "AndroidのNavigation Componentの機能はどれか？",
+    "options": [
+      "A: ネットワークリクエストのルーティング",
+      "B: GPSナビゲーション",
+      "C: アプリ内の画面遷移をナビゲーショングラフで視覚的に管理し、Safe Argsで型安全な引数受け渡しを行う",
+      "D: バッテリー接続の管理"
+    ],
+    "correct": 2,
+    "explanation": "Navigation Componentはアプリ内の画面遷移をxml/DSLのナビゲーショングラフで定義します。Safe Argsプラグインで型安全な画面間データ受け渡し、Deep Linkサポートも提供します。"
+  },
+  {
+    "id": 739,
+    "category": "Android",
+    "question": "AndroidのHilt/Daggerによる依存性注入（DI）の利点はどれか？",
+    "options": [
+      "A: アプリのサイズが常に小さくなる",
+      "B:UIの描画速度が向上する",
+      "C:クラス間の結合度を下げ、テスタビリティを向上させ、ボイラープレートコードを削減する",
+      "D: ネットワーク通信が暗号化される"
+    ],
+    "correct": 2,
+    "explanation": "Hilt（Daggerベース）はAndroid向けのDIフレームワークで、依存関係を外部から注入することでクラス間の結合度を低減します。テスト時にモック注入が容易になります。"
+  },
+  {
+    "id": 740,
+    "category": "Android",
+    "question": "AndroidのProGuard/R8の目的はどれか？",
+    "options": [
+      "A: ネットワーク通信の最適化",
+      "B: コードの難読化、不要クラス/メソッドの除去（シュリンク）、最適化によりAPKサイズを削減する",
+      "C: データベースの暗号化",
+      "D: UIのレンダリング高速化"
+    ],
+    "correct": 1,
+    "explanation": "R8（ProGuardの後継）はコードシュリンク（未使用コード除去）、難読化（リバースエンジニアリング対策）、最適化を行い、リリースAPKのサイズを大幅に削減します。"
+  },
+  {
+    "id": 741,
+    "category": "iOS",
+    "question": "iOSのSwiftUIの特徴はどれか？",
+    "options": [
+      "A: Objective-Cのフレームワーク",
+      "B:バックエンド用のフレームワーク",
+      "C: Webベースのフレームワーク",
+      "D:宣言的UIフレームワークでSwiftコードのみでUIを構築し、プレビュー機能でリアルタイムに確認できる"
+    ],
+    "correct": 3,
+    "explanation": "SwiftUIはSwiftの宣言的UIフレームワークで、Viewプロトコルに準拠した構造体でUIを定義します。Xcode上でリアルタイムプレビューが可能で、@State等で状態管理を行います。"
+  },
+  {
+    "id": 742,
+    "category": "iOS",
+    "question": "iOSのARC（Automatic Reference Counting）の注意点はどれか？",
+    "options": [
+      "A: ガベージコレクションと同じ仕組み",
+      "B:手動でメモリを解放する必要がある",
+      "C: メモリ管理が完全に自動化されている",
+      "D:循環参照（retain cycle）が発生するとメモリリークになるため、weak/unowned参照で回避する必要がある"
+    ],
+    "correct": 3,
+    "explanation": "ARCはコンパイル時に参照カウント管理コードを挿入しますが、2つのオブジェクトが互いに強参照すると解放されません。クロージャのキャプチャやdelegateにweak/unownedを使います。"
+  },
+  {
+    "id": 743,
+    "category": "iOS",
+    "question": "iOSのCore Dataの特徴はどれか？",
+    "options": [
+      "A: ネットワーク通信フレームワーク",
+      "B: Appleのオブジェクトグラフ永続化フレームワークで、データモデルの定義、フェッチ、キャッシュ、変更追跡を提供する",
+      "C: UIアニメーションフレームワーク",
+      "D: プッシュ通知フレームワーク"
+    ],
+    "correct": 1,
+    "explanation": "Core DataはAppleのデータ永続化フレームワークで、SQLiteの上にオブジェクトグラフ管理、遅延読み込み、変更追跡、マイグレーション等の機能を提供します。"
+  },
+  {
+    "id": 744,
+    "category": "iOS",
+    "question": "iOSアプリのApp Sandboxの目的はどれか？",
+    "options": [
+      "A:各アプリのファイルシステムとリソースへのアクセスを分離し、他のアプリやシステムへの不正アクセスを防止する",
+      "B:アプリのUI をカスタマイズする",
+      "C: アプリの配布を管理する",
+      "D: プッシュ通知を管理する"
+    ],
+    "correct": 0,
+    "explanation": "App Sandboxは各アプリを専用のファイルシステム領域に分離し、他のアプリのデータやシステムリソースへの直接アクセスを防ぎます。セキュリティとプライバシーの基盤です。"
+  },
+  {
+    "id": 745,
+    "category": "iOS",
+    "question": "iOSのCombineフレームワークの用途はどれか？",
+    "options": [
+      "A: 画像の合成処理",
+      "B:ファイルの結合",
+      "C:非同期イベントのストリーム処理をリアクティブプログラミングで管理し、Publisher/Subscriberパターンで実装する",
+      "D: データベースの結合クエリ"
+    ],
+    "correct": 2,
+    "explanation": "CombineはAppleのリアクティブプログラミングフレームワークで、Publisher（データ発行）とSubscriber（データ受信）のパターンで非同期イベントストリームを処理します。"
+  },
+  {
+    "id": 746,
+    "category": "iOS",
+    "question": "iOSのKeychain Servicesの用途はどれか？",
+    "options": [
+      "A: 暗号鍵の生成",
+      "B: パスワード、認証トークン、証明書等の機密データをハードウェアレベルで暗号化して安全に保存する",
+      "C: キーボードのカスタマイズ",
+      "D: ショートカットキーの管理"
+    ],
+    "correct": 1,
+    "explanation": "KeychainはiOS/macOSの安全なデータストレージで、パスワード、APIキー、証明書等をAES暗号化して保存します。Secure Enclaveと連携してハードウェアレベルの保護を提供します。"
+  },
+  {
+    "id": 747,
+    "category": "iOS",
+    "question": "iOSのURLSessionの特徴はどれか？",
+    "options": [
+      "A: URL文字列の解析のみ",
+      "B: HTTPリクエストの送受信、ダウンロード/アップロードタスク、バックグラウンド転送、キャッシュ管理を提供するネットワークフレームワーク",
+      "C: URLのバリデーションのみ",
+      "D: DNS解決のみ"
+    ],
+    "correct": 1,
+    "explanation": "URLSessionはAppleのネットワーキングAPIで、データタスク（API呼び出し）、ダウンロード/アップロードタスク、WebSocketタスクを提供し、バックグラウンド転送も可能です。"
+  },
+  {
+    "id": 748,
+    "category": "iOS",
+    "question": "iOS App Storeの審査で最もよくリジェクトされる理由はどれか？",
+    "options": [
+      "A: アプリのサイズが大きい",
+      "B:特定のプログラミング言語を使用していること",
+      "C: 無料アプリであること",
+      "D:バグ、パフォーマンス問題、不完全な機能、ガイドライン違反（プライバシーポリシー未設定、不適切な課金実装等）"
+    ],
+    "correct": 3,
+    "explanation": "App Store審査のリジェクト理由には、クラッシュ/バグ、不完全な機能、HIG（ヒューマンインターフェースガイドラインHuman Interface Guidelines）違反、課金の不正実装、プライバシーポリシーの欠如等があります。"
+  },
+  {
+    "id": 749,
+    "category": "iOS",
+    "question": "iOSのwidgetKit（ウィジェット）の制約はどれか？",
+    "options": [
+      "A: ウィジェットのサイズに制限がない",
+      "B: ウィジェットはリアルタイム更新が可能",
+      "C: ウィジェットはTimelineProviderで事前定義されたタイミングでのみ更新され、常時更新はできない",
+      "D: ウィジェットから直接ネットワーク通信が可能"
+    ],
+    "correct": 2,
+    "explanation": "WidgetKitのウィジェットはTimelineProviderが提供するタイムラインに基づいて更新され、システムが更新頻度を制御します。常時リアルタイム更新はバッテリー消費のため許可されていません。"
+  },
+  {
+    "id": 750,
+    "category": "iOS",
+    "question": "iOSのSwift Concurrency（async/await）の利点はどれか？",
+    "options": [
+      "A: Objective-Cとの完全な互換性",
+      "B:メモリ使用量が必ず削減される",
+      "C: UIスレッドでの重い処理が可能になる",
+      "D:非同期処理をasync/awaitで直線的に記述でき、構造化された並行性（Structured Concurrency）でタスクを安全に管理できる"
+    ],
+    "correct": 3,
+    "explanation": "Swift ConcurrencyはTask、async/await、Actor等で構造化された並行性を提供します。コンパイラがデータ競合を検出し、Actorで状態の排他アクセスを保証します。"
+  },
+  {
+    "id": 751,
+    "category": "Flutter",
+    "question": "Flutterの描画アーキテクチャの特徴はどれか？",
+    "options": [
+      "A: ネイティブUIコンポーネントを使用する",
+      "B: WebViewでUIを描画する",
+      "C: 独自のレンダリングエンジン（Skia/Impeller）で直接描画し、プラットフォームのUIコンポーネントに依存しない",
+      "D: HTMLでUIを構築する"
+    ],
+    "correct": 2,
+    "explanation": "FlutterはSkia（→Impeller）グラフィックスエンジンで独自にUIを描画します。プラットフォームのネイティブウィジェットを使わないため、OS間で完全に一貫したUIを実現します。"
+  },
+  {
+    "id": 752,
+    "category": "Flutter",
+    "question": "FlutterのWidgetの種類であるStatelessWidgetとStatefulWidgetの違いはどれか？",
+    "options": [
+      "A: パフォーマンスの違いのみ",
+      "B: StatelessWidgetは内部状態を持たず再ビルドで変わらない、StatefulWidgetはStateオブジェクトで可変状態を管理しsetStateで再ビルドする",
+      "C: StatefulWidgetはWebでのみ使用可能",
+      "D: StatelessWidgetは非推奨"
+    ],
+    "correct": 1,
+    "explanation": "StatelessWidgetは不変のウィジェットで、受け取ったプロパティのみで描画します。StatefulWidgetはStateオブジェクトで可変状態を管理し、setState()で状態変更と再ビルドを行います。"
+  },
+  {
+    "id": 753,
+    "category": "Flutter",
+    "question": "FlutterのBLoCパターンの目的はどれか？",
+    "options": [
+      "A:Business Logic ComponentとしてUIとビジネスロジックを分離し、StreamベースのリアクティブなState管理を行う",
+      "B:UIのアニメーション制御",
+      "C: ネットワーク通信の最適化",
+      "D: データベースの設計パターン"
+    ],
+    "correct": 0,
+    "explanation": "BLoC（Business Logic Component）はStreamを使用してUIとビジネスロジックを分離するアーキテクチャパターンです。EventをインプットにStateをアウトプットするリアクティブな設計です。"
+  },
+  {
+    "id": 754,
+    "category": "Flutter",
+    "question": "FlutterのPlatform Channels の用途はどれか？",
+    "options": [
+      "A: UI チャンネルの切り替え",
+      "B: DartコードからiOS（Swift/ObjC）やAndroid（Kotlin/Java）のネイティブAPIを呼び出すためのブリッジ機構",
+      "C: テレビチャンネルの制御",
+      "D: ネットワークチャンネルの管理"
+    ],
+    "correct": 1,
+    "explanation": "Platform ChannelsはDartとネイティブコード間の通信ブリッジで、MethodChannel、EventChannel、BasicMessageChannelの3種類があります。カメラ、GPS等のネイティブ機能にアクセスできます。"
+  },
+  {
+    "id": 755,
+    "category": "Flutter",
+    "question": "FlutterのHot Reloadの仕組みはどれか？",
+    "options": [
+      "A: アプリを完全に再起動する",
+      "B: 変更されたDartコードをDart VMに注入し、ウィジェットツリーを再構築して状態を保持したまま即座にUI変更を反映する",
+      "C: ビルドキャッシュを使用する",
+      "D: エミュレータのスナップショットを復元する"
+    ],
+    "correct": 1,
+    "explanation": "Hot Reloadは変更されたDartソースをJIT VMに注入し、ウィジェットツリーの再ビルドを行います。アプリの状態を保持したまま1秒未満でUI変更が反映され、開発効率が大幅に向上します。"
+  },
+  {
+    "id": 756,
+    "category": "Flutter",
+    "question": "FlutterのRiverpodの利点はどれか？",
+    "options": [
+      "A: UIコンポーネントライブラリ",
+      "B:ネットワーク通信ライブラリ",
+      "C:コンパイル時の安全性を持つ状態管理ソリューションで、Providerの制限を克服しテスタビリティを向上させる",
+      "D: データベースORMライブラリ"
+    ],
+    "correct": 2,
+    "explanation": "RiverpodはProvider パッケージの後継として、コンパイル時の型安全性、テスタビリティ、BuildContext非依存のプロバイダ参照、複数プロバイダの組み合わせをサポートする状態管理ライブラリです。"
+  },
+  {
+    "id": 757,
+    "category": "Flutter",
+    "question": "FlutterのIsolateの特徴はどれか？",
+    "options": [
+      "A: UIスレッドで実行される",
+      "B: メモリを共有する軽量スレッド",
+      "C: 独立したメモリヒープを持つ並行実行単位で、メッセージパッシングで通信し重い計算を分離できる",
+      "D: JavaScriptのWeb Workerと完全に同じ"
+    ],
+    "correct": 2,
+    "explanation": "DartのIsolateは独立したメモリ空間を持つ並行実行単位です。メモリを共有しないためデータ競合がなく、SendPortでメッセージパッシング通信します。compute()で簡易利用できます。"
+  },
+  {
+    "id": 758,
+    "category": "Flutter",
+    "question": "Flutter Webのパフォーマンス上の課題はどれか？",
+    "options": [
+      "A: ネイティブモバイルより常に高速",
+      "B:CSSが使用できない",
+      "C:初期ロードサイズが大きく、SEOが困難で、canvas/HTML レンダラによってはアクセシビリティに制限がある",
+      "D: JavaScriptとの連携が不可能"
+    ],
+    "correct": 2,
+    "explanation": "Flutter WebはDartをJSにコンパイルしCanvasKitまたはHTML レンダラで描画するため、初期ロードサイズが大きくなります。SEO対策やスクリーンリーダー対応にも追加の工夫が必要です。"
+  },
+  {
+    "id": 759,
+    "category": "Flutter",
+    "question": "Flutterのfreezedパッケージの目的はどれか？",
+    "options": [
+      "A: UIのアニメーションを凍結する",
+      "B:テストの実行を一時停止する",
+      "C: アプリの状態をフリーズする",
+      "D:イミュータブルなデータクラスとSealedクラスをコード生成で作成し、copyWith、equality、JSON変換を自動化する"
+    ],
+    "correct": 3,
+    "explanation": "freezedはコード生成でイミュータブルなデータクラスを作成します。copyWith（一部変更コピー）、==（値の等価性）、toString、JSONシリアライゼーション等を自動生成します。"
+  },
+  {
+    "id": 760,
+    "category": "Flutter",
+    "question": "FlutterのCustomPainterの用途はどれか？",
+    "options": [
+      "A: 写真の編集",
+      "B:画像フィルターの適用",
+      "C: ペイントアプリの作成のみ",
+      "D:Canvasを直接操作して図形、チャート、アニメーション等のカスタム描画を行うウィジェット"
+    ],
+    "correct": 3,
+    "explanation": "CustomPainterはCanvas APIでpaint()メソッド内に直接描画コードを書くウィジェットです。チャート、波形、カスタムプログレスバー等、標準ウィジェットでは表現できないUIを実装できます。"
+  },
+  {
+    "id": 761,
+    "category": "React Native",
+    "question": "React NativeとFlutterのアーキテクチャの違いはどれか？",
+    "options": [
+      "A: React Nativeはプラットフォームのネイティブコンポーネントにブリッジ経由でマッピングし、Flutterは独自エンジンで直接描画する",
+      "B: Flutterはネイティブコンポーネントを使用する",
+      "C: React Nativeは独自レンダリングエンジンを使用する",
+      "D: 両方とも同じアーキテクチャ"
+    ],
+    "correct": 0,
+    "explanation": "React NativeはJavaScriptで記述し、ブリッジ/JSIを通じてネイティブUIコンポーネント（UIView等）にマッピングします。Flutterは Skia/Impellerで独自にCanvasへ描画します。"
+  },
+  {
+    "id": 762,
+    "category": "React Native",
+    "question": "React Nativeの新アーキテクチャ（New Architecture）の特徴はどれか？",
+    "options": [
+      "A: Bridgeの廃止",
+      "B: JSI（JavaScript Interface）によるBridgeレスの直接通信、Fabric（新レンダラー）、TurboModules（遅延ロード型ネイティブモジュール）",
+      "C: Dartへの移行",
+      "D: WebViewベースのレンダリング"
+    ],
+    "correct": 1,
+    "explanation": "新アーキテクチャはJSI（C++経由の直接通信でBridge不要）、Fabric（同期レンダリングの新UIレイヤー）、TurboModules（必要時にのみロードするネイティブモジュール）で構成されます。"
+  },
+  {
+    "id": 763,
+    "category": "React Native",
+    "question": "React NativeのExpoの利点はどれか？",
+    "options": [
+      "A:ネイティブコードの記述不要で開発を開始でき、EAS Build/Submitでビルド・配布を簡素化するマネージドワークフローを提供する",
+      "B:ネイティブコードの記述が必須",
+      "C: iOS開発のみサポート",
+      "D: パフォーマンスが常にBare Workflowより高い"
+    ],
+    "correct": 0,
+    "explanation": "ExpoはReact Nativeの上に構築されたプラットフォームで、Expo SDK（カメラ、位置情報等）、Expo Go（開発用クライアント）、EAS（ビルド・サブミット）等の開発ツールチェーンを提供します。"
+  },
+  {
+    "id": 764,
+    "category": "React Native",
+    "question": "React NativeのAsyncStorageの制限と代替策はどれか？",
+    "options": [
+      "A: AsyncStorageに制限はない",
+      "B:iOSでは使用できない",
+      "C: 暗号化されたデータのみ保存可能",
+      "D:非暗号化・容量制限あり・パフォーマンス限界があるため、大量データにはMMKV、機密データにはSecureStoreを使用する"
+    ],
+    "correct": 3,
+    "explanation": "AsyncStorageは非暗号化のKey-Valueストレージで、大量データには遅く、機密データの保存には不適切です。高速I/Oにはreact-native-mmkv、機密データにはExpo SecureStoreを使用します。"
+  },
+  {
+    "id": 765,
+    "category": "React Native",
+    "question": "React NativeのCodePushの機能はどれか？",
+    "options": [
+      "A:App Store/Google Playの審査なしにJavaScriptバンドルの更新をOTA（Over The Air）で配信できるサービス",
+      "B:コードの構文チェック",
+      "C: コードレビューツール",
+      "D: CI/CDパイプラインの構築"
+    ],
+    "correct": 0,
+    "explanation": "CodePush（AppCenter）はJSバンドルの差分更新をOTAで配信し、ストア審査なしにバグ修正や軽微な変更を即座にユーザーに届けられます。ネイティブコードの変更には使用できません。"
+  },
+  {
+    "id": 766,
+    "category": "React Native",
+    "question": "React NativeのFlatListの最適化テクニックはどれか？",
+    "options": [
+      "A: すべてのアイテムを一度にレンダリングする",
+      "B:CSSでスタイリングを省略する",
+      "C: ScrollViewで代替する",
+      "D:keyExtractor、getItemLayout、windowSize、maxToRenderPerBatch等のプロパティでレンダリング範囲と速度を最適化する"
+    ],
+    "correct": 3,
+    "explanation": "FlatListの最適化にはkeyExtractor（一意キー）、getItemLayout（固定高さ時のレイアウト計算スキップ）、windowSize（オフスクリーンレンダリング範囲）等のプロパティを適切に設定します。"
+  },
+  {
+    "id": 767,
+    "category": "React Native",
+    "question": "React NativeのHermes JavaScriptエンジンの利点はどれか？",
+    "options": [
+      "A: ブラウザで実行可能",
+      "B: AOTコンパイルによるアプリ起動時間の短縮、メモリ使用量の削減、バンドルサイズの最適化",
+      "C: V8エンジンと完全に同じ機能",
+      "D: サーバーサイドでのみ使用可能"
+    ],
+    "correct": 1,
+    "explanation": "HermesはReact Native向けに最適化されたJSエンジンで、バイトコードのAOTプリコンパイルにより起動を高速化し、メモリ効率を向上させます。React Native 0.70以降でデフォルトです。"
+  },
+  {
+    "id": 768,
+    "category": "React Native",
+    "question": "React NativeのReanimated ライブラリの特徴はどれか？",
+    "options": [
+      "A: ネットワーク通信ライブラリ",
+      "B: データベースORMライブラリ",
+      "C: UIスレッドでアニメーションを実行し、JSスレッドのボトルネックを回避して60/120FPSのスムーズなアニメーションを実現する",
+      "D: 状態管理ライブラリ"
+    ],
+    "correct": 2,
+    "explanation": "Reanimated 2/3はUIスレッドでworklet（JavaScript関数のサブセット）を直接実行し、JSブリッジを経由しないネイティブアニメーションを実現します。ジェスチャーハンドラーとの統合も可能です。"
+  },
+  {
+    "id": 769,
+    "category": "アプリ配布",
+    "question": "iOSアプリの配布方法に含まれないものはどれか？",
+    "options": [
+      "A: App Store",
+      "B: TestFlight",
+      "C: APKファイルの直接配布",
+      "D: Enterprise Distribution（企業内配布）"
+    ],
+    "correct": 2,
+    "explanation": "APK（Android Package）はAndroid固有のフォーマットです。iOSの配布方法はApp Store、TestFlight（ベータテスト）、Ad Hoc、Enterprise Distribution（社内配布）、App Clips等です。"
+  },
+  {
+    "id": 770,
+    "category": "アプリ配布",
+    "question": "AndroidのAAB（Android App Bundle）の利点はどれか？",
+    "options": [
+      "A: iOSでも実行可能",
+      "B: Google Playが各デバイスに最適化されたAPKを動的に生成し、ダウンロードサイズを削減する",
+      "C: アプリのセキュリティが向上する",
+      "D: オフラインインストールが可能"
+    ],
+    "correct": 1,
+    "explanation": "AABはGoogle Playに全リソースを含むバンドルをアップロードし、各デバイスに必要なコード、リソース、言語のみを含む最適化されたAPKを動的生成（Dynamic Delivery）してサイズを削減します。"
+  },
+  {
+    "id": 771,
+    "category": "アプリ配布",
+    "question": "CI/CDを活用したモバイルアプリの自動配布パイプラインに含まれるものはどれか？",
+    "options": [
+      "A: 手動でのIPA/APK作成",
+      "B:メールでバイナリを送信する",
+      "C:Fastlane、GitHub Actions、Bitriseを使用してビルド、テスト、署名、ストアへの自動アップロードを行う",
+      "D: USBケーブルでインストールする"
+    ],
+    "correct": 2,
+    "explanation": "FastlaneはiOS/Androidのビルド、コード署名、スクリーンショット生成、ストアアップロードを自動化するツールです。GitHub Actions等のCIと組み合わせて完全な自動配布パイプラインを構築します。"
+  },
+  {
+    "id": 772,
+    "category": "アプリ配布",
+    "question": "モバイルアプリのコード署名（Code Signing）の目的はどれか？",
+    "options": [
+      "A:アプリの開発者の身元を保証、改ざんの検出を行い、OS がアプリの実行を許可する信頼チェーンを確立する",
+      "B:アプリのサイズを削減する",
+      "C: アプリのパフォーマンスを向上させる",
+      "D: アプリのUIデザインを保護する"
+    ],
+    "correct": 0,
+    "explanation": "コード署名はデジタル証明書でアプリに署名し、開発者の身元保証と配布後のコード改ざんを検出します。iOSではProvisioning Profile、AndroidではKeystoreで管理されます。"
+  },
+  {
+    "id": 773,
+    "category": "アプリ配布",
+    "question": "OTA（Over The Air）アップデートの制約はどれか？",
+    "options": [
+      "A: すべての変更をOTAで配信できる",
+      "B:インターネット接続が不要",
+      "C: iOSでは使用できない",
+      "D:JavaScriptバンドルやアセットの更新は可能だが、ネイティブコード（Swift/Kotlin）の変更やパーミッション追加にはストア審査が必要"
+    ],
+    "correct": 3,
+    "explanation": "OTA更新（CodePush、Expo Updates等）はJSバンドルとアセットのみ更新可能です。ネイティブモジュールの追加/変更、新しいパーミッションの追加等はストアの審査・更新が必要です。"
+  },
+  {
+    "id": 774,
+    "category": "Android",
+    "question": "AndroidのDataStoreとSharedPreferencesの違いはどれか？",
+    "options": [
+      "A: DataStoreはCoroutinesとFlowベースの非同期APIを提供し、型安全で、UIスレッドでの呼び出しが安全",
+      "B: SharedPreferencesの方が新しいAPI",
+      "C: DataStoreはネットワーク通信用",
+      "D: 両方とも同じ機能"
+    ],
+    "correct": 0,
+    "explanation": "DataStore（Preferences/Proto）はSharedPreferencesの後継で、Kotlin CoroutinesとFlowベースの非同期APIを提供します。UIスレッドセーフで、Proto DataStoreは型安全なスキーマベースの保存も可能です。"
+  },
+  {
+    "id": 775,
+    "category": "iOS",
+    "question": "iOSのApp Clipsの特徴はどれか？",
+    "options": [
+      "A: 通常のアプリと同じサイズ",
+      "B:バックグラウンド処理が可能",
+      "C: App Storeでのみ配布可能",
+      "D:アプリの一部機能を10MB以下の軽量なパッケージとして、インストール不要で即座に利用できる"
+    ],
+    "correct": 3,
+    "explanation": "App Clipsは10MB以下の軽量アプリ体験で、NFCタグ、QRコード、Siriの提案等からインストール不要で起動します。特定のタスク（注文、レンタル等）に特化した体験を提供します。"
+  },
+  {
+    "id": 776,
+    "category": "Flutter",
+    "question": "FlutterのDevToolsの主な機能はどれか？",
+    "options": [
+      "A: コード生成のみ",
+      "B: ウィジェットインスペクタ、パフォーマンスプロファイラ、メモリプロファイラ、ネットワークインスペクタ等の開発・デバッグツール群",
+      "C: アプリの配布のみ",
+      "D: テストの実行のみ"
+    ],
+    "correct": 1,
+    "explanation": "Flutter DevToolsはウィジェットツリーの検査、レンダリングパフォーマンスの分析、メモリリーク検出、ネットワークリクエストの監視等を行うブラウザベースの開発ツール群です。"
+  },
+  {
+    "id": 777,
+    "category": "React Native",
+    "question": "React NativeとFlutterの両方で使用できるクロスプラットフォームの状態管理の概念はどれか？",
+    "options": [
+      "A: HTMLの状態管理",
+      "B: 単方向データフロー（Unidirectional Data Flow）アーキテクチャパターン",
+      "C: CSSの状態管理",
+      "D: SQL の状態管理"
+    ],
+    "correct": 1,
+    "explanation": "単方向データフローは状態の変更がAction→Reducer/Store→UIの一方向で流れる設計パターンです。React NativeのRedux、FlutterのBLoC等、両プラットフォームで採用されています。"
+  },
+  {
+    "id": 778,
+    "category": "Android",
+    "question": "AndroidのCompose Navigation の特徴はどれか？",
+    "options": [
+      "A: XMLベースのナビゲーション",
+      "B:GPSナビゲーション",
+      "C: Webブラウザのナビゲーション",
+      "D:Jetpack Compose向けの型安全なナビゲーションライブラリで、コンポーザブルベースの画面遷移を宣言的に定義する"
+    ],
+    "correct": 3,
+    "explanation": "Compose NavigationはJetpack Compose向けのナビゲーションライブラリで、NavHostとcomposable()で画面遷移を宣言的に定義します。型安全なルートとディープリンクもサポートします。"
+  },
+  {
+    "id": 779,
+    "category": "iOS",
+    "question": "iOSのPush Notification（APNs）の仕組みはどれか？",
+    "options": [
+      "A: アプリが直接ユーザーに通知を送る",
+      "B:ユーザーがサーバーに通知を要求する",
+      "C:サーバーからAPNs（Apple Push Notification service）を経由してデバイスに通知を配信し、アプリがフォアグラウンド/バックグラウンドで処理する",
+      "D: ローカルのみで通知を生成する"
+    ],
+    "correct": 2,
+    "explanation": "APNsはAppleのプッシュ通知サービスで、アプリサーバー→APNs→デバイスの順で通知を配信します。デバイストークンで端末を識別し、SSL/TLS証明書またはトークンベース認証で接続します。"
+  },
+  {
+    "id": 780,
+    "category": "Flutter",
+    "question": "Flutterのgo_routerパッケージの利点はどれか？",
+    "options": [
+      "A: HTTP通信ライブラリ",
+      "B:テストフレームワーク",
+      "C: 状態管理パッケージ",
+      "D:宣言的なルーティング定義、ディープリンクサポート、URLベースのナビゲーション、リダイレクト等を簡単に実装できる公式推奨ルーターパッケージ"
+    ],
+    "correct": 3,
+    "explanation": "go_routerはFlutter公式推奨のルーティングパッケージで、URLベースの宣言的ルーティング、ネストされたナビゲーション、リダイレクトガード、ディープリンク等を提供します。"
+  },
+  {
+    "id": 781,
+    "category": "React Native",
+    "question": "React NativeのNew Architecture移行の課題はどれか？",
+    "options": [
+      "A:サードパーティライブラリの対応状況、Bridgeに依存したコードの書き換え、TurboModulesへの移行コスト",
+      "B:課題は一切ない",
+      "C: JavaScript が使用できなくなる",
+      "D: iOSのサポートが終了する"
+    ],
+    "correct": 0,
+    "explanation": "新アーキテクチャ移行ではサードパーティライブラリのFabric/TurboModules対応の確認、Bridge依存コードの書き換え、C++コードの導入等のコストが発生します。移行は段階的に進められます。"
+  },
+  {
+    "id": 782,
+    "category": "アプリ配布",
+    "question": "Google PlayのInternal Testing/Closed Testing/Open Testingの違いはどれか？",
+    "options": [
+      "A:Internal:最大100人のメール招待、Closed:メールリスト/Google Groups、Open:誰でも参加可能、と段階的にテスト範囲を拡大する",
+      "B:すべて同じ配布方法",
+      "C: Internal のみ無料",
+      "D: Open Testingは審査不要"
+    ],
+    "correct": 0,
+    "explanation": "Internal Testing（最大100人、審査なし）→Closed Testing（メールリスト招待、審査あり）→Open Testing（誰でも参加、審査あり）と段階的にテスト対象を拡大できます。"
+  },
+  {
+    "id": 783,
+    "category": "Android",
+    "question": "AndroidのMaterial Design 3（Material You）の特徴はどれか？",
+    "options": [
+      "A: フラットデザインのみ",
+      "B:テキストのみのUI",
+      "C: iOSスタイルのデザイン",
+      "D:Dynamic Color（壁紙からカラーパレットを自動生成）、更新されたコンポーネント、パーソナライズされたUIテーマを提供する"
+    ],
+    "correct": 3,
+    "explanation": "Material Design 3はDynamic Colorでユーザーの壁紙からカラーパレットを自動生成し、パーソナライズされたテーマを提供します。更新されたコンポーネントとトークンベースのデザインシステムです。"
+  },
+  {
+    "id": 784,
+    "category": "iOS",
+    "question": "iOSのTestFlightの機能はどれか？",
+    "options": [
+      "A: ユニットテストの実行",
+      "B: ベータ版アプリを最大10,000人のテスターに配布し、フィードバックとクラッシュレポートを収集するAppleのβテストサービス",
+      "C: アプリのパフォーマンステスト",
+      "D: UIの自動テスト"
+    ],
+    "correct": 1,
+    "explanation": "TestFlightはAppleのβテストプラットフォームで、内部テスター（最大100人）と外部テスター（最大10,000人）にベータ版を配布し、フィードバックとクラッシュログを収集します。"
+  },
+  {
+    "id": 785,
+    "category": "Flutter",
+    "question": "Flutterのffi（Foreign Function Interface）の用途はどれか？",
+    "options": [
+      "A:C/C++で書かれたネイティブライブラリ（OpenCV、SQLite等）をDartから直接呼び出すための低レベルバインディング",
+      "B:FlutterのUIを外部フレームワークに変換する",
+      "C: フォントの変換",
+      "D: ファイルフォーマットの変換"
+    ],
+    "correct": 0,
+    "explanation": "dart:ffiはC言語のABIに準拠したネイティブライブラリとDartを直接バインドします。Platform Channelsよりオーバーヘッドが小さく、高性能なネイティブコード連携が可能です。"
+  },
+  {
+    "id": 786,
+    "category": "React Native",
+    "question": "React NativeのFlipperの機能はどれか？",
+    "options": [
+      "A: UIアニメーションの作成",
+      "B: ネットワークリクエスト、レイアウト、データベース、ログ等を検査するデバッグプラットフォーム",
+      "C: コード変換ツール",
+      "D: 画像編集ツール"
+    ],
+    "correct": 1,
+    "explanation": "FlipperはMeta製のデバッグプラットフォームで、ネットワークリクエストの検査、レイアウトインスペクタ、React DevTools、SharedPreferences/AsyncStorageの閲覧等を提供します。"
+  },
+  {
+    "id": 787,
+    "category": "アプリ配布",
+    "question": "Progressive Web App（PWA）のネイティブアプリに対する利点はどれか？",
+    "options": [
+      "A: パフォーマンスが常に優れている",
+      "B: ブラウザからインストール可能でストア審査不要、URL共有可能、更新が即座に反映、クロスプラットフォーム対応",
+      "C: すべてのネイティブAPIにアクセスできる",
+      "D: オフラインでは動作しない"
+    ],
+    "correct": 1,
+    "explanation": "PWAはWebアプリをアプリライクに配布できます。ストア審査不要、URL共有可能、サーバー側更新で即座に反映、Service Workerでオフライン対応も可能ですが、一部のネイティブAPIに制限があります。"
+  },
+  {
+    "id": 788,
+    "category": "Android",
+    "question": "AndroidのContent Providerの用途はどれか？",
+    "options": [
+      "A: コンテンツのレンダリング",
+      "B:メディアコンテンツの再生",
+      "C: WebコンテンツのCDN",
+      "D:アプリ間でデータを安全に共有するための標準インターフェースを提供する"
+    ],
+    "correct": 3,
+    "explanation": "Content Providerはアプリ間でデータを安全に共有するAndroidの標準コンポーネントです。連絡先、カレンダー等のシステムデータもContent Provider経由でアクセスします。URIベースのCRUD操作を提供します。"
+  },
+  {
+    "id": 789,
+    "category": "iOS",
+    "question": "iOSのSwiftDataの特徴はどれか？",
+    "options": [
+      "A:Swiftマクロベースのデータ永続化フレームワークで、@Modelマクロで簡潔にデータモデルを定義しSwiftUIと深く統合される",
+      "B:ネットワーク通信フレームワーク",
+      "C: 暗号化フレームワーク",
+      "D: UIテストフレームワーク"
+    ],
+    "correct": 0,
+    "explanation": "SwiftData（iOS 17+）はCore Dataの後継で、@Modelマクロで宣言的にモデルを定義します。SwiftUIの@Queryで自動データ取得、iCloudとの同期、マイグレーション等を簡潔に実装できます。"
+  },
+  {
+    "id": 790,
+    "category": "Flutter",
+    "question": "Flutterの国際化（i18n）の実装方法はどれか？",
+    "options": [
+      "A: ハードコーディングのみ",
+      "B:Google翻訳APIの直接呼び出し",
+      "C: JavaScriptで翻訳する",
+      "D:flutter_localizationsパッケージとintlパッケージを使用し、ARBファイルで翻訳を管理してコード生成でアクセスする"
+    ],
+    "correct": 3,
+    "explanation": "Flutterの公式i18nはflutter_localizationsとintlパッケージ、ARB（Application Resource Bundle）ファイルで翻訳テキストを管理しgen-l10nコマンドでDartコードを自動生成します。"
+  },
+  {
+    "id": 791,
+    "category": "React Native",
+    "question": "React NativeのNativeEventEmitterの用途はどれか？",
+    "options": [
+      "A: DOMイベントの処理",
+      "B:CSSイベントの処理",
+      "C:ネイティブモジュールからJavaScriptへイベントを非同期に送信し、プッシュ型の通知やセンサーデータの受信を実現する",
+      "D: キーボードイベントのみ処理"
+    ],
+    "correct": 2,
+    "explanation": "NativeEventEmitterはネイティブ側（iOS/Android）からJS側にイベントを非同期で送信するメカニズムです。位置情報の更新、Bluetooth接続状態の変化等の継続的なイベント通知に使用します。"
+  },
+  {
+    "id": 792,
+    "category": "アプリ配布",
+    "question": "App Store Optimization（ASO）の要素はどれか？",
+    "options": [
+      "A:アプリ名、キーワード、説明文、スクリーンショット、評価/レビュー等を最適化してストア内での検索順位とダウンロード数を向上させる",
+      "B:サーバーの最適化",
+      "C: コードの最適化",
+      "D: データベースの最適化"
+    ],
+    "correct": 0,
+    "explanation": "ASOはApp Store/Google Playでアプリの可視性を向上させるための最適化で、キーワード戦略、魅力的なスクリーンショット、説明文の改善、レビュー管理等を含みます。"
+  },
+  {
+    "id": 793,
+    "category": "Android",
+    "question": "AndroidのForeground Serviceの要件はどれか？",
+    "options": [
+      "A: 特別な要件はない",
+      "B: 通知を全画面で表示する必要がある",
+      "C: ユーザーに可視的な通知（Notification）を表示し続ける義務があり、Android 14以降はforeground service typeの宣言が必須",
+      "D: バックグラウンドでのみ動作する"
+    ],
+    "correct": 2,
+    "explanation": "Foreground Serviceはアクティブな操作をユーザーに認識させるため、常時通知を表示する必要があります。Android 14+ではforegroundServiceType（location、camera等）のマニフェスト宣言が必須です。"
+  },
+  {
+    "id": 794,
+    "category": "iOS",
+    "question": "iOSのUserDefaults の適切な使い方はどれか?",
+    "options": [
+      "A: 大量のデータの保存",
+      "B: 機密データの保存",
+      "C: ユーザー設定や小さなデータ（フラグ、テーマ選択等）の軽量な永続化に使用する",
+      "D: 画像ファイルの保存"
+    ],
+    "correct": 2,
+    "explanation": "UserDefaultsはplistファイルベースの軽量Key-Valueストレージで、ユーザー設定（ダークモード、通知設定等）の保存に適しています。大量データや機密データの保存には不向きです。"
+  },
+  {
+    "id": 795,
+    "category": "Flutter",
+    "question": "FlutterのKey（GlobalKey, ValueKey等）の役割はどれか？",
+    "options": [
+      "A: 暗号化のキー",
+      "B: APIキーの管理",
+      "C: ウィジェットの一意性をフレームワークに伝え、リスト等でのウィジェット再利用と状態保持を正しく制御する",
+      "D: データベースの主キー"
+    ],
+    "correct": 2,
+    "explanation": "Keyはフレームワークがウィジェット再構築時に同一性を判定するための識別子です。リストアイテムの並べ替え時にValueKeyで状態を保持したり、GlobalKeyでウィジェットへの参照を保持します。"
+  },
+  {
+    "id": 796,
+    "category": "React Native",
+    "question": "React NativeのMetro Bundlerの役割はどれか？",
+    "options": [
+      "A:JavaScriptバンドルの生成（トランスフォーム、依存解決、シリアライズ）とHot Reloadを提供するReact Native専用バンドラー",
+      "B:ネイティブコードのコンパイル",
+      "C: アプリのストアへの公開",
+      "D: UIコンポーネントの生成"
+    ],
+    "correct": 0,
+    "explanation": "MetroはReact Native専用のJSバンドラーで、JSXのトランスフォーム、モジュールの依存解決、バンドル生成を行います。Fast RefreshによるHMRもサポートし、開発効率を向上させます。"
+  },
+  {
+    "id": 797,
+    "category": "アプリ配布",
+    "question": "モバイルアプリのA/Bテストツールとして使用されるものはどれか？",
+    "options": [
+      "A: Firebase Remote Config / A/B Testing、Optimizely、LaunchDarkly等でUI変更や機能のA/Bテストを実施する",
+      "B: データベースのテストツール",
+      "C: CSSのテストツール",
+      "D: APIのテストツールのみ"
+    ],
+    "correct": 0,
+    "explanation": "Firebase Remote Config/A/B Testing、Optimizely、LaunchDarkly等でUI変更、文言、機能の有効/無効をユーザーグループ間で比較し、データドリブンな意思決定を行います。"
+  },
+  {
+    "id": 798,
+    "category": "Android",
+    "question": "AndroidのApp Linksの仕組みはどれか？",
+    "options": [
+      "A: アプリ内のリンクをブラウザで開く",
+      "B: 特定のURLをアプリで直接開くディープリンクで、Digital Asset Linksファイルでドメイン所有権を検証する",
+      "C: App Storeへのリンク",
+      "D: ブックマークの管理"
+    ],
+    "correct": 1,
+    "explanation": "Android App LinksはHTTPS URLをアプリで直接開くディープリンクです。.well-known/assetlinks.jsonでドメイン所有権を検証し、ユーザーの確認ダイアログなしでアプリが起動します。"
+  },
+  {
+    "id": 799,
+    "category": "iOS",
+    "question": "iOSのUniversal Linksの仕組みはどれか？",
+    "options": [
+      "A: すべてのURLをアプリで開く",
+      "B:iCloudリンクの管理",
+      "C: アプリ間のデータ共有",
+      "D:HTTPS URLをアプリで直接開くディープリンクで、apple-app-site-associationファイルでドメインとアプリの関連付けを検証する"
+    ],
+    "correct": 3,
+    "explanation": "Universal LinksはHTTPS URLをアプリで直接開くiOS のディープリンクです。ドメインのapple-app-site-associationファイルでアプリID とパスの関連付けを検証します。"
+  },
+  {
+    "id": 800,
+    "category": "Flutter",
+    "question": "Flutterのtesting（テスト）の3つのレベルはどれか？",
+    "options": [
+      "A: 単体テスト、統合テスト、負荷テスト",
+      "B: ユニットテスト（ロジック）、ウィジェットテスト（個別UI）、インテグレーションテスト（アプリ全体の動作）",
+      "C: 手動テスト、回帰テスト、負荷テスト",
+      "D: APIテスト、UIテスト、E2Eテスト"
+    ],
+    "correct": 1,
+    "explanation": "Flutterは3レベルのテストを提供します：ユニットテスト（ビジネスロジック）、ウィジェットテスト（個別ウィジェットの描画と動作）、インテグレーションテスト（実機/エミュレータでの結合テスト）。"
+  },
+  {
+    "id": 801,
+    "category": "React Native",
+    "question": "React NativeのAccessibility（アクセシビリティ）サポートの特徴はどれか？",
+    "options": [
+      "A: アクセシビリティはサポートされていない",
+      "B:CSSのみでアクセシビリティを設定する",
+      "C:accessible、accessibilityLabel、accessibilityRole等のpropsでスクリーンリーダー（TalkBack/VoiceOver）に対応する",
+      "D: サードパーティライブラリが必須"
+    ],
+    "correct": 2,
+    "explanation": "React Nativeは組み込みのアクセシビリティAPIを提供し、accessible={true}、accessibilityLabel、accessibilityRole等のpropsでVoiceOver（iOS）やTalkBack（Android）に対応します。"
+  },
+  {
+    "id": 802,
+    "category": "アプリ配布",
+    "question": "モバイルアプリのクラッシュレポートツールとして一般的なものはどれか？",
+    "options": [
+      "A: Firebase Crashlytics、Sentry、Bugsnag等でクラッシュのスタックトレース、影響ユーザー数、再現条件を収集・分析する",
+      "B: テキストエディタ",
+      "C: データベース管理ツール",
+      "D: Webサーバー"
+    ],
+    "correct": 0,
+    "explanation": "Firebase Crashlytics、Sentry、Bugsnag等はアプリのクラッシュと非致命的エラーをリアルタイムで検出し、スタックトレース、デバイス情報、発生頻度等を集約してデバッグを支援します。"
+  },
+  {
+    "id": 803,
+    "category": "Android",
+    "question": "AndroidのBroadcastReceiverの用途はどれか？",
+    "options": [
+      "A:システムやアプリから送信されるブロードキャストイベント（バッテリー低下、接続変更等）を受信して処理する",
+      "B:放送番組の受信",
+      "C: WiFiの電波を受信する",
+      "D: Bluetooth通信の受信のみ"
+    ],
+    "correct": 0,
+    "explanation": "BroadcastReceiverはシステムイベント（起動完了、バッテリー低下、ネットワーク変更等）やアプリ間のカスタムブロードキャストを受信するAndroidコンポーネントです。"
+  },
+  {
+    "id": 804,
+    "category": "iOS",
+    "question": "iOSのApp Tracking Transparency（ATT）の目的はどれか？",
+    "options": [
+      "A: アプリのバグを追跡する",
+      "B: ユーザーの位置情報を追跡する",
+      "C: アプリがユーザーのアクティビティをトラッキングする前にユーザーの明示的な許可を求めることを義務化するプライバシーフレームワーク",
+      "D: アプリのダウンロード数を追跡する"
+    ],
+    "correct": 2,
+    "explanation": "ATT（iOS 14.5+）はIDFAを使用したユーザートラッキングの前に明示的な許可ダイアログの表示を義務付けます。広告業界に大きな影響を与え、プライバシー保護を強化しました。"
+  },
+  {
+    "id": 805,
+    "category": "Flutter",
+    "question": "Flutterのmethod channelとevent channelの違いはどれか？",
+    "options": [
+      "A:MethodChannelはDart→ネイティブの単発リクエスト/レスポンス、EventChannelはネイティブ→Dartの連続的なイベントストリーム（センサーデータ等）",
+      "B:同じ機能",
+      "C: EventChannelはDart→ネイティブの通信",
+      "D: MethodChannelはストリーム通信用"
+    ],
+    "correct": 0,
+    "explanation": "MethodChannelは単発のリクエスト/レスポンス（バッテリー残量取得等）、EventChannelはネイティブからの連続的なイベントストリーム（GPS位置更新、加速度センサー等）に使用します。"
+  },
+  {
+    "id": 806,
+    "category": "React Native",
+    "question": "React NativeのEAS（Expo Application Services）Buildの利点はどれか？",
+    "options": [
+      "A:クラウド上でiOS/Androidのビルドを実行し、ローカルにMacやXcodeがなくてもiOSアプリをビルドできる",
+      "B:ローカルのXcode/Android Studioが必須",
+      "C: Webアプリのビルドのみ",
+      "D: テストの実行のみ"
+    ],
+    "correct": 0,
+    "explanation": "EAS BuildはExpoのクラウドビルドサービスで、macOS環境を持たない開発者でもiOSアプリのビルドが可能です。カスタムネイティブコードやConfig Pluginsにも対応し、DXを大幅に向上させます。"
+  },
+  {
+    "id": 807,
+    "category": "アプリ配布",
+    "question": "モバイルアプリのDeep Linkingの3つの種類はどれか？",
+    "options": [
+      "A: URIスキーム（myapp://）、Universal Links / App Links（HTTPS URL）、Deferred Deep Links（未インストール時にストア経由で遷移）",
+      "B: HTTP、HTTPS、FTP",
+      "C: GET、POST、PUT",
+      "D: TCP、UDP、ICMP"
+    ],
+    "correct": 0,
+    "explanation": "Deep Linkingには、カスタムURIスキーム（myapp://path）、Universal Links/App Links（HTTPS URL）、Deferred Deep Links（アプリ未インストール時にインストール後に目的ページに遷移）の3種類があります。"
+  },
+  {
+    "id": 808,
+    "category": "Android",
+    "question": "AndroidのGradle Build Systemの特徴はどれか？",
+    "options": [
+      "A: XMLベースのビルドシステム",
+      "B: Groovy/Kotlin DSLでビルドスクリプトを記述し、依存関係管理、ビルドバリアント、プラグインシステムを提供する",
+      "C: Makefileベースのビルドシステム",
+      "D: CMakeのみサポート"
+    ],
+    "correct": 1,
+    "explanation": "GradleはAndroidの公式ビルドシステムで、build.gradle（Groovy）またはbuild.gradle.kts（Kotlin DSL）でビルド設定を記述します。フレーバー、ビルドタイプ、依存関係管理を強力にサポートします。"
+  },
+  {
+    "id": 809,
+    "category": "iOS",
+    "question": "iOSのXCTestの機能はどれか？",
+    "options": [
+      "A:Appleの公式テストフレームワークでユニットテスト、UIテスト、パフォーマンステストを提供し、Xcodeと統合されている",
+      "B:UIデザインツール",
+      "C: ネットワーク通信テストのみ",
+      "D: データベース設計ツール"
+    ],
+    "correct": 0,
+    "explanation": "XCTestはApple公式のテストフレームワークで、XCTestCase（ユニットテスト）、XCUITest（UIテスト）、measure{}（パフォーマンステスト）をXcodeのテストナビゲータと統合して提供します。"
+  },
+  {
+    "id": 810,
+    "category": "Flutter",
+    "question": "FlutterのAdaptive UI設計の考え方はどれか？",
+    "options": [
+      "A: 固定サイズのUIのみ",
+      "B:デバイスごとに別アプリを作成する",
+      "C: CSSメディアクエリを使用する",
+      "D:LayoutBuilder、MediaQuery等でデバイスのサイズや向きに応じたUIを動的に構築し、モバイル/タブレット/デスクトップに適応する"
+    ],
+    "correct": 3,
+    "explanation": "FlutterのAdaptive UIはLayoutBuilder、MediaQuery.of(context)、BreakpointベースのレイアウトでOSやデバイスサイズに応じた最適なUIを動的に構築します。"
+  },
+  {
+    "id": 811,
+    "category": "React Native",
+    "question": "React NativeのTurboModulesの特徴はどれか？",
+    "options": [
+      "A: すべてのモジュールを起動時にロードする",
+      "B: ネイティブモジュールを遅延ロードし、必要な時にのみ初期化することでアプリの起動時間を短縮する",
+      "C: JavaScriptモジュールのみ対応",
+      "D: Webモジュールの読み込み"
+    ],
+    "correct": 1,
+    "explanation": "TurboModulesはネイティブモジュールを必要になるまでロードせず（遅延初期化）、JSIを通じてBridgeなしで直接呼び出します。起動時のモジュール初期化コストを大幅に削減します。"
+  },
+  {
+    "id": 812,
+    "category": "アプリ配布",
+    "question": "モバイルアプリのフィーチャーフラグの実装に使用されるサービスはどれか？",
+    "options": [
+      "A: Firebase Remote Config、LaunchDarkly、Unleash等でサーバーサイドから機能の有効/無効をリアルタイムに制御する",
+      "B: CDNサービス",
+      "C: DNS管理サービス",
+      "D: SSL証明書管理サービス"
+    ],
+    "correct": 0,
+    "explanation": "Firebase Remote Config、LaunchDarkly、Unleash等のフィーチャーフラグサービスでアプリの再配布なしに機能のオン/オフ、段階的ロールアウト、ユーザーセグメント別の制御が可能です。"
+  },
+  {
+    "id": 813,
+    "category": "Android",
+    "question": "AndroidのKotlin Multiplatform（KMP）の目的はどれか？",
+    "options": [
+      "A:ビジネスロジック、データ層、ネットワーク層等をiOS/Android間でKotlinコードとして共有し、UIは各プラットフォームでネイティブに実装する",
+      "B:UIの共有のみ",
+      "C: Android専用のフレームワーク",
+      "D: Kotlinの新構文の追加"
+    ],
+    "correct": 0,
+    "explanation": "KMPはビジネスロジック、リポジトリ、ネットワーク層のKotlinコードをiOS/Androidで共有し、UIはSwiftUI/Jetpack Composeで各プラットフォームネイティブに実装するアプローチです。"
+  },
+  {
+    "id": 814,
+    "category": "iOS",
+    "question": "iOSのSPM（Swift Package Manager）の特徴はどれか？",
+    "options": [
+      "A:Swiftに組み込まれた公式パッケージマネージャで、Package.swiftでの依存関係定義とXcodeとのシームレスな統合を提供する",
+      "B:Ruby製のパッケージマネージャ",
+      "C: Objective-C専用",
+      "D: サードパーティ製のビルドツール"
+    ],
+    "correct": 0,
+    "explanation": "SPMはSwiftに標準搭載されたパッケージマネージャで、Package.swiftでの依存関係定義、バージョン解決、Xcodeプロジェクトへの統合を公式にサポートします。CocoaPodsの代替として普及しています。"
+  },
+  {
+    "id": 815,
+    "category": "Flutter",
+    "question": "Flutterのshorebird（コード プッシュ）の機能はどれか？",
+    "options": [
+      "A: UIコンポーネントライブラリ",
+      "B:データベースライブラリ",
+      "C: テストフレームワーク",
+      "D:ストア審査なしにFlutterアプリのDartコード更新をOTAで配信するコードプッシュサービス"
+    ],
+    "correct": 3,
+    "explanation": "ShorebirdはFlutter向けのコードプッシュサービスで、React NativeのCodePushに相当します。ストア再審査なしにDartコードの更新をOTAで配信できますが、ネイティブコードの変更は不可です。"
+  },
+  {
+    "id": 816,
+    "category": "React Native",
+    "question": "React NativeのNative Modulesの作成が必要なケースはどれか？",
+    "options": [
+      "A: 基本的なUIの構築",
+      "B:JSONの解析",
+      "C:プラットフォーム固有のAPI（Bluetooth LE、NFC、ARKit等）にアクセスする場合や、パフォーマンスクリティカルな処理をネイティブで実装する場合",
+      "D: HTTPリクエストの送信"
+    ],
+    "correct": 2,
+    "explanation": "Native Modulesはexpoのモジュールでカバーされないプラットフォーム固有のAPI（特殊なハードウェア、AR/VR等）やパフォーマンスが重要な処理（画像/動画処理等）で必要になります。"
+  },
+  {
+    "id": 817,
+    "category": "アプリ配布",
+    "question": "Google Play App Signing の仕組みはどれか？",
+    "options": [
+      "A: 開発者がAPK署名鍵を直接管理する",
+      "B: Googleがアプリ署名鍵を安全に保管し、開発者はアップロード鍵で署名したAABをアップロードする2段階署名方式",
+      "C: 署名なしでアプリを配布する",
+      "D: ユーザーが署名鍵を生成する"
+    ],
+    "correct": 1,
+    "explanation": "Play App Signingでは、Googleが本番のアプリ署名鍵を安全に保管します。開発者はアップロード鍵でAABに署名し、Google Playがアプリ署名鍵で最終APKを署名して配布します。"
+  },
+  {
+    "id": 818,
+    "category": "Android",
+    "question": "AndroidのApp Bundleのdynamic feature modulesの用途はどれか？",
+    "options": [
+      "A: アプリの全機能を初回にダウンロードする",
+      "B: 特定の機能モジュールをオンデマンドでダウンロードし、初回インストールサイズを削減する（AR機能、言語パック等）",
+      "C: モジュールの自動更新",
+      "D: テストモジュールの管理"
+    ],
+    "correct": 1,
+    "explanation": "Dynamic Feature Modulesは初回インストールに含めず、ユーザーが必要な時にPlay Feature Delivery APIで動的にダウンロード・インストールします。アプリサイズの最適化に有効です。"
+  },
+  {
+    "id": 819,
+    "category": "iOS",
+    "question": "iOSのBackgroundTasksフレームワークの用途はどれか？",
+    "options": [
+      "A: フォアグラウンドでのUI更新",
+      "B:プッシュ通知の送信",
+      "C: 常時バックグラウンド実行",
+      "D:BGTaskSchedulerでバックグラウンドのアプリリフレッシュ（データ同期）やバックグラウンド処理タスク（DB最適化等）をスケジュールする"
+    ],
+    "correct": 3,
+    "explanation": "BackgroundTasksフレームワーク（iOS 13+）はBGAppRefreshTask（短時間のデータ取得）とBGProcessingTask（長時間の処理）をシステムがバッテリーと使用状況に応じてスケジュール実行します。"
+  },
+  {
+    "id": 820,
+    "category": "Flutter",
+    "question": "FlutterのSliverの概念はどれか？",
+    "options": [
+      "A: データベースのスライス",
+      "B: スクロール可能領域の一部分を表すウィジェットで、CustomScrollView内でSliverAppBar、SliverList等を組み合わせて高度なスクロール効果を実現する",
+      "C: 画像のスライス",
+      "D: テキストの断片"
+    ],
+    "correct": 1,
+    "explanation": "Sliverはスクロール可能領域の一片を表すウィジェットです。CustomScrollView内でSliverAppBar（折り畳みヘッダー）、SliverList、SliverGrid等を組み合わせて柔軟なスクロールUIを構築します。"
+  },
+  {
+    "id": 821,
+    "category": "React Native",
+    "question": "React NativeのFast Refreshの特徴はどれか？",
+    "options": [
+      "A: アプリを完全に再起動する",
+      "B:ビルド速度の高速化",
+      "C:コンポーネントの状態を保持しながらコード変更を即座に反映し、エラー時も回復可能な開発時のホットリロード機能",
+      "D: テストの高速実行"
+    ],
+    "correct": 2,
+    "explanation": "Fast RefreshはHot Reload/Hot Replacementの改良版で、React コンポーネントの状態を保持しながらコード変更を即座に反映します。構文エラー後も自動回復し、開発体験を向上させます。"
+  },
+  {
+    "id": 822,
+    "category": "アプリ配布",
+    "question": "モバイルアプリのCI/CDでFastlane matchの利点はどれか？",
+    "options": [
+      "A: アプリのUIテスト",
+      "B:Android固有のビルドツール",
+      "C:iOSのコード署名証明書とProvisioning Profileをチームで安全に共有・自動管理し、署名の問題を解消する",
+      "D: パフォーマンステスト"
+    ],
+    "correct": 2,
+    "explanation": "Fastlane matchはiOSの証明書とProvisioning ProfileをGitリポジトリやGoogle Cloud Storageで暗号化管理し、チーム全員が同じ署名情報を使用できます。CI環境でも自動的に取得・設定します。"
+  },
+  {
+    "id": 823,
+    "category": "Android",
+    "question": "AndroidのBaseline Profilesの効果はどれか？",
+    "options": [
+      "A:アプリの頻繁に使用されるコードパスを事前にAOTコンパイルし、初回起動とUI遷移のパフォーマンスを向上させる",
+      "B:UIデザインのガイドライン",
+      "C: ネットワーク通信の最適化",
+      "D: データベースクエリの最適化"
+    ],
+    "correct": 0,
+    "explanation": "Baseline ProfilesはART（Android Runtime）に対して重要なコードパスを事前にネイティブコンパイル（AOT）するよう指示します。アプリの初回起動速度やスクロール性能を大幅に改善できます。"
+  },
+  {
+    "id": 824,
+    "category": "iOS",
+    "question": "iOSのPhotos frameworkの特徴はどれか？",
+    "options": [
+      "A: カメラの制御のみ",
+      "B:動画の再生のみ",
+      "C: 画像編集フィルターのみ",
+      "D:フォトライブラリへの読み書きアクセス、アセットの取得・変更・削除、iCloud Photosとの同期を提供するフレームワーク"
+    ],
+    "correct": 3,
+    "explanation": "Photos frameworkはフォトライブラリのアセット（写真、動画、Live Photos）の取得、作成、変更、削除を提供し、PHFetchResult/PHAsset等のオブジェクトでiCloud Photosとも連携します。"
+  },
+  {
+    "id": 825,
+    "category": "Flutter",
+    "question": "Flutterのflutter_hooksパッケージの目的はどれか？",
+    "options": [
+      "A: Git Hooksの管理",
+      "B: Reactのフックに似た仕組みをFlutterに導入し、StatefulWidgetのボイラープレートを削減してロジックの再利用性を向上させる",
+      "C: WebHookの管理",
+      "D: キーマッピングの管理"
+    ],
+    "correct": 1,
+    "explanation": "flutter_hooksはReactのuseState、useEffect等に似たフック機能をFlutterに導入し、HookWidgetでStatefulWidgetのライフサイクル管理のボイラープレートを削減します。"
+  },
+  {
+    "id": 826,
+    "category": "React Native",
+    "question": "React NativeのGestureHandlerの利点はどれか？",
+    "options": [
+      "A: キーボード入力の処理",
+      "B:顔認識",
+      "C: 音声認識",
+      "D:ネイティブスレッドでジェスチャー認識を処理し、JSスレッドのボトルネックを回避してスムーズなスワイプ、ピンチ、パン等を実現する"
+    ],
+    "correct": 3,
+    "explanation": "React Native Gesture Handlerはジェスチャー認識をネイティブスレッドで処理し、JSの負荷に影響されないスムーズなタッチ操作を実現します。Reanimatedと組み合わせて使用されます。"
+  },
+  {
+    "id": 827,
+    "category": "アプリ配布",
+    "question": "モバイルアプリのAPM（Application Performance Monitoring）ツールの機能はどれか？",
+    "options": [
+      "A:アプリの応答時間、ネットワークレイテンシ、フレームレート、ANR/ハング等のパフォーマンスメトリクスをリアルタイムで収集・分析する",
+      "B:コードの自動修正",
+      "C: UIデザインの自動生成",
+      "D: データベーススキーマの自動生成"
+    ],
+    "correct": 0,
+    "explanation": "Firebase Performance、New Relic、Datadog等のAPMツールはアプリの起動時間、ネットワーク要求の遅延、画面レンダリング速度、ANR等をリアルタイム監視し、パフォーマンス問題の特定を支援します。"
+  },
+  {
+    "id": 828,
+    "category": "Android",
+    "question": "AndroidのDozeモードの影響はどれか？",
+    "options": [
+      "A: アプリのUIが変更される",
+      "B:画面の輝度が変わる",
+      "C: アプリが自動的にアンインストールされる",
+      "D:デバイス未使用時にネットワークアクセス、ジョブ、同期、アラームを制限し、バッテリー消費を削減する"
+    ],
+    "correct": 3,
+    "explanation": "Dozeモードはデバイスが静止・画面オフが長時間続くと、バックグラウンドのネットワーク、ジョブ、アラームを延期してバッテリーを節約します。メンテナンスウィンドウで定期的に制限を解除します。"
+  },
+  {
+    "id": 829,
+    "category": "iOS",
+    "question": "iOSのTCA（The Composable Architecture）の特徴はどれか？",
+    "options": [
+      "A: UIフレームワーク",
+      "B:データベースフレームワーク",
+      "C: ネットワーク通信ライブラリ",
+      "D:状態管理、副作用管理、コンポーザビリティ、テスタビリティを重視したSwift向けの関数型アーキテクチャフレームワーク"
+    ],
+    "correct": 3,
+    "explanation": "TCAはPoint-Freeが開発したSwiftのアーキテクチャフレームワークで、Reducer、State、Action、Environmentで機能を構造化し、テスタビリティとコンポーザビリティに優れた設計を提供します。"
+  },
+  {
+    "id": 830,
+    "category": "Flutter",
+    "question": "FlutterのImpellerレンダリングエンジンの利点はどれか？",
+    "options": [
+      "A: JavaScriptエンジン",
+      "B: シェーダーのプリコンパイルにより初回フレームのジャンク（カク付き）を解消し、予測可能なパフォーマンスを提供する新レンダリングエンジン",
+      "C: WebGLのみサポート",
+      "D: 2Dレンダリングのみ対応"
+    ],
+    "correct": 1,
+    "explanation": "ImpellerはSkiaの後継レンダリングエンジンで、シェーダーをビルド時にプリコンパイルします。実行時のシェーダーコンパイル（jank）を排除し、一貫して滑らかな描画パフォーマンスを実現します。"
   }
 ]

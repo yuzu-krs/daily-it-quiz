@@ -1,0 +1,647 @@
+[
+  {
+    "id": 101,
+    "category": "Linuxコマンド",
+    "question": "GNU findコマンドで、カレントディレクトリ以下の7日以上前に更新されたファイルを削除するコマンドとして正しいものはどれか。",
+    "options": [
+      "A: find . -mtime +7 -type f -delete",
+      "B: find . -mtime -7 -type f -delete",
+      "C: find . -mtime 7 -type d -delete",
+      "D: find . -atime +7 -type f -rm"
+    ],
+    "correct": 0,
+    "explanation": "-mtime +7 は「7日より前に更新された」を意味する（+は超過）。-mtime -7 は「7日以内」、-mtime 7 は「ちょうど7日前」。-type f でファイルのみ対象、-delete で削除。-atime は最終アクセス時刻。-rm というオプションは存在せず、-exec rm {} \\; または -delete を使う。-delete は -depth を暗黙的に有効にする。"
+  },
+  {
+    "id": 102,
+    "category": "Linuxコマンド",
+    "question": "xargsコマンドにおいて、ファイル名にスペースや改行を含む場合に安全に処理するオプションの組み合わせとして正しいものはどれか。",
+    "options": [
+      "A: find . -print | xargs rm",
+      "B: find . -print0 | xargs -0 rm",
+      "C: find . -print | xargs -n1 rm",
+      "D: find . -name '*' | xargs -d' ' rm"
+    ],
+    "correct": 1,
+    "explanation": "find -print0 はNULL文字（\\0）区切りで出力し、xargs -0 はNULL文字区切りで入力を受け取る。ファイル名にスペース、タブ、改行、引用符等が含まれていても正しく処理できる。-print はデフォルトの改行区切りで、ファイル名に改行が含まれると誤動作する。セキュリティ上もNULL区切りが推奨される。"
+  },
+  {
+    "id": 103,
+    "category": "Linuxコマンド",
+    "question": "sedコマンドで、ファイル内の全行の先頭に '#' を追加するコマンドとして正しいものはどれか。",
+    "options": [
+      "A: sed 's/$/#/' file",
+      "B: sed 's/^/#/' file",
+      "C: sed 'a#' file",
+      "D: sed 'i#' file"
+    ],
+    "correct": 1,
+    "explanation": "s/^/#/ は各行の先頭（^）を '#' に置換する（実質的に先頭に挿入）。s/$/#/ は行末に追加。a はappend（行の後に追加）、i はinsert（行の前に挿入）で、これらはアドレス指定なしでは意図した動作にならない。sed -i で直接ファイルを書き換える場合は、バックアップ拡張子の指定が推奨される。"
+  },
+  {
+    "id": 104,
+    "category": "Linuxコマンド",
+    "question": "awkコマンドで、/etc/passwdファイルからUID（第3フィールド）が1000以上の一般ユーザのユーザ名（第1フィールド）を抽出するコマンドとして正しいものはどれか。",
+    "options": [
+      "A: awk -F: '$3 >= 1000 {print $1}' /etc/passwd",
+      "B: awk '$3 >= 1000 {print $1}' /etc/passwd",
+      "C: awk -F: '{if ($3 > 1000) print $0}' /etc/passwd",
+      "D: awk -F, '$3 >= 1000 {print $1}' /etc/passwd"
+    ],
+    "correct": 0,
+    "explanation": "/etc/passwd はコロン（:）区切りなので -F: を指定する。$3がUID、$1がユーザ名。条件 $3 >= 1000 で一般ユーザを抽出し {print $1} でユーザ名を出力する。Bはデフォルト区切り（空白）、Cは1000を含まない（>）かつ全行（$0）出力、Dはカンマ区切り。多くのLinuxディストリビューションでは一般ユーザのUIDは1000から開始する。"
+  },
+  {
+    "id": 105,
+    "category": "Linuxコマンド",
+    "question": "straceコマンドの主な用途として最も適切なものはどれか。",
+    "options": [
+      "A: ネットワークパケットをキャプチャする",
+      "B: ディスクI/Oのスループットを測定する",
+      "C: プロセスが発行するシステムコールとシグナルをトレースする",
+      "D: メモリリークを検出する"
+    ],
+    "correct": 2,
+    "explanation": "straceはプロセスが発行するシステムコール（open, read, write, ioctl等）とシグナルをトレースし、引数・戻り値・エラーを表示する。デバッグ、パフォーマンス分析、プログラムの動作解析に不可欠。-p PID で実行中プロセスにアタッチ、-e trace=network でネットワーク関連のみフィルタ、-c で統計情報を出力できる。ltrace はライブラリ関数のトレース。"
+  },
+  {
+    "id": 106,
+    "category": "systemctl",
+    "question": "systemdのユニットファイルにおいて、[Service]セクションで Restart=on-failure と設定した場合の動作として正しいものはどれか。",
+    "options": [
+      "A: サービスが正常終了（exit code 0）した場合のみ再起動する",
+      "B: サービスが異常終了（non-zero exit code、シグナルによる終了等）した場合のみ再起動する",
+      "C: すべての終了パターンで無条件に再起動する",
+      "D: 手動でsystemctl restartを実行した場合のみ再起動する"
+    ],
+    "correct": 1,
+    "explanation": "Restart=on-failure は、プロセスが異常終了コード（non-zero）、シグナルで終了、タイムアウト等の失敗時のみ自動再起動する。正常終了（exit 0）やsystemctl stopでは再起動しない。Restart=always は全ケースで再起動（stopコマンド除く）。RestartSec= で再起動までの待機時間、StartLimitBurst/StartLimitIntervalSec で再起動回数制限を設定できる。"
+  },
+  {
+    "id": 107,
+    "category": "systemctl",
+    "question": "systemdにおいて、サービスの依存関係を定義するディレクティブ After= と Requires= の違いとして正しいものはどれか。",
+    "options": [
+      "A: After= は起動順序を定義し、Requires= は依存先が停止した場合に自身も停止する強い依存を定義する",
+      "B: After= と Requires= は完全に同じ動作をする",
+      "C: Requires= は起動順序を定義し、After= は依存関係を定義する",
+      "D: After= は依存先を同時に起動し、Requires= は逐次起動を保証する"
+    ],
+    "correct": 0,
+    "explanation": "After= は純粋に起動順序（ordering）を定義し、Requires= は依存関係（dependency）を定義する。Requires= は依存先ユニットの起動を要求し、依存先が停止/失敗すると自身も停止する。ただし Requires= 単独では起動順序は保証されないため、通常は After= と併用する。Wants= はRequires= の弱い版で、依存先の失敗が自身に影響しない。"
+  },
+  {
+    "id": 108,
+    "category": "systemctl",
+    "question": "systemdのjournalctlで、カーネルメッセージのみをリアルタイムで追跡表示するコマンドとして正しいものはどれか。",
+    "options": [
+      "A: journalctl -u kernel -f",
+      "B: journalctl -k -f",
+      "C: journalctl --dmesg --no-follow",
+      "D: journalctl -p kern -f"
+    ],
+    "correct": 1,
+    "explanation": "journalctl -k（--dmesg）はカーネルメッセージのみを表示し、-f（--follow）はリアルタイムで新しいエントリを追跡する。-u はユニット名でフィルタするオプションで 'kernel' というユニットは存在しない。-p は優先度（priority）レベルのフィルタ（emerg,alert,crit,err,warning,notice,info,debug）。--no-follow はフォローしないので追跡にならない。"
+  },
+  {
+    "id": 109,
+    "category": "systemctl",
+    "question": "systemdのタイマーユニット（.timer）でOnCalendar=*-*-* 03:00:00と設定した場合の動作として正しいものはどれか。",
+    "options": [
+      "A: システム起動から3時間後に1回だけ実行する",
+      "B: 毎日午前3時に対応する.serviceユニットを起動する",
+      "C: 3秒ごとに繰り返し実行する",
+      "D: 毎月3日に実行する"
+    ],
+    "correct": 1,
+    "explanation": "OnCalendar=のカレンダー式 *-*-* 03:00:00 は「毎年-毎月-毎日 03:00:00」を意味し、毎日午前3時に実行される。systemdタイマーはcronの代替として使え、Persistent=true で実行を逃した場合の遅延実行、RandomizedDelaySec= でジッター追加、AccuracySec= で精度指定が可能。OnBootSec= や OnUnitActiveSec= はモノトニックタイマー。"
+  },
+  {
+    "id": 110,
+    "category": "cron",
+    "question": "crontabエントリ「*/15 9-17 * * 1-5 /usr/local/bin/check.sh」の実行スケジュールとして正しいものはどれか。",
+    "options": [
+      "A: 毎日15分ごとに実行",
+      "B: 月曜から金曜の9時から17時まで15分ごとに実行",
+      "C: 毎月1日から5日の9時に15分間実行",
+      "D: 毎週月曜の9時15分に実行"
+    ],
+    "correct": 1,
+    "explanation": "crontabの5フィールド：分 時 日 月 曜日。*/15=15分ごと、9-17=9時台から17時台、*=毎日、*=毎月、1-5=月曜(1)～金曜(5)。つまり平日の業務時間帯に15分間隔で実行される。曜日の指定は 0=日曜、1=月曜...6=土曜（一部実装では7も日曜）。"
+  },
+  {
+    "id": 111,
+    "category": "cron",
+    "question": "anacronとcronの違いとして最も正しいものはどれか。",
+    "options": [
+      "A: anacronは秒単位のスケジューリングが可能だが、cronは分単位まで",
+      "B: anacronはシステム停止中に実行を逃したジョブをシステム起動時に遅延実行できる",
+      "C: anacronはroot権限なしで使用でき、cronはroot権限が必須",
+      "D: anacronはネットワーク経由でリモートジョブを実行できる"
+    ],
+    "correct": 1,
+    "explanation": "anacronは日単位のジョブスケジューラで、システムが停止していた間に実行されなかったジョブを、システム起動後に自動的に実行する。ノートPC等の常時稼働しないマシンで有効。/var/spool/anacron/ にタイムスタンプを保持して管理する。cronは指定時刻にシステムが動作していなければジョブは実行されない。"
+  },
+  {
+    "id": 112,
+    "category": "cron",
+    "question": "crontabの環境変数に関する注意点として正しいものはどれか。",
+    "options": [
+      "A: ログインシェルの.bashrcや.profileが自動的に読み込まれる",
+      "B: PATH環境変数はデフォルトで /usr/bin:/bin のみに設定され、ログインシェルとは異なる",
+      "C: cronジョブはログインユーザと同じ環境変数を完全に引き継ぐ",
+      "D: DISPLAY変数が自動設定されるためGUIアプリケーションも実行可能"
+    ],
+    "correct": 1,
+    "explanation": "cronジョブは非対話的・非ログインシェルで実行されるため、.bashrcや.profile等は読み込まれない。PATHは通常 /usr/bin:/bin（Vixie cronのデフォルト）と限定的。cronジョブ内でフルパスを使うか、crontabファイル冒頭で PATH= を明示指定する必要がある。DISPLAY も設定されないため、GUI操作には明示的な設定が必要。"
+  },
+  {
+    "id": 113,
+    "category": "パーミッション",
+    "question": "LinuxでSetUID（SUID）ビットが設定された実行ファイルの動作として正しいものはどれか。",
+    "options": [
+      "A: ファイルの所有グループの権限で実行される",
+      "B: 実行したユーザの権限でのみ動作する",
+      "C: ファイルの所有者の権限で実行される（実効UIDが所有者になる）",
+      "D: rootユーザのみが実行可能になる"
+    ],
+    "correct": 2,
+    "explanation": "SUIDビット（chmod u+s / 4xxx）が設定された実行ファイルは、実行者に関わらず実効UID（EUID）がファイル所有者になる。/usr/bin/passwd（root所有）は一般ユーザが実行しても /etc/shadow を書き換えられるのはこの仕組み。セキュリティリスクが高いため、find / -perm -4000 で定期監査が推奨される。SGIDはグループ権限。"
+  },
+  {
+    "id": 114,
+    "category": "パーミッション",
+    "question": "LinuxのACL（Access Control List）において、特定ユーザ bob にファイル data.txt の読み取り権限のみを付与するコマンドとして正しいものはどれか。",
+    "options": [
+      "A: chmod u+r bob data.txt",
+      "B: chown bob data.txt",
+      "C: setfacl -m u:bob:r data.txt",
+      "D: usermod -a -G data bob"
+    ],
+    "correct": 2,
+    "explanation": "setfacl -m u:bob:r data.txt は、POSIX ACLでユーザ bob に読み取り（r）権限を付与する。ACLは従来のユーザ/グループ/その他の3分類を超えて、特定ユーザ/グループごとの細かいアクセス制御が可能。getfacl で確認、setfacl -x で削除。ACL対応にはファイルシステムのacl マウントオプションが必要（ext4ではデフォルト有効）。"
+  },
+  {
+    "id": 115,
+    "category": "パーミッション",
+    "question": "ディレクトリにスティッキービット（Sticky Bit）を設定した場合の効果として正しいものはどれか。",
+    "options": [
+      "A: ディレクトリ内のファイルを誰でも作成・削除できるようになる",
+      "B: ディレクトリ内のファイルを作成したユーザとrootのみが削除・名前変更できる",
+      "C: ディレクトリへのアクセスがrootのみに制限される",
+      "D: ディレクトリ内のファイルが自動的にSUID権限を持つ"
+    ],
+    "correct": 1,
+    "explanation": "スティッキービット（chmod +t / 1xxx）をディレクトリに設定すると、そのディレクトリ内のファイルはファイルの所有者、ディレクトリの所有者、rootのみが削除・名前変更可能になる。/tmp ディレクトリが代表例（drwxrwxrwt）。全ユーザが書き込み可能だが、他人のファイルは削除できない。ls -ld で末尾の 't' で確認できる。"
+  },
+  {
+    "id": 116,
+    "category": "パーミッション",
+    "question": "umask 027 が設定されている場合、新規作成されるファイルのデフォルトパーミッションはどれか（通常ファイルの場合）。",
+    "options": [
+      "A: 640 (rw-r-----)",
+      "B: 750 (rwxr-x---)",
+      "C: 777 (rwxrwxrwx)",
+      "D: 027 (----w-rwx)"
+    ],
+    "correct": 0,
+    "explanation": "通常ファイルのデフォルトパーミッションは 666 から umask を引く：666 - 027 = 640（rw-r-----）。ディレクトリの場合は 777 - 027 = 750（rwxr-x---）。umask はビット単位のAND NOTで適用される。027 は所有者に制限なし、グループから書き込み除去、その他から全権限除去。セキュリティ的に 022 より厳しい設定。"
+  },
+  {
+    "id": 117,
+    "category": "シェル",
+    "question": "bashにおけるプロセス置換（Process Substitution）の記法 <(command) の動作として正しいものはどれか。",
+    "options": [
+      "A: コマンドの出力をファイルに保存してそのファイル名を返す",
+      "B: コマンドをサブシェルで実行し、その出力を名前付きパイプ（/dev/fd/N）経由でファイル引数として渡す",
+      "C: コマンドの標準エラー出力をリダイレクトする",
+      "D: コマンドの出力を変数に代入する"
+    ],
+    "correct": 1,
+    "explanation": "プロセス置換 <(command) はコマンドの出力を /dev/fd/N（名前付きパイプまたは一時ファイル）経由で提供し、ファイル名が必要なコマンドの引数として使える。diff <(sort file1) <(sort file2) のように2つのコマンド出力を直接比較できる。>(command) は逆方向の出力プロセス置換。パイプと異なりサブシェル問題を回避できるケースがある。"
+  },
+  {
+    "id": 118,
+    "category": "シェル",
+    "question": "bashの変数展開 ${var:-default} と ${var:=default} の違いとして正しいものはどれか。",
+    "options": [
+      "A: どちらも同じ動作で、varが未設定のときdefaultを返す",
+      "B: ${var:-default} はdefaultを返すのみ、${var:=default} はdefaultを返しかつvarにdefaultを代入する",
+      "C: ${var:-default} はvarにdefaultを代入する、${var:=default} はdefaultを返すのみ",
+      "D: ${var:-default} はvarが設定済みの場合にdefaultを返す"
+    ],
+    "correct": 1,
+    "explanation": "${var:-default} はvarが未設定または空のときにdefaultの値を返すが、var自体は変更しない（一時的な代替値）。${var:=default} はdefaultを返すと同時にvarにdefaultを代入する（永続的なデフォルト設定）。${var:+alternate} はvarが設定済みのときalternateを返す。${var:?error} は未設定時にエラーメッセージを出力して終了する。"
+  },
+  {
+    "id": 119,
+    "category": "シェル",
+    "question": "bashスクリプトで set -euo pipefail を冒頭に記述する目的として正しいものはどれか。",
+    "options": [
+      "A: スクリプトの実行速度を最適化する",
+      "B: デバッグモードを有効にして各コマンドを表示する",
+      "C: エラー時に即座に終了(-e)、未定義変数の使用をエラーにし(-u)、パイプライン中のエラーを検出する(pipefail)",
+      "D: スクリプトをバックグラウンドで実行する"
+    ],
+    "correct": 2,
+    "explanation": "set -e（errexit）はコマンド失敗時にスクリプトを即座に終了。set -u（nounset）は未定義変数の参照をエラーにする。set -o pipefail はパイプライン中の最後以外のコマンドの失敗も検出する（デフォルトでは最後のコマンドの終了コードのみが返る）。これらは堅牢なシェルスクリプトの「ストリクトモード」として広く推奨される。"
+  },
+  {
+    "id": 120,
+    "category": "bash",
+    "question": "bashの配列操作において、連想配列（associative array）を宣言する正しい方法はどれか。",
+    "options": [
+      "A: array=(key1 value1 key2 value2)",
+      "B: declare -A array",
+      "C: declare -a array",
+      "D: local -A array"
+    ],
+    "correct": 1,
+    "explanation": "declare -A は連想配列（associative array）を宣言する。array[\"key\"]=\"value\" で要素を設定、${array[\"key\"]} で参照。declare -a は通常の添字配列（indexed array）。連想配列はbash 4.0以降で利用可能。local -A は関数内のローカル連想配列宣言に使えるが、トップレベルでは declare -A を使用する。"
+  },
+  {
+    "id": 121,
+    "category": "bash",
+    "question": "bashにおけるヒアストリング（here string）の記法として正しいものはどれか。",
+    "options": [
+      "A: command << 'EOF'\ntext\nEOF",
+      "B: command <<< \"$variable\"",
+      "C: command < \"$variable\"",
+      "D: echo \"$variable\" > command"
+    ],
+    "correct": 1,
+    "explanation": "ヒアストリング（<<<）は文字列を直接コマンドの標準入力に渡す。echo \"$var\" | command の代わりに command <<< \"$var\" と書ける。パイプを使わないためサブシェルが生成されず、変数のスコープ問題を回避できる。Aはヒアドキュメント（here document）、Cは通常のファイル入力リダイレクト。"
+  },
+  {
+    "id": 122,
+    "category": "bash",
+    "question": "bashのtrapコマンドで、スクリプト終了時に一時ファイルを削除するクリーンアップ処理を設定する正しい記述はどれか。",
+    "options": [
+      "A: trap 'rm -f /tmp/mytmp.$$' EXIT",
+      "B: atexit 'rm -f /tmp/mytmp.$$'",
+      "C: finally 'rm -f /tmp/mytmp.$$'",
+      "D: on_exit 'rm -f /tmp/mytmp.$$'"
+    ],
+    "correct": 0,
+    "explanation": "trap コマンドはシグナルやシェルイベントに対するハンドラを設定する。trap 'command' EXIT はスクリプトが正常終了・異常終了に関わらず実行される。$$ はシェルのPID。trap '' SIGINT でSIGINTを無視、trap - SIGINT でデフォルト動作に戻す。atexit, finally, on_exit はbashの組み込みコマンドとしては存在しない。"
+  },
+  {
+    "id": 123,
+    "category": "bash",
+    "question": "bashのコプロセス（coproc）の特徴として正しいものはどれか。",
+    "options": [
+      "A: フォアグラウンドで同期的にコマンドを実行する",
+      "B: バックグラウンドでコマンドを実行し、その標準入出力にファイルディスクリプタ経由で双方向通信が可能",
+      "C: 複数のコマンドを直列に順次実行する",
+      "D: リモートサーバ上でコマンドを実行する"
+    ],
+    "correct": 1,
+    "explanation": "coproc（bash 4.0以降）はコマンドをバックグラウンドで起動し、標準入力・標準出力にファイルディスクリプタ（${COPROC[0]}で読み取り、${COPROC[1]}で書き込み）を割り当てる。名前付きパイプを使わずにプロセス間の双方向通信が可能。対話的なコマンド（bcやpython等）との連携に使える。"
+  },
+  {
+    "id": 124,
+    "category": "プロセス管理",
+    "question": "Linuxにおけるゾンビプロセスの特徴と解消方法として正しいものはどれか。",
+    "options": [
+      "A: CPUとメモリを大量に消費するため、kill -9 で強制終了する",
+      "B: プロセステーブルのエントリのみ残存し、親プロセスがwait()を呼ぶか親プロセスを終了してinitに回収させる",
+      "C: ディスクI/O待ちで停止しているプロセスのことであり、I/O完了で自動解消する",
+      "D: root権限でのみ確認・削除が可能"
+    ],
+    "correct": 1,
+    "explanation": "ゾンビプロセス（Z状態）は既に終了しているが、親プロセスが wait()/waitpid() で終了ステータスを回収していないプロセス。リソース（CPU/メモリ）は既に解放されているが、プロセステーブルのエントリ（PID）を占有する。kill では除去できない。親プロセスが回収するか、親プロセスを終了させてinit（PID 1）に孤児プロセスとして回収させる。"
+  },
+  {
+    "id": 125,
+    "category": "プロセス管理",
+    "question": "Linuxのnamespace機能のうち、プロセスIDの隔離を提供するnamespaceはどれか。",
+    "options": [
+      "A: NET namespace",
+      "B: MNT namespace",
+      "C: PID namespace",
+      "D: UTS namespace"
+    ],
+    "correct": 2,
+    "explanation": "PID namespaceはプロセスID空間を隔離し、namespace内のプロセスは独自のPID番号体系を持つ（namespace内のinitプロセスはPID 1）。Dockerコンテナの基盤技術の一つ。NET=ネットワークスタック隔離、MNT=マウントポイント隔離、UTS=ホスト名隔離。他にUSER, IPC, CGROUP namespaceがある。"
+  },
+  {
+    "id": 126,
+    "category": "プロセス管理",
+    "question": "Linuxのcgroupsv2で制御できるリソースとして正しいものの組み合わせはどれか。",
+    "options": [
+      "A: CPU使用率、メモリ使用量、I/O帯域幅",
+      "B: ディスプレイ解像度、キーボード入力、マウス感度",
+      "C: CPU使用率のみ（他のリソースは対象外）",
+      "D: ネットワーク帯域幅のみ"
+    ],
+    "correct": 0,
+    "explanation": "cgroups v2は統一階層構造で、cpu（CPU使用率制限）、memory（メモリ使用量制限・OOM制御）、io（ブロックI/O帯域制御）、pids（プロセス数制限）、cpuset（CPUアフィニティ）等のリソースコントローラを提供する。systemdのサービス単位のリソース制限やDockerのリソース制約に使われる。"
+  },
+  {
+    "id": 127,
+    "category": "プロセス管理",
+    "question": "Linuxのniceコマンドで設定できる優先度の範囲と、値が小さいほどどうなるかの説明として正しいものはどれか。",
+    "options": [
+      "A: -20～19で、値が小さいほど優先度が高い（-20が最高優先度）",
+      "B: 0～39で、値が小さいほど優先度が低い",
+      "C: -100～100で、値が小さいほど優先度が低い",
+      "D: 1～99で、値が小さいほど優先度が高い"
+    ],
+    "correct": 0,
+    "explanation": "nice値は -20（最高優先度）～ 19（最低優先度）で、デフォルトは0。一般ユーザはnice値を上げる（優先度を下げる）のみ可能で、負の値（優先度を上げる）にはroot権限が必要。renice コマンドで実行中プロセスのnice値を変更可能。Dはリアルタイム優先度（SCHED_FIFO/SCHED_RR）の範囲。"
+  },
+  {
+    "id": 128,
+    "category": "シグナル",
+    "question": "Linuxにおいて、プロセスがキャッチ（ハンドル）もブロックも無視もできないシグナルはどれか。",
+    "options": [
+      "A: SIGTERM と SIGINT",
+      "B: SIGKILL と SIGSTOP",
+      "C: SIGHUP と SIGQUIT",
+      "D: SIGKILL のみ"
+    ],
+    "correct": 1,
+    "explanation": "SIGKILL（9）とSIGSTOP（19）はカーネルが直接処理するため、プロセスがシグナルハンドラでキャッチ、sigprocmask()でブロック、SIG_IGNで無視することが一切できない。SIGKILLは即座にプロセスを終了、SIGSTOPは即座にプロセスを停止（SIGCONTで再開）。これはOSがプロセスを確実に制御するための設計。"
+  },
+  {
+    "id": 129,
+    "category": "シグナル",
+    "question": "SIGSEGVシグナルが発生する典型的な原因として最も適切なものはどれか。",
+    "options": [
+      "A: ユーザがCtrl+Cを押した",
+      "B: NULLポインタのデリファレンスやマッピングされていないメモリ領域へのアクセス",
+      "C: 子プロセスが終了した",
+      "D: パイプの読み取り側が閉じられた状態での書き込み"
+    ],
+    "correct": 1,
+    "explanation": "SIGSEGV（Segmentation Violation / セグメンテーション違反）はプロセスが不正なメモリアクセスを行った際にカーネルが送信する。NULLポインタ参照、解放済みメモリアクセス、スタックオーバーフロー等が原因。AはSIGINT、CはSIGCHLD、DはSIGPIPEの発生原因。コアダンプの解析にはgdbやcoredumpctl が使われる。"
+  },
+  {
+    "id": 130,
+    "category": "シグナル",
+    "question": "シグナルのリアルタイムシグナル（SIGRTMIN～SIGRTMAX）が通常シグナルと異なる特徴として正しいものはどれか。",
+    "options": [
+      "A: リアルタイムシグナルはキューイングされず、同じシグナルの複数送信は1回に集約される",
+      "B: リアルタイムシグナルはroot権限でのみ送信可能",
+      "C: リアルタイムシグナルはキューイングされ、送信順序が保証され、同じシグナルの複数配信も可能",
+      "D: リアルタイムシグナルは同期シグナルとしてのみ使用可能"
+    ],
+    "correct": 2,
+    "explanation": "リアルタイムシグナル（32～64）は①キューイング（同一シグナルの複数回送信が保持される）②配信順序の保証（番号の小さいものが先に配信）③sigqueue()でデータ値を付加可能、という通常シグナルにない特徴を持つ。通常シグナルは保留中に同じシグナルが送られると1回に集約される（非キューイング）。"
+  },
+  {
+    "id": 131,
+    "category": "シグナル",
+    "question": "SIGHUPシグナルがデーモンプロセスに対して慣習的に使われる用途として正しいものはどれか。",
+    "options": [
+      "A: プロセスを強制終了する",
+      "B: 設定ファイルの再読み込み（リロード）を要求する",
+      "C: プロセスをバックグラウンドに移動する",
+      "D: コアダンプを生成する"
+    ],
+    "correct": 1,
+    "explanation": "SIGHUPは本来「端末のハングアップ」を通知するシグナルだが、デーモンプロセスでは設定ファイルのリロード要求として慣習的に再利用されている。systemctl reload はこの仕組みを使うサービスが多い。Apache httpd、Nginx、syslogd等が代表例。プロセスを終了せずに設定変更を反映できるためダウンタイムを回避できる。"
+  },
+  {
+    "id": 132,
+    "category": "ファイルシステム",
+    "question": "Linuxのiノード（inode）に格納される情報として含まれないものはどれか。",
+    "options": [
+      "A: ファイルサイズ",
+      "B: ファイルのパーミッション",
+      "C: ファイル名",
+      "D: データブロックへのポインタ"
+    ],
+    "correct": 2,
+    "explanation": "iノードにはファイルサイズ、パーミッション、所有者（UID/GID）、タイムスタンプ（atime/mtime/ctime）、リンク数、データブロックへのポインタ等が格納されるが、ファイル名は含まれない。ファイル名はディレクトリエントリ（dentry）に格納される。これにより1つのiノードに複数のファイル名（ハードリンク）を関連付けることができる。"
+  },
+  {
+    "id": 133,
+    "category": "ファイルシステム",
+    "question": "ハードリンクとシンボリックリンクの違いとして正しいものはどれか。",
+    "options": [
+      "A: ハードリンクはファイルシステムをまたいで作成可能だが、シンボリックリンクは不可",
+      "B: シンボリックリンクは元ファイルを削除するとリンク切れになるが、ハードリンクは同一iノードを指すため影響しない",
+      "C: ハードリンクはディレクトリに対しても自由に作成可能",
+      "D: シンボリックリンクは独自のiノードを持たない"
+    ],
+    "correct": 1,
+    "explanation": "ハードリンクは同じiノードを指す別のディレクトリエントリであり、元ファイルを削除してもリンクカウントが0にならない限りデータは残る。シンボリックリンクはパス名を保持する別ファイルで、元ファイル削除でリンク切れ（dangling link）になる。ハードリンクはファイルシステムをまたげず、ディレクトリには作成不可（ループ防止）。"
+  },
+  {
+    "id": 134,
+    "category": "ファイルシステム",
+    "question": "LinuxのVFS（Virtual File System）の役割として最も適切なものはどれか。",
+    "options": [
+      "A: 物理ディスクのパーティション管理を行う",
+      "B: ext4、XFS、Btrfs等の異なるファイルシステムに統一的なインターフェースを提供する抽象化レイヤ",
+      "C: ネットワークファイル共有プロトコル（NFS）の実装",
+      "D: ディスク暗号化を提供する"
+    ],
+    "correct": 1,
+    "explanation": "VFSはLinuxカーネル内の抽象化レイヤで、open(), read(), write() 等のシステムコールを統一的なインターフェースとして提供し、実際のファイルシステム実装（ext4, XFS, Btrfs, NFS, procfs等）への呼び出しに変換する。アプリケーションはファイルシステムの種類を意識せず同じAPIでファイル操作が可能になる。"
+  },
+  {
+    "id": 135,
+    "category": "ext4",
+    "question": "ext4ファイルシステムの特徴として誤っているものはどれか。",
+    "options": [
+      "A: ジャーナリングによるクラッシュ耐性を持つ",
+      "B: エクステントベースのブロック割り当てをサポートする",
+      "C: データとメタデータの両方にチェックサムを標準で検証しデータ化けを自動修復する",
+      "D: 遅延アロケーション（delayed allocation）をサポートする"
+    ],
+    "correct": 2,
+    "explanation": "ext4はメタデータのチェックサム（metadata_csum）はサポートするが、データ自体のチェックサム検証や自動修復（自己修復）機能は持たない。これはBtrfsやZFSが提供する機能（end-to-end checksumming + コピーオンライト）。ext4はジャーナリング、エクステント、遅延アロケーション、マルチブロックアロケーション等を提供する実績ある安定したファイルシステム。"
+  },
+  {
+    "id": 136,
+    "category": "ext4",
+    "question": "ext4のジャーナリングモードのうち、journal モード、ordered モード、writeback モードの違いとして正しいものはどれか。",
+    "options": [
+      "A: journal モードはメタデータのみジャーナルに記録し最も高速",
+      "B: ordered モードはメタデータをジャーナルに記録し、データはメタデータの前にディスクに書き込むことを保証する（デフォルト）",
+      "C: writeback モードはデータとメタデータの両方をジャーナルに記録する",
+      "D: 3つのモードに性能差はない"
+    ],
+    "correct": 1,
+    "explanation": "ordered（デフォルト）はメタデータのみジャーナルに記録し、データはメタデータより前にディスクに書き込むことで整合性を維持バランスが良い。journal モードはデータ+メタデータ両方をジャーナルに記録し最も安全だが最も低速。writeback モードはメタデータのみ記録し書き込み順序を保証しないため最も高速だが、クラッシュ時にデータ不整合のリスクがある。"
+  },
+  {
+    "id": 137,
+    "category": "ext4",
+    "question": "tune2fsコマンドで ext4 ファイルシステムの予約ブロック割合をデフォルトの5%から1%に変更するコマンドとして正しいものはどれか。",
+    "options": [
+      "A: tune2fs -m 1 /dev/sda1",
+      "B: resize2fs -m 1 /dev/sda1",
+      "C: mkfs.ext4 -m 1 /dev/sda1",
+      "D: fsck -m 1 /dev/sda1"
+    ],
+    "correct": 0,
+    "explanation": "tune2fs -m は予約ブロックの割合をパーセントで設定する。ext4はデフォルトで5%のブロックをrootユーザに予約し、ディスクが満杯でもシステムが動作できるようにしている。大容量データディスク（/home等）では1%に削減することで利用可能領域を増やせる。resize2fs はサイズ変更、mkfs は新規作成（データ消失）、fsck は修復。"
+  },
+  {
+    "id": 138,
+    "category": "swap",
+    "question": "Linuxのswappiness パラメータの値を0に設定した場合の動作として正しいものはどれか。",
+    "options": [
+      "A: スワップを完全に無効化し、一切使用しない",
+      "B: カーネルはOOM Killerが発動する直前までスワップアウトを極力避けるが、必要に応じて使用する",
+      "C: スワップ領域を最大限に活用し、積極的にスワップアウトする",
+      "D: スワップパーティションを自動的に削除する"
+    ],
+    "correct": 1,
+    "explanation": "vm.swappiness=0 はスワップを無効化するのではなく、カーネルが物理メモリの回収を最大限試みた後、OOM（Out of Memory）に近い状況でのみスワップを使用する。完全な無効化にはswapoff コマンドが必要。デフォルト値は60。データベースサーバ等ではswappiness=10程度に下げることが推奨される場合がある。"
+  },
+  {
+    "id": 139,
+    "category": "swap",
+    "question": "スワップファイルとスワップパーティションの比較として正しいものはどれか。",
+    "options": [
+      "A: スワップファイルの方が常にスワップパーティションより高速である",
+      "B: スワップパーティションはサイズ変更が容易だが、スワップファイルは再作成が必要",
+      "C: スワップファイルはファイルシステム上に作成でき、サイズ変更が柔軟だが、BtrfsやZFSでは制約がある場合がある",
+      "D: スワップパーティションはext4ファイルシステム上に作成する"
+    ],
+    "correct": 2,
+    "explanation": "スワップファイルは通常のファイルシステム上に作成でき、dd/fallocateで容易にサイズ変更可能。ただしBtrfsではカーネル5.0以降でサポート、ZFSでは非対応等の制約がある。性能面では、最近のカーネルではスワップファイルとパーティションの差はほぼない。スワップパーティションは専用パーティションを必要とするためサイズ変更にはパーティション操作が必要。"
+  },
+  {
+    "id": 140,
+    "category": "swap",
+    "question": "Linux OOM Killerがプロセスを終了する際の選択基準として最も重要な指標はどれか。",
+    "options": [
+      "A: プロセスのCPU使用時間",
+      "B: プロセスのPID番号（小さいほど対象になりやすい）",
+      "C: oom_scoreの値（メモリ使用量等に基づく複合スコア）が高いプロセスが優先的に終了される",
+      "D: プロセスの起動時刻（古いほど対象になりやすい）"
+    ],
+    "correct": 2,
+    "explanation": "OOM Killerは各プロセスのoom_score（/proc/PID/oom_score）に基づいて終了対象を選択する。メモリ使用量が大きく、子プロセスのメモリも加算したスコアが高いプロセスが優先される。oom_score_adj（-1000～1000）で調整可能で、-1000はOOM Killer対象外（例：重要なDBプロセスの保護）、1000は最優先で終了される。"
+  },
+  {
+    "id": 141,
+    "category": "カーネル",
+    "question": "Linuxカーネルのモジュール（Loadable Kernel Module: LKM）を動的にロードするコマンドとして、依存関係を自動的に解決するものはどれか。",
+    "options": ["A: insmod", "B: modprobe", "C: lsmod", "D: rmmod"],
+    "correct": 1,
+    "explanation": "modprobe はモジュールの依存関係を /lib/modules/$(uname -r)/modules.dep から自動解決し、必要なモジュールを順序通りにロードする。insmod は単一モジュールのみロードし依存関係を解決しない。lsmod はロード済みモジュールの一覧表示、rmmod はモジュールのアンロード。modprobe -r で依存関係を考慮したアンロードも可能。"
+  },
+  {
+    "id": 142,
+    "category": "カーネル",
+    "question": "Linuxカーネルの /proc/sys/kernel/ 以下で設定可能なパラメータとして正しいものはどれか。",
+    "options": [
+      "A: IPフォワーディングの有効化",
+      "B: ファイルシステムのマウントポイント",
+      "C: プロセス生成数の最大値（pid_max）やSysRqキーの有効化",
+      "D: ネットワークインターフェースのIPアドレス"
+    ],
+    "correct": 2,
+    "explanation": "/proc/sys/kernel/ にはカーネルの基本パラメータが格納される。pid_max（PIDの最大値）、sysrq（Magic SysRq有効化）、panic（パニック時の再起動秒数）、threads-max（システム全体のスレッド最大数）等。IPフォワーディングは /proc/sys/net/ipv4/ip_forward、ネットワーク設定は /proc/sys/net/ 以下。"
+  },
+  {
+    "id": 143,
+    "category": "カーネル",
+    "question": "Linuxカーネルのプリエンプション設定 CONFIG_PREEMPT の効果として正しいものはどれか。",
+    "options": [
+      "A: カーネルコードの実行中でもより高い優先度のタスクに切り替わることが可能になり、応答性が向上する",
+      "B: すべてのシステムコールが非ブロッキングで動作するようになる",
+      "C: カーネルのリアルタイム性が低下し、サーバ用途に最適化される",
+      "D: マルチコアCPUのみで動作し、シングルコアでは無効"
+    ],
+    "correct": 0,
+    "explanation": "CONFIG_PREEMPT（完全プリエンプティブカーネル）は、カーネルモードでの実行中でもスケジューラがタスク切り替えを行える。デスクトップの応答性やリアルタイムアプリケーションに有効。CONFIG_PREEMPT_NONE（サーバ向け、スループット優先）、CONFIG_PREEMPT_VOLUNTARY（妥協的）もある。PREEMPT_RTパッチでさらにリアルタイム性を強化可能。"
+  },
+  {
+    "id": 144,
+    "category": "カーネル",
+    "question": "eBPF（extended Berkeley Packet Filter）の現在の主な用途として正しいものはどれか。",
+    "options": [
+      "A: パケットフィルタリング専用で、他の用途には使えない",
+      "B: カーネルを再コンパイルせずに、ネットワーク制御・セキュリティ・観測・トレーシングなどをカーネル空間で安全に実行する",
+      "C: ユーザ空間でのみ動作するスクリプト実行環境",
+      "D: ext4ファイルシステムの暗号化機能"
+    ],
+    "correct": 1,
+    "explanation": "eBPFはカーネル内のサンドボックス化されたバイトコード仮想マシンで、安全なプログラムをカーネル空間にロードして実行する。XDP（高速パケット処理）、Cilium（K8sネットワーキング）、bpftrace/bcc（性能トレーシング）、Falco（セキュリティ監視）等で広く活用される。JITコンパイルによりネイティブに近い速度で動作する。"
+  },
+  {
+    "id": 145,
+    "category": "Windowsコマンド",
+    "question": "Windowsのnetstatコマンドに代わる、より詳細なネットワーク接続情報を取得できるPowerShellコマンドレットはどれか。",
+    "options": [
+      "A: Get-NetAdapter",
+      "B: Get-NetTCPConnection",
+      "C: Get-NetRoute",
+      "D: Get-NetIPAddress"
+    ],
+    "correct": 1,
+    "explanation": "Get-NetTCPConnection はTCP接続の一覧（ローカル/リモートアドレス・ポート、状態、所有プロセスID等）を取得する。netstat -ano より詳細で、パイプラインで Where-Object、Select-Object と組み合わせたフィルタリングが容易。Get-NetAdapter はNIC一覧、Get-NetRoute はルーティングテーブル、Get-NetIPAddress はIPアドレス設定。"
+  },
+  {
+    "id": 146,
+    "category": "Windowsコマンド",
+    "question": "Windowsでディスクの健康状態をコマンドラインから確認するコマンドとして、S.M.A.R.T情報を取得できるものはどれか。",
+    "options": [
+      "A: chkdsk /f",
+      "B: wmic diskdrive get status",
+      "C: diskpart list disk",
+      "D: sfc /scannow"
+    ],
+    "correct": 1,
+    "explanation": "wmic diskdrive get status はディスクのS.M.A.R.T.ステータスを簡易確認できる。chkdsk はファイルシステムの論理エラーチェック・修復、diskpart はパーティション管理、sfc はWindowsシステムファイルの整合性チェック。より詳細なS.M.A.R.T.情報にはCrystalDiskInfo等のツールやGet-PhysicalDisk（PowerShell）が使われる。"
+  },
+  {
+    "id": 147,
+    "category": "Windowsコマンド",
+    "question": "Windowsのrobocopyコマンドの特徴として正しいものはどれか。",
+    "options": [
+      "A: ファイルの圧縮コピーのみをサポートする",
+      "B: 差分コピー、リトライ、マルチスレッド、ミラーリング等の高機能ファイルコピーを提供する",
+      "C: ネットワーク経由のコピーは不可で、ローカルディスク間のみ対応",
+      "D: GUIツールでありコマンドラインからは使用不可"
+    ],
+    "correct": 1,
+    "explanation": "robocopy（Robust File Copy）は差分コピー（変更ファイルのみ）、/MIR（ミラーリング）、/MT（マルチスレッド）、/R（リトライ回数）、/W（リトライ待機）、/LOG（ログ出力）等の高機能を提供する。xcopyの後継として大規模ファイル移行、バックアップ、レプリケーションに広く使われる。ネットワークパス（UNC）にも対応。"
+  },
+  {
+    "id": 148,
+    "category": "PowerShell",
+    "question": "PowerShellにおいて、パイプラインで渡されるオブジェクトの型を確認するコマンドとして正しいものはどれか。",
+    "options": [
+      "A: Get-Process | Get-Type",
+      "B: Get-Process | Get-Member",
+      "C: Get-Process | Format-Type",
+      "D: Get-Process | Out-Type"
+    ],
+    "correct": 1,
+    "explanation": "Get-Memberはパイプラインで渡されたオブジェクトの型名（TypeName）、プロパティ、メソッド等のメンバー情報を表示する。PowerShellの最重要コマンドレットの一つで、オブジェクトの構造を理解し適切なプロパティにアクセスするために使う。Get-Type、Format-Type、Out-Type は存在しないコマンドレット。"
+  },
+  {
+    "id": 149,
+    "category": "PowerShell",
+    "question": "PowerShellのエラーハンドリングにおいて、非終了エラー（Non-Terminating Error）を終了エラーとして扱うために使用する共通パラメータはどれか。",
+    "options": [
+      "A: -ErrorAction Stop",
+      "B: -ErrorAction Continue",
+      "C: -ErrorAction Ignore",
+      "D: -WarningAction Stop"
+    ],
+    "correct": 0,
+    "explanation": "-ErrorAction Stop は非終了エラーを終了エラーに昇格させ、try/catchブロックでキャッチ可能にする。デフォルトの-ErrorAction ContinueではGet-ChildItem等の非終了エラーはエラーメッセージを表示するのみで処理が継続する。$ErrorActionPreference変数でスクリプト全体のデフォルト動作も変更可能。-ErrorAction Ignoreはエラーを完全に抑制する。"
+  },
+  {
+    "id": 150,
+    "category": "PowerShell",
+    "question": "PowerShellでリモートコンピュータ上でコマンドを実行する Invoke-Command の特徴として正しいものはどれか。",
+    "options": [
+      "A: SSH経由でのみリモート実行が可能",
+      "B: WinRM（Windows Remote Management）を使用し、認証・暗号化された接続でリモートコマンドを実行する",
+      "C: リモート実行ではテキストベースの出力のみが返される",
+      "D: 同時に1台のリモートコンピュータにしか接続できない"
+    ],
+    "correct": 1,
+    "explanation": "Invoke-CommandはWinRM（WS-Management）を基盤とし、Kerberos/NTLM認証、HTTPS暗号化でセキュアなリモート実行を提供する。-ComputerNameパラメータで複数台への同時実行も可能。PowerShell 6以降はSSH経由のリモーティング（-SSHTransport）もサポート。出力はデシリアライズされたオブジェクトとして返される（完全なオブジェクトではない点に注意）。"
+  }
+]

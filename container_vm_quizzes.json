@@ -1,0 +1,652 @@
+[
+  {
+    "id": 281,
+    "category": "Docker",
+    "question": "Dockerのコンテナ分離に使用されるLinuxカーネルの2つの主要技術の組み合わせとして正しいものはどれか。",
+    "options": [
+      "A: namespace（名前空間）と cgroups（コントロールグループ）",
+      "B: SELinux と AppArmor",
+      "C: chroot と iptables",
+      "D: KVM と QEMU"
+    ],
+    "correct": 0,
+    "explanation": "namespaceはプロセスID、ネットワーク、マウント、UTS、IPC、ユーザの各リソースを隔離する。cgroupsはCPU、メモリ、I/O等のリソース使用量を制限・計測する。この2つの組み合わせにより、VMなしで軽量なプロセス分離を実現する。SELinux/AppArmorは追加のセキュリティレイヤー。"
+  },
+  {
+    "id": 282,
+    "category": "Docker",
+    "question": "Dockerのストレージドライバとして現在推奨されているoverlay2の特徴として正しいものはどれか。",
+    "options": [
+      "A: Copy-on-Write（CoW）方式でイメージレイヤーを効率的に管理し、各コンテナは薄い書き込み可能レイヤーのみ追加する",
+      "B: 各コンテナに完全なファイルシステムのコピーを作成する",
+      "C: NFSベースの共有ストレージを使用する",
+      "D: RAIDを構成してデータを冗長化する"
+    ],
+    "correct": 0,
+    "explanation": "overlay2はUnionFS実装の一つで、複数の読み取り専用レイヤー（lowerdir）の上に書き込み可能レイヤー（upperdir）を重ねるCoW方式。ファイル変更時のみコピーが発生するため、ディスク使用量とI/Oが効率的。以前のaufs、devicemapperより性能と安定性に優れる。"
+  },
+  {
+    "id": 283,
+    "category": "Docker",
+    "question": "docker exec と docker attach の違いとして正しいものはどれか。",
+    "options": [
+      "A: 両方とも新しいプロセスを起動する",
+      "B: execはコンテナ内で新しいプロセス（シェル等）を起動し、attachはPID 1のメインプロセスの標準入出力に接続する",
+      "C: attachの方が安全で推奨される",
+      "D: execはコンテナを再起動し、attachは停止する"
+    ],
+    "correct": 1,
+    "explanation": "docker exec -it <container> /bin/sh はコンテナ内で新しいシェルプロセスを起動する。docker attachはコンテナのPID 1プロセスのstdin/stdout/stderrに接続するため、Ctrl+Cでメインプロセスを終了するとコンテナも停止する。デバッグにはexecが推奨される。"
+  },
+  {
+    "id": 284,
+    "category": "Docker",
+    "question": "Dockerのrootlessモードの利点として正しいものはどれか。",
+    "options": [
+      "A: コンテナの実行速度が向上する",
+      "B: GPUアクセスが自動的に有効になる",
+      "C: Dockerデーモンとコンテナが非rootユーザで実行され、コンテナブレイクアウト時の権限昇格リスクを低減する",
+      "D: イメージのプルが高速化される"
+    ],
+    "correct": 2,
+    "explanation": "rootlessモードはdockerd自体を一般ユーザで実行し、user namespaceでUID/GIDをマッピングする。コンテナ内のrootはホスト上では非特権ユーザとなり、コンテナエスケープ時でもホストのroot権限を取得できない。ポート1024以下のバインド等に制限がある。"
+  },
+  {
+    "id": 285,
+    "category": "Docker",
+    "question": "Dockerネットワークのブリッジモード（bridge）におけるコンテナ間通信の仕組みとして正しいものはどれか。",
+    "options": [
+      "A: コンテナはホストのネットワーク名前空間を直接共有する",
+      "B: 各コンテナに物理NICが割り当てられる",
+      "C: コンテナ間通信にはNATが必須",
+      "D: ユーザ定義ブリッジネットワークではコンテナ名によるDNS解決が自動的に有効になり、同一ネットワーク内のコンテナ間で名前解決による通信が可能"
+    ],
+    "correct": 3,
+    "explanation": "ユーザ定義ブリッジネットワーク（docker network create）では組み込みDNSサーバ（127.0.0.11）が有効になり、コンテナ名でサービスディスカバリが可能。デフォルトbridge（docker0）ではDNS解決が無効で--linkが必要だった。vethペアとLinux bridgeで仮想L2を構成する。"
+  },
+  {
+    "id": 286,
+    "category": "Dockerfile",
+    "question": "Dockerfileのマルチステージビルドでイメージサイズを削減するために最も効果的なパターンはどれか。",
+    "options": [
+      "A: ビルドステージでコンパイル/ビルドを行い、最終ステージではビルド成果物のみをscratchやdistrolessベースのイメージにCOPY --from=builderで転送する",
+      "B: 全てのビルドツールと依存関係を最終イメージに含める",
+      "C: RUNコマンドを1行ずつ分けて記述する",
+      "D: .dockerignoreを使わずに全ファイルをコンテキストに含める"
+    ],
+    "correct": 0,
+    "explanation": "マルチステージビルドでは FROM golang:1.22 AS builder でビルドし、FROM gcr.io/distroless/static でビルド済みバイナリのみをCOPY --from=builder する。ビルドツール、ソースコード、中間ファイルが最終イメージに含まれず、イメージサイズを劇的に削減できる。"
+  },
+  {
+    "id": 287,
+    "category": "Dockerfile",
+    "question": "DockerfileにおけるCMDとENTRYPOINTの組み合わせ動作として正しいものはどれか。",
+    "options": [
+      "A: CMDとENTRYPOINTは同時に使用できない",
+      "B: ENTRYPOINTは固定の実行コマンドを定義し、CMDはそのデフォルト引数を定義する。docker run時にコマンドを指定するとCMDが上書きされる",
+      "C: CMDはENTRYPOINTを常に上書きする",
+      "D: ENTRYPOINTはdocker run時に変更できない"
+    ],
+    "correct": 1,
+    "explanation": "ENTRYPOINT [\"python\", \"app.py\"] + CMD [\"--port\", \"8080\"] の場合、デフォルトは python app.py --port 8080 で実行される。docker run image --port 9090 とすると CMD が上書きされ python app.py --port 9090 になる。ENTRYPOINTは--entrypointで変更可能。"
+  },
+  {
+    "id": 288,
+    "category": "Dockerfile",
+    "question": "DockerfileでCOPYとADDの違いとして正しいものはどれか。",
+    "options": [
+      "A: 両者は完全に同じ動作をする",
+      "B: COPYはローカルファイルのコピーのみ行い、ADDはtar自動展開とリモートURL取得の追加機能を持つが、予期しない動作を避けるためCOPYの使用が推奨される",
+      "C: COPYの方がADDより多機能である",
+      "D: ADDはファイルのコピーができない"
+    ],
+    "correct": 1,
+    "explanation": "ADDはtar.gz等の自動展開やhttp://からのファイル取得機能があるが、意図しない展開やキャッシュ無効化の問題がある。Dockerfileベストプラクティスでは明示的で予測可能なCOPYの使用を推奨。リモートファイル取得はRUN curl/wgetのほうがキャッシュ制御しやすい。"
+  },
+  {
+    "id": 289,
+    "category": "Dockerfile",
+    "question": "Dockerfileのレイヤーキャッシュ効率を最大化するためのベストプラクティスとして正しいものはどれか。",
+    "options": [
+      "A: ソースコードのCOPYをDockerfileの先頭に配置する",
+      "B: 全てのRUN命令を1つにまとめる",
+      "C: 変更頻度の低い命令（OS依存パッケージインストール等）を上部に、変更頻度の高い命令（ソースコードCOPY等）を下部に配置する",
+      "D: キャッシュを無効にして毎回フルビルドする"
+    ],
+    "correct": 2,
+    "explanation": "Dockerfileは各命令がレイヤーとなり、変更されたレイヤー以降は全て再ビルドされる。COPY package.json → RUN npm install → COPY . の順にすることで、ソースコード変更時にnpm installのキャッシュが有効なまま再利用される。変更頻度の低い命令を先に配置する。"
+  },
+  {
+    "id": 290,
+    "category": "Dockerfile",
+    "question": "Dockerfileのセキュリティベストプラクティスとして、USERディレクティブの目的はどれか。",
+    "options": [
+      "A: コンテナの名前を設定する",
+      "B: ビルドの並列度を制御する",
+      "C: レジストリの認証ユーザを設定する",
+      "D: コンテナのプロセスを非rootユーザで実行するよう指定し、コンテナ内での権限を最小化する"
+    ],
+    "correct": 3,
+    "explanation": "USER nonroot（またはUID指定）でコンテナのプロセスを非rootで実行する。RUN addgroup -S app && adduser -S app -G app でユーザ作成後にUSER appを指定する。Kubernetes PodSecurityStandardsのrestrictedプロファイルでもrunAsNonRootが要求される。"
+  },
+  {
+    "id": 291,
+    "category": "Kubernetes",
+    "question": "Kubernetesのコントロールプレーンコンポーネントのうち、クラスタの全状態を永続化するデータストアはどれか。",
+    "options": [
+      "A: etcd",
+      "B: kube-apiserver",
+      "C: kube-scheduler",
+      "D: kube-controller-manager"
+    ],
+    "correct": 0,
+    "explanation": "etcdはRaftコンセンサスアルゴリズムによる分散Key-Valueストアで、クラスタの全状態（Pod、Service、ConfigMap、Secret等）を永続化する。kube-apiserverのみがetcdにアクセスする。高可用性のため奇数台（3,5台）で構成し、定期的なスナップショットバックアップが必須。"
+  },
+  {
+    "id": 292,
+    "category": "Kubernetes",
+    "question": "KubernetesのHorizontal Pod Autoscaler（HPA）v2でスケーリングに使用できるメトリクスの種類として正しいものはどれか。",
+    "options": [
+      "A: CPU使用率のみ",
+      "B: メモリ使用量のみ",
+      "C: ノードのディスク使用量のみ",
+      "D: CPU/メモリのリソースメトリクス、Podカスタムメトリクス、外部メトリクス（SQSキュー長等）の3種類"
+    ],
+    "correct": 3,
+    "explanation": "HPA v2はResource（CPU/メモリ）、Pods（カスタムメトリクス: リクエスト/秒等）、Object/External（外部メトリクス: SQSキュー長、Pub/Sub未処理メッセージ数等）の3カテゴリに対応。Prometheus AdapterやKEDA等でカスタムメトリクスを供給する。"
+  },
+  {
+    "id": 293,
+    "category": "Kubernetes",
+    "question": "KubernetesのRBACにおいて、ClusterRoleとRoleの違いとして正しいものはどれか。",
+    "options": [
+      "A: ClusterRoleはNamespace内でのみ使用可能",
+      "B: RoleはNamespace内のリソースへの権限を定義し、ClusterRoleはクラスタ全体（Namespace横断やクラスタスコープのリソース）への権限を定義する",
+      "C: RoleはClusterRoleより権限が強い",
+      "D: 両者は同じスコープで動作する"
+    ],
+    "correct": 1,
+    "explanation": "RoleはNamespaceスコープのリソース（Pod、Service等）への権限を定義する。ClusterRoleはNode、PersistentVolume等のクラスタスコープリソースや、全Namespaceにまたがる権限を定義する。RoleBinding/ClusterRoleBindingでユーザ/ServiceAccountに紐付ける。"
+  },
+  {
+    "id": 294,
+    "category": "Kubernetes",
+    "question": "Kubernetesのkube-proxyがiptablesモードで動作する際のService通信の仕組みとして正しいものはどれか。",
+    "options": [
+      "A: kube-proxyがプロキシサーバとして全トラフィックを中継する",
+      "B: DNSラウンドロビンで直接Pod IPに転送する",
+      "C: kube-proxyがiptablesルールを設定し、ServiceのClusterIPへのトラフィックをカーネルレベルのNATで各PodのIPにランダムに振り分ける",
+      "D: 各PodがServiceのIPアドレスを自身に割り当てる"
+    ],
+    "correct": 2,
+    "explanation": "iptablesモードではkube-proxyがServiceのEndpointsを監視し、各ノードにiptables/NATルールを設定する。パケットはカーネルレベルで処理されるためユーザスペースプロキシより高速。IPVSモードはよりスケーラブルなロードバランシングを提供する。"
+  },
+  {
+    "id": 295,
+    "category": "Kubernetes",
+    "question": "KubernetesのPodSecurityAdmission（PSA）のrestrictedプロファイルで禁止される設定はどれか。",
+    "options": [
+      "A: readOnlyRootFilesystem: true",
+      "B: runAsNonRoot: true",
+      "C: resources.limitsの設定",
+      "D: privileged: true、hostNetwork: true、hostPID: true 等の特権設定"
+    ],
+    "correct": 3,
+    "explanation": "restrictedプロファイルは最も厳格で、privilegedコンテナ、hostNamespace共有、hostPath volumes、特権昇格（allowPrivilegeEscalation）等を禁止する。コンテナはrunAsNonRoot必須。baselineは最低限の制限、privilegedは無制限。PSAはPodSecurityPolicy（PSP、v1.25で削除）の後継。"
+  },
+  {
+    "id": 296,
+    "category": "Pod",
+    "question": "Kubernetes PodのInitコンテナの特徴として正しいものはどれか。",
+    "options": [
+      "A: Initコンテナは定義順に1つずつ実行され、全てが成功してからメインコンテナが起動する。DB待機やSecret取得等の前処理に使用される",
+      "B: メインコンテナと同時に起動し並行動作する",
+      "C: Initコンテナはメインコンテナの終了後に実行される",
+      "D: Initコンテナは常にバックグラウンドで動作し続ける"
+    ],
+    "correct": 0,
+    "explanation": "Initコンテナは定義した順序で逐次実行され、各コンテナが正常終了（exit 0）してから次が起動する。全Initコンテナ成功後にメインコンテナが起動する。DB起動待ち、設定ファイル生成、Vault Agentからのシークレット取得等のブートストラップ処理に使用される。"
+  },
+  {
+    "id": 297,
+    "category": "Pod",
+    "question": "Kubernetes Podにおけるresources.requestsとresources.limitsの違いとして正しいものはどれか。",
+    "options": [
+      "A: requestsはPodの最大使用量、limitsは最小使用量を指定する",
+      "B: requestsはスケジューリング時にノードに十分なリソースがあるかの判定に使用され、limitsはコンテナが使用できるリソースの上限値でこれを超えるとOOMKillやCPUスロットリングが発生する",
+      "C: 両者は同じ値を指定する必要がある",
+      "D: limitsのみ設定すればrequestsは不要"
+    ],
+    "correct": 1,
+    "explanation": "requestsはkube-schedulerがPodを配置するノード選択に使用する下限値。limitsはcgroupsで強制される上限値で、メモリlimits超過はOOMKill、CPU limits超過はスロットリング。QoSクラスはGuaranteed（requests=limits）、Burstable、BestEffort（未設定）の3段階。"
+  },
+  {
+    "id": 298,
+    "category": "Pod",
+    "question": "Kubernetes Podのライフサイクルフック（lifecycle hooks）であるpostStartとpreStopの動作として正しいものはどれか。",
+    "options": [
+      "A: postStartはコンテナのENTRYPOINT実行前、preStopはSIGKILL送信後に実行される",
+      "B: 両方ともコンテナの外部でホストOS上で実行される",
+      "C: postStartはメインコンテナのプロセス起動と並行して実行され、preStopはSIGTERM送信前に実行されグレースフルシャットダウンの猶予を提供する",
+      "D: これらのフックはInitコンテナでのみ使用可能"
+    ],
+    "correct": 2,
+    "explanation": "postStartはコンテナ作成直後にENTRYPOINTと非同期で実行される。preStopはPod削除時にSIGTERM送信前に実行され、terminationGracePeriodSeconds（デフォルト30秒）内で完了する必要がある。preStop: exec: sleep 15 でロードバランサーからの切り離しを待つパターンが一般的。"
+  },
+  {
+    "id": 299,
+    "category": "Pod",
+    "question": "Kubernetes Podの再起動ポリシー（restartPolicy）の選択肢として正しいものはどれか。",
+    "options": [
+      "A: Always、Never のみ",
+      "B: Restart、Stop",
+      "C: Auto、Manual",
+      "D: Always、OnFailure、Never の3つ。DeploymentはAlwaysのみ、JobはOnFailureまたはNever"
+    ],
+    "correct": 3,
+    "explanation": "Always（デフォルト）は終了理由に関係なく常に再起動。OnFailureは非ゼロ終了コード時のみ再起動。Neverは再起動しない。DeploymentのPodTemplateはAlwaysのみ許可される（常時稼働サービス）。JobはOnFailure（同じPodで再試行）またはNever（新Podで再試行）を使用する。"
+  },
+  {
+    "id": 300,
+    "category": "Pod",
+    "question": "KubernetesのPod Disruption Budget（PDB）の役割として正しいものはどれか。",
+    "options": [
+      "A: ノードのアップグレードやドレイン時に、同時に停止できるPod数を制限し、アプリケーションの可用性を保証する",
+      "B: Podのメモリ使用量を制限する",
+      "C: Podのネットワーク帯域幅を制限する",
+      "D: Podのログ出力量を制限する"
+    ],
+    "correct": 0,
+    "explanation": "PDBはminAvailableまたはmaxUnavailableを指定し、自発的な中断（ノードドレイン、クラスタアップグレード等）時に最低限稼働し続けるPod数を保証する。kubectl drain時にPDB違反のPod evictionはブロックされる。非自発的な中断（ノード障害等）には適用されない。"
+  },
+  {
+    "id": 301,
+    "category": "Service",
+    "question": "Kubernetes Serviceの種類のうち、ClusterIP、NodePort、LoadBalancerの関係として正しいものはどれか。",
+    "options": [
+      "A: LoadBalancerはNodePortを包含し、NodePortはClusterIPを包含する階層構造（LoadBalancer ⊃ NodePort ⊃ ClusterIP）",
+      "B: 3つは完全に独立した機能",
+      "C: ClusterIPがNodePortを包含する",
+      "D: LoadBalancerはClusterIPを使用しない"
+    ],
+    "correct": 0,
+    "explanation": "ClusterIPはクラスタ内部の仮想IPを割り当てる。NodePortはClusterIPに加え、各ノードの指定ポート（30000-32767）で外部アクセスを提供する。LoadBalancerはNodePortに加え、クラウドプロバイダのLBを作成して外部IPを割り当てる。それぞれ前者の機能を包含する。"
+  },
+  {
+    "id": 302,
+    "category": "Service",
+    "question": "Kubernetes Serviceにおけるヘッドレスサービス（clusterIP: None）の用途として正しいものはどれか。",
+    "options": [
+      "A: DNS問い合わせで個々のPod IPアドレスを直接返し、StatefulSetの各Podへの直接アクセスやサービスディスカバリに使用する",
+      "B: 外部ロードバランサーを作成する",
+      "C: NodePortを自動割り当てする",
+      "D: Podのヘルスチェックを行う"
+    ],
+    "correct": 0,
+    "explanation": "ヘッドレスサービスはClusterIPを割り当てず、DNS Aレコードで各PodのIPを直接返す。StatefulSetと組み合わせた場合、pod-name.svc-name.namespace.svc.cluster.local で特定Podにアクセス可能。Kafka、Elasticsearch等のステートフルアプリケーションのピア検出に使用。"
+  },
+  {
+    "id": 303,
+    "category": "Service",
+    "question": "Kubernetes Ingressの役割として正しいものはどれか。",
+    "options": [
+      "A: Pod間の内部通信を暗号化する",
+      "B: L7（HTTP/HTTPS）レベルでホスト名やパスベースのルーティング、TLS終端、仮想ホスティングを提供し、複数ServiceへのHTTPトラフィックを一元管理する",
+      "C: L4レベルのTCP/UDPロードバランシングを行う",
+      "D: PodのDNS名を管理する"
+    ],
+    "correct": 1,
+    "explanation": "IngressはL7リバースプロキシとして動作し、ホスト名（app.example.com）やパス（/api）に基づくルーティング、TLS終端、認証等を提供する。Ingress Controller（nginx、Traefik、AWS ALB等）の実装が必要。Kubernetes 1.19でGateway APIがIngressの後継として開発中。"
+  },
+  {
+    "id": 304,
+    "category": "Service",
+    "question": "Kubernetes Gateway APIがIngressの後継として開発された主な理由はどれか。",
+    "options": [
+      "A: Ingressは廃止されたため",
+      "B: Ingressはクラスタ内部通信でのみ使用可能なため",
+      "C: IngressはL7 HTTPのみ対応でアノテーションに依存し拡張性に欠けるため、Gateway APIはロール指向で、HTTP/TCP/UDP/gRPC等のマルチプロトコル対応やポリシー分離を標準化する",
+      "D: Gateway APIの方がリソース消費が少ないため"
+    ],
+    "correct": 2,
+    "explanation": "IngressはHTTPルーティングのみ対応し、高度な設定はコントローラ固有のアノテーションに依存する。Gateway APIはGatewayClass→Gateway→HTTPRoute/TCPRouteの階層で、インフラ管理者とアプリ開発者の権限分離を明確にし、TCP/UDP/gRPCもサポートする。"
+  },
+  {
+    "id": 305,
+    "category": "Service",
+    "question": "Kubernetesのサービスメッシュ（Istio等）がサイドカーパターンで提供する機能として正しいものはどれか。",
+    "options": [
+      "A: コンテナイメージのビルドとデプロイの自動化",
+      "B: Podの水平オートスケーリング",
+      "C: 永続ボリュームの自動プロビジョニング",
+      "D: mTLS（相互TLS）によるサービス間通信の自動暗号化、トラフィック制御（カナリアリリース等）、オブザーバビリティ（分散トレーシング等）"
+    ],
+    "correct": 3,
+    "explanation": "Istio等のサービスメッシュは各Podにサイドカープロキシ（Envoy）を注入し、アプリケーションコードの変更なしでmTLS、トラフィック分割（VirtualService）、サーキットブレーカー、リトライ、タイムアウト、分散トレーシング（Jaeger）等を提供する。Istio Ambientはサイドカーレスのアーキテクチャ。"
+  },
+  {
+    "id": 306,
+    "category": "Helm",
+    "question": "Helm 3でHelm 2から大きく変更された点として正しいものはどれか。",
+    "options": [
+      "A: Tillerサーバ（クラスタ内のサーバサイドコンポーネント）が廃止され、Helmクライアントが直接kube-apiserverと通信するようになった",
+      "B: テンプレートエンジンがYAMLからJSONに変更された",
+      "C: Chart形式がv1からv3に変更された",
+      "D: リポジトリ機能が廃止された"
+    ],
+    "correct": 0,
+    "explanation": "Helm 2のTillerはクラスタ内でcluster-admin権限で動作するため、セキュリティ上の大きな懸念があった。Helm 3ではTillerを廃止し、ユーザのkubeconfig認証情報でkube-apiserverに直接操作する。リリース情報はSecretとしてNamespaceに保存される。3ウェイマージによるアップグレードも改善。"
+  },
+  {
+    "id": 307,
+    "category": "Helm",
+    "question": "Helm Chartのvalues.yamlの役割として正しいものはどれか。",
+    "options": [
+      "A: Kubernetesクラスタの認証情報を格納する",
+      "B: Helm Chartのバージョン管理を行う",
+      "C: テンプレートに注入するデフォルト設定値を定義し、helm install時に--set や -f custom-values.yaml で上書き可能",
+      "D: Helmリポジトリのインデックスを管理する"
+    ],
+    "correct": 2,
+    "explanation": "values.yamlはChartのテンプレート変数のデフォルト値を定義する。{{ .Values.replicaCount }} のようにテンプレート内で参照される。helm install -f production.yaml で環境別の値を上書きし、--set image.tag=v2.0 で個別値を指定できる。"
+  },
+  {
+    "id": 308,
+    "category": "Helm",
+    "question": "Helmのリリースのライフサイクル管理コマンドの説明として正しいものはどれか。",
+    "options": [
+      "A: helm rollbackは新しいバージョンへのアップグレードを行う",
+      "B: helm rollbackは前のリビジョンに戻す機能で、helm historyでリビジョン履歴を確認し、任意のリビジョンに戻すことが可能",
+      "C: helm upgradeはリリースを削除する",
+      "D: helm historyはChartのテンプレートを表示する"
+    ],
+    "correct": 1,
+    "explanation": "helm history <release> でリリースの全リビジョン履歴（ステータス、Chart バージョン、更新日時）を確認できる。helm rollback <release> <revision> で任意のリビジョンに戻せる。ロールバック自体も新しいリビジョンとして記録される。helm upgradeで更新、helm uninstallで削除。"
+  },
+  {
+    "id": 309,
+    "category": "Helm",
+    "question": "Helm Chartのhooks機能（pre-install、post-upgrade等）の用途として正しいものはどれか。",
+    "options": [
+      "A: テンプレートの構文チェックを行う",
+      "B: Chartの依存関係を解決する",
+      "C: values.yamlのバリデーションを行う",
+      "D: リリースのライフサイクルの特定タイミングでJobやPodを実行し、DBマイグレーション、バックアップ、テスト等の処理を自動化する"
+    ],
+    "correct": 3,
+    "explanation": "Helmフックはannotation（helm.sh/hook: pre-install等）をリソースに付加して、リリースライフサイクルの特定時点でJobを実行する。pre-upgradeでDBマイグレーション、post-installで初期データ投入、test（helm test）でスモークテスト等のユースケースがある。"
+  },
+  {
+    "id": 310,
+    "category": "Helm",
+    "question": "Helmfileやkustomizeとの比較で、Helmが特に適しているユースケースはどれか。",
+    "options": [
+      "A: 単純なYAMLのパッチ適用",
+      "B: 環境変数の管理",
+      "C: 複雑なアプリケーションのパッケージング・配布・バージョン管理で、パラメータ化されたテンプレートによる再利用可能なChartの作成と公開",
+      "D: GitOpsワークフローの実装"
+    ],
+    "correct": 2,
+    "explanation": "Helmの強みはChart（パッケージ）の作成・配布・バージョン管理。OSSアプリ（nginx、PostgreSQL等）の公開Chartをhelm repoから導入するのが代表的ユースケース。kustomizeはテンプレートレスでベースYAMLにパッチを適用する方式。HelmfileはHelm自体の宣言的管理ツール。"
+  },
+  {
+    "id": 311,
+    "category": "仮想マシン",
+    "question": "Type 1ハイパーバイザーとType 2ハイパーバイザーの違いとして正しいものはどれか。",
+    "options": [
+      "A: Type 1はソフトウェアで実装、Type 2はハードウェアで実装される",
+      "B: Type 1は物理ハードウェア上で直接動作する（ベアメタル型）、Type 2はホストOS上でアプリケーションとして動作する",
+      "C: Type 2の方がType 1より高性能",
+      "D: Type 1はデスクトップ用、Type 2はサーバ用"
+    ],
+    "correct": 1,
+    "explanation": "Type 1（ベアメタル型）はハードウェア上で直接動作し、オーバーヘッドが少なく高性能。ESXi、Hyper-V、Xen、KVMが該当する。Type 2（ホスト型）はホストOS上で動作するアプリケーションで、VirtualBox、VMware Workstationが該当する。サーバ仮想化にはType 1が使用される。"
+  },
+  {
+    "id": 312,
+    "category": "仮想マシン",
+    "question": "ハードウェア支援仮想化技術であるIntel VT-x / AMD-Vの役割として正しいものはどれか。",
+    "options": [
+      "A: ネットワーク通信を高速化する",
+      "B: ディスクI/Oを仮想化する",
+      "C: GPUの仮想化を行う",
+      "D: CPUに仮想化専用の動作モード（VMX root/non-root）を追加し、特権命令のトラップと仮想環境の切り替えをハードウェアレベルで効率化する"
+    ],
+    "correct": 3,
+    "explanation": "VT-x/AMD-VはCPUにroot mode（ハイパーバイザー）とnon-root mode（ゲスト）を追加する。ゲストの特権命令実行時にハードウェアレベルでVM Exit→ハイパーバイザー処理→VM Entryとなり、ソフトウェアによるバイナリ変換が不要。VMCS/VMCBが仮想CPU状態を管理する。"
+  },
+  {
+    "id": 313,
+    "category": "仮想マシン",
+    "question": "仮想マシンのライブマイグレーションの仕組みとして正しいものはどれか。",
+    "options": [
+      "A: VMを停止→メモリ転送→起動の手順で行う",
+      "B: VMのディスクのみを別ホストにコピーする",
+      "C: VMのスナップショットを取って新ホストでリストアする",
+      "D: VMを実行したままメモリ内容を反復コピー（Pre-copy）し、差分が収束した時点で短時間の停止で切り替えることで、ほぼ無停止でVMを別物理ホストに移動する"
+    ],
+    "correct": 3,
+    "explanation": "ライブマイグレーション（Pre-copy方式）は①全メモリを転送②変更（ダーティ）ページを反復転送③差分が十分小さくなったらVMを短時間停止→残りを転送→新ホストで再開。ダウンタイムは数ミリ秒〜数十ミリ秒。共有ストレージまたはストレージマイグレーションが前提。"
+  },
+  {
+    "id": 314,
+    "category": "仮想マシン",
+    "question": "準仮想化（Paravirtualization）の特徴として正しいものはどれか。",
+    "options": [
+      "A: ゲストOSがハイパーバイザーを認識し、ハイパーコール（hypercall）APIを直接呼び出すことでオーバーヘッドを削減する",
+      "B: ゲストOSの修正が不要で、完全なハードウェアエミュレーションを行う",
+      "C: GPUパススルーの一種である",
+      "D: コンテナ技術の別名である"
+    ],
+    "correct": 0,
+    "explanation": "準仮想化はゲストOSのカーネルを修正し、特権命令の代わりにハイパーコールでハイパーバイザーAPIを直接呼び出す。VMの割り込みやI/O処理のオーバーヘッドを削減する。Xenが先駆者。現代のKVM環境ではvirtio（準仮想化デバイスドライバ）がディスク/ネットワークI/Oを高速化。"
+  },
+  {
+    "id": 315,
+    "category": "仮想マシン",
+    "question": "SR-IOV（Single Root I/O Virtualization）の役割として正しいものはどれか。",
+    "options": [
+      "A: CPUの仮想化を高速化する",
+      "B: 物理NICをハードウェアレベルで複数の仮想NIC（VF: Virtual Function）に分割し、VMがハイパーバイザーを介さず直接NICにアクセスできる",
+      "C: メモリの仮想化を効率化する",
+      "D: ストレージの暗号化を行う"
+    ],
+    "correct": 1,
+    "explanation": "SR-IOVは物理デバイス（PF: Physical Function）を複数のVFに分割し、各VMにVFを直接パススルーする。ハイパーバイザーのソフトウェアスイッチをバイパスするため、ネイティブに近いI/O性能と低レイテンシを実現する。高頻度取引やテレコム NFV等で使用される。"
+  },
+  {
+    "id": 316,
+    "category": "Hypervisor",
+    "question": "KVMの技術的な特徴として正しいものはどれか。",
+    "options": [
+      "A: KVMはType 2ハイパーバイザーで、ホストOS上のアプリケーションとして動作する",
+      "B: KVMはXenと同じアーキテクチャを持つ",
+      "C: KVMはLinuxカーネルモジュールとして実装されたType 1ハイパーバイザーで、Linuxカーネル自体をハイパーバイザーに変換する",
+      "D: KVMはWindowsカーネル上でのみ動作する"
+    ],
+    "correct": 2,
+    "explanation": "KVM（Kernel-based Virtual Machine）はLinuxカーネルモジュール（kvm.ko）で、VT-x/AMD-Vを利用しLinuxカーネルをType 1ハイパーバイザーに変換する。各VMはLinuxプロセスとして管理され、QEMU（ユーザスペースのデバイスエミュレーション）と組み合わせて使用される。"
+  },
+  {
+    "id": 317,
+    "category": "Hypervisor",
+    "question": "XenハイパーバイザーのDom0とDomUの関係として正しいものはどれか。",
+    "options": [
+      "A: Dom0とDomUは同じ権限レベルで動作する",
+      "B: DomUがDom0を管理する",
+      "C: Dom0はゲストOS、DomUはハイパーバイザー",
+      "D: Dom0は特権ドメインでハードウェアアクセスとDomU（ゲストVM）の管理を担当し、DomUはDom0を経由してI/Oを行う"
+    ],
+    "correct": 3,
+    "explanation": "Xenはマイクロカーネル型のType 1ハイパーバイザー。Dom0（Domain 0）は特権ドメインでデバイスドライバとXen管理ツール（xl/xm）を持つ。DomU（Domain Unprivileged）はゲストVMで、split driver model（フロントエンド/バックエンド）でDom0経由のI/Oを行う。AWSのEC2は長年Xenベースだった。"
+  },
+  {
+    "id": 318,
+    "category": "Hypervisor",
+    "question": "Microsoft Hyper-Vの特徴として正しいものはどれか。",
+    "options": [
+      "A: LinuxゲストOSは動作しない",
+      "B: Hyper-VはWindowsカーネルの下層で動作するType 1ハイパーバイザーで、有効化するとWindows自体もルートパーティション上のVM（子パーティション）として動作する",
+      "C: Type 2ハイパーバイザーとしてWindows上で動作する",
+      "D: Hyper-Vは仮想ネットワーク機能を持たない"
+    ],
+    "correct": 1,
+    "explanation": "Hyper-Vはベアメタル（Type 1）ハイパーバイザーで、有効化するとハードウェアとWindowsの間にHyper-Vレイヤーが挿入される。Windowsはルートパーティション、ゲストOSは子パーティションで動作する。Linux統合サービス（LIS）でLinuxゲストも完全サポート。WSL2もHyper-Vベース。"
+  },
+  {
+    "id": 319,
+    "category": "Hypervisor",
+    "question": "ハイパーバイザーのメモリ管理技術であるバルーニング（Memory Ballooning）の仕組みとして正しいものはどれか。",
+    "options": [
+      "A: 物理メモリを増設する技術",
+      "B: メモリを暗号化する技術",
+      "C: ゲストOS内のバルーンドライバがメモリを「膨張」させてゲストから回収し、ハイパーバイザーが他のVMに再配分する動的メモリ管理技術",
+      "D: メモリをディスクにスワップする技術"
+    ],
+    "correct": 2,
+    "explanation": "バルーニングはゲストOS内のバルーンドライバが「膨張」してメモリページを確保（ゲストから使用不可に）し、ハイパーバイザーがそのメモリを他のVMに割り当てる。メモリの動的再配分によりオーバーコミット（物理メモリ以上のメモリ割り当て）を効率化する。VMware Tools/QEMU Guest Agentが実装。"
+  },
+  {
+    "id": 320,
+    "category": "Hypervisor",
+    "question": "Firecrackerの特徴として正しいものはどれか。",
+    "options": [
+      "A: VMware社が開発した商用ハイパーバイザー",
+      "B: Xenベースの汎用ハイパーバイザー",
+      "C: 完全仮想化のみ対応するType 2ハイパーバイザー",
+      "D: AWSが開発したKVMベースの軽量microVMで、最小限のデバイスモデルにより125ms以下でmicroVMを起動し、Lambda/Fargateのワークロード分離に使用される"
+    ],
+    "correct": 3,
+    "explanation": "FirecrackerはRust製のVMM（Virtual Machine Monitor）で、KVM上で動作する。ネットワーク、ブロックデバイス、シリアルコンソール等の最小限のデバイスモデルのみ実装し、高速起動と低メモリフットプリント（約5MB/microVM）を実現する。AWS Lambda、Fargateのセキュリティ分離基盤。"
+  },
+  {
+    "id": 321,
+    "category": "Proxmox",
+    "question": "Proxmox VEが内部で使用する仮想化技術の組み合わせとして正しいものはどれか。",
+    "options": [
+      "A: KVM（完全仮想化）と LXC（コンテナベースの仮想化）",
+      "B: Xen と Docker",
+      "C: VMware ESXi と Podman",
+      "D: Hyper-V と containerd"
+    ],
+    "correct": 0,
+    "explanation": "Proxmox VEはDebianベースの仮想化プラットフォームで、KVM（QEMUベース）で完全仮想化VM（Windows/Linux）を、LXC（Linux Containers）で軽量なシステムコンテナを提供する。両方をWebUIから統一管理できる。ストレージはZFS、Ceph、LVM等をサポート。"
+  },
+  {
+    "id": 322,
+    "category": "Proxmox",
+    "question": "Proxmox VEのクラスタリング機能において、高可用性（HA）を実現するために必要な最小ノード数とその理由として正しいものはどれか。",
+    "options": [
+      "A: 最小2ノード。1ノード障害時にもう1ノードが引き継ぐ",
+      "B: 最小4ノード。2ノード障害に耐えるため",
+      "C: 最小3ノード。Corosyncのクォーラム（過半数）を維持するため、スプリットブレイン防止に奇数台が必要",
+      "D: 最小1ノード。HA機能はノード数に依存しない"
+    ],
+    "correct": 2,
+    "explanation": "ProxmoxのHA機能はCorosync（クラスタエンジン）のクォーラムに依存する。3ノード構成では1ノード障害時も2/3=過半数で投票が成立し、HAフェイルオーバーが動作する。2ノードでは1ノード障害で過半数を満たさずクォーラムが失われる（QDeviceで回避可能）。"
+  },
+  {
+    "id": 323,
+    "category": "Proxmox",
+    "question": "Proxmox VEでVM/コンテナのバックアップに使用されるProxmox Backup Server（PBS）の特徴として正しいものはどれか。",
+    "options": [
+      "A: フルバックアップのみサポート",
+      "B: 増分バックアップ（変更ブロックのみ転送）、クライアントサイドの重複排除と暗号化、データ検証（verify）機能を提供するエンタープライズグレードのバックアップソリューション",
+      "C: スナップショットのみ対応でファイルレベルリストアは不可",
+      "D: Windows VMのバックアップのみ対応"
+    ],
+    "correct": 1,
+    "explanation": "PBSはチャンクベースの増分バックアップで変更データのみを転送し、固定サイズチャンクの重複排除でストレージを効率化する。AES-256-GCMによるクライアントサイド暗号化、データ整合性検証、ファイルレベルリストア、ZFSとの統合等を提供する。"
+  },
+  {
+    "id": 324,
+    "category": "VMware",
+    "question": "VMware vSphereの主要コンポーネントであるESXiとvCenter Serverの関係として正しいものはどれか。",
+    "options": [
+      "A: ESXiはVMを管理するGUIツール、vCenterはハイパーバイザー",
+      "B: vCenter Serverは各物理サーバに直接インストールする",
+      "C: ESXiがベアメタルハイパーバイザーで各物理サーバ上で動作し、vCenter Serverは複数ESXiホストを一元管理するための管理プラットフォーム",
+      "D: ESXiとvCenterは同一のソフトウェア"
+    ],
+    "correct": 2,
+    "explanation": "ESXiはVMkernel上で動作するType 1ハイパーバイザーで各物理サーバにインストールする。vCenter Serverは複数ESXiホストの集中管理、vMotion（ライブマイグレーション）、DRS（分散リソーススケジューラ）、HA等の高度な機能を提供する管理サーバ。"
+  },
+  {
+    "id": 325,
+    "category": "VMware",
+    "question": "VMware vSAN（Virtual SAN）の仕組みとして正しいものはどれか。",
+    "options": [
+      "A: 外部SANストレージを管理するツール",
+      "B: NASプロトコルのみをサポート",
+      "C: 仮想ネットワークスイッチ",
+      "D: 各ESXiホストのローカルディスク（SSD/HDD）を束ねて分散ストレージプールを構成するHCI（Hyper-Converged Infrastructure）ソリューション"
+    ],
+    "correct": 3,
+    "explanation": "vSANは各ESXiホストのローカルSSD/HDDをクラスタ全体でプールし、VMのデータストアとして提供するSDS（Software-Defined Storage）。オブジェクトストレージモデルでFTT（許容障害数）ポリシーに基づきデータを分散配置する。外部SAN/NASが不要なHCI構成を実現。"
+  },
+  {
+    "id": 326,
+    "category": "VMware",
+    "question": "VMware NSXの役割として正しいものはどれか。",
+    "options": [
+      "A: ネットワーク仮想化プラットフォームとして、物理ネットワークから独立した仮想ネットワーク（論理スイッチ、ルーター、ファイアウォール、ロードバランサー）をソフトウェアで構築する",
+      "B: VMのバックアップを管理する",
+      "C: 物理ネットワーク機器を管理する",
+      "D: ストレージの仮想化を行う"
+    ],
+    "correct": 0,
+    "explanation": "NSXはSDN（Software-Defined Networking）プラットフォームで、VXLANオーバーレイにより物理ネットワークから独立した仮想ネットワークを構築する。分散ファイアウォール（マイクロセグメンテーション）、論理ルーター、LB等をソフトウェアで実装し、ネットワークのプロビジョニングを自動化する。"
+  },
+  {
+    "id": 327,
+    "category": "VMware",
+    "question": "VMware DRS（Distributed Resource Scheduler）の機能として正しいものはどれか。",
+    "options": [
+      "A: VMのスナップショットを管理する",
+      "B: VMのテンプレートからクローンを作成する",
+      "C: クラスタ内のESXiホスト間でVMの負荷を監視し、リソース使用率に基づいてvMotionでVMを自動的に再配置してワークロードバランシングを行う",
+      "D: ESXiのファームウェアを更新する"
+    ],
+    "correct": 2,
+    "explanation": "DRSはクラスタ内の各ESXiホストのCPU/メモリ使用率を継続的に監視し、負荷の偏りがある場合にvMotionでVMをライブマイグレーションする。全自動/半自動/手動モードがあり、VMのアフィニティ/アンチアフィニティルールも設定可能。電力管理（DPM）とも統合される。"
+  },
+  {
+    "id": 328,
+    "category": "Docker",
+    "question": "Docker Composeのdepends_onとhealthcheckの組み合わせの動作として正しいものはどれか。",
+    "options": [
+      "A: depends_onだけでサービスの完全な起動完了を待つ",
+      "B: healthcheckはDocker Composeでは使用できない",
+      "C: depends_onはネットワークの依存関係を管理する",
+      "D: depends_onはコンテナの起動順序のみ制御し、サービスの準備完了は保証しない。condition: service_healthyを併用することでhealthcheckの成功を待機できる"
+    ],
+    "correct": 3,
+    "explanation": "depends_on単体はコンテナの起動順序のみ保証し、アプリケーションの起動完了（DBの接続受付開始等）は保証しない。depends_on: db: condition: service_healthy とhealthcheckを組み合わせることで、DBが実際にクエリを受付可能になってからアプリコンテナが起動する。"
+  },
+  {
+    "id": 329,
+    "category": "Kubernetes",
+    "question": "KubernetesのCustom Resource Definition（CRD）とOperatorパターンの関係として正しいものはどれか。",
+    "options": [
+      "A: CRDでカスタムリソースを定義し、カスタムコントローラー（Operator）がそのリソースのライフサイクル（作成・更新・削除・スケーリング・バックアップ等）を自動管理する",
+      "B: Operatorパターンは手動運用が前提",
+      "C: CRDはKubernetesの標準リソースを削除する機能",
+      "D: CRDはHelm Chartの一部"
+    ],
+    "correct": 0,
+    "explanation": "CRDはKubernetes APIを拡張してカスタムリソースタイプを定義する。Operatorパターンは人間のオペレータの運用知識をソフトウェアにエンコードし、カスタムコントローラーでReconcileループにより desired state と actual state を一致させる。Prometheus Operator、cert-manager等が代表例。"
+  },
+  {
+    "id": 330,
+    "category": "Proxmox",
+    "question": "Proxmox VEでZFSストレージを使用する利点として正しいものはどれか。",
+    "options": [
+      "A: Windows専用のファイルシステムであるため",
+      "B: CoW（Copy-on-Write）、データチェックサム（サイレントデータ破損検出）、スナップショット、圧縮、レプリケーションを統合したエンタープライズ機能を追加ソフトなしで利用可能",
+      "C: ext4と同じ機能セット",
+      "D: RAID機能を持たない"
+    ],
+    "correct": 1,
+    "explanation": "ZFSはCoWファイルシステムで、全データブロックにチェックサムを付与しサイレントデータ破損を検出・修復する。ネイティブスナップショット、圧縮（LZ4/ZSTD）、RAIDZ（1/2/3）、send/receiveによるレプリケーションを提供する。ProxmoxでのVMストレージとして高い信頼性を実現。"
+  }
+]
