@@ -1198,5 +1198,29 @@
     ],
     "correct": 1,
     "explanation": "\"use server\"はサーバーでのみ実行される関数を定義し、フォームのaction属性等からAPI Route不要で直接サーバー処理を呼び出せるServer Actions機能です。"
+  },
+  {
+    "id": 1031,
+    "question": "RSSフィードの正式名称と主な用途は？",
+    "options": [
+      "A. Really Simple Syndication、Webサイトの更新情報を配信するXMLフォーマット",
+      "B. Remote Server System、サーバー間通信プロトコル",
+      "C. Rapid Search Service、検索エンジンの技術",
+      "D. Responsive Style Sheet、レスポンシブデザインのCSS"
+    ],
+    "correct": 0,
+    "explanation": "RSSはReally Simple Syndicationの略で、ブログやニュースサイトの更新情報をXML形式で配信する規格です。RSSリーダーで複数サイトを一元管理できます。"
+  },
+  {
+    "id": 1032,
+    "question": "XMLの特徴として正しいのは？",
+    "options": [
+      "A. プログラミング言語の一種",
+      "B. マークアップ言語で、独自タグを定義可能、データ構造を階層的に表現可能",
+      "C. HTMLと完全に同じ仕様",
+      "D. バイナリ形式のデータフォーマット"
+    ],
+    "correct": 1,
+    "explanation": "XML（Extensible Markup Language）は拡張可能なマークアップ言語で、独自タグを定義してデータを階層構造で表現できます。RSS、SOAP、SVGなど様々な用途で使われます。"
   }
 ]

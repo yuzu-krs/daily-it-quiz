@@ -3,6 +3,7 @@ from discord.ext import commands, tasks
 from discord.ui import Button, View
 import json
 import random
+import re
 import os
 from datetime import datetime, time
 from dotenv import load_dotenv
@@ -82,6 +83,27 @@ async def post_quiz():
     
     # ランダムにクイズを選択
     quiz = random.choice(quizzes)
+    
+    # 選択肢をシャッフル（正解のインデックスも追跡）
+    original_correct = quiz['correct']
+    options_with_index = list(enumerate(quiz['options']))  # [(0, "B:..."), (1, "A:..."), ...]
+    random.shuffle(options_with_index)
+    
+    # シャッフル後の正解インデックスを特定
+    new_correct = None
+    shuffled_options = []
+    labels = ['A', 'B', 'C', 'D']
+    for new_idx, (orig_idx, option_text) in enumerate(options_with_index):
+        if orig_idx == original_correct:
+            new_correct = new_idx
+        # 既存のラベル（"A.", "B:", "C：" 等）を除去して新しいラベルを付ける
+        clean_text = re.sub(r'^[A-D]\s*[.。:：]\s*', '', option_text)
+        shuffled_options.append(f"{labels[new_idx]}. {clean_text}")
+    
+    # quizのコピーを作成してシャッフル済みデータに差し替え
+    quiz = dict(quiz)
+    quiz['options'] = shuffled_options
+    quiz['correct'] = new_correct
     
     # 現在の時刻を取得
     tz = pytz.timezone(TIMEZONE)
