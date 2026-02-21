@@ -1,1172 +1,362 @@
 [
   {
-    "id": 531,
-    "question": "AWSの正式名称は？",
-    "options": [
-      "A. Amazon Web System",
-      "B. Amazon Web Services",
-      "C. Advanced Web Services",
-      "D. Amazon Wide Services"
-    ],
-    "correct": 1,
-    "explanation": "AWSはAmazon Web Servicesの略で、Amazonが提供するクラウドコンピューティングプラットフォームです。"
-  },
-  {
-    "id": 532,
-    "question": "AWSのリージョンとは？",
-    "options": [
-      "A. データセンター1棟",
-      "B. 地理的に離れた場所にあるデータセンター群",
-      "C. ネットワークの種類",
-      "D. サーバーの型番"
-    ],
-    "correct": 1,
-    "explanation": "リージョンは世界各地の地理的エリアに配置された複数のアベイラビリティゾーン（AZ）の集合です。"
-  },
-  {
-    "id": 533,
-    "question": "AWSのアベイラビリティゾーン（AZ）とは？",
-    "options": [
-      "A. リージョンと同じ",
-      "B. リージョン内の独立したデータセンター群",
-      "C. セキュリティグループ",
-      "D. IPアドレスの範囲"
-    ],
-    "correct": 1,
-    "explanation": "AZはリージョン内の1つ以上の独立したデータセンターで、電源・ネットワークが独立し、障害の影響を分離します。"
-  },
-  {
-    "id": 534,
-    "question": "EC2とは何のサービス？",
-    "options": [
-      "A. データベース",
-      "B. 仮想サーバー（コンピューティング）",
-      "C. ストレージ",
-      "D. ネットワーク"
-    ],
-    "correct": 1,
-    "explanation": "EC2（Elastic Compute Cloud）はクラウド上で仮想サーバーを起動・管理できるIaaSサービスです。"
-  },
-  {
-    "id": 535,
-    "question": "EC2のインスタンスタイプ「t3.micro」の「t3」は何を意味する？",
-    "options": [
-      "A. ストレージ最適化",
-      "B. バースト可能な汎用インスタンスファミリー",
-      "C. GPU最適化",
-      "D. メモリ最適化"
-    ],
-    "correct": 1,
-    "explanation": "t3はバースト可能なCPUクレジットを持つ汎用インスタンスファミリーで、可変ワークロードに適しています。"
-  },
-  {
-    "id": 536,
-    "question": "EC2のオンデマンドインスタンスの料金体系は？",
-    "options": [
-      "A. 年間契約",
-      "B. 使った分だけ秒/時間単位で課金",
-      "C. 月額固定",
-      "D. 無料"
-    ],
-    "correct": 1,
-    "explanation": "オンデマンドは前払いや長期契約なしに、使用した秒数（Linux）または時間（Windows）単位で課金されます。"
-  },
-  {
-    "id": 537,
-    "question": "EC2のスポットインスタンスとは？",
-    "options": [
-      "A. 常に最高性能のインスタンス",
-      "B. 未使用キャパシティを大幅割引で利用でき、中断される可能性があるインスタンス",
-      "C. 専有ホスト",
-      "D. GPUインスタンス"
-    ],
-    "correct": 1,
-    "explanation": "スポットインスタンスはAWSの余剰容量を最大90%割引で利用できますが、需要増で2分前通知後に中断される可能性があります。"
-  },
-  {
-    "id": 538,
-    "question": "S3とは何のサービス？",
-    "options": [
-      "A. リレーショナルDB",
-      "B. オブジェクトストレージ",
-      "C. 仮想サーバー",
-      "D. CDN"
-    ],
-    "correct": 1,
-    "explanation": "S3（Simple Storage Service）は高耐久性（99.999999999%）のオブジェクトストレージサービスです。"
-  },
-  {
-    "id": 539,
-    "question": "S3のストレージクラスで最もアクセス頻度が低いデータ向けは？",
-    "options": [
-      "A. S3 Standard",
-      "B. S3 Glacier Deep Archive",
-      "C. S3 Intelligent-Tiering",
-      "D. S3 One Zone-IA"
-    ],
-    "correct": 1,
-    "explanation": "Glacier Deep Archiveは最も低コストで、年1〜2回程度のアクセスを想定した長期アーカイブ用クラスです。取り出しに12時間以上。"
-  },
-  {
-    "id": 540,
-    "question": "S3バケットのデフォルトのアクセス設定は？",
-    "options": [
-      "A. パブリックアクセス可能",
-      "B. プライベート（アクセス拒否）",
-      "C. 読み取り専用",
-      "D. リージョン内のみ"
-    ],
-    "correct": 1,
-    "explanation": "S3バケットはデフォルトでプライベートです。パブリックアクセスブロックが有効で、明示的な許可が必要です。"
-  },
-  {
-    "id": 541,
-    "question": "VPC（Virtual Private Cloud）とは？",
-    "options": [
-      "A. 仮想サーバー",
-      "B. AWS上の論理的に分離された仮想ネットワーク",
-      "C. ストレージサービス",
-      "D. CDNサービス"
-    ],
-    "correct": 1,
-    "explanation": "VPCはユーザーが定義したCIDRブロック内で、サブネット、ルートテーブル、ゲートウェイを構成できる仮想ネットワークです。"
-  },
-  {
-    "id": 542,
-    "question": "VPCのパブリックサブネットとプライベートサブネットの違いは？",
-    "options": [
-      "A. サイズの違い",
-      "B. パブリックはインターネットゲートウェイへのルートを持つ",
-      "C. リージョンの違い",
-      "D. 料金の違い"
-    ],
-    "correct": 1,
-    "explanation": "パブリックサブネットはインターネットゲートウェイへのルートを持ちインターネット接続可能、プライベートは持ちません。"
-  },
-  {
-    "id": 543,
-    "question": "AWSのセキュリティグループの特徴は？",
-    "options": [
-      "A. ステートレスファイアウォール",
-      "B. ステートフルな仮想ファイアウォール（戻りトラフィック自動許可）",
-      "C. 物理ファイアウォール",
-      "D. WAFの一種"
-    ],
-    "correct": 1,
-    "explanation": "セキュリティグループはステートフルで、許可した受信トラフィックの戻りは自動的に許可されます。"
-  },
-  {
-    "id": 544,
-    "question": "NACLとセキュリティグループの違いは？",
-    "options": [
-      "A. 同じもの",
-      "B. NACLはステートレスでサブネットレベル、セキュリティグループはステートフルでインスタンスレベル",
-      "C. NACLの方が高機能",
-      "D. セキュリティグループはサブネットレベル"
-    ],
-    "correct": 1,
-    "explanation": "NACLはサブネット単位のステートレスフィルタ（戻りも明示許可必要）、セキュリティグループはインスタンス単位のステートフルフィルタです。"
-  },
-  {
-    "id": 545,
-    "question": "IAM（Identity and Access Management）の役割は？",
-    "options": [
-      "A. ストレージ管理",
-      "B. AWSリソースへのアクセスを安全に制御する認証・認可サービス",
-      "C. ネットワーク管理",
-      "D. コンピューティング管理"
-    ],
-    "correct": 1,
-    "explanation": "IAMはユーザー、グループ、ロール、ポリシーを使ってAWSリソースへのアクセスを細かく制御します。"
-  },
-  {
-    "id": 546,
-    "question": "IAMポリシーの記述形式は？",
-    "options": ["A. XML", "B. JSON", "C. YAML", "D. CSV"],
-    "correct": 1,
-    "explanation": "IAMポリシーはJSON形式で記述し、Effect（Allow/Deny）、Action、Resource等を指定します。"
-  },
-  {
-    "id": 547,
-    "question": "IAMのベストプラクティスとして正しいものは？",
-    "options": [
-      "A. rootアカウントを常用する",
-      "B. 最小権限の原則に従いMFAを有効にする",
-      "C. 全員に管理者権限を付与",
-      "D. アクセスキーを共有する"
-    ],
-    "correct": 1,
-    "explanation": "最小権限の原則（必要最小限の権限のみ付与）とMFA有効化がIAMの基本的なベストプラクティスです。"
-  },
-  {
-    "id": 548,
-    "question": "IAMロールとIAMユーザーの違いは？",
-    "options": [
-      "A. 同じもの",
-      "B. ロールは一時的な認証情報を使い、AWSサービスやユーザーが引き受ける",
-      "C. ユーザーの方が安全",
-      "D. ロールはパスワードを持つ"
-    ],
-    "correct": 1,
-    "explanation": "IAMロールは永続的な認証情報を持たず、一時的なセキュリティ認証情報を使ってAWSリソースにアクセスします。EC2やLambda等のサービスにも割り当て可能。"
-  },
-  {
-    "id": 549,
-    "question": "AWS Lambdaとは？",
-    "options": [
-      "A. 仮想サーバー",
-      "B. サーバーレスでコードを実行するコンピューティングサービス",
-      "C. データベース",
-      "D. ストレージ"
-    ],
-    "correct": 1,
-    "explanation": "Lambdaはサーバーの管理不要で、イベント駆動でコードを実行するサーバーレスコンピューティングサービスです。"
-  },
-  {
-    "id": 550,
-    "question": "Lambdaの課金単位は？",
-    "options": [
-      "A. 時間単位",
-      "B. リクエスト数と実行時間（ミリ秒単位）",
-      "C. 月額固定",
-      "D. データ量"
-    ],
-    "correct": 1,
-    "explanation": "Lambdaはリクエスト数と実行時間（ミリ秒単位×割り当てメモリ）に基づいて課金されます。"
-  },
-  {
     "id": 551,
-    "question": "Lambdaの最大実行時間は？",
-    "options": ["A. 5分", "B. 15分", "C. 1時間", "D. 無制限"],
+    "question": "AWS S3のストレージクラスで最もコストが低いものはどれか？",
+    "options": [
+      "A. S3 Standard（標準ストレージクラス）",
+      "B. S3 Glacier Deep Archive（深層アーカイブ）",
+      "C. S3 Intelligent-Tiering（自動階層化）",
+      "D. S3 One Zone-IA（単一ゾーン低頻度アクセス）"
+    ],
     "correct": 1,
-    "explanation": "Lambda関数の最大実行時間（タイムアウト）は15分（900秒）です。長時間処理にはStep Functions等が適します。"
+    "explanation": "S3 Glacier Deep Archiveは最も低コストのストレージクラスですが、復元に12〜48時間かかります。"
   },
   {
     "id": 552,
-    "question": "Amazon RDSとは？",
+    "question": "AWS EC2のインスタンスタイプ「t3.micro」の「t3」が示す意味はどれか？",
     "options": [
-      "A. NoSQLデータベース",
-      "B. マネージドリレーショナルデータベースサービス",
-      "C. オブジェクトストレージ",
-      "D. CDN"
+      "A. コンピューティング最適化インスタンスを示す記号",
+      "B. バースト可能な汎用インスタンスファミリーを示す",
+      "C. メモリ最適化インスタンスファミリーを示す記号",
+      "D. ストレージ最適化インスタンスファミリーを示す記号"
     ],
     "correct": 1,
-    "explanation": "RDS（Relational Database Service）はMySQL、PostgreSQL、Oracle等のRDBをマネージドで提供するサービスです。"
+    "explanation": "t3はバースト可能な汎用インスタンスです。CPU負荷が低いときにクレジットを蓄積し、必要時にバーストできます。"
   },
   {
     "id": 553,
-    "question": "Amazon DynamoDBの特徴は？",
+    "question": "AWS Lambdaの課金単位として正しいものはどれか？",
     "options": [
-      "A. リレーショナルDB",
-      "B. フルマネージドのキーバリュー/ドキュメントNoSQLデータベース",
-      "C. グラフDB",
-      "D. ファイルストレージ"
+      "A. 実行時間に関わらず月額固定料金で課金される",
+      "B. リクエスト回数と実行時間（ミリ秒単位）で課金される",
+      "C. プロビジョニングしたメモリ量のみで月額課金される",
+      "D. デプロイしたコードのサイズに基づいて課金される方式"
     ],
     "correct": 1,
-    "explanation": "DynamoDBはサーバーレスのNoSQLデータベースで、ミリ秒のレイテンシと自動スケーリングを提供します。"
+    "explanation": "AWS Lambdaはリクエスト数と実行時間（ミリ秒単位×メモリ量）で課金されるサーバーレスサービスです。"
   },
   {
     "id": 554,
-    "question": "CloudFrontとは？",
+    "question": "AWS IAMの「ポリシー」の説明として正しいものはどれか？",
     "options": [
-      "A. ファイアウォール",
-      "B. グローバルCDN（コンテンツ配信ネットワーク）",
-      "C. DNS",
-      "D. VPN"
+      "A. AWSリソースへのネットワークアクセスを制御する設定",
+      "B. AWSリソースへのアクセス許可をJSON形式で定義する文書",
+      "C. AWSリソースの暗号化キーを管理するためのサービス名",
+      "D. AWSリソースの利用料金の上限を設定するための仕組み"
     ],
     "correct": 1,
-    "explanation": "CloudFrontは世界中のエッジロケーションを使ってコンテンツを低遅延で配信するCDNサービスです。"
+    "explanation": "IAMポリシーはJSON形式でEffect（許可/拒否）、Action（操作）、Resource（対象リソース）を定義するアクセス制御文書です。"
   },
   {
     "id": 555,
-    "question": "Route 53とは？",
+    "question": "AWS VPCの「サブネット」の説明として正しいものはどれか？",
     "options": [
-      "A. ルーティングサービス",
-      "B. マネージドDNSサービス",
-      "C. VPNサービス",
-      "D. CDN"
+      "A. 複数のVPCを接続するための仮想ルーターのことである",
+      "B. VPC内のIPアドレス範囲を分割した論理的なネットワーク",
+      "C. インターネットからVPCへのアクセスを制御するゲート",
+      "D. VPC間のトラフィックを暗号化するトンネリング機能"
     ],
     "correct": 1,
-    "explanation": "Route 53はAWSのスケーラブルなDNSサービスで、ドメイン登録、DNSルーティング、ヘルスチェックを提供します。名前はDNSポート53番に由来。"
+    "explanation": "サブネットはVPC内のCIDRブロックをさらに分割した論理的なネットワーク区画で、パブリック/プライベートに分けられます。"
   },
   {
     "id": 556,
-    "question": "ELB（Elastic Load Balancing）の役割は？",
+    "question": "Azureの「Azure Active Directory」の主な機能はどれか？",
     "options": [
-      "A. データの暗号化",
-      "B. トラフィックを複数のターゲットに分散",
-      "C. ファイルの保存",
-      "D. DNSの解決"
+      "A. 仮想マシンのプロビジョニングと管理を行うサービス",
+      "B. クラウドベースのIDおよびアクセス管理サービスである",
+      "C. オブジェクトストレージサービスとして利用される機能",
+      "D. コンテナオーケストレーションを提供するサービス名称"
     ],
     "correct": 1,
-    "explanation": "ELBは受信トラフィックをEC2インスタンスやコンテナ等の複数ターゲットに自動分散します。ALB、NLB、GLBがあります。"
+    "explanation": "Azure Active Directory（現Microsoft Entra ID）はクラウドベースのID管理・認証・アクセス制御サービスです。"
   },
   {
     "id": 557,
-    "question": "ALBとNLBの違いは？",
+    "question": "GCPの「BigQuery」の分類として正しいものはどれか？",
     "options": [
-      "A. 同じもの",
-      "B. ALBはHTTP/HTTPS（L7）、NLBはTCP/UDP（L4）で動作",
-      "C. NLBの方が高機能",
-      "D. ALBはL4で動作"
+      "A. NoSQLデータベースサービスとして分類される",
+      "B. サーバーレスのデータウェアハウスサービスである",
+      "C. リレーショナルデータベースサービスとして分類",
+      "D. インメモリキャッシュサービスとして分類されるもの"
     ],
     "correct": 1,
-    "explanation": "ALB（Application LB）はL7でパスベースルーティング等が可能、NLB（Network LB）はL4で超低遅延・高スループット。"
+    "explanation": "BigQueryはサーバーレスでペタバイト規模のデータ分析が可能なデータウェアハウスサービスです。SQLで操作できます。"
   },
   {
     "id": 558,
-    "question": "Auto Scalingの役割は？",
+    "question": "AWSの「セキュリティグループ」の動作として正しいものはどれか？",
     "options": [
-      "A. 手動でサーバーを追加",
-      "B. 需要に応じてEC2インスタンスの数を自動的に増減",
-      "C. データのバックアップ",
-      "D. ネットワークの設定"
+      "A. ステートレスでインバウンドとアウトバウンドを個別に設定",
+      "B. ステートフルで許可したインバウンドの応答は自動許可",
+      "C. サブネット単位でトラフィックを制御するファイアウォール",
+      "D. VPC全体のトラフィックを一括で制御するファイアウォール"
     ],
     "correct": 1,
-    "explanation": "Auto Scalingは定義したポリシーに基づき、負荷に応じてインスタンス数を自動で増減して可用性とコストを最適化します。"
+    "explanation": "セキュリティグループはステートフルなインスタンスレベルのファイアウォールです。インバウンドを許可すると応答は自動許可されます。"
   },
   {
     "id": 559,
-    "question": "Amazon ECSとは？",
+    "question": "サーバーレスアーキテクチャの特徴として正しいものはどれか？",
     "options": [
-      "A. メールサービス",
-      "B. フルマネージドのコンテナオーケストレーションサービス",
-      "C. データベース",
-      "D. CDN"
+      "A. 常時稼働するサーバーを事前にプロビジョニングする方式",
+      "B. イベント駆動で実行されサーバー管理が不要な方式である",
+      "C. 固定のサーバーリソースを月額料金で利用する方式である",
+      "D. 物理サーバーを自社で管理するオンプレミス型の方式構成"
     ],
     "correct": 1,
-    "explanation": "ECS（Elastic Container Service）はDockerコンテナを簡単に実行・管理できるフルマネージドのコンテナオーケストレーションサービスです。"
+    "explanation": "サーバーレスはイベント駆動で関数が実行され、インフラ管理が不要です。使った分だけ課金されるのも特徴です。"
   },
   {
     "id": 560,
-    "question": "AWS Fargateとは？",
+    "question": "Cloudflareの主要な機能として正しくないものはどれか？",
     "options": [
-      "A. 仮想マシン",
-      "B. サーバーレスのコンテナ実行環境（EC2管理不要）",
-      "C. ストレージサービス",
-      "D. DNSサービス"
+      "A. CDNによるコンテンツ配信の高速化を提供する機能",
+      "B. DDoS攻撃からの保護機能を提供するサービスである",
+      "C. リレーショナルデータベースのマネージドサービス提供",
+      "D. DNS管理とWAF機能を提供するサービスとして利用"
     ],
-    "correct": 1,
-    "explanation": "FargateはECS/EKSで使えるサーバーレスコンテナ実行環境で、EC2インスタンスの管理が不要です。"
+    "correct": 2,
+    "explanation": "CloudflareはCDN、DDoS保護、DNS管理、WAFなどを提供しますが、RDBのマネージドサービスは主要機能ではありません。"
   },
   {
     "id": 561,
-    "question": "Amazon EKSとは？",
+    "question": "AWSの「リージョン」と「アベイラビリティゾーン」の関係はどれか？",
     "options": [
-      "A. S3の拡張機能",
-      "B. マネージドKubernetesサービス",
-      "C. メッセージキュー",
-      "D. ロードバランサー"
+      "A. 1つのAZの中に複数のリージョンが存在する構成",
+      "B. 1つのリージョンの中に複数のAZが存在する構成",
+      "C. リージョンとAZは同じ概念の別名として使われる",
+      "D. AZはリージョンとは独立した概念で関係がないもの"
     ],
     "correct": 1,
-    "explanation": "EKS（Elastic Kubernetes Service）はAWSが提供するフルマネージドのKubernetesコントロールプレーンです。"
+    "explanation": "1つのリージョン内に複数のAZ（独立したデータセンター群）があり、AZ間で冗長構成を取ることで高可用性を実現します。"
   },
   {
     "id": 562,
-    "question": "Amazon SQSとは？",
+    "question": "AWS ECS（Elastic Container Service）の説明として正しいものはどれか？",
     "options": [
-      "A. ストレージ",
-      "B. フルマネージドのメッセージキューサービス",
-      "C. データベース",
-      "D. CDN"
+      "A. 仮想マシンの作成と管理を行うサービスのことである",
+      "B. コンテナ化されたアプリケーションの実行と管理サービス",
+      "C. オブジェクトストレージを提供するサービスのことである",
+      "D. サーバーレス関数を実行するサービスのことを指すもの"
     ],
     "correct": 1,
-    "explanation": "SQS（Simple Queue Service）はマイクロサービス間の非同期通信を実現するメッセージキューサービスです。"
+    "explanation": "ECSはDockerコンテナのデプロイ、管理、スケーリングを行うフルマネージドコンテナオーケストレーションサービスです。"
   },
   {
     "id": 563,
-    "question": "Amazon SNSとは？",
+    "question": "AWSの「AWS Well-Architected Framework」の柱として正しくないものはどれか？",
     "options": [
-      "A. ストレージ",
-      "B. Pub/Sub型のメッセージ通知サービス",
-      "C. データベース",
-      "D. VPN"
+      "A. 運用上の優秀性（Operational Excellence）",
+      "B. ネットワーク帯域の最大化（Bandwidth Max）",
+      "C. セキュリティ（Security）の柱が含まれている",
+      "D. コスト最適化（Cost Optimization）が含まれる"
     ],
     "correct": 1,
-    "explanation": "SNS（Simple Notification Service）はPub/Sub型でメール、SMS、HTTP、Lambda等の多様なサブスクライバーに通知を配信します。"
+    "explanation": "Well-Architected Frameworkの6つの柱は運用上の優秀性、セキュリティ、信頼性、パフォーマンス効率、コスト最適化、持続可能性です。"
   },
   {
     "id": 564,
-    "question": "AWS CloudFormationの役割は？",
+    "question": "AWS CloudFormationの役割として正しいものはどれか？",
     "options": [
-      "A. ログ管理",
-      "B. インフラをコード（テンプレート）で定義・プロビジョニング（IaC）",
-      "C. モニタリング",
-      "D. コンテナ管理"
+      "A. アプリケーションのソースコードをビルドする機能",
+      "B. テンプレートでAWSリソースをコードとして管理する",
+      "C. ログの収集と分析を行うモニタリングサービス機能",
+      "D. コンテナイメージのレジストリとして機能するサービス"
     ],
     "correct": 1,
-    "explanation": "CloudFormationはJSON/YAMLテンプレートでAWSリソースを定義し、インフラをコードとして管理・展開するIaCサービスです。"
+    "explanation": "CloudFormationはJSON/YAMLテンプレートでAWSリソースをInfrastructure as Code（IaC）として定義・管理します。"
   },
   {
     "id": 565,
-    "question": "Amazon CloudWatchの主な機能は？",
+    "question": "AWS RDSの「マルチAZ配置」の目的として正しいものはどれか？",
     "options": [
-      "A. コード管理",
-      "B. AWSリソースの監視、メトリクス収集、アラーム設定",
-      "C. データベース管理",
-      "D. ネットワーク構築"
+      "A. 読み取り性能を向上させるためのリードレプリカ構成",
+      "B. 異なるAZにスタンバイを配置して高可用性を実現する",
+      "C. 複数リージョンにデータを分散して遅延を削減する構成",
+      "D. データベースの暗号化を異なるAZの鍵で行う構成方式"
     ],
     "correct": 1,
-    "explanation": "CloudWatchはCPU使用率、ログ、カスタムメトリクス等を収集・監視し、アラームやダッシュボードを提供します。"
+    "explanation": "マルチAZ配置は別のAZに同期レプリカを配置し、プライマリ障害時に自動フェイルオーバーして高可用性を確保します。"
   },
   {
     "id": 566,
-    "question": "AWS CloudTrailの役割は？",
+    "question": "GCPの「Cloud Functions」はAWSのどのサービスに相当するか？",
     "options": [
-      "A. トラフィック制御",
-      "B. AWSアカウントのAPI呼び出しを記録する監査ログサービス",
-      "C. コンテンツ配信",
-      "D. データ暗号化"
+      "A. Amazon EC2に相当するサービスとして位置づけ",
+      "B. AWS Lambdaに相当するサービスとして位置づけ",
+      "C. Amazon ECSに相当するサービスとして位置づけ",
+      "D. Amazon S3に相当するサービスとして位置づけている"
     ],
     "correct": 1,
-    "explanation": "CloudTrailはAWSアカウント内のAPI呼び出し（誰が、いつ、何を操作したか）を記録する監査用サービスです。"
+    "explanation": "Cloud FunctionsはGCPのサーバーレスコンピューティングサービスで、AWS Lambdaに相当します。"
   },
   {
     "id": 567,
-    "question": "Amazon VPC Peeringとは？",
+    "question": "AWSの「S3バケットポリシー」の適用範囲として正しいものはどれか？",
     "options": [
-      "A. VPCの削除",
-      "B. 2つのVPC間をプライベートに接続する",
-      "C. インターネットへの接続",
-      "D. VPCの暗号化"
+      "A. AWSアカウント全体のS3バケットに一括適用される",
+      "B. 個別のS3バケット単位でアクセス制御を定義する設定",
+      "C. S3バケット内の個別オブジェクトにのみ適用される設定",
+      "D. S3バケットが存在するリージョン全体に適用される設定"
     ],
     "correct": 1,
-    "explanation": "VPC Peeringは異なる2つのVPC間（同一/異なるアカウント/リージョン）をAWS内部ネットワークで接続します。"
+    "explanation": "S3バケットポリシーはJSON形式で個別のバケットに対するアクセス制御を定義します。アカウント外からのアクセスも制御できます。"
   },
   {
     "id": 568,
-    "question": "AWS Transit Gatewayの用途は？",
+    "question": "「IaC（Infrastructure as Code）」の利点として正しいものはどれか？",
     "options": [
-      "A. 1対1のVPC接続",
-      "B. 複数のVPCやオンプレミスネットワークをハブ&スポーク型で接続",
-      "C. CDN",
-      "D. DNS"
+      "A. インフラ構築を手動で行い柔軟に対応できる利点がある",
+      "B. インフラ構成をコードで管理し再現性と版管理を実現する",
+      "C. インフラの監視とアラート通知を自動化する仕組みのこと",
+      "D. インフラのコストを自動的に最適化する仕組みのことを指す"
     ],
     "correct": 1,
-    "explanation": "Transit Gatewayは中央ハブとして複数VPCやVPN接続を集約し、ネットワーク構成を簡素化します。"
+    "explanation": "IaCはインフラ構成をコードで定義し、バージョン管理・再現性・自動化を実現します。Terraform等が代表的なツールです。"
   },
   {
     "id": 569,
-    "question": "Azureの正式名称は？",
+    "question": "AWS Auto Scalingの「スケールアウト」の説明として正しいものはどれか？",
     "options": [
-      "A. Google Azure",
-      "B. Microsoft Azure",
-      "C. Amazon Azure",
-      "D. Oracle Azure"
+      "A. インスタンスのスペックを上げて処理能力を向上させる",
+      "B. インスタンス数を増やして負荷を分散させる仕組みのこと",
+      "C. インスタンス数を減らしてコストを削減する仕組みのこと",
+      "D. インスタンスのスペックを下げてコストを削減する仕組み"
     ],
     "correct": 1,
-    "explanation": "Microsoft AzureはMicrosoftが提供するクラウドコンピューティングプラットフォームです。"
+    "explanation": "スケールアウトはインスタンス数を増やして水平に拡張します。スケールアップはインスタンスのスペック向上（垂直拡張）です。"
   },
   {
     "id": 570,
-    "question": "Azure Virtual Machinesに対応するAWSサービスは？",
-    "options": ["A. S3", "B. EC2", "C. Lambda", "D. RDS"],
+    "question": "AWSの「Elastic Load Balancer」の種類として存在しないものはどれか？",
+    "options": [
+      "A. Application Load Balancer（ALB）は存在する",
+      "B. Database Load Balancer（DLB）という種類のもの",
+      "C. Network Load Balancer（NLB）は存在するもの",
+      "D. Gateway Load Balancer（GWLB）は存在するもの"
+    ],
     "correct": 1,
-    "explanation": "Azure VMsとAWS EC2はどちらもクラウド上の仮想マシン（IaaS）サービスで、機能的に対応しています。"
+    "explanation": "AWSのELBにはALB（L7）、NLB（L4）、GWLB（L3）の3種類があります。DLBは存在しません。"
   },
   {
     "id": 571,
-    "question": "Azure Blob Storageに対応するAWSサービスは？",
-    "options": ["A. EC2", "B. S3", "C. Lambda", "D. RDS"],
+    "question": "AWS SNS（Simple Notification Service）の配信モデルはどれか？",
+    "options": [
+      "A. ポイントツーポイントのキューイングモデルで配信",
+      "B. パブリッシュ／サブスクライブ型のメッセージ配信",
+      "C. リクエスト／レスポンス型の同期通信モデルで配信",
+      "D. ストリーミング型のリアルタイムデータ配信モデル"
+    ],
     "correct": 1,
-    "explanation": "Azure Blob StorageとAWS S3はどちらもオブジェクトストレージサービスで、大量の非構造化データを保存します。"
+    "explanation": "SNSはPub/Sub（パブリッシュ/サブスクライブ）モデルで、トピックに発行されたメッセージを複数のサブスクライバーに配信します。"
   },
   {
     "id": 572,
-    "question": "Azure Functionsとは？",
+    "question": "Azureの「Blob Storage」がAWSで対応するサービスはどれか？",
     "options": [
-      "A. 仮想マシン",
-      "B. サーバーレスのイベント駆動型コンピューティングサービス",
-      "C. データベース",
-      "D. CDN"
+      "A. Amazon EBS（Elastic Block Store）に対応する",
+      "B. Amazon S3（Simple Storage Service）に対応する",
+      "C. Amazon EFS（Elastic File System）に対応する",
+      "D. Amazon FSx（ファイルシステムサービス）に対応する"
     ],
     "correct": 1,
-    "explanation": "Azure FunctionsはAWS Lambdaに相当するサーバーレス機能で、イベントトリガーでコードを実行します。"
+    "explanation": "Azure Blob StorageはオブジェクトストレージでAWS S3に相当します。EBSはブロックストレージ、EFSはファイルストレージです。"
   },
   {
     "id": 573,
-    "question": "Azure Active Directory（Entra ID）の役割は？",
+    "question": "AWS CloudWatchの主な機能として正しいものはどれか？",
     "options": [
-      "A. ファイルストレージ",
-      "B. クラウドベースのID管理と認証サービス",
-      "C. ネットワーク管理",
-      "D. コンテナ管理"
+      "A. AWSリソースのプロビジョニングを自動化する機能",
+      "B. AWSリソースのメトリクス監視とアラーム設定の機能",
+      "C. AWSリソースのアクセス権限を管理する機能を提供",
+      "D. AWSリソースのコスト配分タグを管理する機能を提供"
     ],
     "correct": 1,
-    "explanation": "Azure AD（現Microsoft Entra ID）はクラウドベースのID管理サービスで、SSO、MFA、条件付きアクセスを提供します。"
+    "explanation": "CloudWatchはAWSリソースのメトリクス（CPU使用率等）の監視、ログ管理、アラーム設定を行う監視サービスです。"
   },
   {
     "id": 574,
-    "question": "GCP（Google Cloud Platform）の特徴は？",
+    "question": "「マルチクラウド」戦略の利点として正しいものはどれか？",
     "options": [
-      "A. Amazonが提供",
-      "B. Googleのインフラとビッグデータ・AI/ML技術が強み",
-      "C. Microsoftが提供",
-      "D. オンプレミス専用"
+      "A. 単一ベンダーに統一することで運用を簡素化できる利点",
+      "B. ベンダーロックインを回避し障害時のリスクを分散できる",
+      "C. 全サービスを同一コンソールで一元管理できる利点がある",
+      "D. データ転送コストが不要になるという利点があるもの"
     ],
     "correct": 1,
-    "explanation": "GCPはGoogleのグローバルインフラ上で動作し、BigQuery、TensorFlow等のデータ分析・AI/ML分野に強みがあります。"
+    "explanation": "マルチクラウドは複数のクラウドプロバイダーを使い分けることで、ベンダーロックインの回避と障害リスクの分散を実現します。"
   },
   {
     "id": 575,
-    "question": "GCEに対応するAWSサービスは？",
-    "options": ["A. S3", "B. EC2", "C. Lambda", "D. DynamoDB"],
+    "question": "AWS DynamoDBの分類として正しいものはどれか？",
+    "options": [
+      "A. リレーショナルデータベースサービスとして分類される",
+      "B. フルマネージドのNoSQLデータベースサービスである",
+      "C. インメモリキャッシュサービスとして分類されるもの",
+      "D. グラフデータベースサービスとして分類されるもの名称"
+    ],
     "correct": 1,
-    "explanation": "GCE（Google Compute Engine）はGCPの仮想マシンサービスで、AWSのEC2に相当します。"
+    "explanation": "DynamoDBはキーバリュー/ドキュメント型のフルマネージドNoSQLデータベースで、ミリ秒単位の低レイテンシーが特徴です。"
   },
   {
     "id": 576,
-    "question": "Google Cloud Storageに対応するAWSサービスは？",
-    "options": ["A. EC2", "B. S3", "C. RDS", "D. SQS"],
+    "question": "AWSの「共有責任モデル」でAWSが責任を持つ範囲はどれか？",
+    "options": [
+      "A. アプリケーションのコードとデータの管理を担当する",
+      "B. データセンターの物理インフラとハードウェアの管理",
+      "C. IAMユーザーの権限設定とアクセス制御を担当する範囲",
+      "D. S3バケットのアクセスポリシー設定を担当する範囲"
+    ],
     "correct": 1,
-    "explanation": "Google Cloud StorageはGCPのオブジェクトストレージで、AWSのS3に相当する大規模データ保存サービスです。"
+    "explanation": "共有責任モデルでAWSはクラウド「の」セキュリティ（物理インフラ、HW、ネットワーク基盤等）を担当します。顧客はクラウド「内」のセキュリティを担当します。"
   },
   {
     "id": 577,
-    "question": "Google Cloud Functionsとは？",
+    "question": "AWS Route 53の主な機能として正しいものはどれか？",
     "options": [
-      "A. 仮想マシン",
-      "B. サーバーレスのイベント駆動型コンピューティング",
-      "C. データベース",
-      "D. ネットワークサービス"
+      "A. コンテンツ配信ネットワーク（CDN）サービスである",
+      "B. スケーラブルなDNSサービスとドメイン登録の機能",
+      "C. ロードバランシングの専用サービスとして機能する",
+      "D. VPN接続を提供するネットワークサービスとして機能"
     ],
     "correct": 1,
-    "explanation": "Cloud FunctionsはGCPのサーバーレスコンピューティングで、AWS Lambda、Azure Functionsに相当します。"
+    "explanation": "Route 53はAWSのDNSサービスで、ドメイン名の登録、DNSルーティング、ヘルスチェック機能を提供します。名前はDNSポート53に由来します。"
   },
   {
     "id": 578,
-    "question": "BigQueryの特徴は？",
+    "question": "GCPの「GKE（Google Kubernetes Engine）」の説明はどれか？",
     "options": [
-      "A. リレーショナルDB",
-      "B. サーバーレスのペタバイト級データウェアハウス",
-      "C. オブジェクトストレージ",
-      "D. CDN"
+      "A. サーバーレス関数を実行するコンピューティングサービス",
+      "B. マネージドKubernetesクラスターを提供するサービス",
+      "C. 仮想マシンインスタンスを提供するコンピューティング",
+      "D. オブジェクトストレージを提供するデータ保存サービス"
     ],
     "correct": 1,
-    "explanation": "BigQueryはGCPのサーバーレスデータウェアハウスで、SQLで大規模データの高速分析が可能です。"
+    "explanation": "GKEはGCPが提供するマネージドKubernetesサービスで、コンテナ化アプリのデプロイ・管理・スケーリングを行います。"
   },
   {
     "id": 579,
-    "question": "GKE（Google Kubernetes Engine）とは？",
+    "question": "AWS SQS（Simple Queue Service）の配信モデルはどれか？",
     "options": [
-      "A. 仮想マシン",
-      "B. マネージドKubernetesサービス",
-      "C. ストレージ",
-      "D. CDN"
+      "A. パブリッシュ／サブスクライブ型のメッセージ配信",
+      "B. ポイントツーポイントのメッセージキューイング方式",
+      "C. ストリーミング型のリアルタイムデータ処理方式配信",
+      "D. リクエスト／レスポンス型の同期通信方式モデル配信"
     ],
     "correct": 1,
-    "explanation": "GKEはGCPのマネージドKubernetesサービスで、Kubernetesクラスターの運用負荷を軽減します。AWS EKSに相当。"
+    "explanation": "SQSはポイントツーポイントのメッセージキューで、プロデューサーがキューにメッセージを送り、コンシューマーが取得します。Pub/SubはSNSです。"
   },
   {
     "id": 580,
-    "question": "IaaS、PaaS、SaaSの違いは？",
+    "question": "CDNの「エッジロケーション」の説明として正しいものはどれか？",
     "options": [
-      "A. すべて同じ",
-      "B. IaaSはインフラ、PaaSはプラットフォーム、SaaSはソフトウェアを提供",
-      "C. IaaSが最も高レベル",
-      "D. SaaSが最も低レベル"
+      "A. データベースのレプリカが配置されるデータセンター",
+      "B. ユーザーに近い場所でコンテンツをキャッシュする拠点",
+      "C. アプリケーションのビルドを実行するサーバー設置拠点",
+      "D. バックアップデータを保存するためのリモート保管拠点"
     ],
     "correct": 1,
-    "explanation": "IaaS（EC2等）はインフラ、PaaS（Heroku等）は開発プラットフォーム、SaaS（Gmail等）は完成ソフトウェアをサービスとして提供します。"
-  },
-  {
-    "id": 581,
-    "question": "マルチクラウドのメリットは？",
-    "options": [
-      "A. コストが常に下がる",
-      "B. ベンダーロックインの回避と各クラウドの強みを活用",
-      "C. 管理が単純になる",
-      "D. セキュリティが自動向上"
-    ],
-    "correct": 1,
-    "explanation": "マルチクラウドは特定ベンダーへの依存を減らし、各クラウドの得意分野を組み合わせて最適化できます。"
-  },
-  {
-    "id": 582,
-    "question": "ハイブリッドクラウドとは？",
-    "options": [
-      "A. パブリッククラウドのみ",
-      "B. オンプレミスとパブリッククラウドを組み合わせた環境",
-      "C. プライベートクラウドのみ",
-      "D. マルチクラウドと同じ"
-    ],
-    "correct": 1,
-    "explanation": "ハイブリッドクラウドはオンプレミス（自社DC）とパブリッククラウドを連携させ、データやアプリを適切に配置します。"
-  },
-  {
-    "id": 583,
-    "question": "AWS Well-Architected Frameworkの柱に含まれないものは？",
-    "options": [
-      "A. セキュリティ",
-      "B. マーケティング",
-      "C. 信頼性",
-      "D. コスト最適化"
-    ],
-    "correct": 1,
-    "explanation": "Well-Architected Frameworkの6本柱は運用上の優秀性、セキュリティ、信頼性、パフォーマンス効率、コスト最適化、持続可能性です。"
-  },
-  {
-    "id": 584,
-    "question": "Cloudflareの主な機能は？",
-    "options": [
-      "A. 仮想サーバー提供",
-      "B. CDN、DDoS防御、WAF、DNS等のセキュリティ&パフォーマンスサービス",
-      "C. データベース専用",
-      "D. メールサービス"
-    ],
-    "correct": 1,
-    "explanation": "CloudflareはCDN、DDoS対策、WAF、DNS、SSL/TLS等を統合的に提供するWebパフォーマンス&セキュリティサービスです。"
-  },
-  {
-    "id": 585,
-    "question": "Cloudflare WorkersとAWS Lambda@Edgeの共通点は？",
-    "options": [
-      "A. データベース",
-      "B. エッジでサーバーレスコードを実行するサービス",
-      "C. ストレージ",
-      "D. VPN"
-    ],
-    "correct": 1,
-    "explanation": "どちらもエッジロケーション（ユーザーに近い場所）でサーバーレス関数を実行し、低遅延な処理を実現します。"
-  },
-  {
-    "id": 586,
-    "question": "CDN（Content Delivery Network）の主な目的は？",
-    "options": [
-      "A. データベースの管理",
-      "B. コンテンツをエッジサーバーにキャッシュして配信を高速化・分散",
-      "C. ソースコード管理",
-      "D. メール配信"
-    ],
-    "correct": 1,
-    "explanation": "CDNは世界各地のエッジサーバーにコンテンツをキャッシュし、ユーザーに最も近い場所から配信して遅延を短縮します。"
-  },
-  {
-    "id": 587,
-    "question": "サーバーレスアーキテクチャの特徴は？",
-    "options": [
-      "A. サーバーが存在しない",
-      "B. サーバー管理が不要でイベント駆動・従量課金",
-      "C. 常時起動している",
-      "D. オンプレミス専用"
-    ],
-    "correct": 1,
-    "explanation": "サーバーレスは実際にはサーバーが存在しますが、利用者がサーバー管理不要で、イベント駆動で自動スケールします。"
-  },
-  {
-    "id": 588,
-    "question": "コールドスタートとは？",
-    "options": [
-      "A. サーバーの電源断",
-      "B. サーバーレス関数が初回実行時に初期化処理で遅延が生じる現象",
-      "C. データの冷却保存",
-      "D. バックアップの復元"
-    ],
-    "correct": 1,
-    "explanation": "コールドスタートはLambda等でコンテナの起動・コードのロードに時間がかかり、初回リクエストの応答が遅くなる現象です。"
-  },
-  {
-    "id": 589,
-    "question": "AWS ElastiCacheがサポートするエンジンは？",
-    "options": [
-      "A. MySQL/PostgreSQL",
-      "B. Redis/Memcached",
-      "C. MongoDB/Cassandra",
-      "D. Oracle/SQL Server"
-    ],
-    "correct": 1,
-    "explanation": "ElastiCacheはインメモリキャッシュサービスで、RedisとMemcachedの2つのエンジンをサポートします。"
-  },
-  {
-    "id": 590,
-    "question": "Amazon S3の署名付きURL（Pre-signed URL）の用途は？",
-    "options": [
-      "A. S3バケットの作成",
-      "B. 一時的にプライベートオブジェクトへのアクセスを許可",
-      "C. S3の暗号化",
-      "D. S3の削除"
-    ],
-    "correct": 1,
-    "explanation": "署名付きURLは有効期限付きでS3のプライベートオブジェクトにアクセスできるURLを生成し、安全な一時共有が可能です。"
-  },
-  {
-    "id": 591,
-    "question": "AWS KMS（Key Management Service）の用途は？",
-    "options": [
-      "A. ロードバランシング",
-      "B. 暗号鍵の作成・管理と暗号化/復号",
-      "C. DNS管理",
-      "D. コンテナ管理"
-    ],
-    "correct": 1,
-    "explanation": "KMSは暗号鍵の作成・管理・ローテーションを行い、S3やEBS等のAWSサービスと統合してデータを暗号化します。"
-  },
-  {
-    "id": 592,
-    "question": "AWS WAFで防御できる攻撃は？",
-    "options": [
-      "A. DDoSのみ",
-      "B. SQLインジェクション、XSS等のWebアプリケーション攻撃",
-      "C. ネットワークレイヤー攻撃のみ",
-      "D. 物理攻撃"
-    ],
-    "correct": 1,
-    "explanation": "AWS WAFはCloudFront/ALBと連携し、SQLi、XSS、カスタムルールによるWebアプリケーション防御を提供します。"
-  },
-  {
-    "id": 593,
-    "question": "AWS Shieldの目的は？",
-    "options": [
-      "A. データ暗号化",
-      "B. DDoS攻撃からの保護",
-      "C. コード管理",
-      "D. データベース管理"
-    ],
-    "correct": 1,
-    "explanation": "AWS ShieldはDDoS攻撃から保護するマネージドサービスで、Standardは無料、Advancedは高度な防御と対応チームを提供します。"
-  },
-  {
-    "id": 594,
-    "question": "Amazon API Gatewayの役割は？",
-    "options": [
-      "A. データベース",
-      "B. API（REST/WebSocket）の作成・管理・セキュリティを提供するサービス",
-      "C. ストレージ",
-      "D. CDN"
-    ],
-    "correct": 1,
-    "explanation": "API GatewayはREST/WebSocket APIの作成、認証、スロットリング、キャッシュ等を提供するフルマネージドサービスです。"
-  },
-  {
-    "id": 595,
-    "question": "AWS Step Functionsの用途は？",
-    "options": [
-      "A. ファイルストレージ",
-      "B. サーバーレスワークフロー（ステートマシン）のオーケストレーション",
-      "C. DNS管理",
-      "D. VPN接続"
-    ],
-    "correct": 1,
-    "explanation": "Step Functionsは複数のLambda関数やAWSサービスをビジュアルワークフローで連携・管理するオーケストレーションサービスです。"
-  },
-  {
-    "id": 596,
-    "question": "Amazon Auroraの特徴は？",
-    "options": [
-      "A. NoSQLデータベース",
-      "B. MySQL/PostgreSQL互換のクラウドネイティブRDB（最大5倍高速）",
-      "C. インメモリキャッシュ",
-      "D. オブジェクトストレージ"
-    ],
-    "correct": 1,
-    "explanation": "AuroraはMySQL/PostgreSQL互換のクラウドネイティブRDBで、標準MySQLの最大5倍、PostgreSQLの3倍の性能を提供します。"
-  },
-  {
-    "id": 597,
-    "question": "Amazon EBS（Elastic Block Store）とは？",
-    "options": [
-      "A. オブジェクトストレージ",
-      "B. EC2インスタンス用のブロックストレージ",
-      "C. ファイルストレージ",
-      "D. CDN"
-    ],
-    "correct": 1,
-    "explanation": "EBSはEC2インスタンスにアタッチする永続的なブロックストレージで、SSD/HDDタイプが選択できます。"
-  },
-  {
-    "id": 598,
-    "question": "Amazon EFS（Elastic File System）の特徴は？",
-    "options": [
-      "A. ブロックストレージ",
-      "B. 複数EC2から同時マウント可能なマネージドNFSファイルシステム",
-      "C. オブジェクトストレージ",
-      "D. データベース"
-    ],
-    "correct": 1,
-    "explanation": "EFSはNFSプロトコルで複数のEC2インスタンスから同時にアクセスできる共有ファイルシステムです。自動スケーリング対応。"
-  },
-  {
-    "id": 599,
-    "question": "AWS Shared Responsibility Model（共有責任モデル）とは？",
-    "options": [
-      "A. すべてAWSが管理",
-      "B. AWSは「クラウドの」セキュリティ、ユーザーは「クラウド内の」セキュリティを担当",
-      "C. すべてユーザーが管理",
-      "D. セキュリティは不要"
-    ],
-    "correct": 1,
-    "explanation": "AWSはインフラの物理セキュリティ等を担当し、ユーザーはOS設定、データ暗号化、IAM設定等のセキュリティを担当します。"
-  },
-  {
-    "id": 600,
-    "question": "AWS Cost Explorerの用途は？",
-    "options": [
-      "A. コード管理",
-      "B. AWSの利用コストと使用量の可視化・分析",
-      "C. ネットワーク監視",
-      "D. セキュリティ監査"
-    ],
-    "correct": 1,
-    "explanation": "Cost ExplorerはAWSの過去の利用コスト・使用量をグラフ化し、将来のコスト予測やコスト最適化の分析を行うツールです。"
-  },
-  {
-    "id": 601,
-    "question": "リザーブドインスタンスのメリットは？",
-    "options": [
-      "A. 中断される可能性",
-      "B. 1年/3年の予約で最大75%割引",
-      "C. 割引なし",
-      "D. 時間課金のみ"
-    ],
-    "correct": 1,
-    "explanation": "リザーブドインスタンスは1年/3年の利用をコミットすることで、オンデマンドと比較して最大75%の割引が受けられます。"
-  },
-  {
-    "id": 602,
-    "question": "Savings Plansとは？",
-    "options": [
-      "A. S3の割引",
-      "B. 一定の使用量（$/時間）をコミットして割引を受けるフレキシブルな料金モデル",
-      "C. 無料利用枠",
-      "D. スポット料金"
-    ],
-    "correct": 1,
-    "explanation": "Savings Plansは特定の使用量（$/時間）を1年/3年コミットし、インスタンスファミリーやリージョンを柔軟に変更できる割引プランです。"
-  },
-  {
-    "id": 603,
-    "question": "AWS Organizationsの主な機能は？",
-    "options": [
-      "A. コード管理",
-      "B. 複数AWSアカウントの一元管理と請求統合",
-      "C. CDN",
-      "D. コンテナ管理"
-    ],
-    "correct": 1,
-    "explanation": "OrganizationsはOU（組織単位）による階層管理、SCP（サービスコントロールポリシー）、請求統合を提供します。"
-  },
-  {
-    "id": 604,
-    "question": "AWS Systems Managerの機能は？",
-    "options": [
-      "A. ストレージ管理のみ",
-      "B. EC2やオンプレサーバーの運用管理（パッチ適用、構成管理等）",
-      "C. データベース専用",
-      "D. CDN"
-    ],
-    "correct": 1,
-    "explanation": "Systems ManagerはEC2やオンプレミスサーバーのパッチ適用、コマンド実行、パラメータ保存等の運用管理を一元化します。"
-  },
-  {
-    "id": 605,
-    "question": "AWS CodePipelineの用途は？",
-    "options": [
-      "A. コードエディタ",
-      "B. CI/CDパイプラインの構築と自動化",
-      "C. データベース",
-      "D. DNS"
-    ],
-    "correct": 1,
-    "explanation": "CodePipelineはソースコードの取得→ビルド→テスト→デプロイを自動化するCI/CDサービスです。"
-  },
-  {
-    "id": 606,
-    "question": "Amazon Kinesis の用途は？",
-    "options": [
-      "A. ファイル保存",
-      "B. リアルタイムストリーミングデータの収集・処理・分析",
-      "C. 静的Webホスティング",
-      "D. メール送信"
-    ],
-    "correct": 1,
-    "explanation": "Kinesisはリアルタイムで大量のストリーミングデータ（ログ、IoT、クリックストリーム等）を収集・処理するサービスです。"
-  },
-  {
-    "id": 607,
-    "question": "Amazon Redshiftとは？",
-    "options": [
-      "A. NoSQL DB",
-      "B. ペタバイト級のクラウドデータウェアハウス",
-      "C. オブジェクトストレージ",
-      "D. CDN"
-    ],
-    "correct": 1,
-    "explanation": "Redshiftは列指向ストレージと超並列処理（MPP）による高速SQLクエリが可能なクラウドデータウェアハウスです。"
-  },
-  {
-    "id": 608,
-    "question": "AWS Glueの用途は？",
-    "options": [
-      "A. 仮想マシン",
-      "B. サーバーレスのETL（Extract, Transform, Load）サービス",
-      "C. CDN",
-      "D. VPN"
-    ],
-    "correct": 1,
-    "explanation": "Glueはデータカタログの管理とサーバーレスETLジョブの実行を行い、データレイクやDWHへのデータ統合を支援します。"
-  },
-  {
-    "id": 609,
-    "question": "Amazon SageMakerの目的は？",
-    "options": [
-      "A. Webホスティング",
-      "B. 機械学習モデルの構築・トレーニング・デプロイ",
-      "C. メッセージキュー",
-      "D. DNS"
-    ],
-    "correct": 1,
-    "explanation": "SageMakerは機械学習のライフサイクル全体（データ準備、モデル構築、学習、デプロイ）をマネージドで提供するサービスです。"
-  },
-  {
-    "id": 610,
-    "question": "AWS NATゲートウェイの役割は？",
-    "options": [
-      "A. パブリックサブネットからの受信許可",
-      "B. プライベートサブネットからインターネットへの片方向アクセスを提供",
-      "C. VPN接続",
-      "D. DNS解決"
-    ],
-    "correct": 1,
-    "explanation": "NATゲートウェイはプライベートサブネットのインスタンスがインターネット（外向き）にアクセスできるようにしつつ、外部からの接続は防ぎます。"
-  },
-  {
-    "id": 611,
-    "question": "AWS Direct Connectとは？",
-    "options": [
-      "A. VPNサービス",
-      "B. オンプレミスからAWSへの専用ネットワーク接続",
-      "C. CDN",
-      "D. DNS"
-    ],
-    "correct": 1,
-    "explanation": "Direct ConnectはオンプレミスのデータセンターからAWSへの専用物理回線接続で、高帯域・低遅延を提供します。"
-  },
-  {
-    "id": 612,
-    "question": "Amazon GuardDutyの機能は？",
-    "options": [
-      "A. WAF",
-      "B. AIによる脅威検知（不正API呼び出し、不審なネットワーク通信等）",
-      "C. CDN",
-      "D. ストレージ"
-    ],
-    "correct": 1,
-    "explanation": "GuardDutyはCloudTrail、VPC Flow Logs等を機械学習で分析し、AWSアカウントの脅威を自動検知するサービスです。"
-  },
-  {
-    "id": 613,
-    "question": "Amazon Cognito の主な機能は？",
-    "options": [
-      "A. CDN",
-      "B. Webやモバイルアプリのユーザー認証・認可管理",
-      "C. データベース",
-      "D. ストレージ"
-    ],
-    "correct": 1,
-    "explanation": "Cognitoはサインアップ/サインイン、ソーシャルログイン、MFA等のユーザー認証機能をアプリに簡単に追加できます。"
-  },
-  {
-    "id": 614,
-    "question": "AWS Secrets Managerの用途は？",
-    "options": [
-      "A. ファイル保存",
-      "B. DB認証情報やAPIキー等のシークレットの保管・自動ローテーション",
-      "C. CDN",
-      "D. DNS"
-    ],
-    "correct": 1,
-    "explanation": "Secrets ManagerはDB接続文字列、APIキー等を安全に保管し、自動ローテーションでセキュリティを維持します。"
-  },
-  {
-    "id": 615,
-    "question": "Infrastructure as Code（IaC）の利点は？",
-    "options": [
-      "A. 手動操作の増加",
-      "B. インフラのバージョン管理・再現性・自動化",
-      "C. コストの増加",
-      "D. セキュリティの低下"
-    ],
-    "correct": 1,
-    "explanation": "IaCはインフラをコードで定義することで、バージョン管理（Git）、再現性、環境の一貫性、自動デプロイが実現できます。"
-  },
-  {
-    "id": 616,
-    "question": "AWSの無料利用枠（Free Tier）に含まれるEC2の条件は？",
-    "options": [
-      "A. 全インスタンスタイプが無料",
-      "B. t2.micro（またはt3.micro）が12ヶ月間750時間/月まで",
-      "C. 永久無料",
-      "D. 金額上限なし"
-    ],
-    "correct": 1,
-    "explanation": "AWS Free Tierでは新規アカウント12ヶ月間、t2.micro（一部リージョンはt3.micro）が月750時間まで無料です。"
-  },
-  {
-    "id": 617,
-    "question": "Amazon EventBridgeの用途は？",
-    "options": [
-      "A. ストレージ",
-      "B. イベント駆動アーキテクチャのためのサーバーレスイベントバス",
-      "C. データベース",
-      "D. VPN"
-    ],
-    "correct": 1,
-    "explanation": "EventBridgeはAWSサービス、SaaS、カスタムアプリからのイベントをルーティングしてターゲットに配信するイベントバスです。"
-  },
-  {
-    "id": 618,
-    "question": "AWS Elastic Beanstalkの特徴は？",
-    "options": [
-      "A. IaaSのみ",
-      "B. アプリのデプロイ・インフラ管理を自動化するPaaSサービス",
-      "C. CDN",
-      "D. DNS"
-    ],
-    "correct": 1,
-    "explanation": "Elastic BeanstalkはコードをアップロードするだけでEC2、ELB、Auto Scaling等のインフラを自動で構成・管理するPaaSです。"
-  },
-  {
-    "id": 619,
-    "question": "AWS Configの目的は？",
-    "options": [
-      "A. コード管理",
-      "B. AWSリソースの設定変更の追跡・コンプライアンス評価",
-      "C. CDN",
-      "D. ストレージ"
-    ],
-    "correct": 1,
-    "explanation": "AWS ConfigはAWSリソースの設定変更履歴を記録し、定義したルールへの準拠状況を継続的に評価します。"
-  },
-  {
-    "id": 620,
-    "question": "Amazon ECR（Elastic Container Registry）とは？",
-    "options": [
-      "A. コンテナ実行環境",
-      "B. Dockerコンテナイメージの保存・管理サービス",
-      "C. データベース",
-      "D. CDN"
-    ],
-    "correct": 1,
-    "explanation": "ECRはDocker/OCIコンテナイメージを安全に保存・管理するフルマネージドレジストリで、ECS/EKSと統合されます。"
-  },
-  {
-    "id": 621,
-    "question": "AWS Trusted Advisorの機能は？",
-    "options": [
-      "A. コード管理",
-      "B. コスト、パフォーマンス、セキュリティ等のベストプラクティス推奨",
-      "C. データベース管理",
-      "D. ストレージ管理"
-    ],
-    "correct": 1,
-    "explanation": "Trusted Advisorはコスト最適化、セキュリティ、パフォーマンス、耐障害性、サービス制限のAWSベストプラクティスを推奨します。"
-  },
-  {
-    "id": 622,
-    "question": "AWS PrivateLinkの用途は？",
-    "options": [
-      "A. パブリックインターネット経由の通信",
-      "B. VPC内からAWSサービスやSaaSにプライベート接続",
-      "C. CDN",
-      "D. DNS"
-    ],
-    "correct": 1,
-    "explanation": "PrivateLinkはVPCエンドポイントを通じて、インターネットを経由せずにAWSサービスへプライベートにアクセスします。"
-  },
-  {
-    "id": 623,
-    "question": "Amazon Athenaの特徴は？",
-    "options": [
-      "A. リレーショナルDB",
-      "B. S3のデータを直接SQLでクエリできるサーバーレス分析サービス",
-      "C. メッセージキュー",
-      "D. CDN"
-    ],
-    "correct": 1,
-    "explanation": "AthenaはS3に保存されたデータに対してサーバーレスで標準SQLクエリを実行でき、スキャンしたデータ量に応じて課金されます。"
-  },
-  {
-    "id": 624,
-    "question": "AWS CloudFrontのオリジンとして設定できるものは？",
-    "options": [
-      "A. S3のみ",
-      "B. S3、EC2、ELB、カスタムHTTPサーバー等",
-      "C. EC2のみ",
-      "D. Lambdaのみ"
-    ],
-    "correct": 1,
-    "explanation": "CloudFrontのオリジンにはS3バケット、EC2インスタンス、ELB、任意のHTTPサーバーを設定できます。"
-  },
-  {
-    "id": 625,
-    "question": "AWS Budgetsの機能は？",
-    "options": [
-      "A. コードのバージョン管理",
-      "B. コストや使用量の予算設定とアラート通知",
-      "C. データベース管理",
-      "D. セキュリティ監査"
-    ],
-    "correct": 1,
-    "explanation": "Budgetsはコスト・使用量・予約の予算を設定し、閾値を超えた場合にメール/SNSでアラートを送信します。"
-  },
-  {
-    "id": 626,
-    "question": "Amazon S3 Transfer Accelerationの仕組みは？",
-    "options": [
-      "A. S3の容量拡張",
-      "B. CloudFrontのエッジロケーションを利用してS3へのアップロードを高速化",
-      "C. S3の暗号化",
-      "D. S3の削除"
-    ],
-    "correct": 1,
-    "explanation": "Transfer AccelerationはCloudFrontのエッジロケーション経由でAWSのバックボーンネットワークを使い、遠距離のS3転送を高速化します。"
-  },
-  {
-    "id": 627,
-    "question": "AWS CloudHSMとKMSの違いは？",
-    "options": [
-      "A. 同じサービス",
-      "B. CloudHSMは専用ハードウェア暗号モジュール、KMSはマネージド鍵管理",
-      "C. KMSの方が高価",
-      "D. CloudHSMの方が簡単"
-    ],
-    "correct": 1,
-    "explanation": "CloudHSMは専用のFIPS 140-2 Level 3認定ハードウェアで鍵管理、KMSはマルチテナント型のマネージド鍵管理サービスです。"
-  },
-  {
-    "id": 628,
-    "question": "AWS Outpostsとは？",
-    "options": [
-      "A. オンライン専用サービス",
-      "B. AWSのインフラとサービスをオンプレミスに拡張して提供",
-      "C. 海外リージョン",
-      "D. 無料サービス"
-    ],
-    "correct": 1,
-    "explanation": "OutpostsはAWSのラック型インフラをユーザーのデータセンターに設置し、AWSのサービスをオンプレミスで利用可能にします。"
-  },
-  {
-    "id": 629,
-    "question": "AWS Global Acceleratorの目的は？",
-    "options": [
-      "A. ストレージの高速化",
-      "B. AWSグローバルネットワーク経由でアプリケーションの可用性とパフォーマンスを向上",
-      "C. DNS管理",
-      "D. データベースの高速化"
-    ],
-    "correct": 1,
-    "explanation": "Global AcceleratorはAnycast IPとAWSのグローバルネットワークを利用して、ユーザーに最も近いエンドポイントにトラフィックを最適ルーティングします。"
-  },
-  {
-    "id": 630,
-    "question": "マネージドサービスとアンマネージドサービスの違いは？",
-    "options": [
-      "A. 同じもの",
-      "B. マネージドはAWSが運用管理を担当、アンマネージドはユーザーが自分で管理",
-      "C. アンマネージドの方が安い",
-      "D. マネージドはオンプレミス"
-    ],
-    "correct": 1,
-    "explanation": "マネージドサービス（RDS等）はOS/パッチ管理等をAWSが担当。アンマネージド（EC2上のDB）はユーザーが全て管理します。"
+    "explanation": "エッジロケーションはユーザーに地理的に近い場所に配置された拠点で、コンテンツをキャッシュして配信を高速化します。"
   }
 ]

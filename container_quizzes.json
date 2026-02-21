@@ -1,1192 +1,362 @@
 [
   {
-    "id": 631,
-    "question": "Dockerのコンテナと仮想マシンの最大の違いは？",
+    "id": 581,
+    "question": "Dockerコンテナと仮想マシンの違いとして正しいものはどれか？",
     "options": [
-      "A. 同じ技術",
-      "B. コンテナはホストOSのカーネルを共有し軽量、VMはゲストOSを持つ",
-      "C. VMの方が軽い",
-      "D. コンテナはハードウェア仮想化"
+      "A. コンテナはゲストOSを含み仮想マシンより重量である",
+      "B. コンテナはホストOSのカーネルを共有し軽量に動作する",
+      "C. 仮想マシンはカーネルを共有しコンテナより軽量である",
+      "D. コンテナと仮想マシンは技術的に同等で違いはないもの"
     ],
     "correct": 1,
-    "explanation": "コンテナはホストOSのカーネルを共有するためオーバーヘッドが小さく、起動が高速です。VMはハイパーバイザー上でゲストOSを実行します。"
+    "explanation": "コンテナはホストOSのカーネルを共有するため、ゲストOSが不要で軽量・高速です。VMはハイパーバイザー上で完全なOSを実行します。"
   },
   {
-    "id": 632,
-    "question": "Dockerイメージとコンテナの関係は？",
+    "id": 582,
+    "question": "Dockerfileの「RUN」命令の説明として正しいものはどれか？",
     "options": [
-      "A. 同じもの",
-      "B. イメージは読み取り専用テンプレート、コンテナはイメージの実行インスタンス",
-      "C. コンテナがテンプレート",
-      "D. イメージが実行中"
+      "A. コンテナ起動時に実行されるデフォルトコマンドを設定",
+      "B. イメージビルド時にコマンドを実行し結果をレイヤー化",
+      "C. コンテナが公開するポート番号を宣言するための命令",
+      "D. ホストのファイルをコンテナ内にコピーするための命令"
     ],
     "correct": 1,
-    "explanation": "Dockerイメージはアプリケーションと依存関係を含む不変のテンプレートで、コンテナはそのイメージから起動する実行環境です。"
+    "explanation": "RUNはDockerイメージのビルド時にコマンドを実行し、その結果を新しいレイヤーとしてイメージに追加します。"
   },
   {
-    "id": 633,
-    "question": "Dockerfileの「FROM」命令の役割は？",
+    "id": 583,
+    "question": "Dockerfileの「CMD」と「ENTRYPOINT」の違いはどれか？",
     "options": [
-      "A. ファイルのコピー",
-      "B. ベースイメージを指定する",
-      "C. 環境変数の設定",
-      "D. コマンドの実行"
+      "A. CMDはオーバーライド不可でENTRYPOINTはオーバーライド可能",
+      "B. CMDはdocker run引数で上書き可能だがENTRYPOINTは維持",
+      "C. CMDはビルド時に実行されENTRYPOINTは起動時に実行される",
+      "D. CMDとENTRYPOINTは完全に同じ機能で名前が異なるだけの命令"
     ],
     "correct": 1,
-    "explanation": "FROMはDockerfileの最初に記述し、ビルドの基となるベースイメージ（例: FROM python:3.11）を指定します。"
+    "explanation": "CMDはdocker run時の引数で上書きされますが、ENTRYPOINTは維持され引数が追加されます。CMDはENTRYPOINTのデフォルト引数にもなります。"
   },
   {
-    "id": 634,
-    "question": "Dockerfileの「RUN」と「CMD」の違いは？",
+    "id": 584,
+    "question": "Kubernetesの「Pod」の説明として正しいものはどれか？",
     "options": [
-      "A. 同じ機能",
-      "B. RUNはビルド時にコマンド実行、CMDはコンテナ起動時のデフォルトコマンド",
-      "C. CMDはビルド時に実行",
-      "D. RUNはコンテナ起動時に実行"
+      "A. 複数のノードをまとめたクラスターの単位のことである",
+      "B. 1つ以上のコンテナをまとめたデプロイの最小単位である",
+      "C. コンテナイメージを保存するレジストリの単位のことを指す",
+      "D. ネットワークポリシーを定義するリソースの単位のこと"
     ],
     "correct": 1,
-    "explanation": "RUNはイメージビルド時にレイヤーを追加、CMDはコンテナ起動時に実行されるデフォルトコマンドを定義します。"
+    "explanation": "Podは1つ以上のコンテナを含むKubernetesのデプロイメントの最小単位で、同じPod内のコンテナはネットワークとストレージを共有します。"
   },
   {
-    "id": 635,
-    "question": "Dockerfileの「COPY」と「ADD」の違いは？",
+    "id": 585,
+    "question": "Kubernetesの「Service」の主な役割はどれか？",
     "options": [
-      "A. 同じ機能",
-      "B. COPYはローカルファイルのコピーのみ、ADDはURL取得やtar自動展開も可能",
-      "C. ADDの方がシンプル",
-      "D. COPYの方が高機能"
+      "A. コンテナイメージのビルドを自動化する機能を提供する",
+      "B. Pod群への安定したネットワークアクセスを提供する仕組み",
+      "C. コンテナのログを収集して一元管理する機能を提供する",
+      "D. クラスターのノードを自動的にスケーリングする仕組み"
     ],
     "correct": 1,
-    "explanation": "COPYは単純なファイルコピー専用で推奨されます。ADDはURL取得やtar.gzの自動展開機能がありますが、明示性に欠けます。"
+    "explanation": "ServiceはPod群に対して安定したIPアドレスとDNS名を提供し、ロードバランシングも行うネットワーク抽象化リソースです。"
   },
   {
-    "id": 636,
-    "question": "Dockerfileの「EXPOSE」命令の役割は？",
+    "id": 586,
+    "question": "Helmの役割として正しい説明はどれか？",
     "options": [
-      "A. ポートを公開して外部アクセスを許可",
-      "B. コンテナがリッスンするポートをドキュメントとして宣言",
-      "C. ファイアウォール設定",
-      "D. ネットワークの作成"
+      "A. Kubernetesクラスターの監視とアラート管理を行うツール",
+      "B. Kubernetesアプリケーションのパッケージマネージャーである",
+      "C. Dockerコンテナイメージのビルドを自動化するツールである",
+      "D. Kubernetesのネットワークポリシーを管理するツールのこと"
     ],
     "correct": 1,
-    "explanation": "EXPOSEはポートの宣言（ドキュメント）のみで、実際の公開はdocker run -pで行います。"
+    "explanation": "HelmはKubernetesのパッケージマネージャーで、Chart（テンプレート群）を使ってアプリケーションの定義・インストール・アップグレードを管理します。"
   },
   {
-    "id": 637,
-    "question": "Dockerfileの「ENTRYPOINT」と「CMD」の関係は？",
+    "id": 587,
+    "question": "ハイパーバイザーの「Type 1」と「Type 2」の違いはどれか？",
     "options": [
-      "A. 同じもの",
-      "B. ENTRYPOINTは固定実行コマンド、CMDはそのデフォルト引数として機能",
-      "C. CMDが優先される",
-      "D. 同時に使えない"
+      "A. Type 1はホストOS上で動作しType 2はベアメタルで動作",
+      "B. Type 1はベアメタル上で直接動作しType 2はホストOS上で動作",
+      "C. Type 1はコンテナ型でType 2は仮想マシン型の仕組みである",
+      "D. Type 1とType 2は同じ方式で数字は世代を表すものである"
     ],
     "correct": 1,
-    "explanation": "ENTRYPOINTはコンテナの実行コマンドを固定し、CMDはそのデフォルト引数を提供します。docker run時の引数でCMDは上書きされます。"
+    "explanation": "Type 1（ベアメタル型）はハードウェア上で直接動作します。Type 2（ホスト型）はOS上のアプリとして動作します。"
   },
   {
-    "id": 638,
-    "question": "マルチステージビルドの目的は？",
+    "id": 588,
+    "question": "Dockerの「マルチステージビルド」の目的として正しいものはどれか？",
     "options": [
-      "A. ビルドの並列化",
+      "A. 複数のコンテナを同時にビルドして並列化する仕組み",
       "B. ビルド環境と実行環境を分離して最終イメージを軽量化",
-      "C. 複数言語の混在",
-      "D. テストの自動化"
+      "C. 複数のOSに対応するイメージを一度にビルドする仕組み",
+      "D. ビルドの各ステージを異なるマシンで分散実行する仕組み"
     ],
     "correct": 1,
-    "explanation": "マルチステージビルドではビルドツール等を含むステージでコンパイルし、最終ステージには成果物のみコピーしてイメージサイズを削減します。"
+    "explanation": "マルチステージビルドはビルド用ステージとランタイム用ステージを分離し、ビルドツール等を含まない軽量な最終イメージを作成します。"
   },
   {
-    "id": 639,
-    "question": "Dockerの「.dockerignore」ファイルの役割は？",
+    "id": 589,
+    "question": "Kubernetesの「Deployment」の機能として正しいものはどれか？",
     "options": [
-      "A. コンテナの設定",
-      "B. ビルドコンテキストから除外するファイルを指定",
-      "C. ネットワーク設定",
-      "D. ボリュームの設定"
+      "A. 永続的なストレージボリュームを管理するリソースである",
+      "B. Podのレプリカ数管理とローリングアップデートを提供する",
+      "C. クラスター外部からのネットワークアクセスを制御する役割",
+      "D. 機密情報を安全に管理して配布するリソースとして機能する"
     ],
     "correct": 1,
-    "explanation": ".dockerignoreはDockerビルド時にコンテキストに送信しないファイル（node_modules、.git等）を指定し、ビルドを高速化します。"
+    "explanation": "DeploymentはPodのレプリカ数の維持、ローリングアップデート、ロールバックなどのデプロイ管理を行うリソースです。"
   },
   {
-    "id": 640,
-    "question": "Dockerレイヤーキャッシュの仕組みは？",
+    "id": 590,
+    "question": "Dockerの「ボリューム」の主な用途として正しいものはどれか？",
     "options": [
-      "A. キャッシュなし",
-      "B. 変更のないレイヤーはキャッシュを再利用し、変更以降のレイヤーを再ビルド",
-      "C. 全レイヤーを毎回ビルド",
-      "D. 最終レイヤーのみキャッシュ"
+      "A. コンテナのCPUとメモリの使用量を制限するための機能",
+      "B. コンテナのデータを永続化しホストと共有するための機能",
+      "C. コンテナ間のネットワーク通信を設定するための機能構成",
+      "D. コンテナのセキュリティポリシーを定義するための仕組み"
     ],
     "correct": 1,
-    "explanation": "Dockerは各命令をレイヤーとしてキャッシュし、変更がないレイヤーは再利用します。変更頻度の低い命令を先に書くと効率的です。"
+    "explanation": "ボリュームはコンテナのライフサイクルとは独立してデータを永続化し、ホストやコンテナ間でデータを共有する仕組みです。"
   },
   {
-    "id": 641,
-    "question": "docker runの「-v」オプションの用途は？",
+    "id": 591,
+    "question": "Proxmoxの説明として正しいものはどれか？",
     "options": [
-      "A. バージョン表示",
-      "B. ボリュームマウント（ホストとコンテナのディレクトリを共有）",
-      "C. 冗長出力",
-      "D. 仮想ネットワーク接続"
+      "A. コンテナオーケストレーション専用のプラットフォーム",
+      "B. オープンソースの仮想化管理プラットフォームである",
+      "C. クラウド専用の仮想マシンモニタリングツールである",
+      "D. Windowsサーバー専用のハイパーバイザー製品であるもの"
     ],
     "correct": 1,
-    "explanation": "-vはホストのディレクトリをコンテナにマウントし、データの永続化やホスト-コンテナ間のファイル共有を実現します。"
+    "explanation": "ProxmoxはKVMとLXCを統合したオープンソースの仮想化管理プラットフォームで、Webベースの管理UIを提供します。"
   },
   {
-    "id": 642,
-    "question": "Dockerネットワークの「bridge」ドライバのデフォルト動作は？",
+    "id": 592,
+    "question": "VMwareの「vSphere」の構成要素として正しいものはどれか？",
     "options": [
-      "A. ホストネットワークを直接使用",
-      "B. 同一ブリッジネットワーク内のコンテナ間通信を許可する仮想ブリッジ",
-      "C. 外部ネットワークのみ",
-      "D. ネットワーク無効"
+      "A. DockerとKubernetesで構成される仮想化基盤のことである",
+      "B. ESXiハイパーバイザーとvCenter Serverで構成される基盤",
+      "C. ProxmoxとLXCで構成されるオープンソース仮想化基盤",
+      "D. Hyper-VとAzureで構成されるMicrosoft仮想化基盤のこと"
     ],
     "correct": 1,
-    "explanation": "bridgeはデフォルトのネットワークドライバで、仮想ブリッジを作成し同一ネットワーク内のコンテナ間通信を可能にします。"
+    "explanation": "vSphereはVMwareの仮想化プラットフォームで、ESXi（Type 1ハイパーバイザー）とvCenter Server（管理ツール）で構成されます。"
   },
   {
-    "id": 643,
-    "question": "docker-compose.ymlの役割は？",
+    "id": 593,
+    "question": "Dockerネットワークのデフォルトドライバ「bridge」の動作はどれか？",
     "options": [
-      "A. Dockerfileの代替",
-      "B. 複数コンテナのアプリケーションを定義・管理する構成ファイル",
-      "C. カーネル設定",
-      "D. ネットワーク設定のみ"
+      "A. コンテナがホストのネットワークスタックを直接使用する",
+      "B. 仮想ブリッジを作成しコンテナ間の通信を可能にする設定",
+      "C. 複数ホスト間でコンテナのオーバーレイネットワークを構築",
+      "D. コンテナのネットワークを完全に無効化する設定のこと"
     ],
     "correct": 1,
-    "explanation": "docker-compose.ymlは複数のサービス（コンテナ）、ネットワーク、ボリュームをYAMLで定義し、1コマンドで起動・管理します。"
+    "explanation": "bridgeドライバは仮想ブリッジを作成し、同じブリッジネットワークに接続されたコンテナ間の通信を可能にします。"
   },
   {
-    "id": 644,
-    "question": "docker exec -it コンテナ名 /bin/bash の用途は？",
+    "id": 594,
+    "question": "Kubernetesの「Namespace」の用途として正しいものはどれか？",
     "options": [
-      "A. コンテナの停止",
-      "B. 実行中のコンテナに入ってbashシェルを操作",
-      "C. コンテナの削除",
-      "D. イメージのビルド"
+      "A. コンテナのファイルシステムを分離する機能を提供する",
+      "B. クラスター内のリソースを論理的に分離しマルチテナントを実現",
+      "C. Podの起動順序を制御するためのスケジューリング機能",
+      "D. コンテナイメージのバージョンを管理するための仕組み"
     ],
     "correct": 1,
-    "explanation": "docker execは実行中のコンテナ内でコマンドを実行します。-itオプションで対話的なbashセッションを開始できます。"
+    "explanation": "Namespaceはクラスター内のリソースを論理的に分離し、チームや環境（dev/staging/prod）ごとの管理を実現します。"
   },
   {
-    "id": 645,
-    "question": "Docker Hubとは？",
+    "id": 595,
+    "question": "Dockerfileの「COPY」と「ADD」の違いとして正しいものはどれか？",
     "options": [
-      "A. Dockerの開発環境",
-      "B. Dockerイメージの公開レジストリサービス",
-      "C. Dockerのビルドツール",
-      "D. コンテナのオーケストレーター"
+      "A. COPYはリモートURLからファイルを取得できるが ADDはできない",
+      "B. ADDはtar展開やURL取得が可能だがCOPYは単純なコピーのみ",
+      "C. COPYはディレクトリをコピーできるがADDはファイルのみ対応",
+      "D. ADDは実行権限を付与するがCOPYはパーミッションを維持する"
     ],
     "correct": 1,
-    "explanation": "Docker HubはDockerイメージを保存・共有する最大のパブリックレジストリで、公式イメージも提供しています。"
+    "explanation": "ADDはtarアーカイブの自動展開やURLからのダウンロードが可能です。COPYは単純なファイルコピーのみで、推奨されるのはCOPYです。"
   },
   {
-    "id": 646,
-    "question": "Dockerのダングリングイメージとは？",
+    "id": 596,
+    "question": "Kubernetesの「ConfigMap」の用途として正しいものはどれか？",
     "options": [
-      "A. 使用中のイメージ",
-      "B. タグが付いておらず、どのコンテナからも参照されていないイメージ",
-      "C. 最新のイメージ",
-      "D. ベースイメージ"
+      "A. 機密情報（パスワードやトークン）を暗号化して保存する",
+      "B. 設定情報をキーバリュー形式で保存しPodに注入する仕組み",
+      "C. Podの自動スケーリングのルールを定義するリソースのこと",
+      "D. 永続ボリュームのプロビジョニングを管理するリソース機能"
     ],
     "correct": 1,
-    "explanation": "ダングリングイメージはタグなし（<none>:<none>）の未使用イメージで、docker image pruneで削除できます。"
+    "explanation": "ConfigMapは非機密の設定情報をキーバリュー形式で保存し、環境変数やボリュームとしてPodに注入するリソースです。"
   },
   {
-    "id": 647,
-    "question": "Docker Swarmとは？",
+    "id": 597,
+    "question": "Docker Composeの主な用途として正しいものはどれか？",
     "options": [
-      "A. Dockerの監視ツール",
-      "B. Docker組み込みのコンテナオーケストレーションツール",
-      "C. Dockerのストレージ",
-      "D. Dockerのネットワーク"
+      "A. 本番環境でのコンテナオーケストレーションを行うツール",
+      "B. 複数コンテナの構成をYAMLで定義しまとめて管理する機能",
+      "C. コンテナイメージのセキュリティスキャンを行うツール提供",
+      "D. コンテナレジストリへのイメージプッシュを自動化する機能"
     ],
     "correct": 1,
-    "explanation": "Docker SwarmはDocker Engine組み込みのクラスタリング・オーケストレーション機能で、複数ホストのコンテナを管理します。"
+    "explanation": "Docker Composeはdocker-compose.yml（compose.yaml）で複数コンテナの構成を定義し、一括で起動・停止・管理します。"
   },
   {
-    "id": 648,
-    "question": "Kubernetesの略称は？",
-    "options": ["A. K3s", "B. K8s", "C. K5s", "D. K10s"],
-    "correct": 1,
-    "explanation": "KubernetesはK8sと略されます。Kとsの間の8文字（ubernete）を省略した表記です。"
-  },
-  {
-    "id": 649,
-    "question": "Kubernetesの主な役割は？",
-    "options": [
-      "A. コンテナイメージの作成",
-      "B. コンテナのオーケストレーション（自動デプロイ、スケーリング、管理）",
-      "C. 仮想マシンの管理",
-      "D. ネットワーク機器の管理"
-    ],
-    "correct": 1,
-    "explanation": "Kubernetesはコンテナの自動デプロイ、スケーリング、ヘルスチェック、負荷分散、ローリングアップデート等を管理するオーケストレーターです。"
-  },
-  {
-    "id": 650,
-    "question": "KubernetesのPodとは？",
-    "options": [
-      "A. ノードと同じ",
-      "B. 1つ以上のコンテナをまとめたデプロイの最小単位",
-      "C. クラスター全体",
-      "D. ネットワーク設定"
-    ],
-    "correct": 1,
-    "explanation": "PodはKubernetesの最小デプロイ単位で、1つ以上のコンテナが同じネットワーク名前空間とストレージを共有します。"
-  },
-  {
-    "id": 651,
-    "question": "KubernetesのNodeとは？",
-    "options": [
-      "A. Podと同じ",
-      "B. Podが実行されるワーカーマシン（物理/仮想）",
-      "C. ネットワーク機器",
-      "D. ストレージ"
-    ],
-    "correct": 1,
-    "explanation": "NodeはPodが実行されるワーカーマシンで、kubelet、コンテナランタイム、kube-proxyが動作します。"
-  },
-  {
-    "id": 652,
-    "question": "KubernetesのDeploymentの役割は？",
-    "options": [
-      "A. ストレージ管理",
-      "B. Podのレプリカ数管理、ローリングアップデート、ロールバック",
-      "C. ネットワーク設定",
-      "D. ログ管理"
-    ],
-    "correct": 1,
-    "explanation": "Deploymentはレプリカ数の維持、ローリングアップデートでの無停止デプロイ、問題時のロールバックを管理します。"
-  },
-  {
-    "id": 653,
-    "question": "KubernetesのServiceの役割は？",
-    "options": [
-      "A. コンテナのビルド",
-      "B. Podへの安定したネットワークエンドポイント（IPとDNS名）を提供",
-      "C. ストレージの提供",
-      "D. ログの収集"
-    ],
-    "correct": 1,
-    "explanation": "ServiceはPodが動的にIPが変わる中で安定したアクセスポイント（ClusterIP、NodePort、LoadBalancer等）を提供します。"
-  },
-  {
-    "id": 654,
-    "question": "KubernetesのService種類「ClusterIP」の特徴は？",
-    "options": [
-      "A. 外部公開",
-      "B. クラスター内部のみでアクセス可能なデフォルトのService",
-      "C. ロードバランサー連携",
-      "D. ノードのポート公開"
-    ],
-    "correct": 1,
-    "explanation": "ClusterIPはデフォルトのServiceタイプで、クラスター内部のPod間通信専用の仮想IPを割り当てます。外部アクセスは不可。"
-  },
-  {
-    "id": 655,
-    "question": "KubernetesのService種類「NodePort」の特徴は？",
-    "options": [
-      "A. クラスター内部のみ",
-      "B. 各ノードの固定ポート（30000-32767）で外部からアクセス可能",
-      "C. ロードバランサー専用",
-      "D. DNS名のみ"
-    ],
-    "correct": 1,
-    "explanation": "NodePortは全ノードの指定ポート（30000-32767）を開放し、外部からノードIP:ポートでアクセスできるようにします。"
-  },
-  {
-    "id": 656,
-    "question": "KubernetesのService種類「LoadBalancer」の特徴は？",
-    "options": [
-      "A. 内部通信のみ",
-      "B. クラウドプロバイダーのLBを自動作成して外部公開",
-      "C. 手動設定のみ",
-      "D. UDPのみ"
-    ],
-    "correct": 1,
-    "explanation": "LoadBalancerはクラウド環境（AWS/GCP/Azure等）で外部ロードバランサーを自動プロビジョニングし、外部トラフィックを受け付けます。"
-  },
-  {
-    "id": 657,
-    "question": "KubernetesのIngressの役割は？",
-    "options": [
-      "A. ストレージ管理",
-      "B. HTTP/HTTPSルーティング（パスベース、ホストベース）を提供するL7ロードバランサー",
-      "C. Pod間通信",
-      "D. ログ管理"
-    ],
-    "correct": 1,
-    "explanation": "Ingressはクラスター外から内部ServiceへのHTTP/HTTPSルーティングを定義し、パスやホスト名で振り分けます。"
-  },
-  {
-    "id": 658,
-    "question": "KubernetesのNamespaceの用途は？",
-    "options": [
-      "A. ファイルシステムの分離",
-      "B. クラスター内リソースの論理的な分離（マルチテナント等）",
-      "C. ネットワークの暗号化",
-      "D. ログの分類"
-    ],
-    "correct": 1,
-    "explanation": "Namespaceはクラスター内のリソースを論理的に分離し、チームや環境（dev/staging/prod）ごとにリソースを管理します。"
-  },
-  {
-    "id": 659,
-    "question": "KubernetesのConfigMapの用途は？",
-    "options": [
-      "A. シークレットの保存",
-      "B. 非機密な設定データをキーバリューペアで保存しPodに提供",
-      "C. ストレージ管理",
-      "D. ネットワーク設定"
-    ],
-    "correct": 1,
-    "explanation": "ConfigMapは設定ファイル、環境変数等の非機密データを保存し、環境変数やファイルマウントとしてPodに注入します。"
-  },
-  {
-    "id": 660,
-    "question": "KubernetesのSecretの特徴は？",
-    "options": [
-      "A. ConfigMapと同じ",
-      "B. 機密データ（パスワード、トークン等）をBase64エンコードで保存",
-      "C. 暗号化不要",
-      "D. 外部公開される"
-    ],
-    "correct": 1,
-    "explanation": "SecretはConfigMapと似ていますが、パスワードやAPIキー等の機密データを扱います。デフォルトはBase64エンコードのみ（暗号化ではない）。"
-  },
-  {
-    "id": 661,
-    "question": "KubernetesのPersistentVolume（PV）とは？",
-    "options": [
-      "A. 一時ストレージ",
-      "B. クラスター管理者がプロビジョニングするストレージリソース",
-      "C. Pod内のメモリ",
-      "D. ネットワークストレージのみ"
-    ],
-    "correct": 1,
-    "explanation": "PVはクラスターレベルのストレージリソースで、Podのライフサイクルに依存せずデータを永続化します。"
-  },
-  {
-    "id": 662,
-    "question": "KubernetesのPersistentVolumeClaim（PVC）とは？",
-    "options": [
-      "A. ストレージの物理管理",
-      "B. ユーザー（Pod）がPVに対して行うストレージ要求",
-      "C. ネットワーク要求",
-      "D. CPU要求"
-    ],
-    "correct": 1,
-    "explanation": "PVCはユーザーがサイズやアクセスモードを指定してストレージを要求するリソースで、条件に合うPVにバインドされます。"
-  },
-  {
-    "id": 663,
-    "question": "KubernetesのDaemonSetの役割は？",
-    "options": [
-      "A. Pod数を動的にスケール",
-      "B. 全ノード（または指定ノード）に1つずつPodを配置",
-      "C. バッチ処理",
-      "D. ネットワーク管理"
-    ],
-    "correct": 1,
-    "explanation": "DaemonSetは各ノードに1つのPodを配置し、ログ収集、監視エージェント等のノード単位のデーモンに使われます。"
-  },
-  {
-    "id": 664,
-    "question": "KubernetesのStatefulSetの特徴は？",
-    "options": [
-      "A. ステートレスアプリ向け",
-      "B. 安定したネットワークIDと永続ストレージを持つステートフルアプリ向け",
-      "C. バッチ処理向け",
-      "D. 一時的なPod"
-    ],
-    "correct": 1,
-    "explanation": "StatefulSetはDB等のステートフルアプリ向けに、安定したホスト名（pod-0, pod-1...）と順序付きデプロイ、永続ストレージを提供します。"
-  },
-  {
-    "id": 665,
-    "question": "KubernetesのJobとCronJobの違いは？",
-    "options": [
-      "A. 同じもの",
-      "B. Jobは1回限りのバッチ処理、CronJobは定期実行のバッチ処理",
-      "C. CronJobは1回限り",
-      "D. Jobは定期実行"
-    ],
-    "correct": 1,
-    "explanation": "Jobは指定回数の完了を保証するワンショットタスク、CronJobはcron形式でスケジュールされた定期的なJob実行です。"
-  },
-  {
-    "id": 666,
-    "question": "KubernetesのHPA（Horizontal Pod Autoscaler）の動作は？",
-    "options": [
-      "A. Podのリソース制限を変更",
-      "B. CPU/メモリ使用率等に基づいてPodのレプリカ数を自動増減",
-      "C. ノード数の自動増減",
-      "D. ストレージの自動拡張"
-    ],
-    "correct": 1,
-    "explanation": "HPAはCPU使用率やカスタムメトリクスに基づいて、DeploymentのPodレプリカ数を自動的にスケールアウト/インします。"
-  },
-  {
-    "id": 667,
-    "question": "kubectlとは？",
-    "options": [
-      "A. Kubernetesのデータベース",
-      "B. KubernetesクラスターをCLIで操作するコマンドラインツール",
-      "C. コンテナランタイム",
-      "D. ネットワークプラグイン"
-    ],
-    "correct": 1,
-    "explanation": "kubectlはKubernetes APIサーバーと通信してリソースの作成、取得、更新、削除等の操作を行うCLIツールです。"
-  },
-  {
-    "id": 668,
-    "question": "kubectl apply -f manifest.ymlの動作は？",
-    "options": [
-      "A. マニフェストの削除",
-      "B. YAMLマニフェストの内容に基づいてリソースを作成または更新",
-      "C. ログの表示",
-      "D. Podへの接続"
-    ],
-    "correct": 1,
-    "explanation": "kubectl applyはマニフェスト（YAML/JSON）の宣言的な定義に基づき、リソースが存在しなければ作成、存在すれば更新します。"
-  },
-  {
-    "id": 669,
-    "question": "Kubernetesのコントロールプレーンに含まれないコンポーネントは？",
-    "options": [
-      "A. kube-apiserver",
-      "B. kubelet",
-      "C. etcd",
-      "D. kube-scheduler"
-    ],
-    "correct": 1,
-    "explanation": "kubeletは各Nodeで動作するエージェントでワーカー側です。コントロールプレーンはAPI server、etcd、scheduler、controller managerで構成されます。"
-  },
-  {
-    "id": 670,
-    "question": "etcdの役割は？",
-    "options": [
-      "A. コンテナランタイム",
-      "B. クラスターの全状態を保存する分散キーバリューストア",
-      "C. ネットワークプラグイン",
-      "D. ログ収集"
-    ],
-    "correct": 1,
-    "explanation": "etcdはKubernetesクラスターの全設定データ、状態、メタデータを保存する分散キーバリューストア（唯一の真実の情報源）です。"
-  },
-  {
-    "id": 671,
-    "question": "Helmとは？",
-    "options": [
-      "A. コンテナランタイム",
-      "B. Kubernetesのパッケージマネージャー",
-      "C. 監視ツール",
-      "D. ネットワークプラグイン"
-    ],
-    "correct": 1,
-    "explanation": "HelmはKubernetesのパッケージマネージャーで、Chartと呼ばれるパッケージでアプリケーションの定義・インストール・アップグレードを管理します。"
-  },
-  {
-    "id": 672,
-    "question": "Helm Chartとは？",
-    "options": [
-      "A. グラフィカルUI",
-      "B. Kubernetesリソースのテンプレートとデフォルト値をまとめたパッケージ",
-      "C. ログファイル",
-      "D. ネットワーク設定"
-    ],
-    "correct": 1,
-    "explanation": "ChartはKubernetesマニフェスト、テンプレート、values.yaml（デフォルト値）、Chart.yaml（メタデータ）をまとめたパッケージです。"
-  },
-  {
-    "id": 673,
-    "question": "Helm values.yamlの用途は？",
-    "options": [
-      "A. Helmの認証設定",
-      "B. Chartのテンプレートに渡すデフォルトパラメータを定義",
-      "C. Kubernetesの認証",
-      "D. ネットワーク設定"
-    ],
-    "correct": 1,
-    "explanation": "values.yamlはChartのテンプレート変数のデフォルト値を定義し、helm installやupgrade時にカスタム値で上書きできます。"
-  },
-  {
-    "id": 674,
-    "question": "helm install my-release my-chart の動作は？",
-    "options": [
-      "A. Chartの削除",
-      "B. my-chartをmy-releaseという名前でKubernetesにデプロイ",
-      "C. Chartのダウンロードのみ",
-      "D. Kubernetesの設定変更"
-    ],
-    "correct": 1,
-    "explanation": "helm installはChartのテンプレートをvaluesで展開し、生成されたKubernetesマニフェストをクラスターに適用（デプロイ）します。"
-  },
-  {
-    "id": 675,
-    "question": "仮想マシン（VM）のメリットは？",
-    "options": [
-      "A. ホストOSのカーネルを共有",
-      "B. 異なるOSを同一物理マシンで実行でき、強い分離性を持つ",
-      "C. コンテナより軽量",
-      "D. 起動が高速"
-    ],
-    "correct": 1,
-    "explanation": "VMは各インスタンスが独自のOSを持ち、ハードウェアレベルで分離されるため、異なるOS実行と高いセキュリティ分離が可能です。"
-  },
-  {
-    "id": 676,
-    "question": "Type 1ハイパーバイザーの特徴は？",
-    "options": [
-      "A. ホストOS上で動作",
-      "B. ベアメタル（ハードウェア上）で直接動作する",
-      "C. デスクトップ向け",
-      "D. パフォーマンスが低い"
-    ],
-    "correct": 1,
-    "explanation": "Type 1（ネイティブ/ベアメタル）ハイパーバイザーは物理ハードウェア上で直接動作し、高性能です。ESXi、Hyper-V、Xenが代表例。"
-  },
-  {
-    "id": 677,
-    "question": "Type 2ハイパーバイザーの特徴は？",
-    "options": [
-      "A. ハードウェア上で直接動作",
-      "B. ホストOS上のアプリケーションとして動作する",
-      "C. サーバー向け専用",
-      "D. OSが不要"
-    ],
-    "correct": 1,
-    "explanation": "Type 2（ホスト型）ハイパーバイザーは既存のOS上で動作するアプリケーションです。VirtualBox、VMware Workstationが代表例。"
-  },
-  {
-    "id": 678,
-    "question": "VMware vSphereの構成要素は？",
-    "options": [
-      "A. Dockerのみ",
-      "B. ESXi（ハイパーバイザー）とvCenter Server（管理ツール）",
-      "C. Kubernetesのみ",
-      "D. Linuxカーネルのみ"
-    ],
-    "correct": 1,
-    "explanation": "vSphereはベアメタルハイパーバイザーESXiと集中管理ツールvCenter Serverで構成されるVMwareの仮想化プラットフォームです。"
-  },
-  {
-    "id": 679,
-    "question": "VMware ESXiとは？",
-    "options": [
-      "A. Type 2ハイパーバイザー",
-      "B. ベアメタル（Type 1）ハイパーバイザー",
-      "C. コンテナランタイム",
-      "D. ストレージシステム"
-    ],
-    "correct": 1,
-    "explanation": "ESXiはVMwareのType 1ハイパーバイザーで、物理サーバー上に直接インストールしてVMを実行します。"
-  },
-  {
-    "id": 680,
-    "question": "vMotionの機能は？",
-    "options": [
-      "A. VMの作成",
-      "B. 稼働中のVMをダウンタイムなしで別ホストに移行",
-      "C. VMの削除",
-      "D. VMのバックアップ"
-    ],
-    "correct": 1,
-    "explanation": "vMotionは実行中のVMをサービス無中断で別のESXiホストにライブマイグレーションする機能です。"
-  },
-  {
-    "id": 681,
-    "question": "Proxmox VEの特徴は？",
-    "options": [
-      "A. 商用ライセンスのみ",
-      "B. KVMとLXCを統合したオープンソースの仮想化プラットフォーム",
-      "C. VMwareの製品",
-      "D. コンテナ専用"
-    ],
-    "correct": 1,
-    "explanation": "Proxmox VEはKVM（完全仮想化）とLXC（コンテナ）を統合し、WebUIで管理できるオープンソースの仮想化基盤です。"
-  },
-  {
-    "id": 682,
-    "question": "KVM（Kernel-based Virtual Machine）とは？",
-    "options": [
-      "A. コンテナ技術",
-      "B. Linuxカーネルに組み込まれたType 1ハイパーバイザー",
-      "C. Windows専用",
-      "D. ストレージシステム"
-    ],
-    "correct": 1,
-    "explanation": "KVMはLinuxカーネルのモジュールとして動作し、CPUのハードウェア仮想化機能（Intel VT / AMD-V）を活用するハイパーバイザーです。"
-  },
-  {
-    "id": 683,
-    "question": "LXC（Linux Containers）とは？",
-    "options": [
-      "A. 仮想マシン",
-      "B. Linuxカーネルのcgroupsとnamespacesを使ったOSレベルの仮想化",
-      "C. ハイパーバイザー",
-      "D. Dockerと同じ"
-    ],
-    "correct": 1,
-    "explanation": "LXCはLinuxカーネルの機能を使ったコンテナ技術で、軽量なLinux環境を提供します。Dockerの基礎技術でもあります。"
-  },
-  {
-    "id": 684,
-    "question": "コンテナのnamespaceの役割は？",
-    "options": [
-      "A. ネットワーク速度向上",
-      "B. プロセスID、ネットワーク、ファイルシステム等をコンテナ間で分離",
-      "C. CPUの割り当て",
-      "D. メモリの制限"
-    ],
-    "correct": 1,
-    "explanation": "Linux namespacesはPID、NET、MNT、UTS、IPC、USER等のリソースをプロセスグループ間で分離するカーネル機能です。"
-  },
-  {
-    "id": 685,
-    "question": "コンテナのcgroupsの役割は？",
-    "options": [
-      "A. ファイルシステムの分離",
-      "B. CPU、メモリ、I/O等のリソース使用量を制限・監視",
-      "C. ネットワークの分離",
-      "D. プロセスIDの分離"
-    ],
-    "correct": 1,
-    "explanation": "cgroups（Control Groups）はプロセスグループに対してCPU時間、メモリ量、ディスクI/O等のリソース制限を設定するカーネル機能です。"
-  },
-  {
-    "id": 686,
-    "question": "OCI（Open Container Initiative）とは？",
-    "options": [
-      "A. Dockerの別名",
-      "B. コンテナランタイムとイメージフォーマットの標準規格を策定する団体",
-      "C. Kubernetesの一部",
-      "D. クラウドプロバイダー"
-    ],
-    "correct": 1,
-    "explanation": "OCIはコンテナのランタイム仕様（runtime-spec）とイメージ仕様（image-spec）の業界標準を策定するLinux Foundation傘下の団体です。"
-  },
-  {
-    "id": 687,
-    "question": "containerdとは？",
-    "options": [
-      "A. Dockerの上位互換",
-      "B. CNCFが管理するコンテナランタイム（Docker/K8sで使用）",
-      "C. ハイパーバイザー",
-      "D. ネットワークプラグイン"
-    ],
-    "correct": 1,
-    "explanation": "containerdはDockerから分離された業界標準のコンテナランタイムで、イメージ管理、コンテナ実行、ストレージを担当します。"
-  },
-  {
-    "id": 688,
-    "question": "Podmanとは？",
-    "options": [
-      "A. Kubernetesの一部",
-      "B. デーモンレスのDockerx互換コンテナエンジン",
-      "C. ハイパーバイザー",
-      "D. モニタリングツール"
-    ],
-    "correct": 1,
-    "explanation": "PodmanはDocker互換のCLIを持ちながらデーモンプロセス不要で、rootless実行にも対応するコンテナエンジンです。"
-  },
-  {
-    "id": 689,
-    "question": "コンテナのイミュータブルインフラストラクチャとは？",
-    "options": [
-      "A. コンテナを常に更新する",
-      "B. 既存コンテナを変更せず新しいイメージで置き換えるデプロイ方式",
-      "C. コンテナを永続化する",
-      "D. コンテナを手動管理する"
-    ],
-    "correct": 1,
-    "explanation": "イミュータブルインフラでは実行中のコンテナにパッチを当てず、新しいイメージをビルドしてコンテナを置き換えます。一貫性と再現性が向上。"
-  },
-  {
-    "id": 690,
-    "question": "Kubernetesのkube-proxyの役割は？",
-    "options": [
-      "A. APIリクエストの処理",
-      "B. ノード上でServiceのネットワークルール（iptables/IPVS等）を管理",
-      "C. Podのスケジューリング",
-      "D. etcdの管理"
-    ],
-    "correct": 1,
-    "explanation": "kube-proxyは各ノードで動作し、KubernetesのServiceに対応するネットワークルールを維持してPodへのトラフィック転送を実現します。"
-  },
-  {
-    "id": 691,
-    "question": "Kubernetesのkubeletの役割は？",
-    "options": [
-      "A. APIサーバーの管理",
-      "B. 各ノードでPodの実行状態を管理するノードエージェント",
-      "C. ネットワークルールの管理",
-      "D. ストレージの管理"
-    ],
-    "correct": 1,
-    "explanation": "kubeletは各ノードで動作し、API serverから指示を受けてPodの起動・停止・ヘルスチェック等を行うエージェントです。"
-  },
-  {
-    "id": 692,
-    "question": "KubernetesのLiveness ProbeとReadiness Probeの違いは？",
-    "options": [
-      "A. 同じもの",
-      "B. Livenessはコンテナ生存確認（再起動）、Readinessはトラフィック受付可否確認",
-      "C. Readinessで再起動",
-      "D. Livenessでトラフィック制御"
-    ],
-    "correct": 1,
-    "explanation": "Liveness Probeが失敗するとコンテナが再起動されます。Readiness Probeが失敗するとServiceのエンドポイントから除外されトラフィックが来なくなります。"
-  },
-  {
-    "id": 693,
-    "question": "KubernetesのResource RequestsとLimitsの違いは？",
-    "options": [
-      "A. 同じ設定",
-      "B. Requestsはスケジューリングの保証量、Limitsは上限値",
-      "C. Limitsは保証量",
-      "D. Requestsは上限値"
-    ],
-    "correct": 1,
-    "explanation": "RequestsはPodがスケジュールされるために必要な最低リソース量、Limitsはコンテナが使用できる最大リソース量です。"
-  },
-  {
-    "id": 694,
-    "question": "KubernetesのTaint/Tolerationの用途は？",
-    "options": [
-      "A. ネットワーク制御",
-      "B. 特定ノードへのPodスケジューリングを制御（拒否/許可）",
-      "C. ストレージ管理",
-      "D. ログ管理"
-    ],
-    "correct": 1,
-    "explanation": "TaintはノードにPodの配置を拒否する条件を設定、TolerationはPodに特定のTaintを許容する設定を付与して配置を制御します。"
-  },
-  {
-    "id": 695,
-    "question": "Kubernetesのネットワークポリシー（NetworkPolicy）の用途は？",
-    "options": [
-      "A. DNS設定",
-      "B. Pod間の通信をラベルベースで制御するファイアウォールルール",
-      "C. 外部ロードバランサー",
-      "D. ストレージ制御"
-    ],
-    "correct": 1,
-    "explanation": "NetworkPolicyはNamespaceやラベルに基づいてPod間のIngress/Egressトラフィックを制御するファイアウォール的な機能です。"
-  },
-  {
-    "id": 696,
-    "question": "Istioとは？",
-    "options": [
-      "A. コンテナランタイム",
-      "B. Kubernetesのサービスメッシュ",
-      "C. パッケージマネージャー",
-      "D. CI/CDツール"
-    ],
-    "correct": 1,
-    "explanation": "IstioはKubernetes上のサービスメッシュで、トラフィック管理、セキュリティ（mTLS）、オブザーバビリティを提供します。"
-  },
-  {
-    "id": 697,
-    "question": "サービスメッシュの主なメリットは？",
-    "options": [
-      "A. コンテナのビルド高速化",
-      "B. サービス間通信のセキュリティ・観測性・ルーティング制御をアプリコードに手を加えず実現",
-      "C. ストレージの管理",
-      "D. CI/CDの自動化"
-    ],
-    "correct": 1,
-    "explanation": "サービスメッシュはサイドカープロキシ経由でサービス間通信を透過的に管理し、mTLS、リトライ、サーキットブレーカー等を提供します。"
-  },
-  {
-    "id": 698,
-    "question": "Docker Composeの「depends_on」の動作は？",
-    "options": [
-      "A. ネットワーク依存",
-      "B. 指定したサービスの起動順序を制御（起動完了は保証しない）",
-      "C. ストレージ依存",
-      "D. CPU依存"
-    ],
-    "correct": 1,
-    "explanation": "depends_onはサービスの起動順序を定義しますが、アプリケーションの準備完了は保証しません。healthcheckとの併用が推奨。"
-  },
-  {
-    "id": 699,
-    "question": "Kubernetesのノードプールとは？",
-    "options": [
-      "A. Podのグループ",
-      "B. 同じ構成を持つノードのグループ（マネージドK8sで使用）",
-      "C. ネットワーク設定",
-      "D. ストレージプール"
-    ],
-    "correct": 1,
-    "explanation": "ノードプールはGKEやEKS等のマネージドK8sで、同じインスタンスタイプやOSを持つノードのグループを管理する概念です。"
-  },
-  {
-    "id": 700,
-    "question": "Kubernetesのクラスターオートスケーラーの動作は？",
-    "options": [
-      "A. Pod数の自動調整",
-      "B. リソース不足時にノードを自動追加、余剰時にノードを自動削除",
-      "C. ストレージの自動拡張",
-      "D. ネットワーク帯域の自動調整"
-    ],
-    "correct": 1,
-    "explanation": "クラスターオートスケーラーはPendingのPodがある場合にノードを追加し、使用率の低いノードを自動で削除してコストを最適化します。"
-  },
-  {
-    "id": 701,
-    "question": "k3sとは？",
-    "options": [
-      "A. Kubectlの代替",
-      "B. 軽量なKubernetesディストリビューション（エッジ/IoT向け）",
-      "C. Helmの代替",
-      "D. Docker Swarmの代替"
-    ],
-    "correct": 1,
-    "explanation": "k3sはRancherが開発した軽量Kubernetesで、単一バイナリで動作しエッジ、IoT、開発環境に適しています。"
-  },
-  {
-    "id": 702,
-    "question": "ArgoCD とは？",
-    "options": [
-      "A. コンテナレジストリ",
-      "B. KubernetesのGitOpsベースの継続的デリバリーツール",
-      "C. モニタリングツール",
-      "D. ストレージシステム"
-    ],
-    "correct": 1,
-    "explanation": "ArgoCDはGitリポジトリをソースオブトゥルースとして、Kubernetesへの宣言的なCD（継続的デリバリー）を実現するGitOpsツールです。"
-  },
-  {
-    "id": 703,
-    "question": "コンテナのルートレス実行（Rootless）のメリットは？",
-    "options": [
-      "A. パフォーマンス向上",
-      "B. root権限なしでコンテナを実行し、セキュリティリスクを低減",
-      "C. ネットワーク速度向上",
-      "D. ストレージ効率向上"
-    ],
-    "correct": 1,
-    "explanation": "ルートレスコンテナは一般ユーザー権限で実行するため、コンテナエスケープ時のホストへの影響を最小限に抑えます。"
-  },
-  {
-    "id": 704,
-    "question": "Dockerのヘルスチェック（HEALTHCHECK命令）の目的は？",
-    "options": [
-      "A. イメージのサイズチェック",
-      "B. コンテナ内のアプリケーションの正常動作を定期的に確認",
-      "C. ネットワーク接続の確認",
-      "D. ディスク容量の確認"
-    ],
-    "correct": 1,
-    "explanation": "HEALTHCHECKはDockerfileで定義し、コンテナ内でコマンドを定期実行してアプリの健全性を確認します（healthy/unhealthy状態）。"
-  },
-  {
-    "id": 705,
-    "question": "Dockerの「--restart=always」ポリシーの動作は？",
-    "options": [
-      "A. コンテナを1回だけ再起動",
-      "B. 停止理由に関わらずコンテナを常に自動再起動（Dockerデーモン起動時含む）",
-      "C. エラー時のみ再起動",
-      "D. 再起動しない"
-    ],
-    "correct": 1,
-    "explanation": "--restart=alwaysはコンテナが停止した場合に常に自動再起動し、Dockerデーモンの再起動時もコンテナを起動します。"
-  },
-  {
-    "id": 706,
-    "question": "コンテナレジストリミラーの目的は？",
-    "options": [
-      "A. コンテナの監視",
-      "B. レジストリのプルを高速化しレート制限を回避するローカルキャッシュ",
-      "C. コンテナの暗号化",
-      "D. コンテナの圧縮"
-    ],
-    "correct": 1,
-    "explanation": "レジストリミラーはDocker Hub等の公開レジストリからのイメージをローカルにキャッシュし、プル速度向上とレート制限回避に役立ちます。"
-  },
-  {
-    "id": 707,
-    "question": "Kubernetes Operatorパターンとは？",
-    "options": [
-      "A. CLIツール",
-      "B. カスタムリソースとコントローラーで複雑なアプリのライフサイクルを自動管理",
-      "C. ネットワーク設定",
-      "D. ストレージ管理"
-    ],
-    "correct": 1,
-    "explanation": "OperatorはCRDとカスタムコントローラーを使い、DB等の複雑なステートフルアプリの運用知識をKubernetesに組み込むパターンです。"
-  },
-  {
-    "id": 708,
-    "question": "OVF/OVAファイルとは？",
-    "options": [
-      "A. コンテナイメージ形式",
-      "B. 仮想マシンのポータブルなパッケージ形式",
-      "C. ログファイル形式",
-      "D. ネットワーク設定ファイル"
-    ],
-    "correct": 1,
-    "explanation": "OVF（Open Virtualization Format）はVM構成のXML定義、OVAはOVF関連ファイルをまとめたアーカイブで、VM移行に使います。"
-  },
-  {
-    "id": 709,
-    "question": "スナップショットとは（仮想化）？",
-    "options": [
-      "A. VMの削除",
-      "B. VMの状態をある時点で保存し、後から復元可能にする機能",
-      "C. VMの移行",
-      "D. VMの監視"
-    ],
-    "correct": 1,
-    "explanation": "スナップショットはVMのディスク状態やメモリ状態をある時点で保存し、問題発生時に即座にその状態に復元できます。"
-  },
-  {
-    "id": 710,
-    "question": "高可用性（HA）クラスターの目的は？",
-    "options": [
-      "A. パフォーマンス向上のみ",
-      "B. 障害時にサービスを自動的に別ノードに切り替えてダウンタイムを最小化",
-      "C. コスト削減のみ",
-      "D. セキュリティ向上のみ"
-    ],
-    "correct": 1,
-    "explanation": "HAクラスターは複数ノードで冗長構成を取り、1ノードが障害しても自動フェイルオーバーでサービスの継続を保証します。"
-  },
-  {
-    "id": 711,
-    "question": "Proxmox VEのクラスター機能で使われるファイルシステムは？",
-    "options": ["A. ext4", "B. Ceph", "C. NTFS", "D. FAT32"],
-    "correct": 1,
-    "explanation": "Proxmoxは分散ストレージとしてCephを統合しており、VM/コンテナのディスクをクラスター全体で共有・冗長化できます。"
-  },
-  {
-    "id": 712,
-    "question": "SR-IOV（Single Root I/O Virtualization）とは？",
-    "options": [
-      "A. ソフトウェア仮想化",
-      "B. PCIeデバイスを複数VMで直接共有するハードウェア仮想化技術",
-      "C. ネットワークプロトコル",
-      "D. ストレージプロトコル"
-    ],
-    "correct": 1,
-    "explanation": "SR-IOVはNIC等のPCIeデバイスをハードウェアレベルで仮想分割し、各VMが直接アクセスすることで低遅延なI/Oを実現します。"
-  },
-  {
-    "id": 713,
-    "question": "GPU仮想化（vGPU）の用途は？",
-    "options": [
-      "A. ストレージ管理",
-      "B. 複数VMでGPUリソースを共有してAI/VDI等のワークロードを実行",
-      "C. ネットワーク管理",
-      "D. DNSサーバー"
-    ],
-    "correct": 1,
-    "explanation": "vGPUは物理GPUを複数VMに分割し、各VMがGPUアクセラレーションを利用してAI推論、VDI、グラフィックス処理を実行できます。"
-  },
-  {
-    "id": 714,
-    "question": "Dockerのシークレット管理のベストプラクティスは？",
-    "options": [
-      "A. 環境変数にハードコード",
-      "B. Docker Secrets、Vault、外部シークレットマネージャーを使用",
-      "C. Dockerfileに直接記述",
-      "D. イメージに含める"
-    ],
-    "correct": 1,
-    "explanation": "シークレットはDockerfile/イメージに含めず、Docker Secrets、HashiCorp Vault、AWS Secrets Manager等の専用ツールで管理すべきです。"
-  },
-  {
-    "id": 715,
-    "question": "コンテナのイメージスキャンの目的は？",
-    "options": [
-      "A. イメージサイズの確認",
-      "B. コンテナイメージ内の既知脆弱性を検出",
-      "C. イメージのキャッシュ",
-      "D. イメージの圧縮"
-    ],
-    "correct": 1,
-    "explanation": "Trivy、Clair等のツールでコンテナイメージをスキャンし、OSパッケージやライブラリの既知脆弱性を検出します。"
-  },
-  {
-    "id": 716,
-    "question": "Kubernetesの「kubectl rollout undo」の動作は？",
-    "options": [
-      "A. 新バージョンへアップデート",
-      "B. Deploymentを前のリビジョンにロールバック",
-      "C. Podの削除",
-      "D. ノードの再起動"
-    ],
-    "correct": 1,
-    "explanation": "kubectl rollout undoはDeploymentを前のリビジョンに戻し、問題のあるアップデートを素早くロールバックします。"
-  },
-  {
-    "id": 717,
-    "question": "Blue/Greenデプロイメントとは？",
-    "options": [
-      "A. カナリアリリース",
-      "B. 新旧2つの環境を用意し、トラフィックを瞬時に切り替えるデプロイ方式",
-      "C. ローリングアップデート",
-      "D. A/Bテスト"
-    ],
-    "correct": 1,
-    "explanation": "Blue/Greenは同一構成の2環境（Blue=現行、Green=新版）を用意し、テスト後にトラフィックを一括切り替えします。即座のロールバックが可能。"
-  },
-  {
-    "id": 718,
-    "question": "カナリアデプロイメントとは？",
+    "id": 598,
+    "question": "Kubernetesの「Ingress」の役割として正しいものはどれか？",
     "options": [
-      "A. 全トラフィックを一括切替え",
-      "B. 新バージョンに少量のトラフィックを流し、問題がなければ段階的に全体へ展開",
-      "C. Blue/Greenと同じ",
-      "D. ロールバック不可"
+      "A. Pod内のコンテナ間通信を制御するリソースとして機能する",
+      "B. クラスター外部からのHTTPルーティングとロードバランシング",
+      "C. ノード間のネットワークオーバーレイを構築するリソース機能",
+      "D. PodのDNSレコードを自動登録するリソースとしての機能"
     ],
     "correct": 1,
-    "explanation": "カナリアは新バージョンに少数のユーザーやトラフィック（例：5%）を送り、問題検知したら即停止、正常なら段階的に拡大します。"
+    "explanation": "IngressはクラスターへHTTPルーティング（パスベース/ホストベース）とTLS終端を提供する外部アクセス制御リソースです。"
   },
   {
-    "id": 719,
-    "question": "KubernetesのCRD（Custom Resource Definition）とは？",
+    "id": 599,
+    "question": "コンテナの「イメージレイヤー」の特性として正しいものはどれか？",
     "options": [
-      "A. 組み込みリソース",
-      "B. ユーザーがKubernetes APIを拡張して独自リソースを定義する仕組み",
-      "C. ネットワーク設定",
-      "D. ストレージ設定"
+      "A. 各レイヤーは書き込み可能で変更が即座に反映される",
+      "B. 各レイヤーは読み取り専用で積み重ねて構成される仕組み",
+      "C. レイヤーは実行時に毎回ゼロから構築される仕組みである",
+      "D. レイヤー間にはデータの共有や依存関係は存在しないもの"
     ],
     "correct": 1,
-    "explanation": "CRDはKubernetes APIサーバーに新しいリソースタイプを追加し、kubectlで管理できるようにする拡張機能です。"
+    "explanation": "Dockerイメージの各レイヤーは読み取り専用で、Union File Systemで積み重ねられます。コンテナ実行時に書き込み可能レイヤーが追加されます。"
   },
   {
-    "id": 720,
-    "question": "コンテナのサイドカーパターンとは？",
+    "id": 600,
+    "question": "Kubernetesの「Secret」の用途として正しいものはどれか？",
     "options": [
-      "A. 1つのコンテナのみ使用",
-      "B. メインコンテナと補助コンテナを同一Podに配置して機能を拡張",
-      "C. コンテナの監視",
-      "D. コンテナの暗号化"
+      "A. Pod間のネットワークポリシーを定義するリソースのこと",
+      "B. パスワードやAPIキー等の機密情報をBase64で保存する仕組み",
+      "C. Podのリソース制限（CPU/メモリ）を設定するリソースのこと",
+      "D. コンテナのヘルスチェック設定を定義するリソースとして機能"
     ],
     "correct": 1,
-    "explanation": "サイドカーパターンはメインアプリのPodにログ収集、プロキシ等の補助コンテナを追加して機能を拡張するKubernetesの設計パターンです。"
+    "explanation": "SecretはパスワードやAPIキーなどの機密情報をBase64エンコードで保存し、Podに安全に注入するリソースです。"
   },
   {
-    "id": 721,
-    "question": "Tektonとは？",
+    "id": 601,
+    "question": "Dockerの「docker exec」コマンドの用途として正しいものはどれか？",
     "options": [
-      "A. コンテナランタイム",
-      "B. Kubernetesネイティブの CI/CD パイプラインフレームワーク",
-      "C. サービスメッシュ",
-      "D. パッケージマネージャー"
+      "A. 新しいコンテナを作成して起動するコマンドである操作",
+      "B. 実行中のコンテナ内でコマンドを実行するための操作命令",
+      "C. コンテナを停止して削除するコマンドである操作のこと指す",
+      "D. コンテナイメージをレジストリからプルするコマンド操作"
     ],
     "correct": 1,
-    "explanation": "TektonはKubernetesのCRDとしてCI/CDパイプラインのTask、Pipeline、Triggerを定義して実行するクラウドネイティブCIシステムです。"
+    "explanation": "docker execは実行中のコンテナ内で新しいコマンドを実行します。例: docker exec -it container bash でコンテナ内のシェルに入れます。"
   },
   {
-    "id": 722,
-    "question": "Harbor とは？",
+    "id": 602,
+    "question": "Kubernetesの「DaemonSet」の特徴として正しいものはどれか？",
     "options": [
-      "A. コンテナオーケストレーター",
-      "B. セキュリティスキャン機能付きのオープンソースコンテナレジストリ",
-      "C. CI/CDツール",
-      "D. サービスメッシュ"
+      "A. 指定した数のPodレプリカを維持するリソースのこと機能",
+      "B. 全ノード（または指定ノード）で1つずつPodを実行する仕組み",
+      "C. 一度だけ実行するバッチジョブを管理するリソース機能",
+      "D. ステートフルなアプリケーションの順序付きデプロイを管理"
     ],
     "correct": 1,
-    "explanation": "HarborはCNCFプロジェクトのコンテナレジストリで、脆弱性スキャン、RBAC、レプリケーション、署名検証等のエンタープライズ機能を提供します。"
+    "explanation": "DaemonSetはクラスターの全ノード（またはセレクターで指定したノード）にPodを1つずつ配置します。ログ収集や監視エージェントに使われます。"
   },
   {
-    "id": 723,
-    "question": "Kubernetesのストレージクラス（StorageClass）の役割は？",
+    "id": 603,
+    "question": "Dockerの「docker-compose.yml」のバージョン3で使えない機能はどれか？",
     "options": [
-      "A. Podの管理",
-      "B. 動的PVプロビジョニングのパラメータ（ディスクタイプ等）を定義",
-      "C. ネットワーク管理",
-      "D. CPU管理"
+      "A. サービスのボリュームマウント設定は使用可能である",
+      "B. mem_limitによるメモリ制限がSwarm外で無視される制約",
+      "C. サービスのネットワーク設定は使用可能な機能である",
+      "D. サービスの環境変数設定は使用可能な機能設定として"
     ],
     "correct": 1,
-    "explanation": "StorageClassはPVCの要求に応じてPVを動的に作成する際のプロビジョナー、ディスクタイプ、パフォーマンス等のパラメータを定義します。"
+    "explanation": "Compose v3ではmem_limit等のリソース制限はdeploy配下に移動し、Swarmモード外では無視されます。Docker Compose v2仕様では直接指定可能です。"
   },
   {
-    "id": 724,
-    "question": "KubernetesのAdmission Controllerとは？",
+    "id": 604,
+    "question": "KVM（Kernel-based Virtual Machine）の説明として正しいものはどれか？",
     "options": [
-      "A. 認証システム",
-      "B. APIリクエストを認証・認可後に追加の検証・変更を行うプラグイン",
-      "C. コンテナランタイム",
-      "D. ストレージ管理"
+      "A. ユーザー空間で動作するType 2ハイパーバイザーである",
+      "B. LinuxカーネルのモジュールとしてのType 1ハイパーバイザー",
+      "C. Windows専用のハイパーバイザーとして開発されたもの",
+      "D. コンテナ技術をベースにした仮想化ソリューションのこと"
     ],
     "correct": 1,
-    "explanation": "Admission ControllerはAPI serverがリクエストを認証・認可した後、etcd保存前にリクエストを検証（Validating）や変更（Mutating）するプラグインです。"
+    "explanation": "KVMはLinuxカーネルに統合されたハイパーバイザーモジュールで、カーネル自体をType 1ハイパーバイザーとして機能させます。"
   },
   {
-    "id": 725,
-    "question": "Init コンテナの特徴は？",
+    "id": 605,
+    "question": "Kubernetesの「liveness probe」の目的として正しいものはどれか？",
     "options": [
-      "A. 常に実行中",
-      "B. メインコンテナの起動前に順番に実行され、完了後にメインが起動",
-      "C. 並列実行",
-      "D. バックグラウンド実行"
+      "A. コンテナが起動完了したかを確認する目的で使用する",
+      "B. コンテナが正常に動作しているかを定期的に確認する目的",
+      "C. コンテナがトラフィックを受け入れ可能かを確認する目的",
+      "D. コンテナのリソース使用量を監視する目的で使用するもの"
     ],
     "correct": 1,
-    "explanation": "Initコンテナはメインコンテナ起動前に順次実行され、全て正常完了してからアプリケーションコンテナが起動します。前提条件の準備に使用。"
+    "explanation": "liveness probeはコンテナが正常に動作しているかを定期的にチェックし、失敗するとコンテナを再起動します。readiness probeはトラフィック受入可否の確認です。"
   },
   {
-    "id": 726,
-    "question": "Buildahとは？",
+    "id": 606,
+    "question": "Dockerの「.dockerignore」ファイルの役割は何か？",
     "options": [
-      "A. Kubernetesの管理ツール",
-      "B. デーモンレスでDockerfileなしでもOCIコンテナイメージをビルドできるツール",
-      "C. ネットワークツール",
-      "D. モニタリングツール"
+      "A. コンテナ実行時に無視する環境変数を定義するファイル",
+      "B. ビルドコンテキストから除外するファイルを指定する設定",
+      "C. コンテナのネットワーク設定で除外するポートを指定する",
+      "D. コンテナのログ出力から除外するメッセージを指定する"
     ],
     "correct": 1,
-    "explanation": "BuildahはデーモンもDockerfileも不要で、コマンドラインからOCI互換コンテナイメージをビルドできるツールです。Podmanと連携。"
+    "explanation": ".dockerignoreはDockerビルド時にビルドコンテキストに含めないファイル/ディレクトリを指定し、ビルド速度とイメージサイズを改善します。"
   },
   {
-    "id": 727,
-    "question": "仮想NIC（vNIC）とは？",
+    "id": 607,
+    "question": "Kubernetesの「Horizontal Pod Autoscaler」の動作はどれか？",
     "options": [
-      "A. 物理ネットワークカード",
-      "B. ソフトウェアで作成された仮想ネットワークインターフェース",
-      "C. ルーター",
-      "D. スイッチ"
+      "A. Podのリソース制限（CPU/メモリ）を動的に変更する仕組み",
+      "B. CPU使用率等のメトリクスに基づきPodの数を自動調整する",
+      "C. ノードの数をメトリクスに基づいて自動的に増減する仕組み",
+      "D. Podを異なるノードに自動的に再配置する仕組みとして機能"
     ],
     "correct": 1,
-    "explanation": "vNICはハイパーバイザーが作成する仮想的なネットワークインターフェースで、VMに仮想的なネットワーク接続を提供します。"
+    "explanation": "HPAはCPU使用率やカスタムメトリクスに基づいて、Pod（レプリカ）の数を自動的にスケールイン/アウトします。"
   },
   {
-    "id": 728,
-    "question": "仮想スイッチ（vSwitch）の役割は？",
+    "id": 608,
+    "question": "Dockerコンテナの「エフェメラル（ephemeral）」な性質はどれか？",
     "options": [
-      "A. ストレージ管理",
-      "B. VM間やVMと物理ネットワーク間の仮想L2スイッチング",
-      "C. CPU管理",
-      "D. メモリ管理"
+      "A. コンテナのデータは永続的に保持されるという性質のこと",
+      "B. コンテナ停止時に内部の変更が失われる一時的な性質である",
+      "C. コンテナは常に同じIPアドレスを維持する性質を持つもの",
+      "D. コンテナは他のコンテナと状態を自動共有するという性質"
     ],
     "correct": 1,
-    "explanation": "vSwitchはハイパーバイザー上でL2スイッチの機能を提供し、VM間の通信や物理ネットワークへの接続をソフトウェアで実現します。"
+    "explanation": "コンテナはエフェメラル（一時的）であり、停止・削除すると書き込み層のデータは失われます。永続化にはボリュームを使用します。"
   },
   {
-    "id": 729,
-    "question": "Thin ProvisioningとThick Provisioningの違いは？",
+    "id": 609,
+    "question": "Kubernetesの「StatefulSet」のユースケースとして正しいものはどれか？",
     "options": [
-      "A. 同じ",
-      "B. Thinは使用量分だけ物理領域確保、Thickは割当量分を事前に全確保",
-      "C. Thinの方がパフォーマンスが高い",
-      "D. Thickの方が柔軟"
+      "A. ステートレスなWebアプリケーションのデプロイに使用する",
+      "B. データベースなど永続的な状態を持つアプリケーションに使用",
+      "C. バッチ処理を一回だけ実行するジョブに使用するリソース",
+      "D. 全ノードにエージェントを配置する場合に使用するリソース"
     ],
     "correct": 1,
-    "explanation": "Thin Provisioningは実際に使用した分だけ物理ストレージを消費し、Thick Provisioningは定義した容量を事前に全て確保します。"
+    "explanation": "StatefulSetは安定したネットワークID、永続ストレージ、順序付きデプロイが必要なステートフルアプリ（DB等）に使用します。"
   },
   {
-    "id": 730,
-    "question": "ライブマイグレーションの前提条件は？",
+    "id": 610,
+    "question": "LXC（Linux Containers）の説明として正しいものはどれか？",
     "options": [
-      "A. VMを停止する必要がある",
-      "B. 移行元と移行先で共有ストレージとCPU互換性が必要",
-      "C. 特別な条件なし",
-      "D. 同じIPアドレスが必要"
+      "A. ハイパーバイザー上でゲストOSを実行する仮想化技術",
+      "B. Linuxカーネルの機能でOSレベルの仮想化を実現する技術",
+      "C. アプリケーションレベルの仮想化を提供するJava技術基盤",
+      "D. ネットワーク仮想化を提供するSDN技術のことを指すもの"
     ],
     "correct": 1,
-    "explanation": "ライブマイグレーションには共有ストレージ（SAN/NFS等）、互換CPUアーキテクチャ、高帯域ネットワークが通常必要です。"
+    "explanation": "LXCはLinuxカーネルのcgroupsとnamespaceを利用したOSレベルの仮想化技術で、Dockerの基盤技術にもなりました。"
   }
 ]

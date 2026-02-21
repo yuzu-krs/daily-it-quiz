@@ -108,7 +108,7 @@ async def post_quiz():
     # 現在の時刻を取得
     tz = pytz.timezone(TIMEZONE)
     now = datetime.now(tz)
-    time_emoji = "🌅" if now.hour == 7 else "☀️" if now.hour == 12 else "🌙"
+    time_emoji = "🌅"
     
     # 選択肢を整形（空行で区切る）
     options_text = "\n\n".join([f"**{option}**" for option in quiz['options']])
@@ -130,7 +130,7 @@ async def post_quiz():
         inline=False
     )
     embed.set_footer(
-        text=f"ボタンをクリックして回答してください • 正解と解説は選択後に表示されます • 毎日7:00・12:00・20:00に出題",
+        text=f"ボタンをクリックして回答してください • 正解と解説は選択後に表示されます • 毎朝7:00に出題",
         icon_url="https://cdn.discordapp.com/emojis/1234567890.png"  # Optional
     )
     
@@ -147,11 +147,11 @@ async def scheduled_quiz():
     now = datetime.now(tz)
     current_time = now.time()
     
-    # 7:00, 12:00, 20:00 に実行
+    # 7:00 に実行
     target_times = [
         time(7, 0),   # 朝7時
-        time(12, 0),  # 昼12時
-        time(20, 0)   # 夜20時
+        time(12, 0),   # 昼12時
+        time(19, 0),   # 夜7時
     ]
     
     # 1分以内の誤差を許容
