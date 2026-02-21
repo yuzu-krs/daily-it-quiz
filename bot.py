@@ -189,6 +189,13 @@ async def test_quiz(ctx):
     await post_quiz()
     await ctx.send("テストクイズを投稿しました！", delete_after=5)
 
+# 誰でも使えるクイズコマンド
+@bot.command(name='quiz')
+async def quiz(ctx):
+    """クイズを出題します"""
+    await post_quiz()
+    await ctx.message.delete()
+
 # Bot実行
 if __name__ == '__main__':
     if not TOKEN:
