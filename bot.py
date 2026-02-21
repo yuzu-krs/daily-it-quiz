@@ -150,8 +150,8 @@ async def scheduled_quiz():
     # 7:00 に実行
     target_times = [
         time(7, 0),   # 朝7時
-        time(12, 0),   # 昼12時
-        time(19, 0),   # 夜7時
+        time(7, 1),   # 朝7時
+        time(7, 2),   # 朝7時
     ]
     
     # 1分以内の誤差を許容
