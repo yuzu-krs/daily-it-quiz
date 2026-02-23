@@ -19,7 +19,6 @@ TIMEZONE = os.getenv('TIMEZONE', 'Asia/Tokyo')
 
 # Intentsの設定
 intents = discord.Intents.default()
-intents.message_content = True  # コマンド受信に必要
 
 bot = commands.Bot(command_prefix='!', intents=intents)
 
