@@ -171,9 +171,6 @@ async def on_ready():
     print(f'チャンネルID: {CHANNEL_ID}')
     print('------')
     
-    # 起動時に1回クイズを投稿（テスト用）
-    await post_quiz()
-    
     # スケジューラーを開始
     if not scheduled_quiz.is_running():
         scheduled_quiz.start()
