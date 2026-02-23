@@ -5,7 +5,7 @@ import json
 import random
 import re
 import os
-from datetime import datetime, time
+from datetime import datetime
 from dotenv import load_dotenv
 import pytz
 
@@ -19,6 +19,7 @@ TIMEZONE = os.getenv('TIMEZONE', 'Asia/Tokyo')
 
 # Intentsの設定
 intents = discord.Intents.default()
+intents.message_content = True  # コマンド受信に必要
 
 bot = commands.Bot(command_prefix='!', intents=intents)
 
@@ -148,18 +149,8 @@ async def scheduled_quiz():
     current_time = now.time()
     
     # 7:00 に実行
-    target_times = [
-        time(7, 0, 0),   # 朝7時
-        time(7, 0, 1),   # 朝7時0分1秒
-        time(7, 0, 2),   # 朝7時0分2秒
-    ]
-    
-    # 1分以内の誤差を許容
-    for target_time in target_times:
-        if (current_time.hour == target_time.hour and 
-            current_time.minute == target_time.minute):
-            await post_quiz()
-            break
+    if current_time.hour == 7 and current_time.minute == 0:
+        await post_quiz()
 
 @scheduled_quiz.before_loop
 async def before_scheduled_quiz():
@@ -174,7 +165,7 @@ async def on_ready():
     print(f'チャンネルID: {CHANNEL_ID}')
     print('------')
     
-    # 起動時に1回クイズを投稿
+    # 起動時に1回クイズを投稿（テスト用）
     await post_quiz()
     
     # スケジューラーを開始
