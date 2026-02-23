@@ -74,7 +74,11 @@ class QuizView(View):
 
 # クイズを投稿する関数
 async def post_quiz():
-    channel = bot.get_channel(CHANNEL_ID)
+    try:
+        channel = bot.get_channel(CHANNEL_ID) or await bot.fetch_channel(CHANNEL_ID)
+    except Exception as e:
+        print(f"チャンネルID {CHANNEL_ID} の取得に失敗しました: {e}")
+        return
     if not channel:
         print(f"チャンネルID {CHANNEL_ID} が見つかりません")
         return
