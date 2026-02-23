@@ -140,9 +140,12 @@ async def post_quiz():
     )
     
     # Viewを作成してメッセージを送信
-    view = QuizView(quiz, quiz['correct'])
-    await channel.send(embed=embed, view=view)
-    print(f"クイズを投稿しました: {quiz['question'][:30]}...")
+    try:
+        view = QuizView(quiz, quiz['correct'])
+        await channel.send(embed=embed, view=view)
+        print(f"クイズを投稿しました: {quiz['question'][:30]}...")
+    except Exception as e:
+        print(f"メッセージ送信に失敗しました: {e}")
 
 # スケジュールされたタスク
 @tasks.loop(minutes=1)
